@@ -1,5 +1,6 @@
 using Microsoft.UI.Xaml.Controls;
 using ToolArchMilestone.Core.Models;
+using ToolArchMilestone.Core.ViewModels;
 
 namespace ToolArchMilestone
 {
