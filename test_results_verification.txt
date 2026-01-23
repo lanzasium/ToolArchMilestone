@@ -1,0 +1,15 @@
+  Determining projects to restore...
+  Restored /app/ToolArchMilestone.Tests/ToolArchMilestone.Tests.csproj (in 544 ms).
+  Restored /app/ToolArchMilestone.Core/ToolArchMilestone.Core.csproj (in 544 ms).
+/app/ToolArchMilestone.Core/Helpers/IntervalParser.cs(35,30): warning CS8600: Converting null literal or possible null value to non-nullable type. [/app/ToolArchMilestone.Core/ToolArchMilestone.Core.csproj]
+/app/ToolArchMilestone.Core/Services/AppDbContext.cs(24,16): warning CS8618: Non-nullable field '_dbPath' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable. [/app/ToolArchMilestone.Core/ToolArchMilestone.Core.csproj]
+  ToolArchMilestone.Core -> /app/ToolArchMilestone.Core/bin/Debug/net10.0/ToolArchMilestone.Core.dll
+/app/ToolArchMilestone.Tests/DatabaseServiceTests.cs(50,37): warning CS8602: Dereference of a possibly null reference. [/app/ToolArchMilestone.Tests/ToolArchMilestone.Tests.csproj]
+  ToolArchMilestone.Tests -> /app/ToolArchMilestone.Tests/bin/Debug/net10.0/ToolArchMilestone.Tests.dll
+Test run for /app/ToolArchMilestone.Tests/bin/Debug/net10.0/ToolArchMilestone.Tests.dll (.NETCoreApp,Version=v10.0)
+VSTest version 18.0.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    10, Skipped:     0, Total:    10, Duration: 2 s - ToolArchMilestone.Tests.dll (net10.0)
