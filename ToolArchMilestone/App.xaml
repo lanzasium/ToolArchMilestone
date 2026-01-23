@@ -1,0 +1,16 @@
+<Application
+    x:Class="ToolArchMilestone.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ToolArchMilestone">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <!-- Other dictionaries -->
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Global Styles -->
+             <SolidColorBrush x:Key="WindowBackground" Color="#FF202020"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
