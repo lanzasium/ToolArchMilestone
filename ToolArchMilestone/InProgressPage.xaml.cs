@@ -11,7 +11,7 @@ namespace ToolArchMilestone
         public InProgressPage()
         {
             this.InitializeComponent();
-            ViewModel = new InProgressViewModel(App.JobManager);
+            ViewModel = new InProgressViewModel(App.JobManager!);
         }
 
         private void ShowLog_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)

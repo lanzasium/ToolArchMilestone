@@ -22,7 +22,6 @@ namespace ToolArchMilestone
             // Select the first item
             NavView.SelectedItem = NavView.MenuItems.Cast<NavigationViewItem>().First();
             // Trigger selection logic manually or let it happen?
-            // Often setting SelectedItem triggers it, but sometimes not initially.
             Navigate("Launch");
         }
 
@@ -35,14 +34,18 @@ namespace ToolArchMilestone
             else
             {
                 var selectedItem = (NavigationViewItem)args.SelectedItem;
-                string tag = selectedItem.Tag.ToString();
-                Navigate(tag);
+                if (selectedItem?.Tag is string tag)
+                {
+                    Navigate(tag);
+                }
             }
         }
 
-        private void Navigate(string tag)
+        private void Navigate(string? tag)
         {
-            Type pageType = null;
+            if (string.IsNullOrEmpty(tag)) return;
+
+            Type? pageType = null;
             switch (tag)
             {
                 case "Launch":

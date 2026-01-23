@@ -13,7 +13,9 @@ namespace ToolArchMilestone
             this.InitializeComponent();
             // Inject WinUI File Picker
             var filePicker = new WinUIFilePickerService();
-            ViewModel = new LaunchViewModel(App.JobManager, filePicker);
+            // App.JobManager might be null if accessed before OnLaunched, but LaunchPage is created after.
+            // Using ! to suppress warning as we expect it to be initialized.
+            ViewModel = new LaunchViewModel(App.JobManager!, filePicker);
         }
     }
 }

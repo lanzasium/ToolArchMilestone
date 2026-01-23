@@ -10,7 +10,7 @@ namespace ToolArchMilestone
         public TerminatePage()
         {
             this.InitializeComponent();
-            ViewModel = new HistoryViewModel(App.JobManager);
+            ViewModel = new HistoryViewModel(App.JobManager!);
         }
     }
 }

@@ -7,8 +7,9 @@ namespace ToolArchMilestone
 {
     public partial class App : Application
     {
-        public static Window Window { get; private set; }
-        public static JobManager JobManager { get; private set; }
+        // Allow null initially, but they are set in OnLaunched.
+        public static Window? Window { get; private set; }
+        public static JobManager? JobManager { get; private set; }
 
         public App()
         {
