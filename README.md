@@ -28,7 +28,8 @@ Per integrare il vero SDK Milestone:
 
 1.  Aprire la soluzione `ToolArchMilestone.sln` in Visual Studio.
 2.  Assicurarsi che il progetto di avvio sia `ToolArchMilestone`.
-3.  Premere F5 o "Avvia".
+3.  Selezionare la configurazione **x64** (non "Any CPU") dalla barra degli strumenti.
+4.  Premere F5 o "Avvia".
 
 ## Funzionalità
 
