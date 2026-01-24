@@ -54,8 +54,8 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" HorizontalAlignment="Stretch" Style="{StaticResource ToggleButtonStyle}"/>
-                            <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" HorizontalAlignment="Stretch" Style="{StaticResource ToggleButtonStyle}"/>
+                            <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" HorizontalAlignment="Stretch"/>
+                            <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" HorizontalAlignment="Stretch"/>
                         </Grid>
 
                         <!-- Source Selection -->
