@@ -144,11 +144,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Border x:Name="DropArea" Height="32" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1,1,1,1" CornerRadius="4" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop">
-                                        <Border.Background>
-                                            <SolidColorBrush Color="{ThemeResource SystemControlBackgroundChromeMediumLowBrushColor}" />
-                                            <!-- Should change based on state? We rely on ViewModel binding text -->
-                                        </Border.Background>
+                                    <Border x:Name="DropArea" Height="32" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1,1,1,1" CornerRadius="4" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                                         <Grid>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8" Visibility="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                                 <SymbolIcon Symbol="Import" Foreground="{StaticResource MilestoneBlue}" RenderTransformOrigin="0.5,0.5">
