@@ -8,25 +8,29 @@
     xmlns:core="using:ToolArchMilestone.Core.Models"
     mc:Ignorable="d">
 
-    <Grid Padding="20">
+    <Grid Padding="32" Background="{StaticResource WindowBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Archiviazioni Terminate" Style="{StaticResource TitleTextBlockStyle}" Margin="0,0,0,20"/>
+        <StackPanel Spacing="4" Margin="0,0,0,24">
+            <TextBlock Text="ARCHIVIAZIONI TERMINATE" FontSize="28" FontWeight="Bold" Foreground="White" LetterSpacing="0.05"/>
+            <TextBlock Text="Storico delle esportazioni completate o fallite" FontSize="14" Foreground="{StaticResource TextSecondary}"/>
+        </StackPanel>
 
         <!-- Search Bar -->
         <TextBox Grid.Row="1"
+                 Style="{StaticResource MaterialTextBoxStyle}"
                  PlaceholderText="Cerca per ID Job, ID Lavoro, Camera, Target..."
                  Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Margin="0,0,0,10"/>
+                 Margin="0,0,0,24"/>
 
         <ListView Grid.Row="2" ItemsSource="{x:Bind ViewModel.Jobs, Mode=OneWay}" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="core:ArchivingJob">
-                    <Border Style="{StaticResource MilestoneCardStyle}" Margin="0,0,0,8" Padding="12">
+                    <Border Style="{StaticResource MaterialCardStyle}" Padding="16">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -34,17 +38,17 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Job Info -->
-                            <StackPanel Orientation="Vertical" Spacing="6">
+                            <StackPanel Orientation="Vertical" Spacing="8">
                                 <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
                                     <!-- Status Chip -->
-                                    <Border Background="#22FFFFFF" CornerRadius="12" Padding="8,2">
-                                        <TextBlock Text="{x:Bind Status}" Foreground="{StaticResource TextSecondary}" FontSize="11" FontWeight="SemiBold"/>
+                                    <Border Background="#22FFFFFF" CornerRadius="12" Padding="8,4">
+                                        <TextBlock Text="{x:Bind Status}" Foreground="{StaticResource TextSecondary}" FontSize="12" FontWeight="SemiBold"/>
                                     </Border>
 
                                     <!-- ID -->
-                                    <TextBlock Text="{x:Bind Id}" FontWeight="Bold" Foreground="{StaticResource MilestoneBlue}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{x:Bind Id}" FontWeight="Bold" Foreground="{StaticResource MilestoneBlue}" VerticalAlignment="Center" FontSize="14"/>
 
-                                    <TextBlock Text="{x:Bind WorkId}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{x:Bind WorkId}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="14"/>
                                     <TextBlock Text="|" Foreground="Gray" VerticalAlignment="Center"/>
                                     <TextBlock Text="{x:Bind CameraName}" Foreground="{StaticResource TextSecondary}" VerticalAlignment="Center"/>
                                 </StackPanel>
@@ -52,35 +56,35 @@
                                 <StackPanel Orientation="Horizontal" Spacing="8" Margin="4,0,0,0">
                                     <SymbolIcon Symbol="Calendar" Foreground="Gray" RenderTransformOrigin="0.5,0.5">
                                         <SymbolIcon.RenderTransform>
-                                            <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                                            <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
                                         </SymbolIcon.RenderTransform>
                                     </SymbolIcon>
-                                    <TextBlock Text="{x:Bind StartTime}" Foreground="Gray" FontSize="12"/>
+                                    <TextBlock Text="{x:Bind StartTime}" Foreground="Gray" FontSize="13"/>
                                     <SymbolIcon Symbol="Forward" Foreground="Gray" RenderTransformOrigin="0.5,0.5">
                                         <SymbolIcon.RenderTransform>
-                                            <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                                            <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
                                         </SymbolIcon.RenderTransform>
                                     </SymbolIcon>
-                                    <TextBlock Text="{x:Bind EndTime}" Foreground="Gray" FontSize="12"/>
+                                    <TextBlock Text="{x:Bind EndTime}" Foreground="Gray" FontSize="13"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal" Spacing="8" Margin="4,0,0,0">
                                     <SymbolIcon Symbol="Folder" Foreground="Gray" RenderTransformOrigin="0.5,0.5">
                                         <SymbolIcon.RenderTransform>
-                                            <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                                            <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
                                         </SymbolIcon.RenderTransform>
                                     </SymbolIcon>
-                                    <TextBlock Text="{x:Bind ExportPath}" FontSize="11" Foreground="#666666" TextTrimming="CharacterEllipsis"/>
+                                    <TextBlock Text="{x:Bind ExportPath}" FontSize="12" Foreground="#666666" TextTrimming="CharacterEllipsis"/>
                                 </StackPanel>
                             </StackPanel>
 
                             <!-- Controls -->
                             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
-                                <Button Content="Dettagli" Padding="8,4" FontSize="12">
+                                <Button Content="Dettagli" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="32" FontSize="12">
                                      <Button.Flyout>
                                          <Flyout>
                                              <StackPanel Width="320" Spacing="8">
-                                                 <TextBlock Text="DETTAGLI STORICO" Style="{StaticResource MilestoneHeaderStyle}"/>
+                                                 <TextBlock Text="DETTAGLI STORICO" Style="{StaticResource MaterialHeaderStyle}"/>
                                                  <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="4">
                                                      <TextBlock Text="ID Lavoro:" Foreground="Gray"/> <TextBlock Grid.Column="1" Text="{x:Bind WorkId}" Margin="8,0,0,0"/>
                                                      <TextBlock Grid.Row="1" Text="Proc.:" Foreground="Gray"/> <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind CriminalProceeding}" Margin="8,0,0,0"/>
@@ -88,7 +92,7 @@
                                                      <TextBlock Grid.Row="3" Text="File:" Foreground="Gray"/> <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind GeneratedFilePath}" TextWrapping="Wrap" Margin="8,0,0,0" FontStyle="Italic"/>
                                                  </Grid>
 
-                                                 <TextBlock Text="LOG DI SISTEMA" Style="{StaticResource MilestoneHeaderStyle}" Margin="0,12,0,0" FontSize="12"/>
+                                                 <TextBlock Text="LOG DI SISTEMA" Style="{StaticResource MaterialHeaderStyle}" Margin="0,12,0,0" FontSize="12"/>
                                                  <ListView ItemsSource="{x:Bind Logs}" Height="150">
                                                      <ListView.ItemTemplate>
                                                          <DataTemplate>
@@ -101,14 +105,17 @@
                                      </Button.Flyout>
                                 </Button>
 
-                                <Button Content="Elimina" VerticalAlignment="Center" Padding="8,4" FontSize="12"
+                                <Button Content="Elimina" VerticalAlignment="Center"
+                                        Style="{StaticResource MaterialSecondaryButtonStyle}" Foreground="#EF5350" BorderBrush="#EF5350"
+                                        Height="32" FontSize="12"
                                         Command="{Binding ElementName=RootPage, Path=ViewModel.DeleteJobCommand}"
                                         CommandParameter="{x:Bind Id}"/>
 
-                                <Button Content="Elimina + File" VerticalAlignment="Center" Padding="8,4" FontSize="12"
+                                <Button Content="Elimina + File" VerticalAlignment="Center"
+                                        Background="#E53935" Foreground="White" CornerRadius="16" BorderThickness="0"
+                                        Padding="16,0" Height="32" FontSize="12"
                                         Command="{Binding ElementName=RootPage, Path=ViewModel.DeleteJobWithFileCommand}"
-                                        CommandParameter="{x:Bind Id}"
-                                        Background="#E00000" Foreground="White"/>
+                                        CommandParameter="{x:Bind Id}"/>
                             </StackPanel>
                         </Grid>
                     </Border>

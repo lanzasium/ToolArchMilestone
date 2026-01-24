@@ -8,25 +8,29 @@
     xmlns:core="using:ToolArchMilestone.Core.Models"
     mc:Ignorable="d">
 
-    <Grid Padding="20">
+    <Grid Padding="32" Background="{StaticResource WindowBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Archiviazioni in Corso" Style="{StaticResource TitleTextBlockStyle}" Margin="0,0,0,20"/>
+        <StackPanel Spacing="4" Margin="0,0,0,24">
+            <TextBlock Text="ARCHIVIAZIONI IN CORSO" FontSize="28" FontWeight="Bold" Foreground="White" LetterSpacing="0.05"/>
+            <TextBlock Text="Gestione della coda di esportazione" FontSize="14" Foreground="{StaticResource TextSecondary}"/>
+        </StackPanel>
 
         <!-- Search Bar -->
         <TextBox Grid.Row="1"
+                 Style="{StaticResource MaterialTextBoxStyle}"
                  PlaceholderText="Cerca per ID Job, ID Lavoro, Camera..."
                  Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Margin="0,0,0,10"/>
+                 Margin="0,0,0,24"/>
 
         <ListView Grid.Row="2" ItemsSource="{x:Bind ViewModel.Jobs, Mode=OneWay}" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="core:ArchivingJob">
-                    <Border Style="{StaticResource MilestoneCardStyle}" Margin="0,0,0,8" Padding="12">
+                    <Border Style="{StaticResource MaterialCardStyle}" Padding="16">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -39,34 +43,34 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Job Info -->
-                            <StackPanel Spacing="6">
+                            <StackPanel Spacing="8">
                                 <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
                                     <!-- Status Chip -->
-                                    <Border Background="#33FFFFFF" CornerRadius="12" Padding="8,2">
-                                        <StackPanel Orientation="Horizontal" Spacing="4">
+                                    <Border Background="#22FFFFFF" CornerRadius="12" Padding="8,4">
+                                        <StackPanel Orientation="Horizontal" Spacing="6">
                                             <Ellipse Width="8" Height="8" Fill="{StaticResource MilestoneYellow}"/>
-                                            <TextBlock Text="{x:Bind Status}" Foreground="White" FontSize="11" FontWeight="SemiBold"/>
+                                            <TextBlock Text="{x:Bind Status}" Foreground="White" FontSize="12" FontWeight="SemiBold"/>
                                         </StackPanel>
                                     </Border>
 
                                     <!-- ID Badge -->
-                                    <Border Background="{StaticResource MilestoneBlue}" CornerRadius="4" Padding="6,2">
-                                        <TextBlock Text="{x:Bind Id}" FontWeight="Bold" Foreground="White" FontSize="11"/>
+                                    <Border Background="{StaticResource MilestoneBlue}" CornerRadius="12" Padding="8,4">
+                                        <TextBlock Text="{x:Bind Id}" FontWeight="Bold" Foreground="White" FontSize="12"/>
                                     </Border>
 
-                                    <TextBlock Text="{x:Bind CameraName}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{x:Bind CameraName}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="14"/>
                                 </StackPanel>
 
-                                <TextBlock Text="{x:Bind WorkId}" Foreground="{StaticResource TextSecondary}" FontSize="12" Margin="4,0,0,0"/>
+                                <TextBlock Text="{x:Bind WorkId}" Foreground="{StaticResource TextSecondary}" FontSize="13" Margin="4,0,0,0"/>
                             </StackPanel>
 
                             <!-- Controls -->
                             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
-                                 <Button Content="Dettagli" Padding="8,4" FontSize="12">
+                                 <Button Content="Dettagli" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="32" FontSize="12">
                                      <Button.Flyout>
                                          <Flyout>
                                              <StackPanel Width="320" Spacing="8">
-                                                 <TextBlock Text="DETTAGLI JOB" Style="{StaticResource MilestoneHeaderStyle}"/>
+                                                 <TextBlock Text="DETTAGLI JOB" Style="{StaticResource MaterialHeaderStyle}"/>
                                                  <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="4">
                                                      <TextBlock Text="ID Lavoro:" Foreground="Gray"/> <TextBlock Grid.Column="1" Text="{x:Bind WorkId}" Margin="8,0,0,0"/>
                                                      <TextBlock Grid.Row="1" Text="Proc.:" Foreground="Gray"/> <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind CriminalProceeding}" Margin="8,0,0,0"/>
@@ -75,7 +79,7 @@
                                                      <TextBlock Grid.Row="4" Text="Target:" Foreground="Gray"/> <TextBlock Grid.Row="4" Grid.Column="1" Text="{x:Bind Target}" Margin="8,0,0,0"/>
                                                  </Grid>
 
-                                                 <TextBlock Text="LOG DI SISTEMA" Style="{StaticResource MilestoneHeaderStyle}" Margin="0,12,0,0" FontSize="12"/>
+                                                 <TextBlock Text="LOG DI SISTEMA" Style="{StaticResource MaterialHeaderStyle}" Margin="0,12,0,0" FontSize="12"/>
                                                  <ListView ItemsSource="{x:Bind Logs}" Height="150">
                                                      <ListView.ItemTemplate>
                                                          <DataTemplate>
@@ -88,19 +92,19 @@
                                      </Button.Flyout>
                                  </Button>
 
-                                 <Button Content="Stop" Background="#E00000" Foreground="White" Padding="8,4" FontSize="12" Command="{Binding ElementName=RootPage, Path=ViewModel.StopJobCommand}" CommandParameter="{x:Bind Id}"/>
+                                 <Button Content="Stop" Background="#E53935" Foreground="White" Padding="12,0" Height="32" CornerRadius="16" FontSize="12" Command="{Binding ElementName=RootPage, Path=ViewModel.StopJobCommand}" CommandParameter="{x:Bind Id}"/>
 
                                  <StackPanel Orientation="Horizontal" Spacing="2">
-                                     <Button Content="▲" Padding="4" FontSize="10" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveUpCommand}" CommandParameter="{x:Bind Id}"/>
-                                     <Button Content="▼" Padding="4" FontSize="10" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveDownCommand}" CommandParameter="{x:Bind Id}"/>
+                                     <Button Content="▲" Style="{StaticResource MaterialIconButtonStyle}" Width="32" Height="32" FontSize="12" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveUpCommand}" CommandParameter="{x:Bind Id}"/>
+                                     <Button Content="▼" Style="{StaticResource MaterialIconButtonStyle}" Width="32" Height="32" FontSize="12" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveDownCommand}" CommandParameter="{x:Bind Id}"/>
                                  </StackPanel>
                             </StackPanel>
 
                             <!-- Progress -->
-                            <ProgressBar Grid.Row="1" Grid.ColumnSpan="2" Value="{x:Bind Progress, Mode=OneWay}" Margin="0,12" Height="4" Foreground="{StaticResource MilestoneBlue}"/>
+                            <ProgressBar Grid.Row="1" Grid.ColumnSpan="2" Value="{x:Bind Progress, Mode=OneWay}" Margin="0,16" Height="6" Foreground="{StaticResource MilestoneBlue}"/>
 
                             <!-- Error -->
-                            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="{x:Bind ErrorMessage, Mode=OneWay}" Foreground="#FF5555" TextWrapping="Wrap" FontSize="11" Visibility="{x:Bind ErrorMessage, Converter={StaticResource BoolToVis}}"/> <!-- Need converter for string empty check ideally, but object null check works if null -->
+                            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="{x:Bind ErrorMessage, Mode=OneWay}" Foreground="#EF5350" TextWrapping="Wrap" FontSize="12" Visibility="{x:Bind ErrorMessage, Converter={StaticResource BoolToVis}}"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
