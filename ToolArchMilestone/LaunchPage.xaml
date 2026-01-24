@@ -10,159 +10,207 @@
     <Page.Resources>
         <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
         <converters:DateTimeToDateTimeOffsetConverter x:Key="DateToOffset"/>
+
+        <!-- Segmented Radio Button Style -->
+        <Style x:Key="SegmentedRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="CornerRadius" Value="4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="RootBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#20FFFFFF" Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="{StaticResource SystemAccentColor}" Duration="0"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="White"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
 
     <Grid Padding="24" Background="{StaticResource WindowBackground}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- Header & Action -->
+            <RowDefinition Height="Auto"/> <!-- Header -->
             <RowDefinition Height="*"/>    <!-- Content -->
         </Grid.RowDefinitions>
 
-        <!-- HEADER AREA -->
-        <Grid Margin="0,0,0,24">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Spacing="4" VerticalAlignment="Center">
-                <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="24" FontWeight="Bold" Foreground="White"/>
-                <TextBlock Text="Configura i parametri e avvia il processo" FontSize="14" Foreground="{StaticResource TextSecondary}"/>
-            </StackPanel>
-
-            <!-- PRIMARY ACTION BUTTON (Removed from Top Right) -->
-        </Grid>
+        <!-- Header -->
+        <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0,0,0,24"/>
 
         <ScrollViewer Grid.Row="1">
-            <Grid ColumnSpacing="24">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <StackPanel Spacing="24">
 
-                <!-- LEFT COLUMN: SORGENTE & FORMATO -->
-                <StackPanel Grid.Column="0">
-                    <Border Style="{StaticResource MilestoneCardStyle}">
-                        <!-- Override top border with an inner accent strip or just use the style as is.
-                             The error was "Duplicate assignment to BorderBrush".
-                             Style sets BorderBrush, and the tag set it again. This is valid in XAML usually,
-                             but to be safe and cleaner, let's avoid the duplicate attribute if it causes issues
-                             or define a specific style for Blue/Yellow borders.
-                             For now, I'll remove the explicit BorderBrush/Thickness and rely on the style,
-                             adding a Rectangle for the top accent instead. -->
-                        <Grid>
-                            <Rectangle Height="2" VerticalAlignment="Top" Fill="{StaticResource MilestoneBlue}" Margin="0,-16,0,0"/> <!-- Adjusted for padding -->
-                            <!-- Actually easier: Remove explicit BorderBrush from the tag and let Style handle it,
-                                 or if we want the top colored border, create a specific style or use a different element.
-                                 Let's keep it simple: Use the Style, and remove the conflicting attributes. -->
-                            <StackPanel Spacing="12">
-                                <TextBlock Text="FORMATO &amp; SORGENTE" Style="{StaticResource MilestoneHeaderStyle}"/>
+                <!-- TOP SECTION: FORMATO & SORGENTE -->
+                <Border Style="{StaticResource MilestoneCardStyle}">
+                    <Grid>
+                        <Rectangle Height="2" VerticalAlignment="Top" Fill="{StaticResource MilestoneBlue}" Margin="0,-16,0,0"/>
+                        <StackPanel Spacing="20">
+                            <TextBlock Text="FORMATO &amp; SORGENTE" Style="{StaticResource MilestoneHeaderStyle}"/>
 
-                            <!-- Type Selection (Modern Chips) -->
-                            <Grid ColumnSpacing="8">
+                            <!-- Toggle Selectors (Row 1) -->
+                            <Grid ColumnSpacing="20">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" HorizontalAlignment="Stretch"
-                                             Background="Transparent" BorderBrush="{StaticResource MilestoneBlue}" BorderThickness="1" CornerRadius="4" Padding="8,4"/>
-                                <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" HorizontalAlignment="Stretch"
-                                             Background="Transparent" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1" CornerRadius="4" Padding="8,4"/>
+
+                                <!-- Format Toggle -->
+                                <Border Background="{StaticResource CardBackground}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Padding="4">
+                                    <Grid ColumnDefinitions="*,*">
+                                        <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" Style="{StaticResource SegmentedRadioButtonStyle}"/>
+                                        <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" Style="{StaticResource SegmentedRadioButtonStyle}"/>
+                                    </Grid>
+                                </Border>
+
+                                <!-- Source Toggle -->
+                                <Border Background="{StaticResource CardBackground}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Padding="4">
+                                    <Grid ColumnDefinitions="*,*">
+                                        <RadioButton Grid.Column="0" Content="Da Server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source" Style="{StaticResource SegmentedRadioButtonStyle}"/>
+                                        <RadioButton Grid.Column="1" Content="Da Archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source" Style="{StaticResource SegmentedRadioButtonStyle}"/>
+                                    </Grid>
+                                </Border>
                             </Grid>
 
-                            <!-- Source Selection (Modern Chips) -->
-                            <Grid ColumnSpacing="8" Margin="0,4">
+                            <!-- Server & Camera (Row 2) - Visible only if Server -->
+                            <Grid ColumnSpacing="20" Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <RadioButton Grid.Column="0" Content="Da Server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source"
-                                             HorizontalAlignment="Stretch" Padding="8,4"/>
-                                <RadioButton Grid.Column="1" Content="Da Archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source"
-                                             HorizontalAlignment="Stretch" Padding="8,4"/>
-                            </Grid>
 
-                            <!-- Server Fields -->
-                            <StackPanel Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}" Spacing="12">
-                                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
-                                    <TextBox Header="Indirizzo Server" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 192.168.1.100"/>
+                                <Grid Grid.Column="0" ColumnDefinitions="*, Auto" ColumnSpacing="8">
+                                    <TextBox Header="Indirizzo Server" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="http://..."/>
                                     <Button Content="Connetti" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 </Grid>
 
-                                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
-                                    <TextBox Header="Telecamera" Text="{x:Bind ViewModel.CameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" PlaceholderText="Seleziona camera..."/>
+                                <Grid Grid.Column="1" ColumnDefinitions="*, Auto" ColumnSpacing="8">
+                                    <TextBox Header="Telecamera" Text="{x:Bind ViewModel.CameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" PlaceholderText="Seleziona..."/>
                                     <Button Content="Seleziona" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 </Grid>
+                            </Grid>
 
-                                <!-- Time -->
-                                <TextBlock Text="Intervallo Temporale" Foreground="{StaticResource TextSecondary}" FontSize="12" Margin="0,4,0,0"/>
-                                <Grid ColumnDefinitions="*, *" ColumnSpacing="12">
-                                    <CalendarDatePicker Date="{x:Bind ViewModel.StartTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
-                                    <CalendarDatePicker Grid.Column="1" Date="{x:Bind ViewModel.EndTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
-                                </Grid>
-                            </StackPanel>
-
-                            <!-- Drop Area -->
-                            <Grid Margin="0,8,0,0">
+                            <!-- Interval & Import (Row 3) -->
+                            <Grid ColumnSpacing="20">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Border x:Name="DropArea" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1" CornerRadius="6" Padding="12" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="Transparent">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
-                                        <SymbolIcon Symbol="Import" Foreground="{StaticResource MilestoneBlue}"/>
-                                        <TextBlock Text="Importa TXT Intervalli" Foreground="{StaticResource TextSecondary}" FontSize="12"/>
-                                    </StackPanel>
-                                </Border>
-                                <Button Grid.Column="1" Content="X" Margin="8,0,0,0" VerticalAlignment="Stretch" Background="Transparent" Foreground="#E00000"/>
+
+                                <!-- Date Inputs -->
+                                <StackPanel Grid.Column="0" Spacing="4">
+                                    <TextBlock Text="Intervallo Temporale" Foreground="{StaticResource TextSecondary}" FontSize="12"/>
+                                    <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                                        <CalendarDatePicker Date="{x:Bind ViewModel.StartTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
+                                        <CalendarDatePicker Grid.Column="1" Date="{x:Bind ViewModel.EndTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
+                                    </Grid>
+                                    <CheckBox Content="Separa archiviazioni per intervallo" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" FontSize="12" Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <!-- Drop Area -->
+                                <Grid Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border x:Name="DropArea" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1,1,1,1" CornerRadius="6" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                                        <Grid Padding="10">
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+                                                <SymbolIcon Symbol="Import" Foreground="{StaticResource MilestoneBlue}"/>
+                                                <TextBlock Text="Trascina TXT o Clicca" Foreground="{StaticResource TextSecondary}" FontSize="12" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0" Command="{x:Bind ViewModel.ImportIntervalsFromFileCommand}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Button Grid.Column="1" Content="X" Margin="8,0,0,0" VerticalAlignment="Center" Background="Transparent" Foreground="#E00000"/>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- BOTTOM SECTION: DATI PROCEDURA -->
+                <Border Style="{StaticResource MilestoneCardStyle}">
+                    <Grid>
+                        <Rectangle Height="2" VerticalAlignment="Top" Fill="{StaticResource MilestoneYellow}" Margin="0,-16,0,0"/>
+                        <StackPanel Spacing="20">
+                            <TextBlock Text="DATI PROCEDURA" Style="{StaticResource MilestoneHeaderStyle}" Foreground="{StaticResource MilestoneYellow}"/>
+
+                            <!-- Row 1: Proceeding & Magistrate -->
+                            <Grid ColumnSpacing="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" Header="Procedimento Penale" Text="{x:Bind ViewModel.CriminalProceeding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 12345/2023"/>
+                                <TextBox Grid.Column="1" Header="Magistrato" Text="{x:Bind ViewModel.Magistrate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </Grid>
 
-                            <CheckBox Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" Foreground="{StaticResource TextSecondary}"/>
-
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </StackPanel>
-
-                <!-- RIGHT COLUMN: CONFIGURAZIONE -->
-                <StackPanel Grid.Column="1">
-                    <Border Style="{StaticResource MilestoneCardStyle}">
-                        <Grid>
-                            <Rectangle Height="2" VerticalAlignment="Top" Fill="{StaticResource MilestoneYellow}" Margin="0,-16,0,0"/>
-                            <StackPanel Spacing="12">
-                                <TextBlock Text="DATI PROCEDURA" Style="{StaticResource MilestoneHeaderStyle}" Foreground="{StaticResource MilestoneYellow}"/>
-
-                            <TextBox Header="Procedimento Penale" Text="{x:Bind ViewModel.CriminalProceeding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 12345/2023"/>
-                            <TextBox Header="Magistrato" Text="{x:Bind ViewModel.Magistrate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <TextBox Header="RIT/SPEC" Text="{x:Bind ViewModel.RitSpec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <TextBox Header="ID Lavoro (RCS)" Text="{x:Bind ViewModel.WorkId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <TextBox Header="Target" Text="{x:Bind ViewModel.Target, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                            <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
-                                <PasswordBox Header="Password" Password="{x:Bind ViewModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                <Button Content="Genera" VerticalAlignment="Bottom" Grid.Column="1" Command="{x:Bind ViewModel.GeneratePasswordCommand}"/>
+                            <!-- Row 2: RIT/SPEC & Work ID -->
+                            <Grid ColumnSpacing="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" Header="RIT/SPEC" Text="{x:Bind ViewModel.RitSpec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Grid.Column="1" Header="ID Lavoro (RCS)" Text="{x:Bind ViewModel.WorkId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </Grid>
 
+                            <!-- Row 3: Target & Password -->
+                            <Grid ColumnSpacing="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" Header="Target" Text="{x:Bind ViewModel.Target, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Grid Grid.Column="1" ColumnDefinitions="*, Auto" ColumnSpacing="8">
+                                    <PasswordBox Header="Password" Password="{x:Bind ViewModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <Button Content="Genera" VerticalAlignment="Bottom" Grid.Column="1" Command="{x:Bind ViewModel.GeneratePasswordCommand}"/>
+                                </Grid>
+                            </Grid>
+
+                            <!-- Row 4: Export Path -->
                             <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
                                 <TextBox Header="Cartella Esportazione" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Button Content="Sfoglia" VerticalAlignment="Bottom" Grid.Column="1"/>
                             </Grid>
 
-                            <!-- Primary Action Button (Bottom Right) -->
-                            <Button Command="{x:Bind ViewModel.LaunchCommand}"
-                                    Background="{StaticResource MilestoneBlue}" Foreground="White"
-                                    HorizontalAlignment="Stretch" Height="48" Margin="0,16,0,0" CornerRadius="8">
-                                <StackPanel Orientation="Horizontal" Spacing="8">
-                                    <SymbolIcon Symbol="Play"/>
-                                    <TextBlock Text="AVVIA ARCHIVIAZIONE" FontWeight="Bold"/>
-                                </StackPanel>
-                            </Button>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
 
-            </Grid>
+                <!-- FOOTER ACTION -->
+                <Button Command="{x:Bind ViewModel.LaunchCommand}"
+                        Background="{StaticResource MilestoneBlue}" Foreground="White"
+                        HorizontalAlignment="Stretch" Height="56" CornerRadius="8" FontSize="18" FontWeight="Bold">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <SymbolIcon Symbol="Play"/>
+                        <TextBlock Text="AVVIA ARCHIVIAZIONE"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>
