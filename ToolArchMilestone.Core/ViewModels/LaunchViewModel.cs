@@ -50,8 +50,29 @@ namespace ToolArchMilestone.Core.ViewModels
         [NotifyPropertyChangedFor(nameof(IsArchive))]
         private SourceType _selectedSourceType = SourceType.Server;
 
-        public bool IsServer => SelectedSourceType == SourceType.Server;
-        public bool IsArchive => SelectedSourceType == SourceType.Archive;
+        public bool IsServer
+        {
+            get => SelectedSourceType == SourceType.Server;
+            set
+            {
+                if (value && SelectedSourceType != SourceType.Server)
+                {
+                    SelectedSourceType = SourceType.Server;
+                }
+            }
+        }
+
+        public bool IsArchive
+        {
+            get => SelectedSourceType == SourceType.Archive;
+            set
+            {
+                if (value && SelectedSourceType != SourceType.Archive)
+                {
+                    SelectedSourceType = SourceType.Archive;
+                }
+            }
+        }
 
         [ObservableProperty]
         private ArchiveType _selectedArchiveType = ArchiveType.Legal;
