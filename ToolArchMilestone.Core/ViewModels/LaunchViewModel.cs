@@ -33,7 +33,7 @@ namespace ToolArchMilestone.Core.ViewModels
         private ArchiveType _selectedArchiveType = ArchiveType.Legal;
 
         // --- Server Fields ---
-        [ObservableProperty] private string? _serverAddress;
+        [ObservableProperty] private string? _serverAddress = "http://localhost";
         [ObservableProperty] private string? _cameraName;
         [ObservableProperty] private DateTime _startTime = DateTime.Now;
         [ObservableProperty] private DateTime _endTime = DateTime.Now.AddHours(1);
@@ -73,7 +73,7 @@ namespace ToolArchMilestone.Core.ViewModels
         [RelayCommand]
         public async Task Launch()
         {
-            if (string.IsNullOrWhiteSpace(ExportPath)) return; // Simple Validation
+            if (!Validate()) return;
 
             // Check if we have multiple intervals from text
             var intervals = IntervalParser.ParseContent(IntervalsText ?? "");
@@ -92,6 +92,21 @@ namespace ToolArchMilestone.Core.ViewModels
             }
         }
 
+        private bool Validate()
+        {
+            // Basic Validation - in a real app this would likely use INotifyDataErrorInfo
+            // but for now we block Launch if critical fields are missing.
+
+            if (IsServer && string.IsNullOrWhiteSpace(ServerAddress)) return false;
+            // if (IsServer && string.IsNullOrWhiteSpace(CameraName)) return false; // Maybe optional?
+
+            if (string.IsNullOrWhiteSpace(ExportPath)) return false;
+            if (string.IsNullOrWhiteSpace(CriminalProceeding)) return false;
+            if (string.IsNullOrWhiteSpace(WorkId)) return false;
+
+            return true;
+        }
+
         private async Task CreateJob(DateTime start, DateTime end)
         {
             var job = new ArchivingJob
@@ -99,7 +114,7 @@ namespace ToolArchMilestone.Core.ViewModels
                 ArchiveType = SelectedArchiveType,
                 SourceType = SelectedSourceType,
                 ServerAddress = ServerAddress,
-                CameraName = CameraName,
+                CameraName = CameraName ?? "Unknown Camera",
                 StartTime = start,
                 EndTime = end,
                 CriminalProceeding = CriminalProceeding,

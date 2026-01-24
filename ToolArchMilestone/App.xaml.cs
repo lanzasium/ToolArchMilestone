@@ -1,4 +1,5 @@
 using Microsoft.UI.Xaml;
+using ToolArchMilestone.Core.Helpers;
 using ToolArchMilestone.Core.Services;
 using ToolArchMilestone.Services;
 using System;
@@ -29,6 +30,12 @@ namespace ToolArchMilestone
             JobManager.SetDispatcher(dispatcher);
 
             await JobManager.InitializeAsync();
+
+            // Populate Demo Data (Only if DB is empty?)
+            if ((await dbService.GetAllJobsAsync()).Count == 0)
+            {
+                await DemoDataHelper.Populate(JobManager);
+            }
 
             Window = new MainWindow();
             Window.Activate();
