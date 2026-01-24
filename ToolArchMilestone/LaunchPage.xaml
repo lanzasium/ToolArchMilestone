@@ -50,9 +50,21 @@
 
                 <!-- LEFT COLUMN: SORGENTE & FORMATO -->
                 <StackPanel Grid.Column="0">
-                    <Border Style="{StaticResource MilestoneCardStyle}" BorderBrush="{StaticResource MilestoneBlue}" BorderThickness="0,2,0,0">
-                        <StackPanel Spacing="12">
-                            <TextBlock Text="FORMATO &amp; SORGENTE" Style="{StaticResource MilestoneHeaderStyle}"/>
+                    <Border Style="{StaticResource MilestoneCardStyle}">
+                        <!-- Override top border with an inner accent strip or just use the style as is.
+                             The error was "Duplicate assignment to BorderBrush".
+                             Style sets BorderBrush, and the tag set it again. This is valid in XAML usually,
+                             but to be safe and cleaner, let's avoid the duplicate attribute if it causes issues
+                             or define a specific style for Blue/Yellow borders.
+                             For now, I'll remove the explicit BorderBrush/Thickness and rely on the style,
+                             adding a Rectangle for the top accent instead. -->
+                        <Grid>
+                            <Rectangle Height="2" VerticalAlignment="Top" Fill="{StaticResource MilestoneBlue}" Margin="0,-16,0,0"/> <!-- Adjusted for padding -->
+                            <!-- Actually easier: Remove explicit BorderBrush from the tag and let Style handle it,
+                                 or if we want the top colored border, create a specific style or use a different element.
+                                 Let's keep it simple: Use the Style, and remove the conflicting attributes. -->
+                            <StackPanel Spacing="12">
+                                <TextBlock Text="FORMATO &amp; SORGENTE" Style="{StaticResource MilestoneHeaderStyle}"/>
 
                             <!-- Chips -->
                             <Grid ColumnSpacing="8">
@@ -109,15 +121,18 @@
 
                             <CheckBox Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" Foreground="{StaticResource TextSecondary}"/>
 
-                        </StackPanel>
+                            </StackPanel>
+                        </Grid>
                     </Border>
                 </StackPanel>
 
                 <!-- RIGHT COLUMN: CONFIGURAZIONE -->
                 <StackPanel Grid.Column="1">
-                    <Border Style="{StaticResource MilestoneCardStyle}" BorderBrush="{StaticResource MilestoneYellow}" BorderThickness="0,2,0,0">
-                        <StackPanel Spacing="12">
-                            <TextBlock Text="DATI PROCEDURA" Style="{StaticResource MilestoneHeaderStyle}" Foreground="{StaticResource MilestoneYellow}"/>
+                    <Border Style="{StaticResource MilestoneCardStyle}">
+                        <Grid>
+                            <Rectangle Height="2" VerticalAlignment="Top" Fill="{StaticResource MilestoneYellow}" Margin="0,-16,0,0"/>
+                            <StackPanel Spacing="12">
+                                <TextBlock Text="DATI PROCEDURA" Style="{StaticResource MilestoneHeaderStyle}" Foreground="{StaticResource MilestoneYellow}"/>
 
                             <TextBox Header="Procedimento Penale" Text="{x:Bind ViewModel.CriminalProceeding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 12345/2023"/>
                             <TextBox Header="Magistrato" Text="{x:Bind ViewModel.Magistrate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -134,7 +149,8 @@
                                 <TextBox Header="Cartella Esportazione" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Button Content="Sfoglia" VerticalAlignment="Bottom" Grid.Column="1"/>
                             </Grid>
-                        </StackPanel>
+                            </StackPanel>
+                        </Grid>
                     </Border>
                 </StackPanel>
 
