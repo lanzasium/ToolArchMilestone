@@ -8,6 +8,9 @@
     mc:Ignorable="d">
 
     <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        <converters:DateTimeToDateTimeOffsetConverter x:Key="DateToOffset"/>
+
         <!-- Tab Style Toggle (Text + Bottom Indicator) -->
         <Style x:Key="TabToggleStyle" TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent"/>

@@ -36,6 +36,7 @@ namespace ToolArchMilestone
                     {
                         var content = await Windows.Storage.FileIO.ReadTextAsync(storageFile);
                         ViewModel.IntervalsText = content;
+                        ViewModel.ImportedFileName = storageFile.Name;
                     }
                 }
             }
