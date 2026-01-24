@@ -16,17 +16,16 @@ namespace ToolArchMilestone.Core.ViewModels
         private readonly IFilePickerService _filePicker;
         private readonly ISettingsService _settings;
 
-        // Constructor with Settings injection
         public LaunchViewModel(IJobManager jobManager, IFilePickerService filePicker, ISettingsService settings = null)
         {
             _jobManager = jobManager;
             _filePicker = filePicker;
-            _settings = settings ?? new LocalSettingsService(); // Default if not injected
+            _settings = settings ?? new LocalSettingsService();
 
-            StartTimeTime = StartTime.TimeOfDay;
-            EndTimeTime = EndTime.TimeOfDay;
+            // Sync Strings
+            StartDateString = StartTime.ToString("dd/MM/yyyy HH:mm");
+            EndDateString = EndTime.ToString("dd/MM/yyyy HH:mm");
 
-            // Load Settings
             LoadPinnedSettings();
         }
 
@@ -61,17 +60,49 @@ namespace ToolArchMilestone.Core.ViewModels
         [ObservableProperty] private string? _serverAddress = "http://localhost";
         [ObservableProperty] private string? _cameraName;
 
+        // Internal Dates
+        [ObservableProperty] private DateTime _startTime = DateTime.Now;
+        [ObservableProperty] private DateTime _endTime = DateTime.Now.AddHours(1);
+        [ObservableProperty] private TimeSpan _startTimeTime = DateTime.Now.TimeOfDay;
+        [ObservableProperty] private TimeSpan _endTimeTime = DateTime.Now.AddHours(1).TimeOfDay;
+
+        // String Bindings for UI
         [ObservableProperty]
-        private DateTime _startTime = DateTime.Today;
+        private string _startDateString;
+
+        partial void OnStartDateStringChanged(string value)
+        {
+            if (DateTime.TryParse(value, out var dt))
+            {
+                StartTime = dt.Date;
+                StartTimeTime = dt.TimeOfDay;
+            }
+        }
 
         [ObservableProperty]
-        private TimeSpan _startTimeTime;
+        private string _endDateString;
 
-        [ObservableProperty]
-        private DateTime _endTime = DateTime.Today;
+        partial void OnEndDateStringChanged(string value)
+        {
+            if (DateTime.TryParse(value, out var dt))
+            {
+                EndTime = dt.Date;
+                EndTimeTime = dt.TimeOfDay;
+            }
+        }
 
-        [ObservableProperty]
-        private TimeSpan _endTimeTime;
+        // Called when Pickers change
+        public void UpdateStartString()
+        {
+            var dt = StartTime.Date + StartTimeTime;
+            StartDateString = dt.ToString("dd/MM/yyyy HH:mm");
+        }
+
+        public void UpdateEndString()
+        {
+            var dt = EndTime.Date + EndTimeTime;
+            EndDateString = dt.ToString("dd/MM/yyyy HH:mm");
+        }
 
         [ObservableProperty] private bool _separateArchive;
 
