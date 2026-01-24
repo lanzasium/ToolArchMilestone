@@ -10,129 +10,141 @@
     <Page.Resources>
         <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
         <converters:DateTimeToDateTimeOffsetConverter x:Key="DateToOffset"/>
+
+        <!-- Card Style -->
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="Background" Value="{ThemeResource LayerFillColorDefaultBrush}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource SurfaceStrokeColorDefaultBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+            <!-- Shadow effect requires ThemeShadow in parent grid usually, or just stick to border for now -->
+        </Style>
+
+        <Style x:Key="SectionHeaderStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+        </Style>
     </Page.Resources>
 
-    <ScrollViewer>
-        <Grid Padding="20" RowSpacing="20">
+    <ScrollViewer Padding="20">
+        <Grid ColumnSpacing="24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/> <!-- Title -->
-                <RowDefinition Height="*"/>    <!-- Main Content -->
-                <RowDefinition Height="Auto"/> <!-- Footer Buttons -->
+                <RowDefinition Height="Auto"/> <!-- Main Content -->
+                <RowDefinition Height="Auto"/> <!-- Footer -->
             </Grid.RowDefinitions>
 
-            <!-- Header -->
-            <!-- <TextBlock Text="Nuova Archiviazione" Style="{StaticResource TitleTextBlockStyle}" /> -->
-            <!-- We can skip title to save space if needed, or keep it small -->
+            <!-- LEFT COLUMN: SORGENTE & FORMATO -->
+            <StackPanel Grid.Column="0">
+                <!-- SORGENTE CARD -->
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel Spacing="16">
+                        <TextBlock Text="Sorgente &amp; Formato" Style="{StaticResource SectionHeaderStyle}"/>
 
-            <!-- Main Content: Split 2 Columns -->
-            <Grid Grid.Row="1" ColumnSpacing="20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/> <!-- Left: Formato & Sorgente -->
-                    <ColumnDefinition Width="2*"/> <!-- Right: Configurazione -->
-                </Grid.ColumnDefinitions>
+                        <!-- Type Selection (Chips/Toggle look) -->
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" HorizontalAlignment="Stretch" Style="{StaticResource ToggleButtonStyle}"/>
+                            <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" HorizontalAlignment="Stretch" Style="{StaticResource ToggleButtonStyle}"/>
+                        </Grid>
 
-                <!-- LEFT COLUMN -->
-                <StackPanel Spacing="20">
-                    <!-- FORMATO -->
-                    <Border BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}" BorderThickness="2,0,0,0" Padding="10,0,0,0">
-                        <StackPanel Spacing="10">
-                            <TextBlock Text="FORMATO" FontWeight="Bold" Foreground="{ThemeResource SystemControlForegroundAccentBrush}" FontSize="16"/>
-                            <StackPanel Orientation="Horizontal" Spacing="20">
-                                <TextBlock Text="Tipologia archiviazione" VerticalAlignment="Center" Foreground="Gray" FontSize="12"/>
-                                <RadioButton Content="Legale" IsChecked="True" GroupName="Type" />
-                                <RadioButton Content="Digitale" GroupName="Type" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Spacing="20">
-                                <TextBlock Text="Modalità di lancio" VerticalAlignment="Center" Foreground="Gray" FontSize="12"/>
-                                <RadioButton Content="Da server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source" />
-                                <RadioButton Content="Da archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source" />
-                            </StackPanel>
+                        <!-- Source Selection -->
+                        <StackPanel Orientation="Horizontal" Spacing="20" Margin="0,5,0,0">
+                            <RadioButton Content="Da Server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source" />
+                            <RadioButton Content="Da Archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source" />
                         </StackPanel>
-                    </Border>
 
-                    <!-- SORGENTE -->
-                    <Border BorderBrush="Green" BorderThickness="2,0,0,0" Padding="10,0,0,0" Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}">
-                        <StackPanel Spacing="10">
-                            <TextBlock Text="SORGENTE" FontWeight="Bold" Foreground="Green" FontSize="16"/>
+                        <!-- Server Input -->
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8" Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                            <TextBox Header="Indirizzo Server" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 192.168.1.100"/>
+                            <Button Content="Connetti" VerticalAlignment="Bottom" Grid.Column="1"/>
+                        </Grid>
 
-                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="10">
-                                <TextBox Header="Indirizzo Server" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="http://localhost"/>
-                                <Button Content="Connetti" VerticalAlignment="Bottom" Grid.Column="1"/>
-                                <Button Content="📌" VerticalAlignment="Bottom" Grid.Column="2"/>
-                            </Grid>
+                        <!-- Camera Input -->
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8" Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                            <TextBox Header="Telecamera" Text="{x:Bind ViewModel.CameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" PlaceholderText="Seleziona camera..."/>
+                            <Button Content="Seleziona" VerticalAlignment="Bottom" Grid.Column="1"/>
+                        </Grid>
 
-                            <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
-                                <TextBox Header="Telecamera" Text="{x:Bind ViewModel.CameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" PlaceholderText="Seleziona una o più telecamere..."/>
-                                <Button Content="Seleziona" VerticalAlignment="Bottom" Grid.Column="1"/>
-                            </Grid>
+                        <!-- Intervals -->
+                        <TextBlock Text="Intervallo Temporale" FontWeight="SemiBold" Margin="0,5,0,0"/>
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="12">
+                            <CalendarDatePicker Header="Inizio" Date="{x:Bind ViewModel.StartTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
+                            <CalendarDatePicker Header="Fine" Grid.Column="1" Date="{x:Bind ViewModel.EndTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
+                        </Grid>
 
-                            <TextBlock Text="Intervallo data/ora" FontWeight="SemiBold" Margin="0,5,0,0" FontSize="12"/>
-                            <Grid ColumnDefinitions="*, Auto, *, Auto" ColumnSpacing="10">
-                                <!-- Using CalendarDatePicker as requested for better typing support -->
-                                <CalendarDatePicker Header="Inizio" Date="{x:Bind ViewModel.StartTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
-                                <!-- Placeholder for calendar icon if needed, but CalendarDatePicker has one -->
+                        <!-- Drop Area -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="DropArea" BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" BorderThickness="1" CornerRadius="4" Padding="15" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                                    <SymbolIcon Symbol="Upload" Foreground="Gray"/>
+                                    <TextBlock Text="Trascina qui il file TXT" Foreground="Gray"/>
+                                </StackPanel>
+                            </Border>
+                            <Button Grid.Column="1" Content="X" Margin="8,0,0,0" VerticalAlignment="Stretch" Background="Transparent" Foreground="Red"/>
+                        </Grid>
 
-                                <CalendarDatePicker Header="Fine" Grid.Column="2" Date="{x:Bind ViewModel.EndTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
-                            </Grid>
+                        <CheckBox Content="Archiviazione separata per intervallo" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}"/>
 
-                            <!-- Drop Area for TXT -->
-                            <Grid Margin="0,10,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
 
-                                <Border x:Name="DropArea" BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Padding="10" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop">
-                                    <TextBlock Text="Rilascia o clicca qui per inserire più intervalli" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray"/>
-                                </Border>
+            <!-- RIGHT COLUMN: CONFIGURAZIONE -->
+            <StackPanel Grid.Column="1">
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel Spacing="16">
+                        <TextBlock Text="Configurazione Procedura" Style="{StaticResource SectionHeaderStyle}"/>
 
-                                <Button Grid.Column="1" Content="Controlla" Margin="5,0"/>
-                                <Button Grid.Column="2" Content="X" Background="Red" Foreground="White"/>
-                            </Grid>
+                        <TextBox Header="Procedimento Penale" Text="{x:Bind ViewModel.CriminalProceeding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 12345/2023"/>
+                        <TextBox Header="Magistrato" Text="{x:Bind ViewModel.Magistrate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBox Header="RIT/SPEC" Text="{x:Bind ViewModel.RitSpec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBox Header="ID Lavoro (RCS)" Text="{x:Bind ViewModel.WorkId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBox Header="Target" Text="{x:Bind ViewModel.Target, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                            <CheckBox Content="Crea un'archiviazione separata per ogni intervallo" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}"/>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
+                            <PasswordBox Header="Password" Password="{x:Bind ViewModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Button Content="Genera" VerticalAlignment="Bottom" Grid.Column="1" Command="{x:Bind ViewModel.GeneratePasswordCommand}"/>
+                        </Grid>
 
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
+                            <TextBox Header="Cartella Esportazione" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Button Content="Sfoglia" VerticalAlignment="Bottom" Grid.Column="1"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
 
-                <!-- RIGHT COLUMN -->
-                <StackPanel Grid.Column="1" Spacing="20">
-                    <!-- CONFIGURAZIONE -->
-                    <Border BorderBrush="Orange" BorderThickness="2,0,0,0" Padding="10,0,0,0">
-                        <StackPanel Spacing="10">
-                            <TextBlock Text="CONFIGURAZIONE" FontWeight="Bold" Foreground="Orange" FontSize="16"/>
-
-                            <TextBox Header="Procedimento Penale" Text="{x:Bind ViewModel.CriminalProceeding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es: 12345/2025/N"/>
-                            <TextBox Header="Magistrato" Text="{x:Bind ViewModel.Magistrate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci il magistrato di riferimento..."/>
-                            <TextBox Header="RIT/SPEC" Text="{x:Bind ViewModel.RitSpec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci RIT o SPEC (es: RIT 1234/2025)"/>
-                            <TextBox Header="ID Lavoro" Text="{x:Bind ViewModel.WorkId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci ID lavoro..."/>
-                            <TextBox Header="Target" Text="{x:Bind ViewModel.Target, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci nome target..."/>
-
-                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="5">
-                                <TextBox Header="Password" Text="{x:Bind ViewModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci 8 caratteri..."/>
-                                <Button Content="Genera" VerticalAlignment="Bottom" Grid.Column="1" Command="{x:Bind ViewModel.GeneratePasswordCommand}" Background="Orange" Foreground="Black"/>
-                                <Button Content="📌" VerticalAlignment="Bottom" Grid.Column="2"/>
-                            </Grid>
-
-                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="5">
-                                <TextBox Header="Cartella di esportazione" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Seleziona o incolla il percorso..."/>
-                                <Button Content="Sfoglia" VerticalAlignment="Bottom" Grid.Column="1" Background="Orange" Foreground="Black"/>
-                                <Button Content="📌" VerticalAlignment="Bottom" Grid.Column="2"/>
-                            </Grid>
-
-                            <TextBlock Text="Dimensione stimata: ---" Foreground="Gray" FontSize="12"/>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
+            <!-- FOOTER ACTION -->
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,20,0,0">
+                <Button Command="{x:Bind ViewModel.LaunchCommand}" HorizontalAlignment="Stretch" Height="50" CornerRadius="25">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <SymbolIcon Symbol="Play"/>
+                        <TextBlock Text="AVVIA ARCHIVIAZIONE" FontWeight="Bold" FontSize="16"/>
+                    </StackPanel>
+                    <Button.Background>
+                        <SolidColorBrush Color="#FF0078D7"/>
+                    </Button.Background>
+                    <Button.Foreground>
+                        <SolidColorBrush Color="White"/>
+                    </Button.Foreground>
+                </Button>
             </Grid>
 
-            <!-- FOOTER -->
-            <StackPanel Grid.Row="2" Spacing="10">
-                <Button Content="AVVIA ARCHIVIAZIONE" HorizontalAlignment="Stretch" Height="40" Background="{ThemeResource SystemControlForegroundAccentBrush}" Foreground="White" FontWeight="Bold" Command="{x:Bind ViewModel.LaunchCommand}"/>
-                <Button Content="RECUPERA ULTIMO LANCIO" HorizontalAlignment="Stretch" Background="Transparent" Foreground="Gray" BorderBrush="Gray" BorderThickness="1"/>
-            </StackPanel>
         </Grid>
     </ScrollViewer>
 </Page>
