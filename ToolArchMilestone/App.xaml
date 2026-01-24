@@ -18,17 +18,11 @@
             <!-- Global Styles -->
              <SolidColorBrush x:Key="WindowBackground" Color="#FF121212"/> <!-- Deep Dark -->
 
-             <!-- Colors (Defined for Animation Access) -->
-             <Color x:Key="MilestoneBlueColor">#00A3E0</Color>
-             <Color x:Key="MilestoneDarkBlueColor">#0047BB</Color>
-             <Color x:Key="MilestoneYellowColor">#FFD100</Color>
-             <Color x:Key="CardBackgroundColor">#FF1E1E1E</Color>
-
-             <!-- Brushes -->
-             <SolidColorBrush x:Key="MilestoneBlue" Color="{StaticResource MilestoneBlueColor}"/>
-             <SolidColorBrush x:Key="MilestoneDarkBlue" Color="{StaticResource MilestoneDarkBlueColor}"/>
-             <SolidColorBrush x:Key="MilestoneYellow" Color="{StaticResource MilestoneYellowColor}"/>
-             <SolidColorBrush x:Key="CardBackground" Color="{StaticResource CardBackgroundColor}"/>
+             <!-- Brushes (Defined directly to avoid Color resource issues) -->
+             <SolidColorBrush x:Key="MilestoneBlue" Color="#00A3E0"/>
+             <SolidColorBrush x:Key="MilestoneDarkBlue" Color="#0047BB"/>
+             <SolidColorBrush x:Key="MilestoneYellow" Color="#FFD100"/>
+             <SolidColorBrush x:Key="CardBackground" Color="#FF1E1E1E"/>
              <SolidColorBrush x:Key="CardBorder" Color="#FF333333"/>
              <SolidColorBrush x:Key="TextPrimary" Color="#FFFFFFFF"/>
              <SolidColorBrush x:Key="TextSecondary" Color="#FFB0B0B0"/>

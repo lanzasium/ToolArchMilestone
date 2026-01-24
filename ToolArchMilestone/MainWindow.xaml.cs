@@ -4,6 +4,7 @@ using Microsoft.UI.Windowing;
 using Microsoft.UI; // Required for WindowId
 using System;
 using System.Linq;
+using System.Diagnostics;
 
 namespace ToolArchMilestone
 {
@@ -14,11 +15,15 @@ namespace ToolArchMilestone
             this.InitializeComponent();
 
             // Set initial size
-            var appWindow = GetAppWindowForCurrentWindow();
-            if (appWindow != null)
+            try
             {
-                appWindow.Resize(new Windows.Graphics.SizeInt32(950, 750));
+                var appWindow = GetAppWindowForCurrentWindow();
+                if (appWindow != null)
+                {
+                    appWindow.Resize(new Windows.Graphics.SizeInt32(950, 750));
+                }
             }
+            catch { /* Ignore resizing errors */ }
 
             // Force Dark Mode
             if (Content is FrameworkElement root)
@@ -36,8 +41,16 @@ namespace ToolArchMilestone
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
-            NavView.SelectedItem = NavView.MenuItems.Cast<NavigationViewItem>().First();
-            Navigate("Launch");
+            try
+            {
+                NavView.SelectedItem = NavView.MenuItems.Cast<NavigationViewItem>().First();
+                Navigate("Launch");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"NAVIGATION FAILED: {ex}");
+                // In production, we might show a dialog, but here we just prevent the crash
+            }
         }
 
         private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -51,7 +64,14 @@ namespace ToolArchMilestone
                 var selectedItem = (NavigationViewItem)args.SelectedItem;
                 if (selectedItem?.Tag is string tag)
                 {
-                    Navigate(tag);
+                    try
+                    {
+                        Navigate(tag);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"NAVIGATION SELECTION FAILED: {ex}");
+                    }
                 }
             }
         }
