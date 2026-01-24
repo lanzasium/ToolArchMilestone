@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 using ToolArchMilestone.Core.Helpers;
 using ToolArchMilestone.Core.Models;
+using ToolArchMilestone.Core.Services;
 using ToolArchMilestone.Core.Services.Interfaces;
 
 namespace ToolArchMilestone.Core.ViewModels
@@ -13,11 +14,35 @@ namespace ToolArchMilestone.Core.ViewModels
     {
         private readonly IJobManager _jobManager;
         private readonly IFilePickerService _filePicker;
+        private readonly ISettingsService _settings;
 
-        public LaunchViewModel(IJobManager jobManager, IFilePickerService filePicker)
+        // Constructor with Settings injection
+        public LaunchViewModel(IJobManager jobManager, IFilePickerService filePicker, ISettingsService settings = null)
         {
             _jobManager = jobManager;
             _filePicker = filePicker;
+            _settings = settings ?? new LocalSettingsService(); // Default if not injected
+
+            StartTimeTime = StartTime.TimeOfDay;
+            EndTimeTime = EndTime.TimeOfDay;
+
+            // Load Settings
+            LoadPinnedSettings();
+        }
+
+        private async void LoadPinnedSettings()
+        {
+            var server = await _settings.GetSettingAsync(nameof(ServerAddress));
+            if (server != null) ServerAddress = server;
+
+            var camera = await _settings.GetSettingAsync(nameof(CameraName));
+            if (camera != null) CameraName = camera;
+
+            var pass = await _settings.GetSettingAsync(nameof(Password));
+            if (pass != null) Password = pass;
+
+            var path = await _settings.GetSettingAsync(nameof(ExportPath));
+            if (path != null) ExportPath = path;
         }
 
         // --- Selection ---
@@ -35,8 +60,19 @@ namespace ToolArchMilestone.Core.ViewModels
         // --- Server Fields ---
         [ObservableProperty] private string? _serverAddress = "http://localhost";
         [ObservableProperty] private string? _cameraName;
-        [ObservableProperty] private DateTime _startTime = DateTime.Now;
-        [ObservableProperty] private DateTime _endTime = DateTime.Now.AddHours(1);
+
+        [ObservableProperty]
+        private DateTime _startTime = DateTime.Today;
+
+        [ObservableProperty]
+        private TimeSpan _startTimeTime;
+
+        [ObservableProperty]
+        private DateTime _endTime = DateTime.Today;
+
+        [ObservableProperty]
+        private TimeSpan _endTimeTime;
+
         [ObservableProperty] private bool _separateArchive;
 
         // --- Common Fields ---
@@ -49,7 +85,17 @@ namespace ToolArchMilestone.Core.ViewModels
         [ObservableProperty] private string? _exportPath;
 
         // --- Text Import ---
-        [ObservableProperty] private string? _intervalsText;
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsFileImported))]
+        [NotifyPropertyChangedFor(nameof(IsManualIntervalEnabled))]
+        private string? _intervalsText;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsFileImported))]
+        private string? _importedFileName;
+
+        public bool IsFileImported => !string.IsNullOrEmpty(ImportedFileName);
+        public bool IsManualIntervalEnabled => !IsFileImported;
 
         // --- Commands ---
 
@@ -67,7 +113,33 @@ namespace ToolArchMilestone.Core.ViewModels
              {
                  var content = await File.ReadAllTextAsync(filePath);
                  IntervalsText = content;
+                 ImportedFileName = Path.GetFileName(filePath);
              }
+        }
+
+        [RelayCommand]
+        public void RemoveImportedFile()
+        {
+            IntervalsText = null;
+            ImportedFileName = null;
+        }
+
+        [RelayCommand]
+        public async Task PinField(string fieldName)
+        {
+            string value = "";
+            switch(fieldName)
+            {
+                case nameof(ServerAddress): value = ServerAddress; break;
+                case nameof(CameraName): value = CameraName; break;
+                case nameof(Password): value = Password; break;
+                case nameof(ExportPath): value = ExportPath; break;
+            }
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                await _settings.SaveSettingAsync(fieldName, value);
+            }
         }
 
         [RelayCommand]
@@ -75,35 +147,30 @@ namespace ToolArchMilestone.Core.ViewModels
         {
             if (!Validate()) return;
 
-            // Check if we have multiple intervals from text
+            DateTime start = StartTime.Date + StartTimeTime;
+            DateTime end = EndTime.Date + EndTimeTime;
+
             var intervals = IntervalParser.ParseContent(IntervalsText ?? "");
 
-            if (intervals.Count > 0)
+            if (IsFileImported && intervals.Count > 0)
             {
-                foreach(var (start, end) in intervals)
+                foreach(var (s, e) in intervals)
                 {
-                    await CreateJob(start, end);
+                    await CreateJob(s, e);
                 }
             }
             else
             {
-                // Use single interval pickers
-                await CreateJob(StartTime, EndTime);
+                await CreateJob(start, end);
             }
         }
 
         private bool Validate()
         {
-            // Basic Validation - in a real app this would likely use INotifyDataErrorInfo
-            // but for now we block Launch if critical fields are missing.
-
             if (IsServer && string.IsNullOrWhiteSpace(ServerAddress)) return false;
-            // if (IsServer && string.IsNullOrWhiteSpace(CameraName)) return false; // Maybe optional?
-
             if (string.IsNullOrWhiteSpace(ExportPath)) return false;
             if (string.IsNullOrWhiteSpace(CriminalProceeding)) return false;
             if (string.IsNullOrWhiteSpace(WorkId)) return false;
-
             return true;
         }
 
