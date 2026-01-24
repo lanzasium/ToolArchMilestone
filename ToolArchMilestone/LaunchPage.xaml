@@ -67,31 +67,30 @@
                     <Grid>
                         <Rectangle Height="2" VerticalAlignment="Top" Fill="{StaticResource MilestoneBlue}" Margin="0,-12,0,0"/>
                         <StackPanel Spacing="8">
-                            <TextBlock Text="FORMATO &amp; SORGENTE" Style="{StaticResource MilestoneHeaderStyle}"/>
-
-                            <!-- Toggle Selectors (Row 1) -->
-                            <Grid ColumnSpacing="12">
+                            <!-- Header Row with Inline Format Toggle -->
+                            <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <TextBlock Text="FORMATO &amp; SORGENTE" Style="{StaticResource MilestoneHeaderStyle}" VerticalAlignment="Center" Margin="0,0,12,0"/>
 
-                                <!-- Format Toggle -->
-                                <Border Background="{StaticResource CardBackground}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Padding="2">
+                                <!-- Format Toggle (Legale/Digitale) - Right Aligned or Stretch -->
+                                <Border Grid.Column="1" Background="{StaticResource CardBackground}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Padding="2" HorizontalAlignment="Stretch">
                                     <Grid ColumnDefinitions="*,*">
                                         <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" Style="{StaticResource SegmentedRadioButtonStyle}"/>
                                         <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" Style="{StaticResource SegmentedRadioButtonStyle}"/>
                                     </Grid>
                                 </Border>
-
-                                <!-- Source Toggle -->
-                                <Border Background="{StaticResource CardBackground}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Padding="2">
-                                    <Grid ColumnDefinitions="*,*">
-                                        <RadioButton Grid.Column="0" Content="Da Server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source" Style="{StaticResource SegmentedRadioButtonStyle}"/>
-                                        <RadioButton Grid.Column="1" Content="Da Archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source" Style="{StaticResource SegmentedRadioButtonStyle}"/>
-                                    </Grid>
-                                </Border>
                             </Grid>
+
+                            <!-- Source Toggle (Full Width below) -->
+                            <Border Background="{StaticResource CardBackground}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Padding="2">
+                                <Grid ColumnDefinitions="*,*">
+                                    <RadioButton Grid.Column="0" Content="Da Server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source" Style="{StaticResource SegmentedRadioButtonStyle}"/>
+                                    <RadioButton Grid.Column="1" Content="Da Archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source" Style="{StaticResource SegmentedRadioButtonStyle}"/>
+                                </Grid>
+                            </Border>
 
                             <!-- Server & Camera (Row 2) - Visible only if Server -->
                             <Grid ColumnSpacing="12" Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}">
@@ -119,31 +118,35 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Date Inputs -->
-                                <StackPanel Grid.Column="0" Spacing="4">
-                                    <TextBlock Text="Intervallo Temporale" Foreground="{StaticResource TextSecondary}" FontSize="12"/>
+                                <StackPanel Grid.Column="0" Spacing="2">
+                                    <TextBlock Text="Intervallo Temporale" Foreground="{StaticResource TextSecondary}" FontSize="12" Margin="0,0,0,2"/>
                                     <Grid ColumnDefinitions="*, *" ColumnSpacing="8">
                                         <CalendarDatePicker Date="{x:Bind ViewModel.StartTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
                                         <CalendarDatePicker Grid.Column="1" Date="{x:Bind ViewModel.EndTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" HorizontalAlignment="Stretch"/>
                                     </Grid>
-                                    <CheckBox Content="Separa archiviazioni per intervallo" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" FontSize="12" Margin="0,2,0,0" MinHeight="0" Padding="4,0"/>
+                                    <CheckBox Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" FontSize="11" Margin="0,2,0,0" MinHeight="0" Padding="4,0"/>
                                 </StackPanel>
 
-                                <!-- Drop Area -->
-                                <Grid Grid.Column="1">
+                                <!-- Drop Area (Align Height with Date Inputs) -->
+                                <Grid Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Border x:Name="DropArea" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1,1,1,1" CornerRadius="6" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                                        <Grid Padding="8">
+                                    <Border x:Name="DropArea" Height="32" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1,1,1,1" CornerRadius="4" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                                        <Grid>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
-                                                <SymbolIcon Symbol="Import" Foreground="{StaticResource MilestoneBlue}"/>
-                                                <TextBlock Text="Trascina o Clicca" Foreground="{StaticResource TextSecondary}" FontSize="12" VerticalAlignment="Center"/>
+                                                <SymbolIcon Symbol="Import" Foreground="{StaticResource MilestoneBlue}" RenderTransformOrigin="0.5,0.5">
+                                                    <SymbolIcon.RenderTransform>
+                                                        <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                                                    </SymbolIcon.RenderTransform>
+                                                </SymbolIcon>
+                                                <TextBlock Text="Importa TXT" Foreground="{StaticResource TextSecondary}" FontSize="11" VerticalAlignment="Center"/>
                                             </StackPanel>
                                             <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0" Command="{x:Bind ViewModel.ImportIntervalsFromFileCommand}"/>
                                         </Grid>
                                     </Border>
-                                    <Button Grid.Column="1" Content="X" Margin="4,0,0,0" VerticalAlignment="Center" Background="Transparent" Foreground="#E00000"/>
+                                    <Button Grid.Column="1" Content="X" Margin="4,0,0,0" VerticalAlignment="Stretch" Background="Transparent" Foreground="#E00000" Padding="4"/>
                                 </Grid>
                             </Grid>
                         </StackPanel>
