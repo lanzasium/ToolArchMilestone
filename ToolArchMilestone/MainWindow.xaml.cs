@@ -1,5 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Windowing;
 using System;
 using System.Linq;
 
@@ -10,6 +11,14 @@ namespace ToolArchMilestone
         public MainWindow()
         {
             this.InitializeComponent();
+
+            // Set initial size
+            var appWindow = GetAppWindowForCurrentWindow();
+            if (appWindow != null)
+            {
+                appWindow.Resize(new Windows.Graphics.SizeInt32(950, 750));
+            }
+
             // Force Dark Mode
             if (Content is FrameworkElement root)
             {
@@ -17,11 +26,16 @@ namespace ToolArchMilestone
             }
         }
 
+        private AppWindow GetAppWindowForCurrentWindow()
+        {
+            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            WindowId myWndId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+            return AppWindow.GetFromWindowId(myWndId);
+        }
+
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
-            // Select the first item
             NavView.SelectedItem = NavView.MenuItems.Cast<NavigationViewItem>().First();
-            // Trigger selection logic manually or let it happen?
             Navigate("Launch");
         }
 

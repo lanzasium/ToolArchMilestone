@@ -11,30 +11,30 @@
         <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
         <converters:DateTimeToDateTimeOffsetConverter x:Key="DateToOffset"/>
 
-        <!-- Segmented Radio Button Style -->
-        <Style x:Key="SegmentedRadioButtonStyle" TargetType="RadioButton">
+        <!-- Text-Only Toggle Style for Header -->
+        <Style x:Key="HeaderToggleStyle" TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="16,8"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="CornerRadius" Value="4"/>
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="4,0"/>
+            <Setter Property="Padding" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="RootBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid Background="Transparent">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal"/>
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
-                                            <ColorAnimation Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#20FFFFFF" Duration="0"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="White"/>
+                                            </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Checked">
                                         <Storyboard>
-                                            <ColorAnimation Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="{StaticResource SystemAccentColor}" Duration="0"/>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="White"/>
                                             </ObjectAnimationUsingKeyFrames>
@@ -42,8 +42,8 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
+                            <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}"/>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -56,23 +56,24 @@
             <RowDefinition Height="*"/>    <!-- Content -->
         </Grid.RowDefinitions>
 
-        <!-- Header Row: Title + Format Selection -->
-        <Grid Margin="0,0,0,12">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+        <!-- Header Row: Title + Inline Toggles -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,12" VerticalAlignment="Center">
+            <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,8,0"/>
 
-            <!-- Format Toggle (Legale/Digitale) moved here -->
-            <Border Grid.Column="2" Background="{StaticResource CardBackground}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Padding="2" Width="200">
-                <Grid ColumnDefinitions="*,*">
-                    <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" Style="{StaticResource SegmentedRadioButtonStyle}"/>
-                    <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" Style="{StaticResource SegmentedRadioButtonStyle}"/>
-                </Grid>
-            </Border>
-        </Grid>
+            <TextBlock Text="-" FontSize="20" Foreground="Gray" Margin="0,0,8,0"/>
+
+            <!-- Format Toggles -->
+            <RadioButton Content="LEGALE" IsChecked="True" GroupName="Type" Style="{StaticResource HeaderToggleStyle}"/>
+            <TextBlock Text="/" FontSize="20" Foreground="Gray"/>
+            <RadioButton Content="DIGITALE" GroupName="Type" Style="{StaticResource HeaderToggleStyle}"/>
+
+            <TextBlock Text="-" FontSize="20" Foreground="Gray" Margin="8,0,8,0"/>
+
+            <!-- Source Toggles -->
+            <RadioButton Content="DA SERVER" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source" Style="{StaticResource HeaderToggleStyle}"/>
+            <TextBlock Text="/" FontSize="20" Foreground="Gray"/>
+            <RadioButton Content="DA ARCHIVIO" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source" Style="{StaticResource HeaderToggleStyle}"/>
+        </StackPanel>
 
         <ScrollViewer Grid.Row="1">
             <StackPanel Spacing="12">
@@ -82,69 +83,64 @@
                     <Grid>
                         <Rectangle Height="2" VerticalAlignment="Top" Fill="{StaticResource MilestoneBlue}" Margin="0,-12,0,0"/>
                         <StackPanel Spacing="8">
-                            <TextBlock Text="SORGENTE" Style="{StaticResource MilestoneHeaderStyle}" Margin="0,0,0,4"/>
 
-                            <!-- Source Toggle (Full Width below) -->
-                            <Border Background="{StaticResource CardBackground}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Padding="2">
-                                <Grid ColumnDefinitions="*,*">
-                                    <RadioButton Grid.Column="0" Content="Da Server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source" Style="{StaticResource SegmentedRadioButtonStyle}"/>
-                                    <RadioButton Grid.Column="1" Content="Da Archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source" Style="{StaticResource SegmentedRadioButtonStyle}"/>
-                                </Grid>
-                            </Border>
-
-                            <!-- Server & Camera (Row 2) - Visible only if Server -->
+                            <!-- Server & Camera (Row 1) - Visible only if Server -->
                             <Grid ColumnSpacing="12" Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Grid Grid.Column="0" ColumnDefinitions="*, Auto, Auto" ColumnSpacing="4">
+                                <Grid Grid.Column="0" ColumnDefinitions="*, Auto" ColumnSpacing="4">
                                     <TextBox Header="Indirizzo Server" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="http://..."/>
                                     <Button Content="Connetti" VerticalAlignment="Bottom" Grid.Column="1"/>
-                                    <Button Content="📌" VerticalAlignment="Bottom" Grid.Column="2" Background="Transparent" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ServerAddress"/>
                                 </Grid>
 
-                                <Grid Grid.Column="1" ColumnDefinitions="*, Auto, Auto" ColumnSpacing="4">
+                                <Grid Grid.Column="1" ColumnDefinitions="*, Auto" ColumnSpacing="4">
                                     <TextBox Header="Telecamera" Text="{x:Bind ViewModel.CameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" PlaceholderText="Seleziona..."/>
                                     <Button Content="Seleziona" VerticalAlignment="Bottom" Grid.Column="1"/>
-                                    <Button Content="📌" VerticalAlignment="Bottom" Grid.Column="2" Background="Transparent" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="CameraName"/>
                                 </Grid>
                             </Grid>
 
-                            <!-- Interval & Import (Row 3) -->
+                            <!-- Interval & Import (Row 2 - Single Line) -->
                             <Grid ColumnSpacing="12">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/> <!-- Start -->
+                                    <ColumnDefinition Width="Auto"/> <!-- End -->
+                                    <ColumnDefinition Width="*"/>    <!-- Drop -->
+                                    <ColumnDefinition Width="Auto"/> <!-- Checkbox -->
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Date & Time Inputs -->
+                                <!-- Start Date/Time Group -->
                                 <StackPanel Grid.Column="0" Spacing="2">
-                                    <TextBlock Text="Intervallo Temporale" Foreground="{StaticResource TextSecondary}" FontSize="12" Margin="0,0,0,2"/>
-                                    <Grid ColumnDefinitions="*, *" ColumnSpacing="8">
-                                        <!-- Start -->
-                                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="4">
-                                            <CalendarDatePicker Date="{x:Bind ViewModel.StartTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}" HorizontalAlignment="Stretch"/>
-                                            <TimePicker SelectedTime="{x:Bind ViewModel.StartTimeTime, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}" ClockIdentifier="24HourClock" Grid.Column="1"/>
-                                        </Grid>
-                                        <!-- End -->
-                                        <Grid Grid.Column="1" ColumnDefinitions="*, Auto" ColumnSpacing="4">
-                                            <CalendarDatePicker Date="{x:Bind ViewModel.EndTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}" HorizontalAlignment="Stretch"/>
-                                            <TimePicker SelectedTime="{x:Bind ViewModel.EndTimeTime, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}" ClockIdentifier="24HourClock" Grid.Column="1"/>
-                                        </Grid>
-                                    </Grid>
-                                    <CheckBox Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" FontSize="11" Margin="0,2,0,0" MinHeight="0" Padding="4,0"/>
+                                    <TextBlock Text="Inizio" Foreground="{StaticResource TextSecondary}" FontSize="12"/>
+                                    <Border BorderBrush="{StaticResource TextSecondary}" BorderThickness="1" CornerRadius="4" Padding="2">
+                                        <StackPanel Orientation="Horizontal" Spacing="2">
+                                            <CalendarDatePicker Date="{x:Bind ViewModel.StartTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}" Width="140" BorderThickness="0"/>
+                                            <TimePicker SelectedTime="{x:Bind ViewModel.StartTimeTime, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}" ClockIdentifier="24HourClock" BorderThickness="0"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+
+                                <!-- End Date/Time Group -->
+                                <StackPanel Grid.Column="1" Spacing="2">
+                                    <TextBlock Text="Fine" Foreground="{StaticResource TextSecondary}" FontSize="12"/>
+                                    <Border BorderBrush="{StaticResource TextSecondary}" BorderThickness="1" CornerRadius="4" Padding="2">
+                                        <StackPanel Orientation="Horizontal" Spacing="2">
+                                            <CalendarDatePicker Date="{x:Bind ViewModel.EndTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}" Width="140" BorderThickness="0"/>
+                                            <TimePicker SelectedTime="{x:Bind ViewModel.EndTimeTime, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}" ClockIdentifier="24HourClock" BorderThickness="0"/>
+                                        </StackPanel>
+                                    </Border>
                                 </StackPanel>
 
                                 <!-- Drop Area -->
-                                <Grid Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,2">
+                                <Grid Grid.Column="2" VerticalAlignment="Bottom" Margin="0,0,0,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Border x:Name="DropArea" Height="32" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1,1,1,1" CornerRadius="4" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                                    <Border x:Name="DropArea" Height="36" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1,1,1,1" CornerRadius="4" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" VerticalAlignment="Bottom">
                                         <Grid>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8" Visibility="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                                 <SymbolIcon Symbol="Import" Foreground="{StaticResource MilestoneBlue}" RenderTransformOrigin="0.5,0.5">
@@ -155,7 +151,6 @@
                                                 <TextBlock Text="Trascina o Clicca" Foreground="{StaticResource TextSecondary}" FontSize="11" VerticalAlignment="Center"/>
                                             </StackPanel>
 
-                                            <!-- Imported State -->
                                             <TextBlock Text="{x:Bind ViewModel.ImportedFileName, Mode=OneWay}" Foreground="#00FF00" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Visibility="{x:Bind ViewModel.IsFileImported, Mode=OneWay, Converter={StaticResource BoolToVis}}"/>
 
                                             <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0" Command="{x:Bind ViewModel.ImportIntervalsFromFileCommand}"/>
@@ -172,6 +167,9 @@
 
                                     <Button Grid.Column="2" Content="X" Margin="4,0,0,0" VerticalAlignment="Stretch" Background="Transparent" Foreground="#E00000" Padding="4" Command="{x:Bind ViewModel.RemoveImportedFileCommand}" Visibility="{x:Bind ViewModel.IsFileImported, Mode=OneWay, Converter={StaticResource BoolToVis}}"/>
                                 </Grid>
+
+                                <!-- Checkbox -->
+                                <CheckBox Grid.Column="3" Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" FontSize="11" VerticalAlignment="Bottom" Margin="0,0,0,6"/>
                             </Grid>
                         </StackPanel>
                     </Grid>
