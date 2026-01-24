@@ -30,15 +30,7 @@
                 <TextBlock Text="Configura i parametri e avvia il processo" FontSize="14" Foreground="{StaticResource TextSecondary}"/>
             </StackPanel>
 
-            <!-- PRIMARY ACTION BUTTON (Top Right) -->
-            <Button Grid.Column="1" Command="{x:Bind ViewModel.LaunchCommand}"
-                    Background="{StaticResource MilestoneBlue}" Foreground="White"
-                    CornerRadius="20" Height="44" Padding="24,0">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <SymbolIcon Symbol="Play"/>
-                    <TextBlock Text="AVVIA" FontWeight="Bold"/>
-                </StackPanel>
-            </Button>
+            <!-- PRIMARY ACTION BUTTON (Removed from Top Right) -->
         </Grid>
 
         <ScrollViewer Grid.Row="1">
@@ -66,20 +58,29 @@
                             <StackPanel Spacing="12">
                                 <TextBlock Text="FORMATO &amp; SORGENTE" Style="{StaticResource MilestoneHeaderStyle}"/>
 
-                            <!-- Chips -->
+                            <!-- Type Selection (Modern Chips) -->
                             <Grid ColumnSpacing="8">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" HorizontalAlignment="Stretch"/>
-                                <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" HorizontalAlignment="Stretch"/>
+                                <RadioButton Grid.Column="0" Content="Legale" IsChecked="True" GroupName="Type" HorizontalAlignment="Stretch"
+                                             Background="Transparent" BorderBrush="{StaticResource MilestoneBlue}" BorderThickness="1" CornerRadius="4" Padding="8,4"/>
+                                <RadioButton Grid.Column="1" Content="Digitale" GroupName="Type" HorizontalAlignment="Stretch"
+                                             Background="Transparent" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1" CornerRadius="4" Padding="8,4"/>
                             </Grid>
 
-                            <StackPanel Orientation="Horizontal" Spacing="16" Margin="0,4">
-                                <RadioButton Content="Da Server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source" Foreground="White" />
-                                <RadioButton Content="Da Archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source" Foreground="White" />
-                            </StackPanel>
+                            <!-- Source Selection (Modern Chips) -->
+                            <Grid ColumnSpacing="8" Margin="0,4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Grid.Column="0" Content="Da Server" IsChecked="{x:Bind ViewModel.IsServer, Mode=OneWay}" GroupName="Source"
+                                             HorizontalAlignment="Stretch" Padding="8,4"/>
+                                <RadioButton Grid.Column="1" Content="Da Archivio" IsChecked="{x:Bind ViewModel.IsArchive, Mode=OneWay}" GroupName="Source"
+                                             HorizontalAlignment="Stretch" Padding="8,4"/>
+                            </Grid>
 
                             <!-- Server Fields -->
                             <StackPanel Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}" Spacing="12">
@@ -108,9 +109,6 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Border x:Name="DropArea" BorderBrush="{StaticResource TextSecondary}" BorderThickness="1" CornerRadius="6" Padding="12" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" Background="Transparent">
-                                    <Border.BorderBrush>
-                                        <SolidColorBrush Color="{StaticResource TextSecondary}" Opacity="0.5"/>
-                                    </Border.BorderBrush>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
                                         <SymbolIcon Symbol="Import" Foreground="{StaticResource MilestoneBlue}"/>
                                         <TextBlock Text="Importa TXT Intervalli" Foreground="{StaticResource TextSecondary}" FontSize="12"/>
@@ -149,6 +147,16 @@
                                 <TextBox Header="Cartella Esportazione" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Button Content="Sfoglia" VerticalAlignment="Bottom" Grid.Column="1"/>
                             </Grid>
+
+                            <!-- Primary Action Button (Bottom Right) -->
+                            <Button Command="{x:Bind ViewModel.LaunchCommand}"
+                                    Background="{StaticResource MilestoneBlue}" Foreground="White"
+                                    HorizontalAlignment="Stretch" Height="48" Margin="0,16,0,0" CornerRadius="8">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <SymbolIcon Symbol="Play"/>
+                                    <TextBlock Text="AVVIA ARCHIVIAZIONE" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Button>
                             </StackPanel>
                         </Grid>
                     </Border>
