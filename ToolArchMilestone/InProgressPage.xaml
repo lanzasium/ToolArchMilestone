@@ -39,15 +39,25 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Job Info -->
-                            <StackPanel Spacing="4">
-                                <StackPanel Orientation="Horizontal" Spacing="8">
-                                    <Border Background="{StaticResource MilestoneBlue}" CornerRadius="4" Padding="6,2">
-                                        <TextBlock Text="{x:Bind Id}" FontWeight="Bold" Foreground="White" FontSize="12"/>
+                            <StackPanel Spacing="6">
+                                <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                    <!-- Status Chip -->
+                                    <Border Background="#33FFFFFF" CornerRadius="12" Padding="8,2">
+                                        <StackPanel Orientation="Horizontal" Spacing="4">
+                                            <Ellipse Width="8" Height="8" Fill="{StaticResource MilestoneYellow}"/>
+                                            <TextBlock Text="{x:Bind Status}" Foreground="White" FontSize="11" FontWeight="SemiBold"/>
+                                        </StackPanel>
                                     </Border>
+
+                                    <!-- ID Badge -->
+                                    <Border Background="{StaticResource MilestoneBlue}" CornerRadius="4" Padding="6,2">
+                                        <TextBlock Text="{x:Bind Id}" FontWeight="Bold" Foreground="White" FontSize="11"/>
+                                    </Border>
+
                                     <TextBlock Text="{x:Bind CameraName}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{x:Bind Status}" Foreground="{StaticResource MilestoneYellow}" VerticalAlignment="Center" FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="{x:Bind WorkId}" Foreground="{StaticResource TextSecondary}" FontSize="12"/>
+
+                                <TextBlock Text="{x:Bind WorkId}" Foreground="{StaticResource TextSecondary}" FontSize="12" Margin="4,0,0,0"/>
                             </StackPanel>
 
                             <!-- Controls -->

@@ -12,23 +12,30 @@
             <!-- Global Styles -->
              <SolidColorBrush x:Key="WindowBackground" Color="#FF121212"/> <!-- Deep Dark -->
 
-             <!-- Milestone Inspired Colors -->
-             <SolidColorBrush x:Key="MilestoneBlue" Color="#00A3E0"/> <!-- Clear Blue -->
-             <SolidColorBrush x:Key="MilestoneDarkBlue" Color="#0047BB"/> <!-- Dark Blue -->
-             <SolidColorBrush x:Key="MilestoneYellow" Color="#FFD100"/> <!-- Yellow -->
-             <SolidColorBrush x:Key="CardBackground" Color="#FF1E1E1E"/> <!-- Surface Dark -->
+             <!-- Colors (Defined for Animation Access) -->
+             <Color x:Key="MilestoneBlueColor">#00A3E0</Color>
+             <Color x:Key="MilestoneDarkBlueColor">#0047BB</Color>
+             <Color x:Key="MilestoneYellowColor">#FFD100</Color>
+             <Color x:Key="CardBackgroundColor">#FF1E1E1E</Color>
+
+             <!-- Brushes -->
+             <SolidColorBrush x:Key="MilestoneBlue" Color="{StaticResource MilestoneBlueColor}"/>
+             <SolidColorBrush x:Key="MilestoneDarkBlue" Color="{StaticResource MilestoneDarkBlueColor}"/>
+             <SolidColorBrush x:Key="MilestoneYellow" Color="{StaticResource MilestoneYellowColor}"/>
+             <SolidColorBrush x:Key="CardBackground" Color="{StaticResource CardBackgroundColor}"/>
              <SolidColorBrush x:Key="CardBorder" Color="#FF333333"/>
              <SolidColorBrush x:Key="TextPrimary" Color="#FFFFFFFF"/>
              <SolidColorBrush x:Key="TextSecondary" Color="#FFB0B0B0"/>
 
-             <!-- Base Card Style -->
+             <!-- Base Card Style (Material 3 Inspired) -->
              <Style x:Key="MilestoneCardStyle" TargetType="Border">
                 <Setter Property="Background" Value="{StaticResource CardBackground}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource CardBorder}"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="CornerRadius" Value="8"/>
-                <Setter Property="Padding" Value="12"/>
-                <Setter Property="Margin" Value="0,0,0,8"/>
+                <Setter Property="CornerRadius" Value="16"/>
+                <Setter Property="Padding" Value="16"/>
+                <Setter Property="Margin" Value="0,0,0,12"/>
+                <!-- Shadow/Elevation would be here if using ThemeShadow -->
              </Style>
 
              <!-- Header Text Style -->
