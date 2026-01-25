@@ -30,65 +30,63 @@
              <SolidColorBrush x:Key="TextSecondary" Color="#FFB0B0B0"/>
              <SolidColorBrush x:Key="TextDisabled" Color="#FF666666"/>
 
-             <!-- === MATERIAL 3 INSPIRED STYLES === -->
+             <!-- === COMPACT STYLES (User Request: "Meno altezza, meno spazio sprecato") === -->
 
-             <!-- Material Card -->
+             <!-- Compact Card -->
              <Style x:Key="MaterialCardStyle" TargetType="Border">
                 <Setter Property="Background" Value="{StaticResource SurfaceBackground}"/>
                 <Setter Property="BorderBrush" Value="#333333"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="CornerRadius" Value="12"/>
-                <Setter Property="Padding" Value="20"/>
-                <Setter Property="Margin" Value="0,0,0,16"/>
+                <Setter Property="CornerRadius" Value="8"/> <!-- Reduced from 12 -->
+                <Setter Property="Padding" Value="12"/> <!-- Reduced from 20 -->
+                <Setter Property="Margin" Value="0,0,0,12"/>
              </Style>
 
-             <!-- Material TextBox -->
+             <!-- Compact TextBox -->
              <Style x:Key="MaterialTextBoxStyle" TargetType="TextBox">
                 <Setter Property="Background" Value="{StaticResource InputBackground}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource InputBorder}"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="CornerRadius" Value="8"/>
-                <Setter Property="MinHeight" Value="48"/> <!-- Taller touch target -->
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="Padding" Value="12,10,12,8"/>
+                <Setter Property="CornerRadius" Value="4"/> <!-- Reduced from 8 -->
+                <Setter Property="MinHeight" Value="32"/> <!-- Reduced from 48 -->
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="Padding" Value="8,5,8,4"/> <!-- Tight padding -->
                 <Setter Property="PlaceholderForeground" Value="{StaticResource TextDisabled}"/>
                 <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
-                <!-- WinUI Focus Visuals would need retemplating for perfect Material,
-                     but standard properties get us 90% there -->
              </Style>
 
-             <!-- Material Primary Button (Filled) -->
+             <!-- Compact Primary Button -->
              <Style x:Key="MaterialPrimaryButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="{StaticResource MilestoneBlue}"/>
                 <Setter Property="Foreground" Value="White"/>
-                <Setter Property="CornerRadius" Value="24"/> <!-- Full Pill -->
-                <Setter Property="Height" Value="48"/>
-                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="CornerRadius" Value="18"/> <!-- Reduced -->
+                <Setter Property="Height" Value="36"/> <!-- Reduced from 48 -->
+                <Setter Property="FontSize" Value="13"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
-                <Setter Property="Padding" Value="24,0"/>
+                <Setter Property="Padding" Value="16,0"/>
                 <Setter Property="BorderThickness" Value="0"/>
              </Style>
 
-             <!-- Material Secondary Button (Outlined/Tonal) -->
+             <!-- Compact Secondary Button -->
              <Style x:Key="MaterialSecondaryButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="Foreground" Value="{StaticResource MilestoneBlue}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource MilestoneBlue}"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="CornerRadius" Value="20"/>
-                <Setter Property="Height" Value="40"/>
-                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="CornerRadius" Value="16"/>
+                <Setter Property="Height" Value="32"/> <!-- Reduced from 40 -->
+                <Setter Property="FontSize" Value="12"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
-                <Setter Property="Padding" Value="16,0"/>
+                <Setter Property="Padding" Value="12,0"/>
              </Style>
 
-             <!-- Material Icon Button (Circular) -->
+             <!-- Compact Icon Button -->
              <Style x:Key="MaterialIconButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
-                <Setter Property="Width" Value="40"/>
-                <Setter Property="Height" Value="40"/>
-                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="Width" Value="32"/> <!-- Reduced from 40 -->
+                <Setter Property="Height" Value="32"/>
+                <Setter Property="CornerRadius" Value="16"/>
                 <Setter Property="Padding" Value="0"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -97,18 +95,18 @@
 
              <!-- Headers -->
              <Style x:Key="MaterialHeaderStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontSize" Value="13"/>
                 <Setter Property="FontWeight" Value="Bold"/>
                 <Setter Property="Foreground" Value="{StaticResource MilestoneBlue}"/>
-                <Setter Property="Margin" Value="0,0,0,12"/>
-                <Setter Property="CharacterSpacing" Value="50"/>
+                <Setter Property="Margin" Value="0,0,0,8"/>
+                <Setter Property="CharacterSpacing" Value="30"/>
              </Style>
 
-             <!-- Input Label Style (for consistent text above inputs) -->
+             <!-- Input Label Style -->
              <Style x:Key="InputLabelStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontSize" Value="11"/> <!-- Smaller label -->
                 <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
-                <Setter Property="Margin" Value="4,0,0,4"/>
+                <Setter Property="Margin" Value="2,0,0,2"/> <!-- Tighter margin -->
              </Style>
 
         </ResourceDictionary>
