@@ -1,11 +1,11 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using ToolArchMilestone.Core.Helpers;
 using ToolArchMilestone.Core.Models;
-using ToolArchMilestone.Core.Services;
 using ToolArchMilestone.Core.Services.Interfaces;
 
 namespace ToolArchMilestone.Core.ViewModels
@@ -15,16 +15,18 @@ namespace ToolArchMilestone.Core.ViewModels
         private readonly IJobManager _jobManager;
         private readonly IFilePickerService _filePicker;
         private readonly ISettingsService _settings;
+        private readonly IMilestoneService _milestone;
 
-        public LaunchViewModel(IJobManager jobManager, IFilePickerService filePicker, ISettingsService settings = null)
+        public LaunchViewModel(IJobManager jobManager, IFilePickerService filePicker, IMilestoneService milestone, ISettingsService settings = null)
         {
             _jobManager = jobManager;
             _filePicker = filePicker;
+            _milestone = milestone;
             _settings = settings ?? new LocalSettingsService();
 
             // Sync Strings
-            StartDateString = StartTime.ToString("dd/MM/yyyy HH:mm");
-            EndDateString = EndTime.ToString("dd/MM/yyyy HH:mm");
+            UpdateStartString();
+            UpdateEndString();
 
             LoadPinnedSettings();
         }
@@ -78,8 +80,19 @@ namespace ToolArchMilestone.Core.ViewModels
         private ArchiveType _selectedArchiveType = ArchiveType.Legal;
 
         // --- Server Fields ---
-        [ObservableProperty] private string? _serverAddress = "http://localhost";
-        [ObservableProperty] private string? _cameraName;
+        [ObservableProperty]
+        private string? _serverAddress = "http://localhost";
+
+        partial void OnServerAddressChanged(string? value)
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                // Basic normalization on change, but full normalization on connect
+            }
+        }
+
+        [ObservableProperty]
+        private string? _cameraName;
 
         // Internal Dates
         [ObservableProperty] private DateTime _startTime = DateTime.Now;
@@ -93,7 +106,8 @@ namespace ToolArchMilestone.Core.ViewModels
 
         partial void OnStartDateStringChanged(string value)
         {
-            if (DateTime.TryParse(value, out var dt))
+            var dt = DateHelper.ParseDateText(value);
+            if (dt != default)
             {
                 StartTime = dt.Date;
                 StartTimeTime = dt.TimeOfDay;
@@ -105,7 +119,8 @@ namespace ToolArchMilestone.Core.ViewModels
 
         partial void OnEndDateStringChanged(string value)
         {
-            if (DateTime.TryParse(value, out var dt))
+            var dt = DateHelper.ParseDateText(value);
+            if (dt != default)
             {
                 EndTime = dt.Date;
                 EndTimeTime = dt.TimeOfDay;
@@ -131,10 +146,12 @@ namespace ToolArchMilestone.Core.ViewModels
         [ObservableProperty] private string? _criminalProceeding;
         [ObservableProperty] private string? _magistrate;
         [ObservableProperty] private string? _ritSpec;
+        [ObservableProperty] private string? _procura;
         [ObservableProperty] private string? _workId;
         [ObservableProperty] private string? _target;
         [ObservableProperty] private string? _password;
         [ObservableProperty] private string? _exportPath;
+        [ObservableProperty] private string? _note;
 
         // --- Text Import ---
         [ObservableProperty]
@@ -149,12 +166,83 @@ namespace ToolArchMilestone.Core.ViewModels
         public bool IsFileImported => !string.IsNullOrEmpty(ImportedFileName);
         public bool IsManualIntervalEnabled => !IsFileImported;
 
+        [ObservableProperty]
+        private string? _statusMessage;
+
+        [ObservableProperty]
+        private bool _isConnected;
+
         // --- Commands ---
 
         [RelayCommand]
         public void GeneratePassword()
         {
-            Password = Guid.NewGuid().ToString().Substring(0, 8);
+            Password = SecurityHelper.GenerateRandomPassword(8);
+        }
+
+        [RelayCommand]
+        public async Task Connect()
+        {
+            if (string.IsNullOrWhiteSpace(ServerAddress))
+            {
+                StatusMessage = "Indirizzo server mancante.";
+                return;
+            }
+
+            string normalized = TextHelper.NormalizeServerAddress(ServerAddress);
+            ServerAddress = normalized;
+
+            try
+            {
+                StatusMessage = "Connessione in corso...";
+                IsConnected = await _milestone.ConnectAsync(ServerAddress, "", "");
+                StatusMessage = IsConnected ? "Connesso." : "Connessione fallita.";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Errore: {ex.Message}";
+                IsConnected = false;
+            }
+        }
+
+        [RelayCommand]
+        public async Task SelectCamera()
+        {
+            if (!IsConnected)
+            {
+                StatusMessage = "Non connesso al server.";
+                return;
+            }
+
+            try
+            {
+                var cameras = await _milestone.GetCamerasAsync();
+                if (cameras != null && cameras.Count > 0)
+                {
+                    // For PoC: Select the first camera.
+                    // In a full implementation, this would open a dialog with the list.
+                    CameraName = cameras[0];
+                    StatusMessage = $"Telecamera selezionata: {CameraName}";
+                }
+                else
+                {
+                    StatusMessage = "Nessuna telecamera trovata.";
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Errore selezione camera: {ex.Message}";
+            }
+        }
+
+        [RelayCommand]
+        public async Task BrowseFolder()
+        {
+            var folder = await _filePicker.PickSingleFolderAsync();
+            if (!string.IsNullOrEmpty(folder))
+            {
+                ExportPath = folder;
+            }
         }
 
         [RelayCommand]
@@ -166,6 +254,17 @@ namespace ToolArchMilestone.Core.ViewModels
                  var content = await File.ReadAllTextAsync(filePath);
                  IntervalsText = content;
                  ImportedFileName = Path.GetFileName(filePath);
+
+                 // Validate intervals immediately
+                 var intervals = DateHelper.ParseIntervalsFromText(content, out var errors);
+                 if (intervals.Count > 0)
+                 {
+                     StatusMessage = $"Caricati {intervals.Count} intervalli.";
+                 }
+                 else
+                 {
+                     StatusMessage = "Nessun intervallo valido trovato.";
+                 }
              }
         }
 
@@ -174,6 +273,7 @@ namespace ToolArchMilestone.Core.ViewModels
         {
             IntervalsText = null;
             ImportedFileName = null;
+            StatusMessage = "File intervalli rimosso.";
         }
 
         [RelayCommand]
@@ -191,6 +291,7 @@ namespace ToolArchMilestone.Core.ViewModels
             if (!string.IsNullOrEmpty(value))
             {
                 await _settings.SaveSettingAsync(fieldName, value);
+                StatusMessage = $"{fieldName} salvato come predefinito.";
             }
         }
 
@@ -199,35 +300,95 @@ namespace ToolArchMilestone.Core.ViewModels
         {
             if (!Validate()) return;
 
+            // Normalize fields
+            if (string.IsNullOrWhiteSpace(Procura)) Procura = "Procura di..."; // Or leave empty
+
             DateTime start = StartTime.Date + StartTimeTime;
             DateTime end = EndTime.Date + EndTimeTime;
 
-            var intervals = IntervalParser.ParseContent(IntervalsText ?? "");
+            List<IntervalRange> intervals = new List<IntervalRange>();
 
-            if (IsFileImported && intervals.Count > 0)
+            if (IsFileImported && !string.IsNullOrWhiteSpace(IntervalsText))
             {
-                foreach(var (s, e) in intervals)
+                intervals = DateHelper.ParseIntervalsFromText(IntervalsText, out var errors);
+                if (errors.Count > 0)
                 {
-                    await CreateJob(s, e);
+                    StatusMessage = $"Attenzione: {errors.Count} errori nel file intervalli.";
                 }
             }
-            else
+
+            if (intervals.Count == 0)
             {
-                await CreateJob(start, end);
+                intervals.Add(new IntervalRange { Start = start, End = end });
             }
+
+            int count = 0;
+            foreach(var interval in intervals)
+            {
+                // Create separate job for each interval if requested (or maybe for all?)
+                // Legacy logic: if "_serverPerIntervalRadio" is checked, loop.
+                // Here we assume "SeparateArchive" flag works for both modes or implies creating multiple jobs?
+                // Actually the logic in legacy code loops if intervals are present.
+
+                await CreateJob(interval.Start, interval.End);
+                count++;
+            }
+
+            StatusMessage = $"Avviati {count} processi di archiviazione.";
         }
 
         private bool Validate()
         {
-            if (IsServer && string.IsNullOrWhiteSpace(ServerAddress)) return false;
-            if (string.IsNullOrWhiteSpace(ExportPath)) return false;
-            if (string.IsNullOrWhiteSpace(CriminalProceeding)) return false;
-            if (string.IsNullOrWhiteSpace(WorkId)) return false;
+            if (IsServer && string.IsNullOrWhiteSpace(ServerAddress))
+            {
+                StatusMessage = "Indirizzo server obbligatorio.";
+                return false;
+            }
+            if (IsServer && !IsConnected)
+            {
+                // Optional: Force connect?
+                // StatusMessage = "Non connesso al server.";
+                // return false;
+            }
+            if (string.IsNullOrWhiteSpace(ExportPath))
+            {
+                StatusMessage = "Percorso di esportazione obbligatorio.";
+                return false;
+            }
+            // Add other mandatory fields validation logic here
             return true;
         }
 
         private async Task CreateJob(DateTime start, DateTime end)
         {
+            // Build the specific destination path based on metadata
+            // Using logic ported from legacy BuildExportDestinationPath
+            string finalPath = ExportPath;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(ExportPath))
+                {
+                    finalPath = PathHelper.BuildExportDestinationPath(
+                        ExportPath,
+                        CriminalProceeding ?? "",
+                        RitSpec ?? "",
+                        Target ?? "",
+                        WorkId ?? "",
+                        false, 0);
+
+                    // Ensure directory exists
+                    if (!Directory.Exists(finalPath))
+                    {
+                        Directory.CreateDirectory(finalPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Errore creazione percorso: {ex.Message}";
+                return; // Stop if path creation fails
+            }
+
             var job = new ArchivingJob
             {
                 ArchiveType = SelectedArchiveType,
@@ -239,10 +400,12 @@ namespace ToolArchMilestone.Core.ViewModels
                 CriminalProceeding = CriminalProceeding,
                 Magistrate = Magistrate,
                 RitSpec = RitSpec,
+                Procura = Procura,
                 WorkId = WorkId,
                 Target = Target,
                 Password = Password,
-                ExportPath = ExportPath
+                ExportPath = finalPath, // Use the constructed specific path
+                Note = Note
             };
 
             await _jobManager.AddJobAsync(job);

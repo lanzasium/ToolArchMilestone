@@ -46,7 +46,7 @@
                                     </Border>
 
                                     <!-- ID -->
-                                    <TextBlock Text="{x:Bind Id}" FontWeight="Bold" Foreground="{StaticResource MilestoneBlue}" VerticalAlignment="Center" FontSize="13"/>
+                                    <TextBlock Text="{x:Bind PublicJobId, TargetNullValue={x:Bind Id}}" FontWeight="Bold" Foreground="{StaticResource MilestoneBlue}" VerticalAlignment="Center" FontSize="13"/>
 
                                     <TextBlock Text="{x:Bind WorkId}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="13"/>
                                     <TextBlock Text="|" Foreground="Gray" VerticalAlignment="Center"/>

@@ -132,7 +132,7 @@
                                     <TextBlock Text="Indirizzo Server" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 192.168.1.100"/>
                                 </StackPanel>
-                                <Button Content="Connetti" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Connetti" Command="{x:Bind ViewModel.ConnectCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ServerAddress" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
@@ -144,7 +144,7 @@
                                     <TextBlock Text="Telecamera Selezionata" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.CameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" PlaceholderText="Nessuna selezione..."/>
                                 </StackPanel>
-                                <Button Content="Seleziona" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Seleziona" Command="{x:Bind ViewModel.SelectCameraCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="CameraName" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
@@ -300,7 +300,7 @@
                                     <TextBlock Text="Cartella di Esportazione" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
-                                <Button Content="Sfoglia" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Sfoglia" Command="{x:Bind ViewModel.BrowseFolderCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ExportPath" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
@@ -308,6 +308,9 @@
                         </Grid>
                     </StackPanel>
                 </Border>
+
+                <!-- STATUS MESSAGE -->
+                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" Foreground="{StaticResource MilestoneYellow}" FontSize="12" HorizontalAlignment="Center" Margin="0,4"/>
 
                 <!-- MAIN ACTION -->
                 <Button Command="{x:Bind ViewModel.LaunchCommand}" Style="{StaticResource MaterialPrimaryButtonStyle}" HorizontalAlignment="Stretch" Margin="0,8,0,24">

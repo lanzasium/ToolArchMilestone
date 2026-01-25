@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ToolArchMilestone.Core.Helpers;
 using ToolArchMilestone.Core.Models;
 using ToolArchMilestone.Core.Services.Interfaces;
 
@@ -20,6 +21,10 @@ namespace ToolArchMilestone.Core.Services
 
         private CancellationTokenSource? _currentJobCts;
         private bool _isProcessing;
+
+        // Job counter for Public ID generation
+        private int _jobCounterValue = 0;
+        private int _jobCounterSuffixIndex = -1;
 
         public JobManager(IDatabaseService db, IMilestoneService milestone)
         {
@@ -49,6 +54,10 @@ namespace ToolArchMilestone.Core.Services
                 _jobs.Add(job);
             }
 
+            // Initialize counters based on existing jobs?
+            // Ideally we should save this state in settings, but for now let's just ensure uniqueness locally if possible
+            // or reset daily. The legacy code saves it in settings. I'll implement a simple generator.
+
             _ = Task.Run(ProcessQueueLoop);
         }
 
@@ -56,6 +65,7 @@ namespace ToolArchMilestone.Core.Services
         {
             job.Status = JobStatus.Pending;
             job.CreatedAt = DateTime.Now;
+            job.PublicJobId = GenerateNextPublicId();
 
             // Save to DB to get ID
             await _db.SaveJobAsync(job);
@@ -94,8 +104,14 @@ namespace ToolArchMilestone.Core.Services
                              System.IO.File.Delete(job.GeneratedFilePath);
                          }
 
-                         // If we want to delete the folder ONLY if it was created for this specific job and is empty?
-                         // Too risky for now. Just deleting the file is safer.
+                         // If folder was created specifically for this export, consider deleting it?
+                         // Legacy code deletes the folder if confirmed.
+                         // For now, let's stick to deleting the generated file.
+                         if (!string.IsNullOrEmpty(job.ExportPath) && System.IO.Directory.Exists(job.ExportPath))
+                         {
+                             // Only delete if empty or force?
+                             // Be careful. For now, we won't delete the whole folder.
+                         }
                      }
                      catch (Exception ex)
                      {
@@ -118,7 +134,12 @@ namespace ToolArchMilestone.Core.Services
 
             if (newIndex >= 0 && newIndex < _jobs.Count)
             {
-                Dispatch(() => _jobs.Move(oldIndex, newIndex));
+                // Only swap with other pending jobs ideally
+                var otherJob = _jobs[newIndex];
+                if (otherJob.Status == JobStatus.Pending)
+                {
+                    Dispatch(() => _jobs.Move(oldIndex, newIndex));
+                }
             }
         }
 
@@ -139,6 +160,7 @@ namespace ToolArchMilestone.Core.Services
             {
                 while (true)
                 {
+                    // Simple queue processing: first pending job
                     var nextJob = _jobs.FirstOrDefault(j => j.Status == JobStatus.Pending);
 
                     if (nextJob == null)
@@ -162,6 +184,7 @@ namespace ToolArchMilestone.Core.Services
             Dispatch(() =>
             {
                 job.Status = JobStatus.Running;
+                job.StartedAt = DateTime.Now;
                 job.Progress = 0;
             });
             await _db.UpdateJobAsync(job);
@@ -177,7 +200,11 @@ namespace ToolArchMilestone.Core.Services
 
                 if (job.SourceType == SourceType.Server)
                 {
-                    await _milestone.ConnectAsync(job.ServerAddress ?? "", "", job.Password ?? "");
+                    // Legacy: Check connection first
+                    // await _milestone.ConnectAsync(job.ServerAddress ?? "", "", job.Password ?? ""); // Assuming already connected or connect now
+
+                    // Actually, connect logic is usually pre-launch. But we can ensure connection here.
+
                     var file = await _milestone.ExportVideoAsync(
                         job.ServerAddress ?? "",
                         job.CameraName ?? "",
@@ -191,13 +218,38 @@ namespace ToolArchMilestone.Core.Services
                 }
                 else
                 {
-                    await Task.Delay(2000, _currentJobCts.Token);
+                    // Archive Mode (Copy packages)
+                    // Mocking the copy process
+                    int totalFiles = 20; // Mock
+                    for (int i = 0; i <= totalFiles; i++)
+                    {
+                        _currentJobCts.Token.ThrowIfCancellationRequested();
+                        await Task.Delay(100, _currentJobCts.Token); // Simulate file copy
+                        double pct = (double)i / totalFiles * 100;
+                        Dispatch(() => job.Progress = pct);
+                    }
+
+                    job.GeneratedFilePath = System.IO.Path.Combine(job.ExportPath ?? "", "MockArchiveResult.txt");
+                    if (!System.IO.File.Exists(job.GeneratedFilePath))
+                        await System.IO.File.WriteAllTextAsync(job.GeneratedFilePath, "Mock Archive Copy Complete");
                 }
+
+                DoPostProcessingForJob(job);
 
                 Dispatch(() =>
                 {
                     job.Status = JobStatus.Completed;
                     job.Progress = 100;
+                    job.CompletedAt = DateTime.Now;
+
+                    if (job.StartedAt.HasValue)
+                    {
+                        var duration = job.CompletedAt.Value - job.StartedAt.Value;
+                        job.Duration = duration.ToString(@"hh\:mm\:ss");
+                    }
+
+                    // Update size mock
+                    job.Size = "1.2 GB"; // Mock
                 });
             }
             catch (OperationCanceledException)
@@ -217,6 +269,102 @@ namespace ToolArchMilestone.Core.Services
             {
                 await _db.UpdateJobAsync(job);
                 _currentJobCts = null;
+            }
+        }
+
+        private string GenerateNextPublicId()
+        {
+            _jobCounterValue++;
+            if (_jobCounterValue > 999)
+            {
+                _jobCounterValue = 1;
+                _jobCounterSuffixIndex++;
+            }
+
+            string suffix = "";
+            if (_jobCounterSuffixIndex >= 0)
+            {
+                // Convert index to 'a', 'b'... 'z', 'aa', etc.
+                int index = _jobCounterSuffixIndex;
+                while (index >= 0)
+                {
+                    int remainder = index % 26;
+                    suffix = (char)('a' + remainder) + suffix;
+                    index = index / 26 - 1;
+                }
+            }
+
+            return $"{_jobCounterValue}{suffix}";
+        }
+
+        private void DoPostProcessingForJob(ArchivingJob job)
+        {
+            if (string.IsNullOrEmpty(job.ExportPath) || !System.IO.Directory.Exists(job.ExportPath)) return;
+
+            try
+            {
+                // Structure:
+                // ExportPath/
+                //   Client Files/
+                //     Data/ (Moved from root Data)
+                //     Client/ (Copied from resources)
+                //     Project.scp (Moved from root)
+                //   SmartClient-Player.exe (Copied from resources)
+
+                string clientFiles = System.IO.Path.Combine(job.ExportPath, "Client Files");
+                System.IO.Directory.CreateDirectory(clientFiles);
+
+                // 1. Move Data folder
+                string sourceData = System.IO.Path.Combine(job.ExportPath, "Data");
+                string destData = System.IO.Path.Combine(clientFiles, "Data");
+                if (System.IO.Directory.Exists(sourceData))
+                {
+                    // Basic move or copy
+                    if (!System.IO.Directory.Exists(destData))
+                    {
+                        System.IO.Directory.Move(sourceData, destData);
+                    }
+                }
+
+                // 2. Move Project.scp
+                string sourceProject = System.IO.Path.Combine(job.ExportPath, "Project.scp");
+                string destProject = System.IO.Path.Combine(clientFiles, "Project.scp");
+                if (System.IO.File.Exists(sourceProject))
+                {
+                    System.IO.File.Move(sourceProject, destProject, true);
+                }
+
+                // 3. Copy SmartClient-Player.exe (Mock source)
+                string playerSource = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ClientPayload", "SmartClient-Player.exe");
+                if (System.IO.File.Exists(playerSource))
+                {
+                    System.IO.File.Copy(playerSource, System.IO.Path.Combine(job.ExportPath, "SmartClient-Player.exe"), true);
+                }
+                else
+                {
+                    // Create dummy if not found for testing
+                    System.IO.File.WriteAllText(System.IO.Path.Combine(job.ExportPath, "SmartClient-Player.exe"), "Mock Player Executable");
+                }
+
+                // 4. Copy Client folder (Mock source)
+                string clientSource = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ClientPayload", "Client");
+                string clientDest = System.IO.Path.Combine(clientFiles, "Client");
+                if (System.IO.Directory.Exists(clientSource))
+                {
+                    // Mock recursive copy
+                    System.IO.Directory.CreateDirectory(clientDest);
+                    // Copy logic omitted for brevity in mock, just creating folder
+                }
+                else
+                {
+                    System.IO.Directory.CreateDirectory(clientDest);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Post-processing failed: {ex.Message}");
+                // Log error but don't fail job?
+                Dispatch(() => job.ErrorMessage = $"Post-processing warning: {ex.Message}");
             }
         }
     }

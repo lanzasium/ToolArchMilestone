@@ -9,9 +9,14 @@ namespace ToolArchMilestone.Core.Models
     public class ArchivingJob : INotifyPropertyChanged
     {
         [Key]
-        public int Id { get; set; } // ID Job (Numero di lancio / Tool management) - AutoIncrement by DB
+        public int Id { get; set; } // Internal DB ID
+
+        public string? PublicJobId { get; set; } // "1a", "1b" etc. as per legacy logic
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? StartedAt { get; set; }
+        public DateTime? CompletedAt { get; set; }
+        public DateTime? LastActivity { get; set; }
 
         // Configuration
         public ArchiveType ArchiveType { get; set; }
@@ -19,22 +24,29 @@ namespace ToolArchMilestone.Core.Models
 
         // Server Specific
         public string? ServerAddress { get; set; }
-        public string? CameraName { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public string? CameraName { get; set; } // Telecamera
+
+        // Interval requested
+        public DateTime StartTime { get; set; } // Inizio
+        public DateTime EndTime { get; set; }   // Fine
 
         // Legal / Common
         public string? CriminalProceeding { get; set; } // Procedimento Penale
         public string? Magistrate { get; set; } // Magistrato
         public string? RitSpec { get; set; } // RIT/SPEC
+        public string? Procura { get; set; } // Procura
 
         public string? WorkId { get; set; } // ID Lavoro (Fatturazione RCS)
 
         public string? Target { get; set; }
         public string? Password { get; set; }
-        public string? ExportPath { get; set; }
+        public string? ExportPath { get; set; } // Cartella di esportazione
+        public string? Note { get; set; }
 
-        public string? GeneratedFilePath { get; set; } // Specific file created by the export
+        // Results
+        public string? GeneratedFilePath { get; set; }
+        public string? Duration { get; set; } // Durata
+        public string? Size { get; set; } // Dimensione formatted string or bytes? Legacy uses string.
 
         // State
         private JobStatus _status = JobStatus.Pending;
@@ -58,7 +70,8 @@ namespace ToolArchMilestone.Core.Models
             set { _errorMessage = value; OnPropertyChanged(); }
         }
 
-        // Logs
+        // Logs - kept in separate table usually, but maybe helpful here for runtime
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped] // Assuming EF or ignore for SQLite if simple
         public List<LogEntry> Logs { get; set; } = new List<LogEntry>();
 
         public event PropertyChangedEventHandler? PropertyChanged;
