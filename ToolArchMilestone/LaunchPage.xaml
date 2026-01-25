@@ -65,7 +65,8 @@
 
                             <Border x:Name="RootBorder" CornerRadius="18" BorderBrush="#333" BorderThickness="1" Background="Transparent">
                                 <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <SymbolIcon x:Name="CheckIcon" Symbol="Accept" Foreground="White" Width="0" Opacity="0" Margin="0,0,4,0"/>
+                                    <!-- Use FontIcon instead of SymbolIcon for consistency and avoiding errors -->
+                                    <FontIcon x:Name="CheckIcon" Glyph="&#xE73E;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="White" Width="0" Opacity="0" Margin="0,0,4,0" FontSize="12"/>
                                     <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Border>
@@ -85,7 +86,7 @@
         <!-- === HEADER SECTION === -->
         <StackPanel Spacing="16" Margin="0,0,0,32">
             <StackPanel Spacing="4">
-                <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="32" FontWeight="Bold" Foreground="White" LetterSpacing="0.05"/>
+                <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="32" FontWeight="Bold" Foreground="White" CharacterSpacing="50"/>
                 <TextBlock Text="Configura i parametri per avviare l'esportazione" FontSize="14" Foreground="{StaticResource TextSecondary}"/>
             </StackPanel>
 
@@ -134,7 +135,7 @@
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0">
                                             <Button Content="Connetti" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="32" FontSize="12" Margin="0,0,4,0"/>
                                             <Button Style="{StaticResource MaterialIconButtonStyle}" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ServerAddress" ToolTipService.ToolTip="Fissa Valore">
-                                                <SymbolIcon Symbol="Pin" FontSize="14"/>
+                                                <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                             </Button>
                                         </StackPanel>
                                     </Grid>
@@ -149,7 +150,7 @@
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0">
                                         <Button Content="Seleziona" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="32" FontSize="12" Margin="0,0,4,0"/>
                                         <Button Style="{StaticResource MaterialIconButtonStyle}" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="CameraName" ToolTipService.ToolTip="Fissa Valore">
-                                            <SymbolIcon Symbol="Pin" FontSize="14"/>
+                                            <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                         </Button>
                                     </StackPanel>
                                 </Grid>
@@ -176,7 +177,7 @@
                                         <Grid>
                                             <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.StartDateString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}"/>
                                             <Button Style="{StaticResource MaterialIconButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,4,0">
-                                                <SymbolIcon Symbol="Calendar" Foreground="{StaticResource MilestoneBlue}"/>
+                                                <FontIcon Glyph="&#xE787;" Foreground="{StaticResource MilestoneBlue}" FontSize="16"/>
                                                 <Button.Flyout>
                                                     <Flyout>
                                                         <StackPanel Spacing="8">
@@ -195,7 +196,7 @@
                                         <Grid>
                                             <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.EndDateString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}"/>
                                             <Button Style="{StaticResource MaterialIconButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,4,0">
-                                                <SymbolIcon Symbol="Calendar" Foreground="{StaticResource MilestoneBlue}"/>
+                                                <FontIcon Glyph="&#xE787;" Foreground="{StaticResource MilestoneBlue}" FontSize="16"/>
                                                 <Button.Flyout>
                                                     <Flyout>
                                                         <StackPanel Spacing="8">
@@ -214,10 +215,12 @@
 
                             <!-- Custom Drop Area -->
                             <Grid Grid.Column="1" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop">
-                                <Border Background="#252525" BorderBrush="#444" BorderThickness="1" CornerRadius="8" StrokeDashArray="4,4"/>
+                                <!-- Dashed Border using Rectangle StrokeDashArray -->
+                                <Rectangle Stroke="#444" StrokeThickness="1" StrokeDashArray="4 2" RadiusX="8" RadiusY="8" Fill="#252525"/>
+
                                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="8">
                                     <Viewbox Width="32" Height="32">
-                                        <SymbolIcon Symbol="Document" Foreground="{StaticResource MilestoneBlue}"/>
+                                        <FontIcon Glyph="&#xE8E5;" Foreground="{StaticResource MilestoneBlue}"/>
                                     </Viewbox>
                                     <TextBlock Text="Trascina TXT qui" FontSize="12" Foreground="{StaticResource TextSecondary}" HorizontalAlignment="Center"/>
 
@@ -227,10 +230,10 @@
                                     <!-- Imported File Indicator -->
                                     <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.IsFileImported, Mode=OneWay, Converter={StaticResource BoolToVis}}"
                                                 Background="#334433" Padding="8,4" CornerRadius="12" HorizontalAlignment="Center" Spacing="6" Margin="0,8,0,0">
-                                        <SymbolIcon Symbol="Check" Foreground="#4CAF50" FontSize="12"/>
+                                        <FontIcon Glyph="&#xE73E;" Foreground="#4CAF50" FontSize="12"/>
                                         <TextBlock Text="{x:Bind ViewModel.ImportedFileName, Mode=OneWay}" FontSize="11" Foreground="#81C784" FontWeight="Bold" MaxWidth="80" TextTrimming="CharacterEllipsis"/>
                                         <Button Background="Transparent" Padding="0" Width="16" Height="16" Command="{x:Bind ViewModel.RemoveImportedFileCommand}">
-                                            <SymbolIcon Symbol="Cancel" Foreground="#E57373" FontSize="12"/>
+                                            <FontIcon Glyph="&#xE711;" Foreground="#E57373" FontSize="12"/>
                                         </Button>
                                     </StackPanel>
                                 </StackPanel>
@@ -294,7 +297,7 @@
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0">
                                         <Button Content="Genera" Command="{x:Bind ViewModel.GeneratePasswordCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="32" FontSize="12" Margin="0,0,4,0"/>
                                         <Button Style="{StaticResource MaterialIconButtonStyle}" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="Password" ToolTipService.ToolTip="Fissa Valore">
-                                            <SymbolIcon Symbol="Pin" FontSize="14"/>
+                                            <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                         </Button>
                                     </StackPanel>
                                 </Grid>
@@ -308,7 +311,7 @@
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0">
                                         <Button Content="Sfoglia" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="32" FontSize="12" Margin="0,0,4,0"/>
                                         <Button Style="{StaticResource MaterialIconButtonStyle}" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ExportPath" ToolTipService.ToolTip="Fissa Valore">
-                                            <SymbolIcon Symbol="Pin" FontSize="14"/>
+                                            <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                         </Button>
                                     </StackPanel>
                                 </Grid>
@@ -320,7 +323,7 @@
                 <!-- MAIN ACTION -->
                 <Button Command="{x:Bind ViewModel.LaunchCommand}" Style="{StaticResource MaterialPrimaryButtonStyle}" HorizontalAlignment="Stretch" Margin="0,16,0,32">
                     <StackPanel Orientation="Horizontal" Spacing="12">
-                        <SymbolIcon Symbol="Play" Foreground="White"/>
+                        <FontIcon Glyph="&#xE768;" Foreground="White" FontSize="16"/>
                         <TextBlock Text="AVVIA ARCHIVIAZIONE" Foreground="White"/>
                     </StackPanel>
                 </Button>

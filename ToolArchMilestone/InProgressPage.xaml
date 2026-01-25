@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Spacing="4" Margin="0,0,0,24">
-            <TextBlock Text="ARCHIVIAZIONI IN CORSO" FontSize="28" FontWeight="Bold" Foreground="White" LetterSpacing="0.05"/>
+            <TextBlock Text="ARCHIVIAZIONI IN CORSO" FontSize="28" FontWeight="Bold" Foreground="White" CharacterSpacing="50"/>
             <TextBlock Text="Gestione della coda di esportazione" FontSize="14" Foreground="{StaticResource TextSecondary}"/>
         </StackPanel>
 
@@ -95,8 +95,12 @@
                                  <Button Content="Stop" Background="#E53935" Foreground="White" Padding="12,0" Height="32" CornerRadius="16" FontSize="12" Command="{Binding ElementName=RootPage, Path=ViewModel.StopJobCommand}" CommandParameter="{x:Bind Id}"/>
 
                                  <StackPanel Orientation="Horizontal" Spacing="2">
-                                     <Button Content="▲" Style="{StaticResource MaterialIconButtonStyle}" Width="32" Height="32" FontSize="12" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveUpCommand}" CommandParameter="{x:Bind Id}"/>
-                                     <Button Content="▼" Style="{StaticResource MaterialIconButtonStyle}" Width="32" Height="32" FontSize="12" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveDownCommand}" CommandParameter="{x:Bind Id}"/>
+                                     <Button Style="{StaticResource MaterialIconButtonStyle}" Width="32" Height="32" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveUpCommand}" CommandParameter="{x:Bind Id}">
+                                        <FontIcon Glyph="&#xE70E;" FontSize="12"/> <!-- Up Arrow -->
+                                     </Button>
+                                     <Button Style="{StaticResource MaterialIconButtonStyle}" Width="32" Height="32" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveDownCommand}" CommandParameter="{x:Bind Id}">
+                                        <FontIcon Glyph="&#xE70D;" FontSize="12"/> <!-- Down Arrow -->
+                                     </Button>
                                  </StackPanel>
                             </StackPanel>
 
