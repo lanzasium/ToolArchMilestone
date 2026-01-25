@@ -102,7 +102,7 @@ namespace ToolArchMilestone.Core.ViewModels
 
         // String Bindings for UI
         [ObservableProperty]
-        private string _startDateString;
+        private string _startDateString = string.Empty;
 
         partial void OnStartDateStringChanged(string value)
         {
@@ -115,7 +115,7 @@ namespace ToolArchMilestone.Core.ViewModels
         }
 
         [ObservableProperty]
-        private string _endDateString;
+        private string _endDateString = string.Empty;
 
         partial void OnEndDateStringChanged(string value)
         {

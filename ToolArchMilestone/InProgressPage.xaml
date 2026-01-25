@@ -55,7 +55,7 @@
 
                                     <!-- ID Badge -->
                                     <Border Background="{StaticResource MilestoneBlue}" CornerRadius="10" Padding="8,2">
-                                        <TextBlock Text="{x:Bind PublicJobId, TargetNullValue={x:Bind Id}}" FontWeight="Bold" Foreground="White" FontSize="11"/>
+                                        <TextBlock Text="{x:Bind DisplayId}" FontWeight="Bold" Foreground="White" FontSize="11"/>
                                     </Border>
 
                                     <TextBlock Text="{x:Bind CameraName}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="13"/>

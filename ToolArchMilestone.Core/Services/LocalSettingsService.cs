@@ -1,61 +1,89 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
+using ToolArchMilestone.Core.Services.Interfaces;
 
 namespace ToolArchMilestone.Core.Services
 {
-    public interface ISettingsService
-    {
-        Task<string?> GetSettingAsync(string key);
-        Task SaveSettingAsync(string key, string value);
-    }
-
     public class LocalSettingsService : ISettingsService
     {
-        private readonly string _settingsPath;
+        private const string SettingsFileName = "local_settings.json";
+        private readonly string _settingsFolder;
+        private readonly string _settingsFile;
+        private Dictionary<string, object> _settings;
 
         public LocalSettingsService()
         {
-            var folder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var appFolder = Path.Combine(folder, "ToolArchMilestone");
-            Directory.CreateDirectory(appFolder);
-            _settingsPath = Path.Combine(appFolder, "settings.json");
+            _settingsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ToolArchMilestone");
+            _settingsFile = Path.Combine(_settingsFolder, SettingsFileName);
+            _settings = new Dictionary<string, object>();
+        }
+
+        public async Task InitializeAsync()
+        {
+            if (!Directory.Exists(_settingsFolder))
+            {
+                Directory.CreateDirectory(_settingsFolder);
+            }
+
+            if (File.Exists(_settingsFile))
+            {
+                try
+                {
+                    var json = await File.ReadAllTextAsync(_settingsFile);
+                    _settings = JsonSerializer.Deserialize<Dictionary<string, object>>(json) ?? new Dictionary<string, object>();
+                }
+                catch
+                {
+                    _settings = new Dictionary<string, object>();
+                }
+            }
+        }
+
+        public async Task<T?> GetSettingAsync<T>(string key)
+        {
+            if (_settings.TryGetValue(key, out var obj))
+            {
+                if (obj is JsonElement element)
+                {
+                    return element.Deserialize<T>();
+                }
+                return (T)obj;
+            }
+            return default;
+        }
+
+        public async Task SaveSettingAsync<T>(string key, T value)
+        {
+            if (value == null)
+            {
+                _settings.Remove(key);
+            }
+            else
+            {
+                _settings[key] = value;
+            }
+
+            await SaveToFileAsync();
         }
 
         public async Task<string?> GetSettingAsync(string key)
         {
-            if (!File.Exists(_settingsPath)) return null;
-            try
-            {
-                var json = await File.ReadAllTextAsync(_settingsPath);
-                var dict = JsonSerializer.Deserialize<System.Collections.Generic.Dictionary<string, string>>(json);
-                if (dict != null && dict.TryGetValue(key, out var val)) return val;
-            }
-            catch { }
-            return null;
+            return await GetSettingAsync<string>(key);
         }
 
         public async Task SaveSettingAsync(string key, string value)
         {
-            System.Collections.Generic.Dictionary<string, string> dict = null;
-            if (File.Exists(_settingsPath))
-            {
-                try
-                {
-                    var json = await File.ReadAllTextAsync(_settingsPath);
-                    dict = JsonSerializer.Deserialize<System.Collections.Generic.Dictionary<string, string>>(json);
-                }
-                catch { }
-            }
+            await SaveSettingAsync<string>(key, value);
+        }
 
-            if (dict == null) dict = new System.Collections.Generic.Dictionary<string, string>();
-
-            dict[key] = value;
-
+        private async Task SaveToFileAsync()
+        {
             var options = new JsonSerializerOptions { WriteIndented = true };
-            var output = JsonSerializer.Serialize(dict, options);
-            await File.WriteAllTextAsync(_settingsPath, output);
+            var json = JsonSerializer.Serialize(_settings, options);
+            await File.WriteAllTextAsync(_settingsFile, json);
         }
     }
 }

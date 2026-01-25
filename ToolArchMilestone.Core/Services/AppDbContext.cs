@@ -8,7 +8,7 @@ namespace ToolArchMilestone.Core.Services
         public DbSet<ArchivingJob> Jobs { get; set; }
         public DbSet<LogEntry> Logs { get; set; }
 
-        private readonly string _dbPath;
+        private readonly string? _dbPath;
 
         public AppDbContext()
         {

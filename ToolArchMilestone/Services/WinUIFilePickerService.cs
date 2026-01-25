@@ -8,11 +8,12 @@ namespace ToolArchMilestone.Services
 {
     public class WinUIFilePickerService : IFilePickerService
     {
-        public async Task<string?> PickSingleFileAsync(string[] fileTypes)
+        public async Task<string> PickSingleFileAsync(string[] fileTypes)
         {
             var picker = new FileOpenPicker();
 
             // WinUI 3 Window Handle hack for pickers
+            // App.Window is set in App.xaml.cs
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.Window);
             WinRT.Interop.InitializeWithWindow.Initialize(picker, hwnd);
 
@@ -25,7 +26,21 @@ namespace ToolArchMilestone.Services
             }
 
             var file = await picker.PickSingleFileAsync();
-            return file?.Path;
+            return file?.Path ?? string.Empty;
+        }
+
+        public async Task<string> PickSingleFolderAsync()
+        {
+            var picker = new FolderPicker();
+
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.Window);
+            WinRT.Interop.InitializeWithWindow.Initialize(picker, hwnd);
+
+            picker.SuggestedStartLocation = PickerLocationId.ComputerFolder;
+            picker.FileTypeFilter.Add("*");
+
+            var folder = await picker.PickSingleFolderAsync();
+            return folder?.Path ?? string.Empty;
         }
     }
 }

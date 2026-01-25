@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using ToolArchMilestone.Core.Helpers;
 using ToolArchMilestone.Core.Models;
 using ToolArchMilestone.Core.Services.Interfaces;
 
@@ -13,6 +14,7 @@ namespace ToolArchMilestone.Core.ViewModels
     public partial class HistoryViewModel : ObservableObject
     {
         private readonly IJobManager _jobManager;
+        private readonly IFilePickerService _filePicker;
 
         public ObservableCollection<ArchivingJob> Jobs { get; } = new ObservableCollection<ArchivingJob>();
 
@@ -24,9 +26,10 @@ namespace ToolArchMilestone.Core.ViewModels
             Refilter();
         }
 
-        public HistoryViewModel(IJobManager jobManager)
+        public HistoryViewModel(IJobManager jobManager, IFilePickerService filePicker)
         {
             _jobManager = jobManager;
+            _filePicker = filePicker;
             SyncJobs();
 
             if (_jobManager.Jobs is ObservableCollection<ArchivingJob> obsJobs)
@@ -121,6 +124,27 @@ namespace ToolArchMilestone.Core.ViewModels
         public async Task DeleteJobWithFile(int jobId)
         {
             await _jobManager.DeleteJobAsync(jobId, true);
+        }
+
+        [RelayCommand]
+        public async Task CreateSit(int jobId)
+        {
+            var job = _jobManager.Jobs.FirstOrDefault(j => j.Id == jobId);
+            if (job == null) return;
+
+            // Pick Template
+            var templatePath = await _filePicker.PickSingleFileAsync(new[] { ".docx" });
+            if (string.IsNullOrEmpty(templatePath)) return;
+
+            try
+            {
+                SitDocumentHelper.CreateSitDocument(job, templatePath);
+                // Optionally show success message (via status property or dispatcher)
+            }
+            catch (Exception)
+            {
+                // Optionally show error
+            }
         }
     }
 }

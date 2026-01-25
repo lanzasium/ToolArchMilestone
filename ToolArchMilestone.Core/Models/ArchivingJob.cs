@@ -13,6 +13,9 @@ namespace ToolArchMilestone.Core.Models
 
         public string? PublicJobId { get; set; } // "1a", "1b" etc. as per legacy logic
 
+        // Helper for UI binding to avoid nested x:Bind
+        public string DisplayId => !string.IsNullOrEmpty(PublicJobId) ? PublicJobId : Id.ToString();
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? StartedAt { get; set; }
         public DateTime? CompletedAt { get; set; }
