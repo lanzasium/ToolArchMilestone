@@ -8,9 +8,9 @@
     Title="Tool Arch Milestone">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <NavigationView x:Name="NavView"
-                        PaneDisplayMode="Top"
-                        SelectionChanged="NavView_SelectionChanged"
+        <NavigationView x:Name="NavView" 
+                        PaneDisplayMode="Top" 
+                        SelectionChanged="NavView_SelectionChanged" 
                         Loaded="NavView_Loaded">
             <NavigationView.MenuItems>
                 <NavigationViewItem Tag="Launch" Content="LANCIO" Icon="Play" />

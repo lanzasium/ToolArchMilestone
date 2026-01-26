@@ -13,9 +13,9 @@ namespace ToolArchMilestone
         public MainWindow()
         {
             this.InitializeComponent();
-
+            
             // Set initial size
-            try
+            try 
             {
                 var appWindow = GetAppWindowForCurrentWindow();
                 if (appWindow != null)
@@ -41,7 +41,7 @@ namespace ToolArchMilestone
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
-            try
+            try 
             {
                 NavView.SelectedItem = NavView.MenuItems.Cast<NavigationViewItem>().First();
                 Navigate("Launch");

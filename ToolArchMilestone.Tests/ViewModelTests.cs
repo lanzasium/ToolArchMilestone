@@ -10,9 +10,14 @@ namespace ToolArchMilestone.Tests
 {
     public class MockFilePicker : IFilePickerService
     {
-        public Task<string?> PickSingleFileAsync(string[] fileTypes)
+        public Task<string> PickSingleFileAsync(string[] fileTypes)
         {
-            return Task.FromResult<string?>(null);
+            return Task.FromResult(string.Empty);
+        }
+
+        public Task<string> PickSingleFolderAsync()
+        {
+            return Task.FromResult(string.Empty);
         }
     }
 
@@ -26,8 +31,9 @@ namespace ToolArchMilestone.Tests
             var milestone = new MockMilestoneService();
             var manager = new JobManager(db, milestone);
             var picker = new MockFilePicker();
+            var settings = new LocalSettingsService();
 
-            var vm = new LaunchViewModel(manager, picker);
+            var vm = new LaunchViewModel(manager, picker, milestone, settings);
 
             Assert.NotNull(vm);
             vm.ServerAddress = "127.0.0.1";

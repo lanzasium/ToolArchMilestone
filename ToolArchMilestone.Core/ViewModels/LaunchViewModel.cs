@@ -45,6 +45,12 @@ namespace ToolArchMilestone.Core.ViewModels
 
             var path = await _settings.GetSettingAsync(nameof(ExportPath));
             if (path != null) ExportPath = path;
+
+            var archivePath = await _settings.GetSettingAsync(nameof(ArchivePath));
+            if (archivePath != null) ArchivePath = archivePath;
+
+            var archiveCamera = await _settings.GetSettingAsync(nameof(ArchiveCameraName));
+            if (archiveCamera != null) ArchiveCameraName = archiveCamera;
         }
 
         // --- Selection ---
@@ -61,6 +67,7 @@ namespace ToolArchMilestone.Core.ViewModels
                 if (value && SelectedSourceType != SourceType.Server)
                 {
                     SelectedSourceType = SourceType.Server;
+                    System.Diagnostics.Debug.WriteLine("DEBUG: Switched to SERVER mode");
                 }
             }
         }
@@ -73,6 +80,7 @@ namespace ToolArchMilestone.Core.ViewModels
                 if (value && SelectedSourceType != SourceType.Archive)
                 {
                     SelectedSourceType = SourceType.Archive;
+                    System.Diagnostics.Debug.WriteLine("DEBUG: Switched to ARCHIVE mode");
                 }
             }
         }
@@ -94,6 +102,26 @@ namespace ToolArchMilestone.Core.ViewModels
 
         [ObservableProperty]
         private string? _cameraName;
+
+        // --- Archive Fields ---
+        [ObservableProperty]
+        private string? _archivePath;
+
+        partial void OnArchivePathChanged(string? value)
+        {
+            System.Diagnostics.Debug.WriteLine($"DEBUG: ArchivePath changed to: {value}");
+        }
+
+        [ObservableProperty]
+        private string? _archiveCameraName;
+
+        partial void OnArchiveCameraNameChanged(string? value)
+        {
+            System.Diagnostics.Debug.WriteLine($"DEBUG: ArchiveCameraName changed to: {value}");
+        }
+
+        [ObservableProperty]
+        private List<string>? _archiveCameras = new List<string>();
 
         // Internal Dates
         [ObservableProperty] private DateTime _startTime = DateTime.Now;
@@ -247,6 +275,99 @@ namespace ToolArchMilestone.Core.ViewModels
         }
 
         [RelayCommand]
+        public async Task BrowseArchive()
+        {
+            try
+            {
+                StatusMessage = "Seleziona file archivio o cartella...";
+
+                // Prima prova a selezionare un file (.scp, .xpco)
+                var archiveFile = await _filePicker.PickSingleFileAsync(new[] { ".scp", ".xpco", ".db" });
+
+                if (!string.IsNullOrEmpty(archiveFile))
+                {
+                    ArchivePath = archiveFile;
+                    StatusMessage = $"Archivio selezionato: {Path.GetFileName(archiveFile)}";
+
+                    // Prova a scoprire automaticamente le telecamere
+                    await DiscoverArchiveCameras();
+                }
+                else
+                {
+                    // Se non ha selezionato un file, prova con una cartella
+                    var archiveFolder = await _filePicker.PickSingleFolderAsync();
+                    if (!string.IsNullOrEmpty(archiveFolder))
+                    {
+                        ArchivePath = archiveFolder;
+                        StatusMessage = $"Cartella archivio selezionata: {Path.GetFileName(archiveFolder)}";
+
+                        // Prova a scoprire automaticamente le telecamere
+                        await DiscoverArchiveCameras();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Errore selezione archivio: {ex.Message}";
+            }
+        }
+
+        [RelayCommand]
+        public async Task DiscoverArchiveCameras()
+        {
+            if (string.IsNullOrWhiteSpace(ArchivePath))
+            {
+                StatusMessage = "Seleziona prima un archivio.";
+                return;
+            }
+
+            try
+            {
+                StatusMessage = "Scoperta telecamere in corso...";
+
+                // Per ora simuliamo la scoperta, ma in produzione dovrebbe
+                // caricare l'archivio e ottenere le telecamere reali
+                var cameras = await SimulateArchiveCameraDiscovery(ArchivePath);
+                ArchiveCameras = cameras;
+
+                if (cameras.Any())
+                {
+                    StatusMessage = $"Trovate {cameras.Count} telecamere nell'archivio.";
+
+                    // Auto-seleziona la prima telecamera
+                    ArchiveCameraName = cameras.First();
+                }
+                else
+                {
+                    StatusMessage = "Nessuna telecamera trovata nell'archivio.";
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Errore scoperta telecamere: {ex.Message}";
+            }
+        }
+
+        private async Task<List<string>> SimulateArchiveCameraDiscovery(string archivePath)
+        {
+            await Task.Delay(1000); // Simula caricamento archivio
+
+            // In produzione, qui dovrebbe:
+            // 1. Caricare l'archivio usando VideoOS.Platform.SDK.Environment.AddServer()
+            // 2. Ottenere Configuration.Instance.GetItemsByKind(Kind.Camera)
+            // 3. Restituire i nomi reali delle telecamere
+
+            var fileName = Path.GetFileName(archivePath);
+            return new List<string>
+            {
+                $"Telecamera 01 - Ingresso ({fileName})",
+                $"Telecamera 02 - Reception ({fileName})",
+                $"Telecamera 03 - Parcheggio ({fileName})",
+                $"Telecamera 04 - Uscita ({fileName})"
+            };
+        }
+
+        [RelayCommand]
         public async Task ImportIntervalsFromFile()
         {
              var filePath = await _filePicker.PickSingleFileAsync(new[] { ".txt" });
@@ -281,12 +402,14 @@ namespace ToolArchMilestone.Core.ViewModels
         public async Task PinField(string fieldName)
         {
             string value = "";
-            switch(fieldName)
+            switch (fieldName)
             {
                 case nameof(ServerAddress): value = ServerAddress; break;
                 case nameof(CameraName): value = CameraName; break;
                 case nameof(Password): value = Password; break;
                 case nameof(ExportPath): value = ExportPath; break;
+                case nameof(ArchivePath): value = ArchivePath; break;
+                case nameof(ArchiveCameraName): value = ArchiveCameraName; break;
             }
 
             if (!string.IsNullOrEmpty(value))
@@ -347,16 +470,24 @@ namespace ToolArchMilestone.Core.ViewModels
             }
             if (IsServer && !IsConnected)
             {
-                // Optional: Force connect?
                 // StatusMessage = "Non connesso al server.";
                 // return false;
+            }
+            if (IsArchive && string.IsNullOrWhiteSpace(ArchivePath))
+            {
+                StatusMessage = "Percorso archivio obbligatorio.";
+                return false;
+            }
+            if (IsArchive && string.IsNullOrWhiteSpace(ArchiveCameraName))
+            {
+                StatusMessage = "Seleziona una telecamera dall'archivio.";
+                return false;
             }
             if (string.IsNullOrWhiteSpace(ExportPath))
             {
                 StatusMessage = "Percorso di esportazione obbligatorio.";
                 return false;
             }
-            // Add other mandatory fields validation logic here
             return true;
         }
 
@@ -394,8 +525,8 @@ namespace ToolArchMilestone.Core.ViewModels
             {
                 ArchiveType = SelectedArchiveType,
                 SourceType = SelectedSourceType,
-                ServerAddress = ServerAddress,
-                CameraName = CameraName ?? "Unknown Camera",
+                ServerAddress = SelectedSourceType == SourceType.Server ? ServerAddress : ArchivePath,
+                CameraName = SelectedSourceType == SourceType.Server ? (CameraName ?? "Unknown Camera") : (ArchiveCameraName ?? "Unknown Archive Camera"),
                 StartTime = start,
                 EndTime = end,
                 CriminalProceeding = CriminalProceeding,

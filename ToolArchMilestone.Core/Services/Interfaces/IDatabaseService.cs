@@ -13,7 +13,7 @@ namespace ToolArchMilestone.Core.Services.Interfaces
         Task SaveJobAsync(ArchivingJob job);
         Task UpdateJobAsync(ArchivingJob job);
         Task DeleteJobAsync(int id);
-
+        
         Task AddLogAsync(LogEntry log);
         Task<List<LogEntry>> GetLogsForJobAsync(int jobId);
     }

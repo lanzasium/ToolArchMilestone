@@ -11,7 +11,7 @@ namespace ToolArchMilestone.Core.Helpers
         public static async Task Populate(IJobManager jobManager)
         {
             // Populate In Progress
-
+            
             var job1 = new ArchivingJob
             {
                 WorkId = "DEMO-RUNNING",
@@ -23,14 +23,14 @@ namespace ToolArchMilestone.Core.Helpers
                 Target = "Suspect 1",
                 SourceType = SourceType.Server,
                 ServerAddress = "192.168.1.10",
-                Logs = new List<LogEntry>
-                {
+                Logs = new List<LogEntry> 
+                { 
                     new LogEntry { Timestamp = DateTime.Now.AddMinutes(-10), Message = "Connection established." },
                     new LogEntry { Timestamp = DateTime.Now.AddMinutes(-5), Message = "Export started." }
                 }
             };
             await jobManager.AddJobAsync(job1);
-
+            
             // Explicitly set Running so it appears in the tab, but do NOT let the loop pick it up as "Pending".
             // Since AddJobAsync sets Pending, we update it here.
             // The JobManager loop ignores "Running" jobs (it only picks "Pending").
@@ -51,7 +51,7 @@ namespace ToolArchMilestone.Core.Helpers
             await jobManager.AddJobAsync(job2);
 
             // Populate History
-
+            
             var job3 = new ArchivingJob
             {
                 WorkId = "HIST-COMPLETED",
@@ -62,8 +62,8 @@ namespace ToolArchMilestone.Core.Helpers
                 EndTime = DateTime.Now.AddDays(-1).AddHours(1),
                 ExportPath = "C:\\Exports\\Job3.avi",
                 Target = "Vehicle A",
-                Logs = new List<LogEntry>
-                {
+                Logs = new List<LogEntry> 
+                { 
                     new LogEntry { Timestamp = DateTime.Now.AddDays(-1), Message = "Export completed successfully." }
                 }
             };
@@ -79,8 +79,8 @@ namespace ToolArchMilestone.Core.Helpers
                 StartTime = DateTime.Now.AddDays(-2),
                 EndTime = DateTime.Now.AddDays(-2).AddHours(4),
                 Target = "Check B",
-                Logs = new List<LogEntry>
-                {
+                Logs = new List<LogEntry> 
+                { 
                     new LogEntry { Timestamp = DateTime.Now.AddDays(-2), Message = "Error: Connection timed out after 3 retries.", Level = "Error" }
                 }
             };

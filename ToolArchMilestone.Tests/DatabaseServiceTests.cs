@@ -22,7 +22,7 @@ namespace ToolArchMilestone.Tests
         public async Task SaveAndGetJob_ShouldWork()
         {
             await _service.InitializeAsync();
-
+            
             var job = new ArchivingJob
             {
                 Target = "Test Target",
@@ -49,16 +49,16 @@ namespace ToolArchMilestone.Tests
             var updatedJob = await _service.GetJobByIdAsync(job.Id);
             Assert.Equal("Updated", updatedJob.Target);
         }
-
+        
         [Fact]
         public async Task DeleteJob_ShouldWork()
         {
             await _service.InitializeAsync();
             var job = new ArchivingJob { Target = "DeleteMe" };
             await _service.SaveJobAsync(job);
-
+            
             await _service.DeleteJobAsync(job.Id);
-
+            
             var deletedJob = await _service.GetJobByIdAsync(job.Id);
             Assert.Null(deletedJob);
         }

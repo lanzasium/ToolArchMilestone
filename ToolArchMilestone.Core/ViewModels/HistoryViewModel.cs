@@ -34,11 +34,11 @@ namespace ToolArchMilestone.Core.ViewModels
 
             if (_jobManager.Jobs is ObservableCollection<ArchivingJob> obsJobs)
             {
-                obsJobs.CollectionChanged += (s, e) =>
+                obsJobs.CollectionChanged += (s, e) => 
                 {
                     if (e.NewItems != null)
                         foreach (ArchivingJob item in e.NewItems) { MonitorJob(item); CheckAndAdd(item); }
-
+                    
                     if (e.OldItems != null)
                         foreach (ArchivingJob item in e.OldItems) Jobs.Remove(item);
                 };
@@ -56,7 +56,7 @@ namespace ToolArchMilestone.Core.ViewModels
 
         private void MonitorJob(ArchivingJob job)
         {
-             job.PropertyChanged += (s, e) =>
+             job.PropertyChanged += (s, e) => 
              {
                  if (e.PropertyName == nameof(ArchivingJob.Status))
                  {
@@ -70,7 +70,7 @@ namespace ToolArchMilestone.Core.ViewModels
         private void CheckAndAdd(ArchivingJob job)
         {
              bool isTerminated = job.Status == JobStatus.Completed || job.Status == JobStatus.Failed || job.Status == JobStatus.Stopped;
-
+             
              if (isTerminated && MatchesSearch(job))
              {
                  if (!Jobs.Contains(job)) Jobs.Add(job);
@@ -96,16 +96,16 @@ namespace ToolArchMilestone.Core.ViewModels
             if (string.IsNullOrWhiteSpace(SearchText)) return true;
 
             var term = SearchText.Trim().ToLower();
-
+            
             // Search fields: ID Job, ID Lavoro, Telecamera, Periodo, Procedimento, RIT/SPEC, Target
-
+            
             if (job.Id.ToString().Contains(term)) return true;
             if (job.WorkId?.ToLower().Contains(term) == true) return true;
             if (job.CameraName?.ToLower().Contains(term) == true) return true;
             if (job.CriminalProceeding?.ToLower().Contains(term) == true) return true;
             if (job.RitSpec?.ToLower().Contains(term) == true) return true;
             if (job.Target?.ToLower().Contains(term) == true) return true;
-
+            
             // Period check (start/end string representation)
             if (job.StartTime.ToString().Contains(term)) return true;
             if (job.EndTime.ToString().Contains(term)) return true;
@@ -119,7 +119,7 @@ namespace ToolArchMilestone.Core.ViewModels
             // By default false, UI can pass true later
             await _jobManager.DeleteJobAsync(jobId, false);
         }
-
+        
         [RelayCommand]
         public async Task DeleteJobWithFile(int jobId)
         {
@@ -136,7 +136,7 @@ namespace ToolArchMilestone.Core.ViewModels
             var templatePath = await _filePicker.PickSingleFileAsync(new[] { ".docx" });
             if (string.IsNullOrEmpty(templatePath)) return;
 
-            try
+            try 
             {
                 SitDocumentHelper.CreateSitDocument(job, templatePath);
                 // Optionally show success message (via status property or dispatcher)

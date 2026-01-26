@@ -55,38 +55,40 @@
                 <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
              </Style>
 
-             <!-- Compact Primary Button -->
+             <!-- Square Primary Button with Rounded Corners -->
              <Style x:Key="MaterialPrimaryButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="{StaticResource MilestoneBlue}"/>
                 <Setter Property="Foreground" Value="White"/>
-                <Setter Property="CornerRadius" Value="18"/> <!-- Reduced -->
-                <Setter Property="Height" Value="36"/> <!-- Reduced from 48 -->
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="MinHeight" Value="36"/>
+                <Setter Property="MinWidth" Value="80"/>
                 <Setter Property="FontSize" Value="13"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
-                <Setter Property="Padding" Value="16,0"/>
+                <Setter Property="Padding" Value="16,8"/>
                 <Setter Property="BorderThickness" Value="0"/>
              </Style>
 
-             <!-- Compact Secondary Button -->
+             <!-- Square Secondary Button with Rounded Corners -->
              <Style x:Key="MaterialSecondaryButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="Foreground" Value="{StaticResource MilestoneBlue}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource MilestoneBlue}"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="CornerRadius" Value="16"/>
-                <Setter Property="Height" Value="32"/> <!-- Reduced from 40 -->
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="MinHeight" Value="32"/>
+                <Setter Property="MinWidth" Value="70"/>
                 <Setter Property="FontSize" Value="12"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
-                <Setter Property="Padding" Value="12,0"/>
+                <Setter Property="Padding" Value="12,6"/>
              </Style>
 
-             <!-- Compact Icon Button -->
+             <!-- Square Icon Button with Rounded Corners -->
              <Style x:Key="MaterialIconButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
-                <Setter Property="Width" Value="32"/> <!-- Reduced from 40 -->
+                <Setter Property="Width" Value="32"/>
                 <Setter Property="Height" Value="32"/>
-                <Setter Property="CornerRadius" Value="16"/>
+                <Setter Property="CornerRadius" Value="6"/>
                 <Setter Property="Padding" Value="0"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -107,6 +109,47 @@
                 <Setter Property="FontSize" Value="11"/> <!-- Smaller label -->
                 <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
                 <Setter Property="Margin" Value="2,0,0,2"/> <!-- Tighter margin -->
+             </Style>
+
+             <!-- Square Danger Button with Rounded Corners (for delete actions) -->
+             <Style x:Key="MaterialDangerButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="#EF5350"/>
+                <Setter Property="BorderBrush" Value="#EF5350"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="MinHeight" Value="32"/>
+                <Setter Property="MinWidth" Value="70"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Padding" Value="12,6"/>
+             </Style>
+
+             <!-- Square Small Button with Rounded Corners (for compact areas) -->
+             <Style x:Key="MaterialSmallButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="{StaticResource MilestoneBlue}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource MilestoneBlue}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="6"/>
+                <Setter Property="MinHeight" Value="24"/>
+                <Setter Property="MinWidth" Value="50"/>
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Padding" Value="8,4"/>
+             </Style>
+
+             <!-- Square Critical Button with Rounded Corners (for critical delete actions) -->
+             <Style x:Key="MaterialCriticalButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#E53935"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="MinHeight" Value="32"/>
+                <Setter Property="MinWidth" Value="70"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Padding" Value="12,6"/>
              </Style>
 
         </ResourceDictionary>

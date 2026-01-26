@@ -15,8 +15,8 @@ namespace ToolArchMilestone
         public LaunchPage()
         {
             this.InitializeComponent();
-            var filePicker = new WinUIFilePickerService();
-            ViewModel = new LaunchViewModel(App.JobManager!, filePicker);
+            ViewModel = new LaunchViewModel(App.JobManager!, App.FilePicker!, App.MilestoneService!, App.SettingsService!);
+            this.DataContext = ViewModel;
         }
 
         private void DropArea_DragOver(object sender, DragEventArgs e)

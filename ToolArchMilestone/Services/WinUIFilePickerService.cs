@@ -11,7 +11,7 @@ namespace ToolArchMilestone.Services
         public async Task<string> PickSingleFileAsync(string[] fileTypes)
         {
             var picker = new FileOpenPicker();
-
+            
             // WinUI 3 Window Handle hack for pickers
             // App.Window is set in App.xaml.cs
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.Window);
@@ -19,7 +19,7 @@ namespace ToolArchMilestone.Services
 
             picker.ViewMode = PickerViewMode.List;
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-
+            
             foreach (var type in fileTypes)
             {
                 picker.FileTypeFilter.Add(type);
@@ -32,7 +32,7 @@ namespace ToolArchMilestone.Services
         public async Task<string> PickSingleFolderAsync()
         {
             var picker = new FolderPicker();
-
+            
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.Window);
             WinRT.Interop.InitializeWithWindow.Initialize(picker, hwnd);
 

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VideoOS.Platform.SDK.Media</name>
+    </assembly>
+    <members>
+        <member name="T:VideoOS.Platform.SDK.Media.Environment">
+            <summary>
+            The environment to be used for live sources as well as exports
+            </summary>
+        </member>
+        <member name="M:VideoOS.Platform.SDK.Media.Environment.Initialize">
+            <summary>
+            Initialize support for JPEGVideoSource, BitmapVideoSource, RawVideoSource and all 
+            sequence for video, alarts.  Also all exports need this class to be initialized.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -47,7 +47,7 @@ namespace ToolArchMilestone.Core.Helpers
             }
             return builder.ToString().Replace(' ', '_');
         }
-
+        
         public static string FormatSize(long bytes)
         {
             string[] sizes = { "B", "KB", "MB", "GB", "TB" };
@@ -60,7 +60,7 @@ namespace ToolArchMilestone.Core.Helpers
             }
             return $"{len:0.##} {sizes[order]}";
         }
-
+        
         public static string NormalizeStatus(string status)
         {
             if (string.IsNullOrWhiteSpace(status))

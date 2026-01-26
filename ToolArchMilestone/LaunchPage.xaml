@@ -151,6 +151,51 @@
                             </Grid>
                         </StackPanel>
 
+                        <!-- Archive Config Section -->
+                        <StackPanel Visibility="{Binding IsArchive, Converter={StaticResource BoolToVis}}" Spacing="12">
+
+                            <!-- Archive Path Field -->
+                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Percorso Archivio" Style="{StaticResource InputLabelStyle}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{Binding ArchivePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Seleziona file .scp/.xpco o cartella database"/>
+                                </StackPanel>
+                                <Button Content="Sfoglia" Command="{Binding BrowseArchiveCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{Binding PinFieldCommand}" CommandParameter="ArchivePath" ToolTipService.ToolTip="Fissa Valore">
+                                    <FontIcon Glyph="&#xE718;" FontSize="14"/>
+                                </Button>
+                            </Grid>
+
+                            <!-- Archive Camera Field -->
+                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Telecamera nell'Archivio" Style="{StaticResource InputLabelStyle}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{Binding ArchiveCameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Nome telecamera da esportare"/>
+                                </StackPanel>
+                                <Button Content="Scopri" Command="{Binding DiscoverArchiveCamerasCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{Binding PinFieldCommand}" CommandParameter="ArchiveCameraName" ToolTipService.ToolTip="Fissa Valore">
+                                    <FontIcon Glyph="&#xE718;" FontSize="14"/>
+                                </Button>
+                            </Grid>
+
+                            <!-- Archive Info Panel -->
+                            <Border Background="#F8F9FA" CornerRadius="4" Padding="12" Margin="0,4">
+                                <StackPanel Spacing="6">
+                                    <TextBlock Text="ℹ️ Informazioni Archivio" FontWeight="SemiBold" FontSize="12" Foreground="{StaticResource TextPrimary}"/>
+                                    <TextBlock FontSize="11" Foreground="{StaticResource TextSecondary}" TextWrapping="Wrap">
+                                        • File supportati: .scp (Single Camera Package), .xpco (XProtect Database Export)
+                                        <LineBreak/>
+                                        • Cartelle: Directory con database Milestone esportati
+                                        <LineBreak/>
+                                        • Le telecamere verranno caricate automaticamente dall'archivio selezionato
+                                    </TextBlock>
+                                    <!-- DEBUG: Test visibility -->
+                                    <TextBlock Text="{Binding SelectedSourceType}" FontSize="10" Foreground="Red"/>
+                                    <TextBlock Text="{Binding IsArchive}" FontSize="10" Foreground="Red"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
                         <!-- Interval Section -->
                         <Grid ColumnSpacing="16">
                             <Grid.ColumnDefinitions>
@@ -170,7 +215,7 @@
                                         <TextBlock Text="Inizio" Style="{StaticResource InputLabelStyle}"/>
                                         <Grid ColumnDefinitions="*, Auto" ColumnSpacing="4">
                                             <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.StartDateString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}"/>
-                                            <Button Grid.Column="1" Style="{StaticResource MaterialIconButtonStyle}" Width="28" Height="28">
+                                            <Button Grid.Column="1" Style="{StaticResource MaterialIconButtonStyle}">
                                                 <FontIcon Glyph="&#xE787;" Foreground="{StaticResource MilestoneBlue}" FontSize="14"/>
                                                 <Button.Flyout>
                                                     <Flyout>
@@ -189,7 +234,7 @@
                                         <TextBlock Text="Fine" Style="{StaticResource InputLabelStyle}"/>
                                         <Grid ColumnDefinitions="*, Auto" ColumnSpacing="4">
                                             <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.EndDateString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}"/>
-                                            <Button Grid.Column="1" Style="{StaticResource MaterialIconButtonStyle}" Width="28" Height="28">
+                                            <Button Grid.Column="1" Style="{StaticResource MaterialIconButtonStyle}">
                                                 <FontIcon Glyph="&#xE787;" Foreground="{StaticResource MilestoneBlue}" FontSize="14"/>
                                                 <Button.Flyout>
                                                     <Flyout>
@@ -218,7 +263,7 @@
                                     <TextBlock Text="Trascina TXT" FontSize="11" Foreground="{StaticResource TextSecondary}" HorizontalAlignment="Center"/>
 
                                     <!-- Import Actions -->
-                                    <Button Content="Sfoglia" Command="{x:Bind ViewModel.ImportIntervalsFromFileCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="24" FontSize="11" Padding="8,0"/>
+                                    <Button Content="Sfoglia" Command="{x:Bind ViewModel.ImportIntervalsFromFileCommand}" Style="{StaticResource MaterialSmallButtonStyle}"/>
 
                                     <!-- Imported File Indicator -->
                                     <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.IsFileImported, Mode=OneWay, Converter={StaticResource BoolToVis}}"

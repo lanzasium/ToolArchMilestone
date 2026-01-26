@@ -21,7 +21,7 @@ namespace ToolArchMilestone.Core.Services
             _dbPath = Path.Combine(appFolder, dbName);
         }
 
-        public SqliteDatabaseService(string customPath, bool isFullPath)
+        public SqliteDatabaseService(string customPath, bool isFullPath) 
         {
             _dbPath = customPath;
         }

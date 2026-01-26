@@ -65,7 +65,7 @@ namespace ToolArchMilestone.Core.Services
             {
                 _settings[key] = value;
             }
-
+            
             await SaveToFileAsync();
         }
 

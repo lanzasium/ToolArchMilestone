@@ -212,7 +212,8 @@ namespace ToolArchMilestone.Core.Services
                         job.EndTime,
                         job.ExportPath ?? "",
                         progress,
-                        _currentJobCts.Token);
+                        _currentJobCts.Token,
+                        job.SourceType);
 
                     job.GeneratedFilePath = file;
                 }

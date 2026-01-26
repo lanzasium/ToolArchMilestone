@@ -66,7 +66,7 @@
 
                             <!-- Controls -->
                             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="4">
-                                 <Button Content="Dettagli" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="28" FontSize="11">
+                                 <Button Content="Dettagli" Style="{StaticResource MaterialSmallButtonStyle}">
                                      <Button.Flyout>
                                          <Flyout>
                                              <StackPanel Width="320" Spacing="8">
@@ -92,7 +92,7 @@
                                      </Button.Flyout>
                                  </Button>
 
-                                 <Button Content="Stop" Background="#E53935" Foreground="White" Padding="10,0" Height="28" CornerRadius="14" FontSize="11" Command="{Binding ElementName=RootPage, Path=ViewModel.StopJobCommand}" CommandParameter="{x:Bind Id}"/>
+                                 <Button Content="Stop" Style="{StaticResource MaterialCriticalButtonStyle}" Command="{Binding ElementName=RootPage, Path=ViewModel.StopJobCommand}" CommandParameter="{x:Bind Id}"/>
 
                                  <StackPanel Orientation="Horizontal" Spacing="0">
                                      <Button Style="{StaticResource MaterialIconButtonStyle}" Width="28" Height="28" Command="{Binding ElementName=RootPage, Path=ViewModel.MoveUpCommand}" CommandParameter="{x:Bind Id}">

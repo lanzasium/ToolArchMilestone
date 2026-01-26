@@ -31,7 +31,7 @@ namespace ToolArchMilestone.Core.ViewModels
 
             if (_jobManager.Jobs is ObservableCollection<ArchivingJob> obsJobs)
             {
-                obsJobs.CollectionChanged += (s, e) =>
+                obsJobs.CollectionChanged += (s, e) => 
                 {
                     if (e.NewItems != null)
                         foreach (ArchivingJob item in e.NewItems) { MonitorJob(item); CheckAndAdd(item); }
@@ -40,7 +40,7 @@ namespace ToolArchMilestone.Core.ViewModels
                 };
             }
         }
-
+        
         private void SyncJobs()
         {
             foreach(var job in _jobManager.Jobs)
@@ -49,10 +49,10 @@ namespace ToolArchMilestone.Core.ViewModels
                 CheckAndAdd(job);
             }
         }
-
+        
         private void MonitorJob(ArchivingJob job)
         {
-             job.PropertyChanged += (s, e) =>
+             job.PropertyChanged += (s, e) => 
              {
                  if (e.PropertyName == nameof(ArchivingJob.Status))
                  {
@@ -73,7 +73,7 @@ namespace ToolArchMilestone.Core.ViewModels
         private void CheckAndAdd(ArchivingJob job)
         {
              bool shouldBeVisible = (job.Status == JobStatus.Pending || job.Status == JobStatus.Running);
-
+             
              if (shouldBeVisible && MatchesSearch(job))
              {
                  if (!Jobs.Contains(job)) Jobs.Add(job);
@@ -89,14 +89,14 @@ namespace ToolArchMilestone.Core.ViewModels
             if (string.IsNullOrWhiteSpace(SearchText)) return true;
 
             var term = SearchText.Trim().ToLower();
-
+            
             if (job.Id.ToString().Contains(term)) return true;
             if (job.WorkId?.ToLower().Contains(term) == true) return true;
             if (job.CameraName?.ToLower().Contains(term) == true) return true;
             if (job.CriminalProceeding?.ToLower().Contains(term) == true) return true;
             if (job.RitSpec?.ToLower().Contains(term) == true) return true;
             if (job.Target?.ToLower().Contains(term) == true) return true;
-
+            
             if (job.StartTime.ToString().Contains(term)) return true;
             if (job.EndTime.ToString().Contains(term)) return true;
 

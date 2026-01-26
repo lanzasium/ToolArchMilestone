@@ -95,7 +95,7 @@ namespace ToolArchMilestone.Core.Helpers
             map["Procura"] = Safe(job.Procura);
             map["RIT/SPEC"] = Safe(job.RitSpec);
             map["Target"] = Safe(job.Target);
-
+            
             // Extra
             map["ID"] = Safe(job.PublicJobId);
             map["Telecamera"] = Safe(job.CameraName);

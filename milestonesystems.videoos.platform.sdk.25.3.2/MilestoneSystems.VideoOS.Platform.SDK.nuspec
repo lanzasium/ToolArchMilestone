@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>MilestoneSystems.VideoOS.Platform.SDK</id>
+    <version>25.3.2</version>
+    <authors>Milestone Systems</authors>
+    <owners>milestonesys</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">MIPSDK_EULA.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>images\MilestoneLogo.png</icon>
+    <projectUrl>https://doc.developer.milestonesys.com/</projectUrl>
+    <description>Milestone Integration Platform Software Development Kit for standalone application development</description>
+    <releaseNotes>https://doc.developer.milestonesys.com/html/index.html?base=gettingstarted/mip2025r3_intro.html</releaseNotes>
+    <copyright>Copyright © 2025 Milestone Systems A/S. All rights reserved.</copyright>
+    <tags>Milestone XProtect MIPSDK MIP SDK Standalone</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="MilestoneSystems.VideoOS.Platform" version="25.3.2" />
+        <dependency id="Autofac" version="4.9.4" />
+        <dependency id="Azure.Identity" version="1.10.3" />
+        <dependency id="Microsoft.ApplicationInsights" version="2.22.0" />
+        <dependency id="Microsoft.AspNet.WebApi.Owin" version="5.2.7" />
+        <dependency id="Microsoft.AspNetCore.JsonPatch" version="6.0.14" />
+        <dependency id="Microsoft.Bcl.AsyncInterfaces" version="9.0.0" />
+        <dependency id="Microsoft.Extensions.Logging.Abstractions" version="9.0.0" />
+        <dependency id="Microsoft.Identity.Client.Extensions.Msal" version="4.56.0" />
+        <dependency id="Microsoft.IdentityModel.Abstractions" version="6.35.0" />
+        <dependency id="Microsoft.IdentityModel.Protocols.OpenIdConnect" version="6.35.0" />
+        <dependency id="Microsoft.Owin" version="4.2.2" />
+        <dependency id="Microsoft.Xaml.Behaviors.Wpf" version="1.1.77" />
+        <dependency id="NAudio" version="2.2.1" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" />
+        <dependency id="System.IdentityModel.Tokens.Jwt" version="6.35.0" />
+        <dependency id="System.Text.Encodings.Web" version="6.0.0" />
+        <dependency id="System.Security.Cryptography.Xml" version="7.0.1" />
+        <dependency id="OpenTelemetry.Exporter.OpenTelemetryProtocol" version="1.12.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

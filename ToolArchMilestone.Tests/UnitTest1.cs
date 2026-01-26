@@ -1,4 +1,4 @@
-﻿namespace ToolArchMilestone.Tests;
+namespace ToolArchMilestone.Tests;
 
 public class UnitTest1
 {
