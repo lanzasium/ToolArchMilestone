@@ -14,7 +14,7 @@ namespace ToolArchMilestone.Services
             
             // WinUI 3 Window Handle hack for pickers
             // App.Window is set in App.xaml.cs
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.Window);
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle((object)App.Window!);
             WinRT.Interop.InitializeWithWindow.Initialize(picker, hwnd);
 
             picker.ViewMode = PickerViewMode.List;
@@ -33,7 +33,7 @@ namespace ToolArchMilestone.Services
         {
             var picker = new FolderPicker();
             
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.Window);
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle((object)App.Window!);
             WinRT.Interop.InitializeWithWindow.Initialize(picker, hwnd);
 
             picker.SuggestedStartLocation = PickerLocationId.ComputerFolder;
