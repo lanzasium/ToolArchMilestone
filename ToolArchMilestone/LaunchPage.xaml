@@ -281,7 +281,7 @@
 
                             <!-- Custom Drop Area (Merged Logic) -->
                             <Grid Grid.Column="1" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" VerticalAlignment="Stretch"
-                                  Background="#252525" PointerPressed="Intervals_PointerPressed" Cursor="Hand">
+                              Background="#252525" PointerPressed="Intervals_PointerPressed">
                                 <Rectangle Stroke="#444" StrokeThickness="1" StrokeDashArray="4 2" RadiusX="4" RadiusY="4"/>
 
                                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
@@ -375,7 +375,7 @@
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
                             </Grid>
-                        </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </Border>
 
