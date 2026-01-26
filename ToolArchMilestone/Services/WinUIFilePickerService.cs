@@ -14,6 +14,7 @@ namespace ToolArchMilestone.Services
             
             // WinUI 3 Window Handle hack for pickers
             // App.Window is set in App.xaml.cs
+            // Explicit cast to object to resolve type conversion error (MainWindow -> FrameworkElement confusion)
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle((object)App.Window!);
             WinRT.Interop.InitializeWithWindow.Initialize(picker, hwnd);
 
@@ -33,6 +34,7 @@ namespace ToolArchMilestone.Services
         {
             var picker = new FolderPicker();
             
+            // Explicit cast to object to resolve type conversion error
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle((object)App.Window!);
             WinRT.Interop.InitializeWithWindow.Initialize(picker, hwnd);
 
