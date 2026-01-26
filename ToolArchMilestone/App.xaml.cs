@@ -50,7 +50,7 @@ namespace ToolArchMilestone
                 // Create minimal window even if services fail
                 if (Window == null)
                 {
-                    Window = new MainWindow();
+                    Window = new ToolArchMilestone.MainWindow();
                     Window.Activate();
                 }
             }

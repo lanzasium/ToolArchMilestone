@@ -8,11 +8,11 @@ using ToolArchMilestone.Services;
 
 namespace ToolArchMilestone
 {
-    public sealed partial class LaunchPage : Page
+    public sealed partial class LaunchPageV2 : Page
     {
         public LaunchViewModel ViewModel => App.MainLaunchViewModel!;
 
-        public LaunchPage()
+        public LaunchPageV2()
         {
             this.InitializeComponent();
             this.DataContext = ViewModel;
