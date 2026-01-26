@@ -524,10 +524,29 @@ namespace ToolArchMilestone.Core.ViewModels
                     targetCameras.Add(ArchiveCameraName);
             }
 
-            // Create jobs loop (Intervals x Cameras)
+            // Calculate effective intervals based on "Separate Archive" flag
+            List<IntervalRange> effectiveIntervals = new List<IntervalRange>();
+
+            if (SeparateArchive)
+            {
+                // Process each interval individually
+                effectiveIntervals.AddRange(intervals);
+            }
+            else
+            {
+                // Merge all intervals into one global range (min start to max end)
+                if (intervals.Count > 0)
+                {
+                    var minStart = intervals.Min(i => i.Start);
+                    var maxEnd = intervals.Max(i => i.End);
+                    effectiveIntervals.Add(new IntervalRange { Start = minStart, End = maxEnd });
+                }
+            }
+
+            // Create jobs loop (Effective Intervals x Cameras)
             foreach (var cam in targetCameras)
             {
-                foreach(var interval in intervals)
+                foreach(var interval in effectiveIntervals)
                 {
                     await CreateJob(interval.Start, interval.End, cam, count);
                     count++;
