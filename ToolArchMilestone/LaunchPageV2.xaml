@@ -329,27 +329,27 @@
                             <!-- Row 1 -->
                             <StackPanel Grid.Row="0" Grid.Column="0">
                                 <TextBlock Text="Procedimento Penale" Style="{StaticResource InputLabelStyle}"/>
-                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.CriminalProceeding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="12345/2023"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.CriminalProceeding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es: 12345/2025/N"/>
                             </StackPanel>
                             <StackPanel Grid.Row="0" Grid.Column="1">
                                 <TextBlock Text="Magistrato" Style="{StaticResource InputLabelStyle}"/>
-                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Magistrate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Magistrate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci il magistrato di riferimento..."/>
                             </StackPanel>
 
                             <!-- Row 2 -->
                             <StackPanel Grid.Row="1" Grid.Column="0">
                                 <TextBlock Text="RIT / SPEC" Style="{StaticResource InputLabelStyle}"/>
-                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.RitSpec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.RitSpec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci RIT o SPEC (es: RIT 1234/2025)"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1">
                                 <TextBlock Text="ID Lavoro (RCS)" Style="{StaticResource InputLabelStyle}"/>
-                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.WorkId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.WorkId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci ID lavoro..."/>
                             </StackPanel>
 
                             <!-- Row 3 -->
                             <StackPanel Grid.Row="2" Grid.Column="0">
                                 <TextBlock Text="Target" Style="{StaticResource InputLabelStyle}"/>
-                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Target, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Target, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci nome target..."/>
                             </StackPanel>
 
                             <!-- Password with Actions -->
