@@ -814,8 +814,8 @@ SDK Integration Status:
         private class CameraInfo
         {
             public string Name { get; set; } = "";
-            public SimulatedFQID FQID { get; set; }
-            public SimulatedItem Item { get; set; }
+            public required SimulatedFQID FQID { get; set; }
+            public required SimulatedItem Item { get; set; }
         }
 
         // Simulated types for development - will be replaced with real SDK types
