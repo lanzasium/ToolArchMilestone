@@ -29,6 +29,9 @@ namespace ToolArchMilestone.Core.Services
         private DateTime _cacheExpiry = DateTime.MinValue;
         private readonly TimeSpan CacheTimeout = TimeSpan.FromMinutes(5);
 
+        public bool IsConnected => _isConnected;
+        public string ConnectedServerName => _currentServerAddress ?? string.Empty;
+
         public MilestoneService()
         {
             InitializeSDK();
@@ -162,7 +165,7 @@ namespace ToolArchMilestone.Core.Services
             }
         }
 
-        private async Task DisconnectAsync()
+        public async Task DisconnectAsync()
         {
             try
             {

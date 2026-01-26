@@ -10,13 +10,18 @@ namespace ToolArchMilestone
 {
     public sealed partial class LaunchPage : Page
     {
-        public LaunchViewModel ViewModel { get; }
+        public LaunchViewModel ViewModel => App.MainLaunchViewModel!;
 
         public LaunchPage()
         {
             this.InitializeComponent();
-            ViewModel = new LaunchViewModel(App.JobManager!, App.FilePicker!, App.MilestoneService!, App.SettingsService!);
             this.DataContext = ViewModel;
+        }
+
+        private void Intervals_PointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            // Only trigger if click, not drag
+            ViewModel.ImportIntervalsFromFileCommand.Execute(null);
         }
 
         private void DropArea_DragOver(object sender, DragEventArgs e)
@@ -34,9 +39,22 @@ namespace ToolArchMilestone
                     var storageFile = items[0] as Windows.Storage.StorageFile;
                     if (storageFile != null && storageFile.FileType == ".txt")
                     {
-                        var content = await Windows.Storage.FileIO.ReadTextAsync(storageFile);
-                        ViewModel.IntervalsText = content;
-                        ViewModel.ImportedFileName = storageFile.Name;
+                        await ViewModel.ProcessIntervalFile(storageFile.Path);
+                    }
+                }
+            }
+        }
+
+        private void CameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ListView listView)
+            {
+                ViewModel.SelectedCameras.Clear();
+                foreach (var item in listView.SelectedItems)
+                {
+                    if (item is string camName)
+                    {
+                        ViewModel.SelectedCameras.Add(camName);
                     }
                 }
             }

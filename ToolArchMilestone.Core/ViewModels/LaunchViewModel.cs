@@ -2,7 +2,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using ToolArchMilestone.Core.Helpers;
 using ToolArchMilestone.Core.Models;
@@ -17,12 +19,14 @@ namespace ToolArchMilestone.Core.ViewModels
         private readonly IFilePickerService _filePicker;
         private readonly ISettingsService _settings;
         private readonly IMilestoneService _milestone;
+        private readonly IServerMappingService _serverMapping;
 
-        public LaunchViewModel(IJobManager jobManager, IFilePickerService filePicker, IMilestoneService milestone, ISettingsService settings = null)
+        public LaunchViewModel(IJobManager jobManager, IFilePickerService filePicker, IMilestoneService milestone, IServerMappingService serverMapping, ISettingsService settings = null)
         {
             _jobManager = jobManager;
             _filePicker = filePicker;
             _milestone = milestone;
+            _serverMapping = serverMapping;
             _settings = settings ?? new LocalSettingsService();
 
             // Sync Strings
@@ -30,6 +34,13 @@ namespace ToolArchMilestone.Core.ViewModels
             UpdateEndString();
 
             LoadPinnedSettings();
+
+            // Check initial state
+            IsConnected = _milestone.IsConnected;
+            if (IsConnected)
+            {
+                ConnectedServerName = _serverMapping.GetServerName(_milestone.ConnectedServerName);
+            }
         }
 
         private async void LoadPinnedSettings()
@@ -92,6 +103,9 @@ namespace ToolArchMilestone.Core.ViewModels
         [ObservableProperty]
         private string? _serverAddress = "http://localhost";
 
+        [ObservableProperty]
+        private string? _connectedServerName;
+
         partial void OnServerAddressChanged(string? value)
         {
             if (!string.IsNullOrEmpty(value))
@@ -100,8 +114,17 @@ namespace ToolArchMilestone.Core.ViewModels
             }
         }
 
+        // Legacy string property kept for single-selection compatibility if needed,
+        // but UI will use collection for multi-select.
         [ObservableProperty]
         private string? _cameraName;
+
+        // Collection for multi-selection
+        [ObservableProperty]
+        private ObservableCollection<string> _cameras = new ObservableCollection<string>();
+
+        [ObservableProperty]
+        private ObservableCollection<string> _selectedCameras = new ObservableCollection<string>();
 
         // --- Archive Fields ---
         [ObservableProperty]
@@ -156,7 +179,6 @@ namespace ToolArchMilestone.Core.ViewModels
             }
         }
 
-        // Called when Pickers change
         public void UpdateStartString()
         {
             var dt = StartTime.Date + StartTimeTime;
@@ -225,12 +247,45 @@ namespace ToolArchMilestone.Core.ViewModels
             {
                 StatusMessage = "Connessione in corso...";
                 IsConnected = await _milestone.ConnectAsync(ServerAddress, "", "");
-                StatusMessage = IsConnected ? "Connesso." : "Connessione fallita.";
+
+                if (IsConnected)
+                {
+                    ConnectedServerName = _serverMapping.GetServerName(ServerAddress);
+                    StatusMessage = $"Connesso a {ConnectedServerName}.";
+                }
+                else
+                {
+                    StatusMessage = "Connessione fallita.";
+                }
             }
             catch (Exception ex)
             {
                 StatusMessage = $"Errore: {ex.Message}";
                 IsConnected = false;
+            }
+        }
+
+        [RelayCommand]
+        public async Task Disconnect()
+        {
+            if (_jobManager.Jobs.Any(j => j.Status == JobStatus.Running || j.Status == JobStatus.Pending))
+            {
+                StatusMessage = "Impossibile disconnettere: ci sono archiviazioni in corso o in coda.";
+                return;
+            }
+
+            try
+            {
+                await _milestone.DisconnectAsync();
+                IsConnected = false;
+                ConnectedServerName = null;
+                StatusMessage = "Disconnesso.";
+                Cameras.Clear();
+                SelectedCameras.Clear();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Errore disconnessione: {ex.Message}";
             }
         }
 
@@ -246,12 +301,18 @@ namespace ToolArchMilestone.Core.ViewModels
             try
             {
                 var cameras = await _milestone.GetCamerasAsync();
-                if (cameras != null && cameras.Count > 0)
+                Cameras.Clear();
+                if (cameras != null)
                 {
-                    // For PoC: Select the first camera.
-                    // In a full implementation, this would open a dialog with the list.
-                    CameraName = cameras[0];
-                    StatusMessage = $"Telecamera selezionata: {CameraName}";
+                    foreach (var cam in cameras)
+                    {
+                        Cameras.Add(cam);
+                    }
+                }
+
+                if (Cameras.Count > 0)
+                {
+                     StatusMessage = $"Trovate {Cameras.Count} telecamere. Selezionale dalla lista.";
                 }
                 else
                 {
@@ -260,7 +321,7 @@ namespace ToolArchMilestone.Core.ViewModels
             }
             catch (Exception ex)
             {
-                StatusMessage = $"Errore selezione camera: {ex.Message}";
+                StatusMessage = $"Errore recupero telecamere: {ex.Message}";
             }
         }
 
@@ -280,28 +341,21 @@ namespace ToolArchMilestone.Core.ViewModels
             try
             {
                 StatusMessage = "Seleziona file archivio o cartella...";
-
-                // Prima prova a selezionare un file (.scp, .xpco)
                 var archiveFile = await _filePicker.PickSingleFileAsync(new[] { ".scp", ".xpco", ".db" });
 
                 if (!string.IsNullOrEmpty(archiveFile))
                 {
                     ArchivePath = archiveFile;
                     StatusMessage = $"Archivio selezionato: {Path.GetFileName(archiveFile)}";
-
-                    // Prova a scoprire automaticamente le telecamere
                     await DiscoverArchiveCameras();
                 }
                 else
                 {
-                    // Se non ha selezionato un file, prova con una cartella
                     var archiveFolder = await _filePicker.PickSingleFolderAsync();
                     if (!string.IsNullOrEmpty(archiveFolder))
                     {
                         ArchivePath = archiveFolder;
                         StatusMessage = $"Cartella archivio selezionata: {Path.GetFileName(archiveFolder)}";
-
-                        // Prova a scoprire automaticamente le telecamere
                         await DiscoverArchiveCameras();
                     }
                 }
@@ -324,17 +378,12 @@ namespace ToolArchMilestone.Core.ViewModels
             try
             {
                 StatusMessage = "Scoperta telecamere in corso...";
-
-                // Per ora simuliamo la scoperta, ma in produzione dovrebbe
-                // caricare l'archivio e ottenere le telecamere reali
                 var cameras = await SimulateArchiveCameraDiscovery(ArchivePath);
                 ArchiveCameras = cameras;
 
                 if (cameras.Any())
                 {
                     StatusMessage = $"Trovate {cameras.Count} telecamere nell'archivio.";
-
-                    // Auto-seleziona la prima telecamera
                     ArchiveCameraName = cameras.First();
                 }
                 else
@@ -350,13 +399,7 @@ namespace ToolArchMilestone.Core.ViewModels
 
         private async Task<List<string>> SimulateArchiveCameraDiscovery(string archivePath)
         {
-            await Task.Delay(1000); // Simula caricamento archivio
-
-            // In produzione, qui dovrebbe:
-            // 1. Caricare l'archivio usando VideoOS.Platform.SDK.Environment.AddServer()
-            // 2. Ottenere Configuration.Instance.GetItemsByKind(Kind.Camera)
-            // 3. Restituire i nomi reali delle telecamere
-
+            await Task.Delay(1000);
             var fileName = Path.GetFileName(archivePath);
             return new List<string>
             {
@@ -371,21 +414,29 @@ namespace ToolArchMilestone.Core.ViewModels
         public async Task ImportIntervalsFromFile()
         {
              var filePath = await _filePicker.PickSingleFileAsync(new[] { ".txt" });
+             await ProcessIntervalFile(filePath);
+        }
+
+        public async Task ProcessIntervalFile(string filePath)
+        {
              if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
              {
-                 var content = await File.ReadAllTextAsync(filePath);
-                 IntervalsText = content;
-                 ImportedFileName = Path.GetFileName(filePath);
+                 try {
+                     var content = await File.ReadAllTextAsync(filePath);
+                     IntervalsText = content;
+                     ImportedFileName = Path.GetFileName(filePath);
 
-                 // Validate intervals immediately
-                 var intervals = DateHelper.ParseIntervalsFromText(content, out var errors);
-                 if (intervals.Count > 0)
-                 {
-                     StatusMessage = $"Caricati {intervals.Count} intervalli.";
-                 }
-                 else
-                 {
-                     StatusMessage = "Nessun intervallo valido trovato.";
+                     var intervals = DateHelper.ParseIntervalsFromText(content, out var errors);
+                     if (intervals.Count > 0)
+                     {
+                         StatusMessage = $"Caricati {intervals.Count} intervalli.";
+                     }
+                     else
+                     {
+                         StatusMessage = "Nessun intervallo valido trovato.";
+                     }
+                 } catch (Exception ex) {
+                     StatusMessage = $"Errore lettura file: {ex.Message}";
                  }
              }
         }
@@ -425,7 +476,7 @@ namespace ToolArchMilestone.Core.ViewModels
             if (!Validate()) return;
 
             // Normalize fields
-            if (string.IsNullOrWhiteSpace(Procura)) Procura = "Procura di..."; // Or leave empty
+            if (string.IsNullOrWhiteSpace(Procura)) Procura = "Procura di...";
 
             DateTime start = StartTime.Date + StartTimeTime;
             DateTime end = EndTime.Date + EndTimeTime;
@@ -447,15 +498,30 @@ namespace ToolArchMilestone.Core.ViewModels
             }
 
             int count = 0;
-            foreach(var interval in intervals)
-            {
-                // Create separate job for each interval if requested (or maybe for all?)
-                // Legacy logic: if "_serverPerIntervalRadio" is checked, loop.
-                // Here we assume "SeparateArchive" flag works for both modes or implies creating multiple jobs?
-                // Actually the logic in legacy code loops if intervals are present.
 
-                await CreateJob(interval.Start, interval.End);
-                count++;
+            // Determine cameras to process
+            var targetCameras = new List<string>();
+            if (IsServer)
+            {
+                if (SelectedCameras.Any())
+                    targetCameras.AddRange(SelectedCameras);
+                else if (!string.IsNullOrEmpty(CameraName))
+                    targetCameras.Add(CameraName);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(ArchiveCameraName))
+                    targetCameras.Add(ArchiveCameraName);
+            }
+
+            // Create jobs loop (Intervals x Cameras)
+            foreach (var cam in targetCameras)
+            {
+                foreach(var interval in intervals)
+                {
+                    await CreateJob(interval.Start, interval.End, cam, count);
+                    count++;
+                }
             }
 
             StatusMessage = $"Avviati {count} processi di archiviazione.";
@@ -470,9 +536,15 @@ namespace ToolArchMilestone.Core.ViewModels
             }
             if (IsServer && !IsConnected)
             {
-                // StatusMessage = "Non connesso al server.";
-                // return false;
+                 StatusMessage = "Non connesso al server.";
+                 return false;
             }
+            if (IsServer && SelectedCameras.Count == 0 && string.IsNullOrEmpty(CameraName))
+            {
+                StatusMessage = "Seleziona almeno una telecamera.";
+                return false;
+            }
+
             if (IsArchive && string.IsNullOrWhiteSpace(ArchivePath))
             {
                 StatusMessage = "Percorso archivio obbligatorio.";
@@ -491,24 +563,24 @@ namespace ToolArchMilestone.Core.ViewModels
             return true;
         }
 
-        private async Task CreateJob(DateTime start, DateTime end)
+        private async Task CreateJob(DateTime start, DateTime end, string camera, int index)
         {
-            // Build the specific destination path based on metadata
-            // Using logic ported from legacy BuildExportDestinationPath
             string finalPath = ExportPath;
             try
             {
                 if (!string.IsNullOrWhiteSpace(ExportPath))
                 {
+                    // Assuming we might launch multiple jobs at once (multi-launch), we pass true/index if > 1 camera or > 1 interval
+                    bool isMulti = SelectedCameras.Count > 1 || (IsFileImported);
+
                     finalPath = PathHelper.BuildExportDestinationPath(
                         ExportPath,
                         CriminalProceeding ?? "",
                         RitSpec ?? "",
                         Target ?? "",
                         WorkId ?? "",
-                        false, 0);
+                        isMulti, index);
 
-                    // Ensure directory exists
                     if (!Directory.Exists(finalPath))
                     {
                         Directory.CreateDirectory(finalPath);
@@ -518,7 +590,7 @@ namespace ToolArchMilestone.Core.ViewModels
             catch (Exception ex)
             {
                 StatusMessage = $"Errore creazione percorso: {ex.Message}";
-                return; // Stop if path creation fails
+                return;
             }
 
             var job = new ArchivingJob
@@ -526,7 +598,7 @@ namespace ToolArchMilestone.Core.ViewModels
                 ArchiveType = SelectedArchiveType,
                 SourceType = SelectedSourceType,
                 ServerAddress = SelectedSourceType == SourceType.Server ? ServerAddress : ArchivePath,
-                CameraName = SelectedSourceType == SourceType.Server ? (CameraName ?? "Unknown Camera") : (ArchiveCameraName ?? "Unknown Archive Camera"),
+                CameraName = camera,
                 StartTime = start,
                 EndTime = end,
                 CriminalProceeding = CriminalProceeding,
@@ -536,7 +608,7 @@ namespace ToolArchMilestone.Core.ViewModels
                 WorkId = WorkId,
                 Target = Target,
                 Password = Password,
-                ExportPath = finalPath, // Use the constructed specific path
+                ExportPath = finalPath,
                 Note = Note
             };
 
