@@ -353,7 +353,12 @@
                             </StackPanel>
 
                             <!-- Password with Actions -->
-                            <Grid Grid.Row="2" Grid.Column="1" ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                            <Grid Grid.Row="2" Grid.Column="1" ColumnSpacing="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Password" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -365,7 +370,12 @@
                             </Grid>
 
                             <!-- Row 4: Export Path -->
-                            <Grid Grid.Row="3" Grid.ColumnSpan="2" ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                            <Grid Grid.Row="3" Grid.ColumnSpan="2" ColumnSpacing="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Cartella di Esportazione" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
