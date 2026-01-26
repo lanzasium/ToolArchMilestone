@@ -115,19 +115,19 @@
 
         <!-- === SCROLLABLE CONTENT === -->
         <ScrollViewer Grid.Row="1" Padding="0,0,16,0">
-            <StackPanel Spacing="16">
+            <StackPanel Spacing="8">
 
                 <!-- CARD 1: SORGENTE -->
                 <Border Style="{StaticResource MaterialCardStyle}">
-                    <StackPanel Spacing="12">
+                    <StackPanel Spacing="8">
                         <Grid>
-                            <TextBlock Text="SORGENTE DATI" Style="{StaticResource MaterialHeaderStyle}"/>
+                            <TextBlock Text="SORGENTE" Style="{StaticResource MaterialHeaderStyle}"/>
                             <!-- Accent Line -->
                             <Rectangle Height="2" Width="40" Fill="{StaticResource MilestoneBlue}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-6"/>
                         </Grid>
 
                         <!-- Server Config Section -->
-                        <StackPanel Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}" Spacing="12">
+                        <StackPanel Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}" Spacing="8">
 
                             <!-- Connection STATE TOGGLE -->
                             <!-- Disconnected State -->
@@ -136,7 +136,7 @@
                                     <TextBlock Text="Indirizzo Server" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 192.168.1.100"/>
                                 </StackPanel>
-                                <Button Content="Connetti" Command="{x:Bind ViewModel.ConnectCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Connetti" Command="{x:Bind ViewModel.ConnectCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ServerAddress" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
@@ -157,7 +157,7 @@
                                         </Grid>
                                     </Border>
                                 </StackPanel>
-                                <Button Content="Disconnetti" Command="{x:Bind ViewModel.DisconnectCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" Background="#3E2723" BorderBrush="#E57373" Foreground="#FFCDD2" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Disconnetti" Command="{x:Bind ViewModel.DisconnectCommand}" Style="{StaticResource MaterialTextButtonStyle}" Background="#3E2723" Foreground="#FFCDD2" VerticalAlignment="Bottom" Grid.Column="1"/>
                             </Grid>
 
                             <!-- Camera Field (Multi-Select) -->
@@ -197,14 +197,14 @@
                         </StackPanel>
 
                         <!-- Archive Config Section -->
-                        <StackPanel Visibility="{Binding IsArchive, Converter={StaticResource BoolToVis}}" Spacing="12">
+                        <StackPanel Visibility="{Binding IsArchive, Converter={StaticResource BoolToVis}}" Spacing="8">
                             <!-- Archive Path Field -->
                             <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Percorso Archivio" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{Binding ArchivePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Seleziona file .scp/.xpco o cartella database"/>
                                 </StackPanel>
-                                <Button Content="Sfoglia" Command="{Binding BrowseArchiveCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Sfoglia" Command="{Binding BrowseArchiveCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{Binding PinFieldCommand}" CommandParameter="ArchivePath" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
@@ -216,7 +216,7 @@
                                     <TextBlock Text="Telecamera nell'Archivio" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{Binding ArchiveCameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Nome telecamera da esportare"/>
                                 </StackPanel>
-                                <Button Content="Scopri" Command="{Binding DiscoverArchiveCamerasCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Scopri" Command="{Binding DiscoverArchiveCamerasCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{Binding PinFieldCommand}" CommandParameter="ArchiveCameraName" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
@@ -230,7 +230,7 @@
                                 <ColumnDefinition Width="1*"/> <!-- Drop Area -->
                             </Grid.ColumnDefinitions>
 
-                            <StackPanel Spacing="12">
+                            <StackPanel Spacing="8">
                                 <Grid ColumnSpacing="8">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -280,9 +280,9 @@
                             </StackPanel>
 
                             <!-- Custom Drop Area (Merged Logic) -->
-                            <Grid Grid.Column="1" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" VerticalAlignment="Stretch"
-                              Background="#252525" PointerPressed="Intervals_PointerPressed">
-                                <Rectangle Stroke="#444" StrokeThickness="1" StrokeDashArray="4 2" RadiusX="4" RadiusY="4"/>
+                            <Grid x:Name="DropAreaGrid" Grid.Column="1" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" VerticalAlignment="Stretch"
+                              Background="#252525" PointerPressed="Intervals_PointerPressed" PointerEntered="DropArea_PointerEntered" PointerExited="DropArea_PointerExited">
+                                <Rectangle x:Name="DropAreaBorder" Stroke="#444" StrokeThickness="1" StrokeDashArray="4 2" RadiusX="4" RadiusY="4"/>
 
                                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
                                     <Viewbox Width="20" Height="20">
@@ -305,16 +305,16 @@
                     </StackPanel>
                 </Border>
 
-                <!-- CARD 2: DATI PROCEDURA -->
+                <!-- CARD 2: CONFIGURAZIONE -->
                 <Border Style="{StaticResource MaterialCardStyle}">
-                    <StackPanel Spacing="12">
+                    <StackPanel Spacing="8">
                         <Grid>
-                            <TextBlock Text="DATI PROCEDURA" Style="{StaticResource MaterialHeaderStyle}" Foreground="{StaticResource MilestoneYellow}"/>
+                            <TextBlock Text="CONFIGURAZIONE" Style="{StaticResource MaterialHeaderStyle}" Foreground="{StaticResource MilestoneYellow}"/>
                             <!-- Accent Line -->
                             <Rectangle Height="2" Width="40" Fill="{StaticResource MilestoneYellow}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-6"/>
                         </Grid>
 
-                        <Grid ColumnSpacing="12" RowSpacing="12">
+                        <Grid ColumnSpacing="12" RowSpacing="8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
@@ -361,9 +361,9 @@
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Password" Style="{StaticResource InputLabelStyle}"/>
-                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Inserisci 8 caratteri..."/>
                                 </StackPanel>
-                                <Button Content="Genera" Command="{x:Bind ViewModel.GeneratePasswordCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Genera" Command="{x:Bind ViewModel.GeneratePasswordCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="Password" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
@@ -378,9 +378,9 @@
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Cartella di Esportazione" Style="{StaticResource InputLabelStyle}"/>
-                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Seleziona o incolla il percorso..."/>
                                 </StackPanel>
-                                <Button Content="Sfoglia" Command="{x:Bind ViewModel.BrowseFolderCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Content="Sfoglia" Command="{x:Bind ViewModel.BrowseFolderCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
                                 <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ExportPath" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
@@ -390,10 +390,10 @@
                 </Border>
 
                 <!-- STATUS MESSAGE -->
-                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" Foreground="{StaticResource MilestoneYellow}" FontSize="12" HorizontalAlignment="Center" Margin="0,4"/>
+                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" Foreground="{StaticResource MilestoneYellow}" FontSize="12" HorizontalAlignment="Center" Margin="0,2"/>
 
                 <!-- MAIN ACTION -->
-                <Button Command="{x:Bind ViewModel.LaunchCommand}" Style="{StaticResource MaterialPrimaryButtonStyle}" HorizontalAlignment="Stretch" Margin="0,8,0,24">
+                <Button Command="{x:Bind ViewModel.LaunchCommand}" Style="{StaticResource MaterialPrimaryButtonStyle}" HorizontalAlignment="Stretch" Margin="0,4,0,12">
                     <StackPanel Orientation="Horizontal" Spacing="12">
                         <FontIcon Glyph="&#xE768;" Foreground="White" FontSize="16"/>
                         <TextBlock Text="AVVIA ARCHIVIAZIONE" Foreground="White"/>

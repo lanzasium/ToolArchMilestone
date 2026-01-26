@@ -79,5 +79,21 @@ namespace ToolArchMilestone
         {
             ViewModel.UpdateEndString();
         }
+
+        private void DropArea_PointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            if (DropAreaGrid != null)
+                DropAreaGrid.Background = new Microsoft.UI.Xaml.Media.SolidColorBrush(Windows.UI.Color.FromArgb(255, 45, 45, 48)); // Lighter dark
+            if (DropAreaBorder != null)
+                DropAreaBorder.Stroke = new Microsoft.UI.Xaml.Media.SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 163, 224)); // Milestone Blue
+        }
+
+        private void DropArea_PointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            if (DropAreaGrid != null)
+                DropAreaGrid.Background = new Microsoft.UI.Xaml.Media.SolidColorBrush(Windows.UI.Color.FromArgb(255, 37, 37, 37)); // Original #252525
+            if (DropAreaBorder != null)
+                DropAreaBorder.Stroke = new Microsoft.UI.Xaml.Media.SolidColorBrush(Windows.UI.Color.FromArgb(255, 68, 68, 68)); // Original #444
+        }
     }
 }
