@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Configurazione" data-mc-conditions="flcts-add-on.xp-wall-content" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+    <meta name="description" content="Configure your Smart Wall in XProtect Smart Client to control the layout and what content to display." />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Client" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Wall" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Amministratore" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Integratore" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Operatore" class="addSearch role" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <title>XProtect Smart Wall (configurazione)</title>
+    <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../Default.htm#feature_flags/ff_wall/sc_configuringwall.htm">Apri argomento con navigazione</a>
+    </p>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumb" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <div role="main" id="mc-main-content">
+      <h1>
+        <span class="mc-variable flvar-product.SWName_XP variable">XProtect Smart Wall</span> (configurazione)</h1>
+      <p>Dopo aver eseguito la configurazione iniziale in <span class="mc-variable flvar-sw-component.MC_XP variable">XProtect Management Client</span>, gli operatori possono iniziare a utilizzare il videowall inviando i monitor <span class="mc-variable flvar-product.SWName variable">Smart Wall</span> a quelli fisici collegati al sistema. Può includere una o entrambe queste opzioni:</p>
+      <ul>
+        <li>
+          <p>Viste statiche</p>
+        </li>
+        <li>
+          <p>Viste che cambiano in modo dinamico in base alle regole</p>
+        </li>
+      </ul>
+      <p>È necessaria una configurazione aggiuntiva, se lo si desidera:</p>
+      <ul>
+        <li>Consentire agli operatori di controllare e modificare manualmente ciò che viene visualizzato sui monitor fisici. In tal caso, è necessario aggiungere il controllo <span class="mc-variable flvar-product.SWName variable">Smart Wall</span> alle viste designate. Consultare anche <a href="#Wall_AddOverviewToViews" class="MCXref xref">Aggiunta di controlli Smart Wall alle viste</a>.</li>
+        <li>Modificare il layout della vista esistente di singoli monitor. Consultare anche <a href="#Wall_ChangeMonitorLayout" class="MCXref xref">Modifica del layout della vista dei monitor Smart Wall</a>.</li>
+        <li> Ripristinare o modificare le <a href="javascript:void(0)" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" glossTerm="Glossary.Term38">preimpostazioni<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>Un layout predefinito per uno o più monitor Smart Wall in XProtect Smart Client. Le preimpostazioni determinano le telecamere visualizzate e il modo in cui il contenuto è strutturato su ciascun monitor del videowall.</span></a> già applicate alla definizione <span class="mc-variable flvar-product.SWName variable">Smart Wall</span>. Consultare anche <a href="wall_setupinxpsc.htm#Wall_ChangePreset" class="MCXref xref">Reset or change Smart Wall presets</a>.</li>
+      </ul>
+      <h2>
+        <a name="Wall_AddOverviewToViews"></a>Aggiunta di controlli <span class="mc-variable flvar-product.SWName variable">Smart Wall</span> alle viste</h2>
+      <p>Prima di poter eseguire l'invio push di video e altri tipi di contenuto al videowall, occorre aggiungere il controllo <span class="mc-variable flvar-product.SWName variable">Smart Wall</span> a una o più viste. Tale controllo è una rappresentazione grafica del videowall. <MadCap:conditionalText data-mc-conditions="flcts-format.builtin-sc-manual-only,flcts-add-on.xp-wall-content">Consultare anche <a href="sc_workingwithwalle.htm#SC_ContentInWall.htm" class="MCXref xref">Smart Wall - Controllo (spiegazione)</a>.</MadCap:conditionalText></p>
+      <ol>
+        <li value="1">Fare clic su <span class="uitext">Configurazione</span> per accedere alla modalità di configurazione.</li>
+        <li value="2">Selezionare la vista a cui si desidera aggiungere il controllo <span class="mc-variable flvar-product.SWName variable">Smart Wall</span>.</li>
+        <li value="3">
+          <p>Nel riquadro <span class="uitext">Panoramica del sistema</span>, trascinare l'elemento <span class="uitext"><span class="mc-variable flvar-product.SWName variable">Smart Wall</span></span> sull'elemento della vista interessato.</p>
+          <p>
+            <a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../Images/resources/images/wall/sc_addswoverviewtoview.jpg" data-mc-popup-alt="Add Smart Wall control to views in XProtect Smart Client.">
+              <img class="MCPopupThumbnail img" data-mc-width="1304" data-mc-height="865" src="../../../Images/resources/images/wall/sc_addswoverviewtoview_thumb_200_0.png" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="Add Smart Wall control to views in XProtect Smart Client." tabindex="" />
+            </a>
+          </p>
+        </li>
+        <li value="4"> Fare clic di nuovo su <span class="uitext">Configurazione</span> per uscire dalla modalità configurazione. Le modifiche sono state salvate.</li>
+        <li value="5">Ora è possibile iniziare a eseguire l'invio push di telecamere e altri tipi di contenuto al videowall. </li>
+      </ol>
+      <h2>Modifica del layout della vista dei monitor <span class="mc-variable flvar-product.SWName variable">Smart Wall</span><a name="Wall_ChangeMonitorLayout"></a></h2>
+      <p>È possibile modificare il layout di visualizzazione preconfigurato nei monitor <span class="mc-variable flvar-product.SWName variable">Smart Wall</span>. Risulta utile per mostrare telecamere aggiuntive o altri tipi di contenuti.</p>
+      <div class="MCDropDown MCDropDown_Closed dropDown">
+        <span class="MCDropDownHead dropDownHead">
+          <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+            <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Esempio</a>
+        </span>
+        <div class="MCDropDownBody dropDownBody">
+          <p>È stato registrato un incidente su cinque telecamere ed è presente anche un’immagine di un sospettato. Il video e l'immagine sul videowall devono essere visualizzati, in modo che lo staff della sicurezza possa vedere l'incidente e trattenere il sospettato. Poiché i monitor attuali nel videowall sono preconfigurati per mostrare solo le telecamere <span class="uitext">2x2</span>, è necessario modificare il layout della vista su <span class="uitext">2x3</span> in modo da aggiungere la quinta telecamera e l'immagine.</p>
+        </div>
+      </div>
+      <p>Operazioni:</p>
+      <ol>
+        <li value="1">Nella modalità Live o Riproduzione aprire la vista che contiene il controllo <span class="mc-variable flvar-product.SWName variable">Smart Wall</span>.</li>
+        <li value="2">
+          <p>Fare clic sull'icona <img src="../../../Images/resources/images/wall/change_the_layout_of_a_1.png" alt="" /> per il monitor, selezionare <span class="uitext">Modifica layout vista</span>, quindi il formato di visualizzazione, ad esempio <span class="uitext">4:3</span>.</p>
+          <p>
+            <a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../Images/resources/images/wall/change_the_layout_of_a_1_1.jpg" data-mc-popup-alt="Change the view layout of a Smart Wall monitor.">
+              <img class="MCPopupThumbnail img" data-mc-width="1247" data-mc-height="736" src="../../../Images/resources/images/wall/change_the_layout_of_a_1_1_thumb_200_0.jpg" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="Change the view layout of a Smart Wall monitor." tabindex="" />
+            </a>
+          </p>
+        </li>
+        <li value="3">
+          <p>Selezionare il layout della vista. In questo esempio, selezionare <span class="uitext">2x3</span>. Vengono aggiunti al layout della vista due elementi in grigio.</p>
+          <p>
+            <a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../Images/resources/images/wall/sc_wall_changedviewlayout.jpg" data-mc-popup-alt="2x3 view layout of a Smart Wall monitor.">
+              <img class="MCPopupThumbnail img" data-mc-width="758" data-mc-height="427" src="../../../Images/resources/images/wall/sc_wall_changedviewlayout_thumb_200_0.jpg" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="2x3 view layout of a Smart Wall monitor." tabindex="" />
+            </a>
+          </p>
+        </li>
+        <li value="4">Ora è possibile aggiungere altro contenuto. Consultare anche <a href="sc_workingwithwalle.htm#SC_DisplayingContentOnSm.htm" class="MCXref xref">Visualizzazione del contenuto su videowall</a>.</li>
+      </ol>
+      <h2>Ripristino o modifica delle preimpostazioni <span class="mc-variable flvar-product.SWName variable">Smart Wall</span><a name="Wall_ChangePreset"></a></h2>
+      <p>
+ Le <a href="javascript:void(0)" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" glossTerm="Glossary.Term38">preimpostazioni<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>Un layout predefinito per uno o più monitor Smart Wall in XProtect Smart Client. Le preimpostazioni determinano le telecamere visualizzate e il modo in cui il contenuto è strutturato su ciascun monitor del videowall.</span></a> vengono spesso modificate in base a regole o a pianificazioni orarie oppure altri operatori possono cambiarle. Tuttavia, a volte si potrebbe voler reimpostare il videowall o applicare una preimpostazione specifica nel corso di determinati eventi.</p>
+      <p>Operazioni:</p>
+      <ol>
+        <li value="1">Aprire la vista contenente il controllo <span class="mc-variable flvar-product.SWName variable">Smart Wall</span>.</li>
+        <li value="2">Nell'elenco <span class="uitext">Seleziona preimpostazione</span>, posizionare il puntatore sopra la preimpostazione da applicare.</li>
+        <li value="3">
+          <p>Fai clic su <span class="uitext">Attiva</span>. I monitor fisici interessati nel videowall vengono modificati di conseguenza.</p>
+          <p>
+            <a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../Images/resources/images/sc/sc_resetsw.jpg" data-mc-popup-alt="Activate or reset the preset of a Smart Wall monitor.">
+              <img class="MCPopupThumbnail img" data-mc-width="977" data-mc-height="387" src="../../../Images/resources/images/sc/sc_resetsw_thumb_200_0.jpg" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="Activate or reset the preset of a Smart Wall monitor." tabindex="" />
+            </a>
+          </p>
+        </li>
+      </ol>
+      <div>
+        <a name="SC_ChangeTheLayoutOfASma.htm"></a>
+      </div>
+    </div>
+    <p>
+      <div class="MCRelationshipsProxy_0">
+        <p class="containerHeading_container_0">Informazioni sul concetto</p>
+        <p class="containerItem_container_0">
+          <a href="sc_workingwithwalle.htm">XProtect Smart Wall (utilizzo)</a>
+        </p>
+        <p class="conceptHeading_concept_0">Informazioni sul concetto</p>
+        <p class="conceptItem_concept_0">
+          <a href="../../standard_features/sf_sc/sf_funda/scfunda_addonproductsswall.htm">XProtect Smart Wall</a>
+        </p>
+      </div>
+    </p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2023</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

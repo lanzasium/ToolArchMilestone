@@ -1,0 +1,1306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-conditions="flcts-add-on.xp-rap-rev-content" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../Skins/Favicons/milestone-favicon.ico" />
+    <title>Installation and deployment steps</title>
+    <link href="../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../Default.htm#raprev/raprev_installationsteps.htm">Open topic with navigation</a>
+    </p>
+    <div role="main" id="mc-main-content">
+      <h1>
+        <a name="top"></a>Installation and deployment steps</h1>
+      <ol>
+        <li value="1">
+          <p>Run the installer</p>
+        </li>
+        <li value="2">
+          <p>Set up the deployment</p>
+        </li>
+        <li value="3">
+          <p>Define and activate the cameras</p>
+        </li>
+        <li value="4">
+          <p>Disable face recognition and license plate recognition (optional) </p>
+        </li>
+        <li value="5">
+          <p>Install <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>  Embedded Client for  <span class="mc-variable flvar-brand-company.Mil_XP variable">Milestone XProtect</span> plug-in </p>
+        </li>
+        <li value="6">
+          <p>Using an HTTPS host (optional)</p>
+        </li>
+      </ol>
+      <h2>
+        <a name="Prerequi"></a>Prerequisites</h2>
+      <p>Before you install, please check the following list of prerequisites.</p>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Server</td>
+            <td>At least one dedicated server for <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> (it cannot be installed on the same server with the VMS).</td>
+          </tr>
+          <tr>
+            <td>Memory</td>
+            <td>At least 64GB of RAM</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>
+              <ul>
+                <li>
+                  <p>At least 250GB of free space for the application</p>
+                </li>
+                <li>
+                  <p>At least 250GB for the database (on SSD drives)</p>
+                </li>
+                <li>
+                  <p>At least 500GB drive for data storage (video and metadata)
+</p>
+                </li>
+              </ul>
+              <p>Refer to the <a href="raprev_appendix.htm" class="MCXref xref">APPENDIX: XProtect Rapid REVIEW hardware recommendations</a> for recommended storage size.
+</p>
+            </td>
+          </tr>
+          <tr>
+            <td>GPUs</td>
+            <td>
+              <p>At least one supported GPU. For additional information, see the list of recommended GPUs which is available on the specification sheet that you can download from the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> Content Portal: <a href="https://content.milestonesys.com/web/62f67a6947854dd9/xprotect-rapid-review---web-collection---download-product-information/">Collections / Rapid REVIEW</a>.</p>
+              <p style="text-align: left;">
+                <span class="note">The GPU should not be used for any system task such as connecting a monitor to the GPU or running applications, such as Chrome, using the GPU.</span><![CDATA[
+                        ]]></p>
+            </td>
+          </tr>
+          <tr>
+            <td>CPU</td>
+            <td>For each GPU, at least 4 cores at base (non-turbo) frequency of 2.5GHz and above.</td>
+          </tr>
+          <tr>
+            <td>Drivers</td>
+            <td>
+              <p>For the server with the GPU, make sure to download a supported version of the <a href="https://www.nvidia.com/Download/Find.aspx?lang=en-us" class="Hyperlink">NVIDIA driver</a> (470.94 or higher).</p>
+              <p>Make sure to restart the computer after installing the NVIDIA driver.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Network connectivity between <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> and the VMS</td>
+            <td>Ensure a minimum of 1 Gbps of throughput is available. This is relevant for deployments with less than 300 cameras on site. For larger deployments, consult with your <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Account Manager.</td>
+          </tr>
+          <tr>
+            <td>Operating System</td>
+            <td>Windows 11, Windows 10 Pro version 1803 or higher, Windows Server 2022, Windows Server 2019 or Windows Server 2016 (you can check the Windows versions by running winver.exe.) For the Windows 10 'N' edition, you need to install 'Media Feature Pack' and 'Windows Media Player' via the Windows optional features menu. For more information, click <a href="https://docs.microsoft.com/en-us/windows/application-management/add-apps-and-features">here</a>.</td>
+          </tr>
+          <tr>
+            <td>Windows Updates</td>
+            <td>Make sure that the latest Windows updates are installed.</td>
+          </tr>
+          <tr>
+            <td>.NET Framework</td>
+            <td>
+              <p>If the computer is running Windows 10 or Windows Server 2016, download and install <a href="https://dotnet.microsoft.com/download/dotnet-framework/net472" class="Hyperlink">.NET Framework 4.7.2</a> Runtime or higher.</p>
+              <p>Make sure to restart the computer after installing .NET Framework.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Permissions</td>
+            <td>Current logged in user has full local admin rights and full Registry Read/Write permissions.</td>
+          </tr>
+          <tr>
+            <td>Browsers</td>
+            <td>
+              <p>Mozilla Firefox version 69.* and above</p>
+              <p>Google Chrome version 77.* and above</p>
+              <p>Microsoft Edge version 80 and above</p>
+              <p> </p>
+            </td>
+          </tr>
+          <tr>
+            <td>Ports</td>
+            <td>See the Firewall Consideration and Ports Availability section below.</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>
+        <a name="STEP"></a>STEP 1 - Run the Installer </h2>
+      <p class="note">
+        <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> will not work if the minimum requirements are not met. For additional information, see the <a href="raprev_appendix.htm" class="MCXref xref">APPENDIX: XProtect Rapid REVIEW hardware recommendations</a>.</p>
+      <ol>
+        <li value="1">
+          <p>Extract the <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> package (RapidREVIEW &lt;version&gt;.zip).</p>
+        </li>
+        <p>The extracted folder includes the <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> installer, multiple <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> installer files and an installation and configuration guide. You do not need to run any of the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> installers (except for the embedded client installer at a later stage).</p>
+        <p>
+          <img src="../../Images/resources/images/raprev/installation_deployment_steps64_1a.png" alt="" />
+        </p>
+        <p class="note">
+          <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> uses port 80 for its application. If you want to use a different port, change it in the <span class="span">config.json</span> file before running the installer. The <span class="specialbold">config.json</span> file is one of the files in the installation package.</p>
+        <li value="2">
+          <p>Right-click the MilestoneXProtectRapidReview2022R2Installer.exe file and select <span class="uitext">Run as administrator</span>.</p>
+        </li>
+        <li value="3">
+          <p>Read and accept the License Agreement terms and click <span class="uitext">NEXT</span>.</p>
+          <p class="note">When running on a laptop, you may also see a duplicated smaller screen on top of the regular installation screen. To continue, check the check box on the smaller screen and the NEXT button on the larger screen. This is a known issue</p>
+        </li>
+        <li value="4">
+          <p>The installer will check to see if your computer meets the minimum prerequisites..</p>
+        </li>
+        <ul>
+          <li>
+            <p>If all the prerequisites are met, you’ll see a “Your system is fine” message.</p>
+          </li>
+          <li>
+            <p>If any of the prerequisites are not met, you will see a screen describing the warnings. Try resolving the warnings (for more information see the <a href="#Prerequi">Prerequisites</a> section) and then click <span class="uitext">RETRY</span> or run the installer again. To resolve the warnings, you can also see the logs and run the standalone Check Prerequisites tool.</p>
+            <p>If there are still errors and you click NEXT, the installation will continue. However,  may not run properly on your computer since it does not meet the minimum requirements.</p>
+          </li>
+        </ul>
+        <img src="../../Images/resources/images/raprev/installation_deployment_steps64_2a.png" alt="" />
+        <li value="5">
+          <p>Select whether you want to install, upgrade, or uninstall <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span>.</p>
+        </li>
+        <p>
+          <img src="../../Images/resources/images/raprev/installation_deployment_steps64_3a.png" alt="" />
+        </p>
+        <p>If you select <span class="uitext">INSTALL</span> or <span class="uitext">UPGRADE</span>, the following screen appears.</p>
+        <p>
+          <img src="../../Images/resources/images/raprev/installation_deployment_steps64_4_550x641.png" alt="" style="width: 550;height: 641;" />
+        </p>
+        <li value="6">
+          <p>Click <span class="uitext">NEXT</span>.</p>
+        </li>
+        <p>The following screen opens where you’ll enter the necessary credentials and settings.</p>
+        <p>
+          <img src="../../Images/resources/images/raprev/installation_deployment_steps64_5_550x641.png" alt="" style="width: 550;height: 641;" />
+        </p>
+        <li value="7">
+          <p>Fill in the following fields. </p>
+        </li>
+        <table style="width: 100%;">
+          <col />
+          <col />
+          <tbody>
+            <tr>
+              <th>Field</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> account settings</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> User</td>
+              <td>
+                <p>The Windows user that runs the services. If this user does not yet exist, the installer will create it for you.</p>
+                <p>This user must have local administrator permissions. </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td>
+                <p>The password of the user above (<span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> User). Note that apostrophes and double quotes are not supported in the <span class="uitext">Password</span> field.</p>
+                <p>Use a password that is compliant with your organization’s password policy.</p>
+                <p>A password may fail for a variety of reasons:</p>
+                <ul>
+                  <li>
+                    <p>The password does not meet the password policy of the operating system and/or organization.</p>
+                  </li>
+                  <li>
+                    <p>Domain accounts cannot be created using this dialog. Contact the relevant IT person if a new domain account is required.</p>
+                  </li>
+                  <li>
+                    <p>The user is disabled, locked, or otherwise limited.</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">PostgreSQL <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> User</td>
+            </tr>
+            <tr>
+              <td>Database User</td>
+              <td>
+                <p>The PostgreSQL user that accesses the application database. </p>
+                <p>Note that the user name is case sensitive.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Database Password</td>
+              <td>The password of the user above (Database User). Note that apostrophes and double quotes are not supported in the <span class="uitext">Database Password</span> field.</td>
+            </tr>
+            <tr>
+              <td colspan="2">License activation key </td>
+            </tr>
+            <tr>
+              <td>Software activation key</td>
+              <td>
+                <p>The license activation key provided by <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span>. </p>
+                <p>The license will be activated if the computer is online. If it is not online, you can activate the license using the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> License Activation tool, which you can access by clicking the following icon after the installation completes. </p>
+                <p>
+                  <img src="../../Images/resources/images/raprev/online_activation.png" alt="" />
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <li value="8">
+          <p>Select the <span class="uitext">Advanced settings</span> option. All the fields here are optional. If you want to already configure the connection to the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> VMS, fill in the <span class="uitext"><span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> VMS Address</span> field. It is recommended to fill it in. </p>
+        </li>
+        <p>
+          <img src="../../Images/resources/images/rapidreview_installer_advancedsettings_550x639.png" alt="" style="width: 550;height: 639;" />
+        </p>
+        <p>The following table describes all the additional fields that are in the <span class="uitext">Advanced settings</span>.</p>
+        <table style="width: 100%;">
+          <col />
+          <col />
+          <tbody>
+            <tr>
+              <th>Field</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td colspan="2">Database admin settings</td>
+            </tr>
+            <tr>
+              <td>Database Admin User</td>
+              <td>The admin user for the PostgreSQL database. This cannot be the same as the Database User in the previous table.</td>
+            </tr>
+            <tr>
+              <td>Database Admin Password</td>
+              <td>
+                <p class="BC_BodyCopy_1">The password of the user above (Database Admin User). A database admin password is automatically generated. Note that apostrophes and double quotes are not supported in the <span class="uitext">Database Admin Password</span> field.</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">Authentication Key</td>
+            </tr>
+            <tr>
+              <td>Passphrase</td>
+              <td>This passphrase will be used to generate an encryption key to secure connection strings and other sensitive data.</td>
+            </tr>
+            <tr>
+              <td colspan="2">Domain Name</td>
+            </tr>
+            <tr>
+              <td>Domain Name</td>
+              <td>
+                <p>If the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> user you specified in the previous table is a domain user, enter the domain name and make sure that the domain user has full admin privileges on the server. If the user is a local user, enter a period (.)</p>
+                <p>Note that the domain name is case sensitive.</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">Paths</td>
+            </tr>
+            <tr>
+              <td>Root path</td>
+              <td>The path where you want to install <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> applications.</td>
+            </tr>
+            <tr>
+              <td>Shared directory</td>
+              <td>
+                <p>The path for the shared data folder. This folder will store longer blobs, database backups, rendered synopsis files, and more. </p>
+                <p>It’s recommended to select the drive with the most available space. </p>
+                <p>If you select an existing shared network folder, make sure that the user has permissions to the shared network folder.</p>
+                <p>If you want to select a mapped drive, make sure to first map the drive before installing <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>.</p>
+                <p>In the properties of the drive you select, make sure that you cleared the <span class="uitext">Allow files on this drive to have contents indexed in addition to file properties</span> check box (as shown in the image below).</p>
+                <p>
+                  <img src="../../Images/resources/images/raprev/installation_deployment_steps64_8.png" alt="" />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Postgres data directory</td>
+              <td>
+                <p>The path where you want to store PostgreSQL data. It is strongly recommended to set this path to an SSD drive. </p>
+                <p>This field cannot contain special characters, such as space, ~, and %.</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> SSO Provider</td>
+              <td>Leave as-is. This is the endpoint of the <span class="mc-variable flvar-sw-component.RR_Name_standalone variable">Rapid REVIEW</span> - <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> integration service.</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> VMS Address</td>
+              <td>Enter the host or IP address of the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> VMS.</td>
+            </tr>
+          </tbody>
+        </table>
+        <li value="9">
+          <p>Click <span class="uitext">NEXT</span> and a summary screen will appear.</p>
+        </li>
+        <p>
+          <img src="../../Images/resources/images/raprev/installation_deployment_steps64_6.png" alt="" />
+        </p>
+        <li value="10">
+          <p>Review the settings and save the settings for future use by clicking the <span class="uitext">COPY</span> button.</p>
+        </li>
+        <li value="11">
+          <p>Click <span class="uitext">NEXT</span>  to complete the installation.</p>
+        </li>
+        <p>The installation may take 10-25 minutes. Note that after the installation is complete, the services will be automatically restarted. </p>
+        <p>
+          <img src="../../Images/resources/images/raprev/installation_deployment_steps64_7_550x639.png" alt="" style="width: 550;height: 639;" />
+        </p>
+        <p class="note">If you did not fill in the VMS address after the installation completed, open the <span class="specialbold">MilestoneSSOProvider.exe.config</span> file and update the <span class="uitext">MilestoneAddress</span>  value to the VMS address.</p>
+        <p>By default, this file is located in <span class="filepath">C:\Program Files\<span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>\<span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Server</span>.</p>
+      </ol>
+      <h3>
+        <a name="Firewall"></a>Firewall Consideration and Ports Availability</h3>
+      <p class="subheading">Internal (Local) Ports</p>
+      <p>On each server, the following ports should be opened for internal communication:</p>
+      <ul>
+        <li>
+          <p>On each server, all outbound ports should be opened, to allow communicating with other servers as needed.</p>
+        </li>
+        <li>
+          <p>On each server, the following inbound ports should be opened according to the installed services. The <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>  application listens for incoming traffic from these ports. The installer will create the relevant Windows firewall rules for these ports.</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <th>Component</th>
+            <th>Port #</th>
+          </tr>
+          <tr>
+            <td>BI Face Recognition Service
+</td>
+            <td> TCP 13004
+</td>
+          </tr>
+          <tr>
+            <td>Face Recognition Matching Service</td>
+            <td> TCP 13002
+</td>
+          </tr>
+          <tr>
+            <td>Filtering Service</td>
+            <td> TCP 13001
+</td>
+          </tr>
+          <tr>
+            <td>License Service</td>
+            <td>TCP 1947
+</td>
+          </tr>
+          <tr>
+            <td>Lighthouse Service
+</td>
+            <td>TCP 2553, TCP 2554, TCP 2555, TCP 2556, TCP 2557
+</td>
+          </tr>
+          <tr>
+            <td>LPR Matching Service
+</td>
+            <td>TCP 13003
+
+</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span>
+            </td>
+            <td>
+TCP 554, TCP 8080
+
+</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="mc-variable flvar-brand-company.SSO_Prov variable">MilestoneSSOProvider</span>
+            </td>
+            <td>
+TCP 8030
+
+</td>
+          </tr>
+          <tr>
+            <td>
+Notification Service
+</td>
+            <td>
+TCP 7080
+</td>
+          </tr>
+          <tr>
+            <td>PostgreSQL
+Redis</td>
+            <td>
+TCP 5432 
+</td>
+          </tr>
+          <tr>
+            <td>Redis</td>
+            <td>TCP 6379
+
+</td>
+          </tr>
+          <tr>
+            <td>Storage
+</td>
+            <td>
+TCP 139, TCP 445
+ 
+</td>
+          </tr>
+          <tr>
+            <td>Video Streaming Gateway Service
+</td>
+            <td>TCP 5010
+
+</td>
+          </tr>
+          <tr>
+            <td>VSServer Service
+
+</td>
+            <td>TCP 1112, TCP 1113
+ 
+</td>
+          </tr>
+          <tr>
+            <td>
+Web Services (BOA, ProWebApi, AdminWebApi)
+</td>
+            <td>
+HTTP (80) 
+</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="subheading">External Ports</p>
+      <p>The following ports should be opened to traffic coming from the end users’ browsers.</p>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <th>Component</th>
+            <th>Port #</th>
+            <td>Comment</td>
+          </tr>
+          <tr>
+            <td>Web Services</td>
+            <td>HTTP (80)</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Video Streaming Gateway Service</td>
+            <td>TCP 5010</td>
+            <td rowspan="2">Not needed when using a load balancer</td>
+          </tr>
+          <tr>
+            <td>Notification Service</td>
+            <td>TCP 7080</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="subheading">Additionally recommended prerequisites</p>
+      <ul>
+        <li>
+          <p>Set the default system language to English during the installation. If the  language is a language other than English, the installation may end with an error. The system language can be set to any preferred language after the installation.</p>
+        </li>
+        <li>
+          <p>Disable antivirus scans from all <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> folders. For more information, see the <a href="https://doc.milestonesys.com/addons/files/latest/en-US/BriefCam_antivirus.pdf" target="_blank">Antivirus guidelines</a> from <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>. </p>
+        </li>
+      </ul>
+      <h3>
+        <a name="Installation_Troubleshooting"></a>Installation Troubleshooting</h3>
+      <p>If the installation failed:</p>
+      <ol>
+        <li value="1">
+          <p>Investigate the log files (<span class="uitext">deploy.log</span> and the <span class="uitext">MilestoneXProtectRapidReview2022R2Installer_&lt;version&gt;.log</span>) to see which component of the installation has failed. The log files are in the folder where you extracted the installation files.</p>
+        </li>
+        <li value="2">
+          <p>Investigate the relevant component’s log file and fix the issue according to the error in the log.</p>
+        </li>
+        <li value="3">
+          <p>Uninstall <span class="mc-variable flvar-sw-component.RR_Name_standalone variable">Rapid REVIEW</span> using the <span class="uitext">UNINSTALL</span> option in the installer.</p>
+        </li>
+        <li value="4">
+          <p>Restart the computer.</p>
+        </li>
+        <li value="5">
+          <p>Reinstall <span class="mc-variable flvar-sw-component.RR_Name_standalone variable">Rapid REVIEW</span>.</p>
+        </li>
+      </ol>
+      <h3>
+        <a name="Activate"></a>Activate licenses </h3>
+      <p>This information assists you in activating an <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> license. You can complete activation in both online and offline modes. </p>
+      <p>It also assists you in modifying and re-activating an existing license for system expansion if, for example, you want to add additional device licenses.</p>
+      <p class="note">All steps listed below should be performed on the server where you installed <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span>.</p>
+      <h4>Licensing warning</h4>
+      <p>Be aware that licensing with <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>  is sensitive. A product key can be activated only once. If you try to activate it again, it will fail with error code 831. Furthermore, if certain components are missing on your <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> installation, there is a chance that the license is activated on the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> licensing server without being applied on your system. If this happens, you must open a support case with <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> requesting an extra activation for the license.</p>
+      <p>To prevent problems with license activation:</p>
+      <ul>
+        <li>
+          <p>Make sure that the <span class="uitext">Sentinel LDK License Manager</span> service is available in Windows Services.</p>
+        </li>
+        <li>
+          <p>Verify that you can access the URL <a href="http://localhost:1947/">http://localhost:1947</a> to get to the GEMALTO application site.</p>
+        </li>
+        <li>
+          <p>All IIS AppPools must be in place: AdminApiPool, AdminClientPool, BoaPool, ProWebApiPool, ProWebApiStoragePool, ProWebClientPool, VideProcessingGateway</p>
+        </li>
+        <li>
+          <p>All <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> components must be available in Control Panel – Programs: <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> PostgreSQL, <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Web Services, <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Server, <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span><span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> Plugin.</p>
+        </li>
+      </ul>
+      <p>If any of the preconditions mentioned above are not accomplished, please open a case with <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span>  Technical Support providing your license product key and tag ID.</p>
+      <p>Once the license is activated successfully, you can uninstall and re-install  as many times as you wish. The license will remain on the server so you don't need to re-activate it. A request for an extra activation for the license will only be required in the case of a re-installation of the Windows OS or if the license is deleted by a disk formatting .</p>
+      <h4>Online activation </h4>
+      <p>Online activation requires an active Internet connection.</p>
+      <ol>
+        <li value="1">
+          <p>From the desktop, do one of the following</p>
+        </li>
+        <ul>
+          <li>Click the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> License Activation application. </li>
+        </ul>
+        <ul>
+          <p>
+            <img src="../../Images/resources/images/raprev/online_activation1.png" alt="" />
+          </p>
+        </ul>
+        <ul>
+          <li>
+            <p>From the <span class="uitext">Start</span> menu, type <span class="inputtext"><span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> License Activation</span> and launch the application.</p>
+            <p>
+              <img src="../../Images/resources/images/raprev/online_activation2.jpg" alt="" />
+            </p>
+          </li>
+        </ul>
+        <li value="2">
+          <p>Enter your product key and click <span class="uitext">Activate</span>.</p>
+          <p>
+            <img src="../../Images/resources/images/raprev/online_activation_3.png" alt="" />
+          </p>
+        </li>
+        <p>When the activation is successful, the following dialog box will appear. Here you’ll find your Tag ID, which you’ll need when you open a <a href="https://www.milestonesys.com/support/">support ticket</a>.</p>
+        <p>
+          <img src="../../Images/resources/images/raprev/online_activation_4_550x227.jpg" alt="" style="width: 550;height: 227;" />
+        </p>
+        <li value="3">
+          <p>Click <span class="uitext">OK</span> to close the dialog box and then click <span class="uitext">Close</span> in the main application window to close the License Activation application.</p>
+        </li>
+      </ol>
+      <h4>Offline activation </h4>
+      <p>Offline activation is useful in cases where internet connectivity is not available on the computer where you are installing <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>.</p>
+      <p class="p_8">To perform offline activation:</p>
+      <ol>
+        <li value="1">
+          <p>From the desktop, do one of the following:</p>
+        </li>
+        <ul>
+          <li>Click the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> License Activation application. </li>
+        </ul>
+        <p>
+          <img src="../../Images/resources/images/raprev/online_activation1.png" alt="" />
+        </p>
+        <ul>
+          <li>From the Start menu, type <span class="inputtext"><span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> License Activation</span> and launch the application.</li>
+        </ul>
+        <p>
+          <img src="../../Images/resources/images/raprev/online_activation2.jpg" alt="" />
+        </p>
+        <ul>
+          <li>
+            <p>Click the <span class="uitext">Offline</span> tab to access offline activation.</p>
+          </li>
+        </ul>
+        <p>
+          <img src="../../Images/resources/images/raprev/offline_activation.jpg" alt="" />
+        </p>
+        <li value="2">
+          <p>Click <span class="uitext">1. Collect Information</span> to generate a C2V (client to vendor) file, select or approve the destination in which it is to be stored, and click <span class="uitext">Save</span>.</p>
+        </li>
+        <p class="p_8">
+          <img src="../../Images/resources/images/raprev/offline_activation_2_550x442.png" alt="" style="width: 550;height: 442;" />
+        </p>
+        <li value="3">
+          <p class="p_8">Send the C2V file to the Support team by logging into <a href="https://www.milestonesys.com/support/">Milestone Support</a> to open a ticket and attaching the C2V file. The product key number you received from <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> needs to be mentioned in the ticket. This will help the support team generate the relevant V2C file (vendor to client), which is required to activate the product offline.</p>
+        </li>
+      </ol>
+      <p>After receiving the V2C, there are two ways to activate the product offline:</p>
+      <p>You can activate via the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> License Activation application or you can use the Gemalto application.</p>
+      <h4>Activate via the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> License Activation application</h4>
+      <ol>
+        <li value="1">
+          <p>Open the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> License Activation application.</p>
+        </li>
+        <li value="2">
+          <p>Click the <span class="uitext">Offline</span> tab.</p>
+        </li>
+        <li value="3">
+          <p>Click <span class="uitext">3. Apply license</span>.</p>
+        </li>
+        <li value="4">
+          <p>Select the V2C file provided by the  <a href="https://www.milestonesys.com/support/">support team</a>, and click <span class="uitext">Open</span>.</p>
+        </li>
+        <p>
+          <img src="../../Images/resources/images/raprev/offline_activation_3_550x442.jpg" alt="" style="width: 550;height: 442;" />
+        </p>
+        <li value="5">
+          <p>When you see a message that the product was activated successfully, click <span class="uitext">OK</span> and close the License Activation application. <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> will now be activated.</p>
+        </li>
+      </ol>
+      <h4>Activate via the Gemalto application.</h4>
+      <ol>
+        <li value="1">
+          <p>Open a web browser.</p>
+        </li>
+        <li value="2">
+          <p>Open <a href="http://localhost:1947/_int_/checkin.html">http://localhost:1947/_int_/checkin.html</a>.</p>
+        </li>
+        <li value="3">
+          <p>Select the <span class="uitext">Update/Attach</span> option.</p>
+        </li>
+        <li value="4">
+          <p>Click <span class="uitext">Choose File</span>.</p>
+        </li>
+        <li value="5">
+          <p>Select the V2C file provided by the support team.</p>
+        </li>
+        <li value="6">
+          <p>Click <span class="uitext">Apply File</span>.</p>
+        </li>
+      </ol>
+      <p>
+        <img src="../../Images/resources/images/raprev/offline_activation_4_550x239.png" alt="" style="width: 550;height: 239;" />
+      </p>
+      <h3>System expansion (adding additional device licenses)</h3>
+      <p>To make any modifications to the license, such as adding cameras to the license, you need to:</p>
+      <ol>
+        <li value="1">
+          <p>Activate the license.</p>
+        </li>
+        <li value="2">
+          <p>Place an order and mention the system Tag ID and the Key ID, which can be found in the Gemalto application:</p>
+        </li>
+        <ol style="list-style-type: lower-alpha;">
+          <li value="1">
+            <p>Open your browser.</p>
+          </li>
+          <li value="2">
+            <p>Go to the <a href="http://localhost:1947/_int_/devices.html">Sentinel Admin Control Center</a></p>
+          </li>
+          <li value="3">
+            <p>Copy the Key ID.</p>
+          </li>
+        </ol>
+        <p>
+          <img src="../../Images/resources/images/raprev/offline_activation_5_550x119.png" alt="" style="width: 550;height: 119;" />
+        </p>
+        <p>The <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> team will then generate the relevant V2C with the requested modification(s).</p>
+        <li value="3">
+          <p>Activate the V2C on the server:</p>
+        </li>
+        <ol style="list-style-type: lower-alpha;">
+          <li value="1">
+            <p>Open a web browser.</p>
+          </li>
+          <li value="2">
+            <p>Go to the <a href="http://localhost:1947/_int_/checkin.html">Sentinel Admin Control Centerl</a>.</p>
+          </li>
+          <li value="3">
+            <p>Select the <span class="uitext">Update/Attach</span> option.</p>
+          </li>
+          <li value="4">
+            <p>Click <span class="uitext">Choose File</span>.</p>
+          </li>
+          <li value="5">
+            <p>Select the V2C file provided by the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> support team.</p>
+          </li>
+          <li value="6">
+            <p>Click <span class="uitext">Apply File</span>.</p>
+          </li>
+        </ol>
+        <p>
+          <img src="../../Images/resources/images/raprev/offline_activation_4_550x239.png" alt="" style="width: 550;height: 239;" />
+        </p>
+      </ol>
+      <h2>
+        <a name="RapRev_Step_up_deployment"></a>STEP 2 – Set up the deployment</h2>
+      <ol>
+        <li value="1">
+          <p> In a browser, enter the hostname of the computer where <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> was installed followed by slash (/) and the word <span class="uitext">admin</span>, that is: <span class="uitext">http://[computer name]/admin</span>. The <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Administrator Console will open.</p>
+        </li>
+        <li value="2">
+          <p>Log into the administrator console. The user name is <span class="uitext">Administrator</span> and the default password is <span class="uitext">changeit</span>.</p>
+        </li>
+        <li value="3">
+          <p>Change the default password.</p>
+        </li>
+      </ol>
+      <p>You’ll now set up the deployment from the <span class="uitext">Deployment</span> section.</p>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_6.png" alt="" />
+      </p>
+      <ol data-mc-continue="true">
+        <li value="4">
+          <p> From the <span class="uitext">Deployment</span> section, click <span class="uitext">Hosts</span>.</p>
+        </li>
+        <li value="5">
+          <p> Next to the host name, click on the settings icon <img src="../../Images/resources/images/raprev/installation_steps_7.png" alt="" />.</p>
+        </li>
+        <li value="6">
+          <p>From the <span class="uitext">Templates</span> menu, select <span class="uitext">All In One</span>.</p>
+          <p>
+            <img src="../../Images/resources/images/raprev/installation_steps_8.png" alt="" />
+          </p>
+        </li>
+      </ol>
+      <ol data-mc-continue="true">
+        <li value="7">
+          <p>Clear the <span class="uitext">Alert Processing Server</span>, <span class="uitext">BI Face Recognition Service</span>, and <span class="uitext">BI Rule Engine Service</span> check boxes (these options will not be needed).</p>
+        </li>
+        <li value="8">
+          <p>Click <span class="uitext">Apply</span>.</p>
+        </li>
+        <li value="9">
+          <p>From the <span class="uitext">Deployment</span> section, click <span class="uitext">GPUs</span> and then select <span class="uitext">GPU OX5</span>.</p>
+        </li>
+        <li value="10">
+          <p>Click on the edit icon (<img src="../../Images/resources/images/raprev/installation_steps_9.png" alt="" />).</p>
+        </li>
+        <li value="11">
+          <p>If face recognition will be used, select the <span class="uitext">Face Recognition</span> check box.</p>
+        </li>
+        <li value="12">
+          <p>In the <span class="uitext">Mode</span> column, select <span class="uitext">On Demand</span>.</p>
+        </li>
+      </ol>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_10c_550x116.png" alt="" style="width: 550;height: 116;" />
+      </p>
+      <ol data-mc-continue="true">
+        <li value="13">
+          <p>Verify that the number of workers under <span class="uitext">Workers</span> is set to 4.</p>
+        </li>
+        <li value="14">
+          <p>From the <span class="uitext">Deployment</span> section, click <span class="uitext">Services</span>.</p>
+        </li>
+        <li value="15">
+          <p>Select the check box at the top left of the table.</p>
+        </li>
+        <li value="16">
+          <p>Click the start button.</p>
+        </li>
+      </ol>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_11c_550x123.png" alt="" style="width: 550;height: 123;" />
+      </p>
+      <h2>
+        <a name="RapRev_Define_and_activate_cameras"></a>STEP 3 – Define and activate the cameras</h2>
+      <ol>
+        <li value="1">
+          <p>Open the <span class="uitext">Settings</span> section and click <span class="uitext">Camera Management</span> (as shown in the image below).</p>
+          <p>
+            <img src="../../Images/resources/images/raprev/installation_steps_12.png" alt="" />
+          </p>
+        </li>
+      </ol>
+      <ol data-mc-continue="true">
+        <li value="2">
+          <p>Click <span class="uitext">Add directory</span>. The <span class="uitext">Add Directory</span> dialog box opens.</p>
+          <p>
+            <img src="../../Images/resources/images/raprev/installation_steps_13.png" alt="" />
+          </p>
+        </li>
+      </ol>
+      <ol data-mc-continue="true">
+        <li value="3">
+          <p>From the <span class="uitext">Video Integration</span> field, select <span class="uitext"><span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> Integration</span>. </p>
+        </li>
+      </ol>
+      <ol data-mc-continue="true">
+        <li value="4">
+          <p>In the <span class="uitext">Directory Name</span> field, enter a display name for the user directory.</p>
+        </li>
+        <li value="5">
+          <p>In the <span class="uitext">Address</span> field, enter the IP address of the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> VMS server.</p>
+        </li>
+        <li value="6">
+          <p>In the <span class="uitext">User Name</span> and <span class="uitext">Password</span> fields, enter an administrator user name and password of the VMS server. With an admin user you can make sure that all the cameras can be accessed.</p>
+        </li>
+        <li value="7">
+          <p>Click <span class="uitext">Add</span> to add the directory. </p>
+        </li>
+        <li value="8">
+          <p>Click the zoom (<img src="../../Images/resources/images/raprev/installation_steps_14.png" alt="" />) icon to the right of the new directory and select the <span class="uitext">Add / Edit Cameras</span> option. </p>
+          <p>
+            <img src="../../Images/resources/images/raprev/installation_steps_15_550x330.png" alt="" style="width: 550;height: 330;" />
+          </p>
+        </li>
+        <li value="9">
+          <p>For all of the cameras, select the check box in the camera’s <span class="uitext">Activated</span> column and click the <span class="uitext">Activate</span> button (located in the bottom right corner), as shown in the image below.</p>
+        </li>
+      </ol>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_16_550x217.png" alt="" style="width: 550;height: 217;" />
+      </p>
+      <ol data-mc-continue="true">
+        <li value="10">
+          <p>The <span class="uitext">Camera Activation</span> pane shown below will appear. If you are sure you want to activate the cameras, click <span class="uitext">Yes</span>. Note that Camera activation is irreversible. It cannot be reset unless a special approved request is opened with <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> support.</p>
+          <p>
+            <img src="../../Images/resources/images/installation_steps_added4.png" alt="" />
+          </p>
+        </li>
+      </ol>
+      <h2>
+        <a name="RapRev_Disable_face_rec_and_LPR"></a>STEP 4 – Disable face recognition and license plate recognition (optional)</h2>
+      <p>If you want to disable face recognition and/or license plate recognition:</p>
+      <ol>
+        <li value="1">
+          <p>In the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Administrator Console, open the <span class="uitext">Settings</span> section and click Environment Settings</p>
+        </li>
+        <li value="2">Set the <span class="uitext">clientEnableFaceRecognition</span> environment setting to <span class="uitext">false</span>. This removes the Face Recognition functionality from the UI.</li>
+        <li value="3">
+          <p>Set the <span class="uitext">MetaData.EnableFaceRecognition</span> environment setting to <span class="uitext">false</span>. This disables the Face Recognition engine.</p>
+        </li>
+        <li value="4">
+          <p>Set the <span class="uitext">EnableLPR</span> environment setting to <span class="uitext">false</span>. This removers the License Plate Recognition functionality from the UI.</p>
+        </li>
+      </ol>
+      <h2>
+        <a name="RapRev_Install_BC_embedded_client"></a>STEP 5 – Install <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Embedded Client for <span class="mc-variable flvar-brand-company.Mil_XP variable">Milestone XProtect</span> plug-in </h2>
+      <p>On each <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> client computer, install <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>’s embedded client for <span class="mc-variable flvar-brand-company.Mil_XP variable">Milestone XProtect</span> plugin.</p>
+      <ol>
+        <li value="1">
+          <p>Click the <span class="uitext"><span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Embedded Client for <span class="mc-variable flvar-brand-company.Mil_XP variable">Milestone XProtect</span></span> plug-in file to download it and then run it. You’ll find the plugin in the <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> zip file.</p>
+        </li>
+        <li value="2">
+          <p>The installation checks for prerequisites, such as Microsoft .NET Framework 4.7.2 Full and Microsoft Visual C++ 2015 2017 2019 Redistributable Package (x64). </p>
+        </li>
+        <li value="3">
+          <p>If anything is missing, you will be prompted to install the missing prerequisites and click <span class="uitext">Install</span>. </p>
+        </li>
+        <li value="4">
+          <p>In the Welcome screen, click <span class="uitext">Get Started</span>.</p>
+        </li>
+        <li value="5">
+          <p>Read the license, accept the License Agreement terms, and click <span class="uitext">Next</span>.</p>
+        </li>
+      </ol>
+      <ol data-mc-continue="true">
+        <li value="6">
+          <p>Select the installation destination path and click <span class="uitext">Next</span>.<br />Note that the installation path must be the same directory where <span class="uitext"><span class="mc-variable flvar-product.SC_Mil_XP variable">Milestone XProtect Smart Client</span></span> is installed. (This may vary slightly between client computers and between <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> versions.)</p>
+        </li>
+      </ol>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_18_replace.png" alt="" />
+      </p>
+      <ol data-mc-continue="true">
+        <li value="7">
+          <p>Enter the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Web Application URL (which is the hostname or IP address of the  <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> computer followed by <span class="uitext">/synopsis</span> and verify that the provided URL is correct by clicking the <span class="uitext">Verify URL</span> button (as shown below).</p>
+        </li>
+      </ol>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_19_replace.png" alt="" />
+      </p>
+      <ol data-mc-continue="true">
+        <li value="8">
+          <p>In the <span class="uitext"><span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Open API (BOA) Server Address</span> field, enter the hostname or IP address of the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> computer followed by <span class="uitext">/BOA</span>.</p>
+        </li>
+      </ol>
+      <ol data-mc-continue="true">
+        <li value="9">
+          <p>Click <span class="uitext">Next</span>.</p>
+        </li>
+      </ol>
+      <ol data-mc-continue="true">
+        <li value="10">
+          <p>Click <span class="uitext">Install</span> and then click <span class="uitext">Finish</span>.</p>
+        </li>
+      </ol>
+      <ol data-mc-continue="true">
+        <li value="11">
+          <p>In the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Administrator Console, restart the services by selecting all of the services, clicking the stop button (<img src="../../Images/resources/images/raprev/installation_steps_20.png" alt="" />) and then the start button (<img src="../../Images/resources/images/raprev/installation_steps_21.png" alt="" />), as shown in the image below.</p>
+        </li>
+      </ol>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_22_550x221.png" alt="" style="width: 550;height: 221;" />
+      </p>
+      <ol data-mc-continue="true">
+        <li value="12">
+          <p>Restart IIS on the <span class="mc-variable flvar-sw-component.RR_Name_standalone variable">Rapid REVIEW</span> server by opening the Windows services and right-click  the <span class="uitext">World Wide Web Publishing Service</span>. Then click <span class="uitext">Restart</span>.</p>
+        </li>
+      </ol>
+      <p class="note">Note: An admin user is automatically created by the SSO when logging into the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> client using the <span class="uitext">Basic authentication</span> or <span class="uitext">Windows authentication</span> method. </p>
+      <p>If you want to log into the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> client using the <span class="uitext">Windows authentication (current user)</span> option, add the <span class="uitext"><span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> user</span> that you used to install <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> services to the <span class="uitext">Administrators</span> group in <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span><span class="mc-variable flvar-sw-component.MC_XP variable">XProtect Management Client</span>. </p>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_23a_550x98.png" alt="" style="width: 550;height: 98;" />
+      </p>
+      <p>When you have completed the steps, a <span class="uitext"><span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span></span> tab will appear in the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span><span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>.</p>
+      <p>
+        <img src="../../Images/resources/images/raprev/installation_steps_24_550x398.png" alt="" style="width: 550;height: 398;" />
+      </p>
+      <p class="note">In <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>, for security reasons, users are automatically logged out if no activity is detected for 20 minutes. Therefore, a user may be automatically logged off the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> functionality while the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> VMS is still running.</p>
+      <h2>
+        <a name="RapRev_Using_an_HTTPS_host"></a>STEP 6 – Using an HTTPS host (optional) </h2>
+      <p class="note">To work with SSL and <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>, using a load balancer is required.</p>
+      <p>This section describes the steps to take to use the NGINX load balancer as an https host for <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> services.</p>
+      <h3>Recommendations</h3>
+      <p>
+        <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> recommends using NGINX.</p>
+      <p>It is recommended to install the load balancer on a separate computer.</p>
+      <p>If you are working in a virtualized environment, the load balancer must be on a separate computer.</p>
+      <p>If you are working in a non-virtualized (physical servers) environment, you can have the load balancer on the same computer as the Web Services (although it is not recommended). However, if you install the load balancer on the same computer as the Web Services, IIS must be on a different port than port 80, since port 80 is for NGINX.</p>
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>
+          <p>Make sure that port 80 is not in use by another application.</p>
+        </li>
+        <li>
+          <p>If IIS is installed, make sure to stop it or change its default port.</p>
+        </li>
+      </ul>
+      <h3>Steps</h3>
+      <ol>
+        <li value="1">
+          <p>Download NGINX 1.19.x load balancer or later from this link: <a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a>.</p>
+        </li>
+        <li value="2">
+          <p>Extract the NGINX zip files to drive <span class="filepath">C:\</span>. It is important to have the NGINX extracted so that the path is: <span class="uitext">C:\NGINX</span>.</p>
+        </li>
+        <li value="3">
+          <p>Create or use an already created self-signed certificate separated into two files: .crt and .key:</p>
+          <p>For information about how to create a certificate, see one of these links:</p>
+          <ul>
+            <li>
+              <p>
+                <a href="https://slproweb.com/products/Win32OpenSSL.html">https://slproweb.com/products/Win32OpenSSL.html</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="https://helpcenter.gsx.com/hc/en-us/articles/115015960428-How-to-Generate-a-Self-Signed-Certificate-and-Private-Key-using-OpenSSL">https://helpcenter.gsx.com/hc/en-us/articles/115015960428-How-to-Generate-a-Self-Signed-Certificate-and-Private-Key-using-OpenSSL</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="https://www.akadia.com/services/ssh_test_certificate.html">https://www.akadia.com/services/ssh_test_certificate.html</a>
+              </p>
+            </li>
+          </ul>
+          <p>To use an already created certificate from the current folder, place both the certificate’s .crt and .key files in the following path: <span class="filepath">C:\NGINX\certificates\</span>.</p>
+        </li>
+      </ol>
+      <ol start="4">
+        <li value="4">
+          <p>If you are working with SSL, download the <span class="filepath">nginx.conf</span> file from: <a href="https://bcftpuser:BCreleases01!@bcftp.briefcam.com/nginx/nginx.conf">https://bcftpuser:BCreleases01!@bcftp.<span class="mc-variable flvar-brand-company.BC_SmallCaps variable">briefcam</span>.com/nginx/nginx.conf</a> and save it to <span class="filepath">c:\nginx\conf</span> (replacing the existing file). </p>
+        </li>
+        <li value="5">
+          <p>	If you do not want to work with SSL, download the <span class="uitext">port80_nginx.conf</span> file from: <a href="https://bcftpuser:BCreleases01!@bcftp.briefcam.com/nginx/port80/nginx.conf">https://bcftpuser:BCreleases01!@bcftp.briefcam.com/nginx/port80/nginx.conf</a> and save it to <span class="uitext">c:\nginx\conf</span>.</p>
+        </li>
+        <li value="6">
+          <p>In the <span class="filepath">nginx.conf</span> file’s <span class="filepath">http</span> section, modify the server name where the components are running (web services, notification services, and Video Streaming Gateway Services).</p>
+        </li>
+        <li value="7">
+          <p>If you have multiple nodes of a service, add a semicolon (;) after the first node and add a second row with the name of the second node. In the example below, there are two Web Services nodes.</p>
+        </li>
+        <p>
+          <img src="../../Images/resources/images/raprev/installation_steps_24a_550x312.png" alt="" style="width: 550;height: 312;" />
+        </p>
+        <li value="8">
+          <p>In the <span class="filepath">nginx.conf</span> file’s <span class="filepath"><span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> System using SSL certificate</span> section you set up HTTPS as follows:</p>
+          <ol style="list-style-type: lower-alpha;">
+            <li value="1">
+              <p>In the <span class="uitext">server_name</span> node, replace <span class="uitext">www.example.com</span> with the address of the load balancer.</p>
+            </li>
+            <li value="2">
+              <p>Comment the <span class="uitext">alias</span> node by adding an ampersand (#) at the beginning of the row.</p>
+            </li>
+            <li value="3">
+              <p>In the <span class="uitext">ssl_certificate</span> row, enter the full path to the .crt file including the file name.</p>
+            </li>
+            <li value="4">
+              <p>In the <span class="uitext">ssl_certificate_key</span> row, enter the full path to the .key file including the file name.</p>
+            </li>
+          </ol>
+          <p>
+            <img src="../../Images/resources/images/raprev/installation_steps_24b_550x238.png" alt="" style="width: 550;height: 238;" />
+          </p>
+        </li>
+        <li value="9">
+          <p>If your SSL certificate is protected by a password, you need to configure NGINX to read a list of passwords that are stored in a separate file. If the private key is not in this file, NGINX will not start. You do this as follows:</p>
+        </li>
+        <ol style="list-style-type: lower-alpha;">
+          <li value="1">
+            <p>
+              <p>Create a new text file named <span class="filepath">ssl_passwords.txt</span> and save it to a separate folder than where the SSL certificate is located.</p>
+            </p>
+          </li>
+          <li value="2">
+            <p>
+              <p>Set the file to be readable only to the user running NGINX.</p>
+            </p>
+          </li>
+          <li value="3">
+            <p>
+              <p>Enter the certificate password into the first line of the <span class="filepath">ssl_passwords.txt</span> file.</p>
+            </p>
+          </li>
+          <li value="4">
+            <p>
+              <p>In the <span class="filepath">nginx config</span> file, add the following line above the existing certificate lines: <span class="codechunk">ssl_password_file /var/lib/nginx/ssl_passwords.txt;</span></p>
+            </p>
+          </li>
+          <li value="5">
+            <p>Distribute this file separately from the configuration file.</p>
+          </li>
+        </ol>
+        <p>For additional security measurements for SSL private keys, see the NGINX documentation.</p>
+        <li value="10">
+          <p>Download the latest release of the NSSM zip files from this link: <a href="https://nssm.cc/download">https://nssm.cc/download</a> and place them on the load balancer computer.</p>
+        </li>
+        <li value="11">
+          <p>Extract the NSSM zip file to a folder, for example: <span class="filepath">C:\NSSM\</span>.</p>
+        </li>
+        <li value="12">
+          <p>Open CMD as <span class="uitext">administrator</span>, navigate to the new <span class="filepath">NSSM\win32</span> folder and run the following commands:</p>
+        </li>
+        <ul>
+          <li>
+            <p>
+              <code>nssm install NGINX “C:\nginx\nginx.exe”</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>nssm set NGINX AppDirectory C:\nginx</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>nssm set NGINX DisplayName “NGINX Web Server”</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>nssm set NGINX Description “NGINX Web Server”</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>nssm set NGINX Start SERVICE_AUTO_START</code>
+            </p>
+          </li>
+        </ul>
+      </ol>
+      <p class="note">In the examples below, replace the string <span class="uitext">www.example.com</span> with the address of the load balancer. <br />For example: Load balancer = LB01.<span class="mc-variable flvar-brand-company.BC_SmallCaps variable">briefcam</span>.com. </p>
+      <ol data-mc-continue="true">
+        <li value="13">
+          <p>On any host that is running the application (browser), make sure the domains (or host name) can be resolved by the DNS. If no DNS is available, you can edit the <span class="filepath">hosts</span> file and add the IP address of the load balancer using the following syntax:</p>
+          <p>•	10.x.x.x www.example.com </p>
+          <p>For example: 10.0.0.143 www.example.com</p>
+        </li>
+        <li value="14">
+          <p>Restart the load balancer computer, open <span class="filepath">services.msc</span> and try to start the newly created <span class="uitext">NGINX Web Server</span> service.</p>
+        </li>
+        <ul>
+          <li>
+            <p>If the service does not start, there may be an issue with its path. To try and solve this issue, run NSSM install on the same folder as described under step 8 and define the service via the NSSM GUI (making sure to specify the parameters properly).</p>
+          </li>
+        </ul>
+        <li value="15">
+          <p>Edit both web config .js files on the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> server (located at <span class="filepath">C:\Program Files\<span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>\WebServices\ProWebClient\webConfig.js</span> and <span class="filepath">C:\Program Files\<span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>\WebServices\ProWebAdminClient\web.config.js</span>) using the syntax below. This syntax refers to the load balancer address. The endpoints in both files must point to the load balancer.</p>
+          <p>•	//www.example.com/ProWebApi/</p>
+          <p>•	//www.example.com/AdminApi/</p>
+        </li>
+        <li value="16">
+          <p>In the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> Administrator Console, set the environment settings with the following values:</p>
+          <p>•	DB.LocalStorageAddress: “//www.example.com/ProWebApiStorage"</p>
+          <p>•	BaseVideoUrl: “https://www.example.com/vsg”. If you are not using SSL, use “http” instead of “https”.</p>
+          <p>•	ClientNotificationEndPoint: “//www.example.com/signalr"   (without port 7080)</p>
+        </li>
+        <p class="note">
+          <span class="uitext">VideoProcessingGatewayUrl</span> in https is <span class="specialbold">not</span> supported.</p>
+        <p class="note">
+          <span class="uitext">VideoProcessingGateWayUrl</span> will use <span class="uitext">http</span> and not <span class="uitext">https</span> because it is communicating between two internal processes (real-time engine and Video Processing gateway web service). This is on purpose to save resources.</p>
+        <li value="17">
+          <p>You now need to update certain parameters, so that the embedded client will reach <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> using an HTTPS protocol. In order to do this:</p>
+          <p>a.	Open the <span class="uitext"><span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span>.MilestoneEmbeddedViewer.dll.config</span> file, which is located at: <span class="filepath">C:\Program Files\<span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span>\<span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>\MIPPlugins\<span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span></span>.</p>
+          <p>b.	Change the URLs (highlighted below) to include HTTPS:</p>
+          <div>&lt;appSettings&gt;</div>
+          <div>&lt;!--Client site address--&gt;</div>
+          <div>&lt;add key="serverAddress" value="<span class="specialbold">https://SMB29/Synopsis/</span>" /&gt;</div>
+          <div>&lt;!--Boa site address--&gt;</div>
+          <div>&lt;add key="boaServerAddress" value="<span class="specialbold">https://SMB29/BOA</span>" /&gt;</div>
+          <div>&lt;!--add key="boaVersion" value="1.0" /--&gt;</div>
+          <div>&lt;!--add key="keepAliveIntervalMS" value="60000" /--&gt;</div>
+          <div>&lt;!--add key="httpTimeout" value="5000" /--&gt;</div>
+          <div>&lt;!--add key="pageLoadTimeoutMS" value="1000" /--&gt;</div>
+          <div>&lt;!--add key="BrowserLogLocation" value="c:\DotNetBrowserLog.txt" /--&gt;</div>
+          <div>&lt;/appSettings&gt;</div>
+        </li>
+        <li value="18">
+          <p>Browse to the application and make sure that it works with https requests.</p>
+          <p>For example:</p>
+          <ul>
+            <li>
+              <p>
+                <a href="https://www.example.com/synopsis">https://www.example.com/synopsis</a>
+              </p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <p>
+                <a href="https://www.example.com/admin">https://www.example.com/admin</a>
+              </p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <h3>Generic configurations</h3>
+      <p>For any other type of load balancer, you need to configure the following redirect rules based on the URL:</p>
+      <ol>
+        <li value="1">
+          <p>Notification Service</p>
+          <p>Search for: /signalr</p>
+          <p>Redirect to: notification-server:7080</p>
+        </li>
+        <li value="2">
+          <p>Video Streaming Gateway</p>
+          <p>Search for: /vsg</p>
+          <p>Use rewrite rule to remove /vsg from the url</p>
+          <p>Redirect to: videostreaming-server:5010</p>
+        </li>
+        <li value="3">
+          <p>Web Services&gt;</p>
+          <p>Search for: /</p>
+          <p>Redirect to: <span class="mc-variable flvar-brand-company.BC_SmallCaps variable">briefcam</span>-webserver</p>
+        </li>
+      </ol>
+      <h3>Logging</h3>
+      <p>To handle the log rotation:</p>
+      <ol>
+        <li value="1">
+          <p>Download the log rotation text from here: <a href="https://doc.milestonesys.com//addons/files/latest/en-US/LogRotationScript.txt">Log rotation script</a> and create a bat file:</p>
+          <ol style="list-style-type: lower-alpha;">
+            <li value="1">
+              <p>Copy the text from the link to a .txt file and name it <span class="filepath">LogRotation</span>.</p>
+            </li>
+            <li value="2">
+              <p>Change the file extension from .txt to .bat.</p>
+            </li>
+          </ol>
+        </li>
+        <li value="2">
+          <p>Save the script (.bat file) to <span class="filepath">C:\NGINX</span>.</p>
+        </li>
+        <li value="3">
+          <p>Create an OS user (such as <span class="uitext">bcuser</span>), a user on the OS level, or create a Windows user account. The user does not need admin rights.</p>
+        </li>
+        <li value="4">
+          <p>Edit the <span class="filepath">C:\NGINX</span> folder’s security options and assign full control to the user that you created in step 3.</p>
+        </li>
+        <li value="5">
+          <p>Click <span class="uitext">Start</span> (Windows key) and type <span class="inputtext">secpol.msc</span> to open the <span class="uitext">Local Security Policy</span> utility.</p>
+          <p>
+            <img src="../../Images/resources/images/raprev/logging_steps_1.png" alt="" />
+          </p>
+        </li>
+        <li value="6">
+          <p>Go to <span class="uitext">Security settings</span> &gt; <span class="uitext">Local Policies</span> &gt; <span class="uitext">User Rights Assignment</span>.</p>
+        </li>
+        <li value="7">
+          <p>Right-click  <span class="uitext">Log on as a batch job</span> and add the user. </p>
+        </li>
+        <li value="8">
+          <p>Add a daily scheduled task to run the <span class="filepath">C:\NGINX\LogRotation.bat</span> file. Make sure to select <span class="uitext">Run whether user is logged on or not</span>. By default, the last 10 days will be retained (retention period in days). If you want a different number of days, when running the batch file, enter the required number of days as a command line argument. For example, for 20 days, use: <span class="filepath">C:\NGINX\LogRotation.bat 20</span>.</p>
+        </li>
+      </ol>
+      <h2>Network security considerations</h2>
+      <p>
+        <img src="../../Images/resources/images/raprev/raprev_network_security64_550x309.png" alt="" style="width: 550;height: 309;" />
+      </p>
+      <ul>
+        <li>
+          <p>The network segment hosting the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> servers / virtual computers should be separated from other networks by a firewall and access should be granted only via ports configured in NGINX. For additional information, see the <a href="#RapRev_Using_an_HTTPS_host">Using an HTTPS Host</a>.</p>
+        </li>
+        <li>
+          <p>Administrative access to the servers, such as RDP, should be allowed either over VPN or from administration bastion hosts. A bastion host is a server that allows access to a private network from a public network, such as the internet. Bastion hosts are vulnerable to potential attacks and should be kept as secure as possible.</p>
+        </li>
+        <li>
+          <p>If DPI / WAF/ URL protection are required – they should be implemented on the firewall when pointing to the operational <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> NGINX host.</p>
+        </li>
+      </ul>
+      <h2>Upgrade Steps</h2>
+      <p>To upgrade <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> select the <span class="uitext">UPGRADE</span> option on the installer screen as shown below.</p>
+      <p>Note that using this installer to upgrade <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span>, you can only upgrade from version 6.1 or above:</p>
+      <p>
+        <img src="../../Images/resources/images/raprev/raprev_upgrade_steps64.png" alt="" />
+      </p>
+      <ol>
+        <li value="1">
+          <p>Stop all <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> services and close all open applications before starting the upgrade process.</p>
+        </li>
+        <li value="2">
+          <p>Select the <span class="uitext">UPGRADE</span> option on the installer screen.</p>
+        </li>
+        <li value="3">
+          <p>If you are upgrading, the tab name will not show <span class="mc-variable flvar-sw-component.RR_Name_standalone variable">Rapid REVIEW</span>. To change the tab name, open the <span class="uitext">BriefCam.MilestoneEmbeddedViewer.dll.config</span> file, which is located at: <span class="uitext">C:\Program Files\<span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span>\<span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>\MIPPlugins\<span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span></span>.</p>
+        </li>
+        <li value="4">
+          <p>Add the following text under the &lt;appSettings&gt; node: <br />&lt;add key="InstallationType" value="SMB" /&gt;</p>
+        </li>
+        <li value="5">
+          <p>Save the file.</p>
+        </li>
+        <li value="6">
+          <p>Log into <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>.</p>
+        </li>
+      </ol>
+    </div>
+    <p>
+      <div class="MCRelationshipsProxy_0">
+        <p class="containerHeading_container_0">Concept Information</p>
+        <p class="containerItem_container_0">
+          <a href="raprev_introduction.htm">XProtect Rapid REVIEW</a>
+        </p>
+        <p class="conceptHeading_concept_0">Concept Information</p>
+        <p class="conceptItem_concept_0">
+          <a href="../standard_features/sf_sc/sf_funda/scfunda_addonproductsraprev.htm">XProtect Rapid REVIEW</a>
+        </p>
+      </div>
+    </p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2023</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

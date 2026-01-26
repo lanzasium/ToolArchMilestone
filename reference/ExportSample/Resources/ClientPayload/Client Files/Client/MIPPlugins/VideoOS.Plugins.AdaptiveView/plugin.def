@@ -1,0 +1,4 @@
+<plugin>
+   <file name="VideoOS.Plugins.AdaptiveView.dll"/>
+   <load env="SmartClient" />
+</plugin>

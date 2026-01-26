@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <MadCap:breadcrumbsProxy />
+        <MadCap:bodyProxy />
+        <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <MadCap:variable name="Variables.Copyrightyear" /> <MadCap:variable name="Variables.CompanyOfficial" /></p>
+    </body>
+</html>

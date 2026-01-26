@@ -1,0 +1,1625 @@
+/*<meta conditions="localisation.ar-SA,localisation.cs-CZ,localisation.da-DK,localisation.de-DE,localisation.es-ES,localisation.fr-FR,localisation.it-IT,localisation.ja-JP,localisation.ko-KR,localisation.nl-NL,localisation.pl-PL,localisation.pt-BR,localisation.ru-RU,localisation.sv-SE,localisation.tr-TR,localisation.zh-CN,localisation.zh-TW" />*/
+
+/*//////////////*/
+/*DEFAULT MEDIUM*/
+/*//////////////*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400_400i_600_600i_700');
+
+@namespace MadCap url(http://www.madcapsoftware.com/Schemas/MadCap.xsd);
+
+@font-face 
+{
+	font-family: "Open Sans";
+	src: url(../../Fonts/OpenSans-Regular.ttf);
+}
+
+/*Ar-SA*/
+
+@font-face 
+{
+	font-family: "Open Sans Light";
+	src: url(../../Fonts/OpenSans-Light.ttf);
+}
+
+/*Ar-SA*/
+
+@font-face 
+{
+	font-family: "Open Sans Semibold";
+	src: url(../../Fonts/OpenSans-SemiBold.ttf);
+}
+
+/*Ar-SA*/
+
+@font-face 
+{
+	font-family: "Open Sans Extrabold";
+	src: url(../../Fonts/OpenSans-ExtraBold.ttf);
+}
+
+/*Ar-SA*/
+
+html
+{
+	font-size: 62.5%;
+}
+
+img
+{
+	max-width: 550px;
+}
+
+body
+{
+	font-family: "Open Sans", "Arial", sans-serif;
+	/*Ar-SA*/
+	line-height: 1.5;
+	margin: 17px;
+	max-width: 790px;
+	font-size: 1.1rem;
+	/*Defines font size in Flare text editor*/
+}
+
+/* Disabling b,i,u */
+
+b,
+i,
+u
+{
+	mc-disabled: true;
+}
+
+/* End Disabling b,i,u */
+/*CUSTOM STYLES*/
+
+.citationtext
+{
+	font-style: italic;
+}
+
+.codechunk
+{
+	font-family: "Courier New", monospace;
+	background-color: rgb(242, 242, 242);
+	border-left: 8px solid rgb(166, 166, 166);
+	/*Ar-SA*/
+	padding: 14px 20px;
+	list-style-type: none;
+}
+
+.codesnippet
+{
+	font-family: "Courier New", monospace;
+	background-color: #f2f2f2;
+	padding: 2px 3px;
+}
+
+.filepath
+{
+	
+}
+
+.important
+{
+	background-color: rgb(251, 228, 213);
+	border-left: 8px solid rgb(196, 89, 17);
+	/*Ar-SA*/
+	padding: 14px 60px;
+	list-style-type: none;
+	background-image: url('../../../../Images/important.svg');
+	background-position: top 50% left 18px;
+	background-repeat: no-repeat;
+}
+
+.note
+{
+	background-color: rgb(217, 226, 243);
+	border-left: 8px solid rgb(0, 153, 218);
+	/*Ar-SA*/
+	padding: 14px 60px;
+	list-style-type: none;
+	background-image: url('../../../../Images/note.svg');
+	background-position: top 50% left 18px;
+	background-repeat: no-repeat;
+}
+
+.tip
+{
+	background-color: rgb(226, 239, 217);
+	border-left: 8px solid rgb(83, 129, 53);
+	/*Ar-SA*/
+	padding: 14px 60px;
+	list-style-type: none;
+	background-image: url('../../../../Images/tip.svg');
+	background-position: top 50% left 18px;
+	background-repeat: no-repeat;
+}
+
+.uservoice
+{
+	color: #009cde;
+	/*OEM*/
+	font-style: italic;
+	padding-left: 12px;
+	text-align: left;
+}
+
+.inputtext,
+.specialbold,
+.uitext
+{
+	font-family: "Open Sans Semibold", "Arial", sans-serif;
+	/*Ar-SA*/
+}
+
+.subheading
+{
+	font-family: "Open Sans Semibold", "Arial", sans-serif;
+	/*Ar-SA*/
+	margin-top: 32px;
+	margin-bottom: 3px;
+}
+
+ul.checklist
+{
+	list-style-image: none;
+}
+
+ul.checklist > li::marker
+{
+	font-family: Wingdings;
+	content: "o";
+}
+
+ul.checklist > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: "o";
+}
+
+ul.checklist > li > ul > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: " o";
+}
+
+ul.checklist > li > ul > li > ul > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: "⁯o";
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: "o";
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: "o";
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: "o";
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: "o";
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: "o";
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul
+{
+	list-style-image: none;
+}
+
+ul.checklist > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::marker
+{
+	font-family: Wingdings;
+	content: "o";
+}
+
+/*MADCAP PROPERTIES*/
+
+span.SearchHighlight
+{
+	color: inherit !important;
+}
+
+.MCPopupThumbnail
+{
+	border-radius: 0;
+}
+
+MadCap|breadcrumbsProxy
+{
+	border: none;
+	/*Apply borders here instead of in @media screen.*/
+	mc-breadcrumbs-count: 3;
+	mc-breadcrumbs-divider: " / ";
+	mc-breadcrumbs-prefix: "/ ";
+}
+
+MadCap|glossaryTerm
+{
+	color: #009cde;
+	/*OEM*/
+	mc-closed-image: none;
+	mc-open-image: none;
+	font-weight: normal;
+}
+
+img
+{
+	/* mc-thumbnail: none; */
+}
+
+.MCPopupContainer
+{
+	border: 0;
+}
+
+tbody
+{
+	mc-hyphenate: never;
+}
+
+tr
+{
+	page-break-inside: avoid;
+}
+
+/*//////////////*/
+/*HTML5 LAYOUT*/
+/*//////////////*/
+
+@media screen
+{
+	body
+	{
+		font-size: 1.6rem;
+	}
+
+	h1
+	{
+		font-family: "Open Sans Extrabold", "Arial", sans-serif;
+		/*Ar-SA*/
+		/* font-weight: 700; */
+		margin-bottom: 22px;
+	}
+
+	.inputtext,
+	.specialbold,
+	.uitext
+	{
+		/* font-weight: 600; */
+	}
+
+	.subheading
+	{
+		/* font-weight: 700; */
+	}
+
+	/*Define the look of h1. There are no h2s or lower in the .html output.*/
+
+	a,
+	.xref,
+	.xref.xrefTOCPageNumber
+	{
+		color: #009cde;
+		/*OEM*/
+		text-decoration: none;
+	}
+
+	/*Define the look of hyperlinks and cross-references.*/
+
+	a:hover,
+	.xref:hover,
+	.xref.xrefTOCPageNumber:hover
+	{
+		text-decoration: underline;
+		color: #66c1e8;
+	}
+
+	/*Define the look of hyperlinks and cross-references on mouse hover.*/
+	/*LISTS*/
+
+	ul
+	{
+		list-style-type: disc;
+	}
+
+	li
+	{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	li:first-of-type
+	{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	li:last-of-type
+	{
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+
+	li p
+	{
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+
+	li p img,
+	li p.note,
+	li p.tip,
+	li p.important
+	{
+		margin-top: 10px;
+	}
+
+	/*IMAGES*/
+
+	img
+	{
+		height: auto;
+		max-width: 100%;
+	}
+
+	/*TABLES*/
+
+	table
+	{
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+	table.TableStyle-MyTable
+	{
+		width: 75% !important;
+	}
+
+	th
+	{
+		mc-hyphenate: never;
+	}
+
+	th p
+	{
+		margin: 0;
+	}
+
+	table thead tr th:first-child
+	{
+		min-width: 10vw;
+	}
+
+	/*table row hover effect*/
+
+	tr:hover
+	{
+		background-color: #f9fbfb;
+	}
+
+	/*MADCAP PROPERTIES*/
+	/*Dropdown*/
+
+	.MCDropDown
+	{
+		padding-bottom: 2.5rem;
+	}
+
+	.MCDropDownBody > p
+	{
+		margin-left: 1.1rem;
+	}
+
+	.MCDropDown_Image_Icon
+	{
+		padding-left: 0;
+		padding-right: 1.2rem;
+	}
+
+	.MCDropDown_Closed .MCDropDownHotSpot_.MCHotSpotImage
+	{
+		background-image: url('dropdown_arrow_right.png') !important;
+		background-position: left;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.MCDropDown_Open .MCDropDownHotSpot_.MCHotSpotImage
+	{
+		background-image: url('dropdown_arrow_down.png') !important;
+		background-position: left;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	/*Dropdown in a list*/
+
+	li .MCDropDown_Closed .MCDropDownHotSpot_.MCHotSpotImage,
+	li .MCDropDown_Open .MCDropDownHotSpot_.MCHotSpotImage
+	{
+		background-image: none !important;
+	}
+
+	li .MCDropDown_Image_Icon
+	{
+		width: 0 !important;
+	}
+
+	li .MCDropDownBody.dropDownBody
+	{
+		margin-left: 2px;
+	}
+
+	/*Pop-up text*/
+
+	MadCap|popupHead
+	{
+		color: #5b8ec1;
+	}
+
+	MadCap|popupBody
+	{
+		color: #ebebeb;
+		border: none;
+		background-color: rgba(0, 0, 0, 0.85);
+		padding: 11px 15px;
+	}
+
+	/*Glossary*/
+
+	MadCap|glossaryTerm
+	{
+		mc-closed-image: none;
+		mc-open-image: none;
+	}
+
+	MadCap|glossaryTerm.Expanding
+	{
+		color: inherit;
+		font-weight: inherit;
+	}
+
+	MadCap|glossaryTerm.Hyperlink
+	{
+		color: #5b8ec1;
+		font-weight: inherit;
+	}
+
+	MadCap|glossaryTerm.Popup
+	{
+		color: #009cde;
+		/*OEM*/
+		font-weight: normal;
+	}
+
+	.\000023text
+	{
+		font-weight: normal;
+	}
+
+	MadCap|conceptLink
+	{
+		color: #000000;
+	}
+
+	MadCap|keywordLink
+	{
+		color: #000000;
+	}
+
+	MadCap|relatedTopics
+	{
+		color: #000000;
+	}
+
+	MadCap|helpControlMenu
+	{
+		color: #707070;
+		background-color: #ffffff;
+		border: none;
+	}
+
+	MadCap|helpControlMenuItem
+	{
+		color: inherit;
+		font-size: inherit;
+		font-family: inherit;
+	}
+
+	MadCap|helpControlMenuItem.Highlighted
+	{
+		color: #000000;
+		background-color: #e5eff7;
+	}
+
+	MadCap|menuProxy
+	{
+		float: left;
+		position: relative;
+	}
+
+	/*MINITOC*/
+
+	div.MCMiniTocBox_0
+	{
+		border-top: 1px solid #ccc;
+		margin-top: 45px;
+	}
+
+	div.MCMiniTocBox_0:before
+	{
+		content: "in questa sezione";
+		color: #c4cdd3;
+		font-family: "Open Sans Semibold", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-variant: small-caps;
+		display: block;
+		margin: 0;
+		font-size: 2rem;
+	}
+
+	a.MiniTOC1:link
+	{
+		color: #009cde;
+		/*OEM*/
+		text-decoration: none;
+		font-weight: 400;
+	}
+
+	a.MiniTOC1:link:hover
+	{
+		color: #66c1e8;
+		text-decoration: underline;
+	}
+
+	/*RELATED TOPICS*/
+
+	.relatedTopics:link
+	{
+		color: #009cde;
+		/*OEM*/
+	}
+
+	.relatedTopics:link:hover
+	{
+		color: #66c1e8;
+	}
+
+	.link-list-popup
+	{
+		color: rgba(0, 0, 0, 0.85);
+		border: none;
+		background-color: #1e1f21;
+		padding: 0;
+		box-shadow: 0 2px 4px #8b8b8b;
+		border-radius: 0;
+	}
+
+	.link-list-popup ul
+	{
+		background-color: #1e1f21;
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.link-list-popup ul li
+	{
+		font-family: "Open Sans Semibold", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding: 12px 20px;
+		color: #fffefb;
+		font-size: 1.4rem;
+		/* font-weight: 600; */
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.link-list-popup ul li:hover
+	{
+		color: white;
+		background-color: #009cde;
+		/*OEM popup*/
+		text-decoration: none;
+	}
+
+	.MCHelpControl-Related .MCHelpControl-RelatedHotSpot_
+	{
+		background: none;
+		padding-left: 0;
+	}
+
+	.MCHelpControl-Related .MCHelpControl-RelatedHotSpot_::before
+	{
+		content: url('related-topics-doc.png');
+		/*OEM*/
+		padding-right: 0.8rem;
+	}
+
+	.MCHelpControl_Image_Icon
+	{
+		display: none;
+	}
+
+	/*TERM DEFINITIONS*/
+
+	.popupBody
+	{
+		font-size: 1.4rem;
+		color: #fffefb;
+		background-color: #1e1f21;
+		box-shadow: 0 2px 4px #8b8b8b;
+		border-radius: 0;
+		padding: 1.1rem 1.5rem;
+	}
+
+	.MCTextPopupArrow
+	{
+		border-bottom-color: #1e1f21;
+	}
+
+	/*BREADCRUMBS*/
+
+	MadCap|breadcrumbsProxy
+	{
+		color: black;
+		font-weight: 400;
+		font-size: 1.6rem;
+	}
+
+	.MCBreadcrumbsPrefix,
+	.MCBreadcrumbsDivider,
+	.MCBreadcrumbsLink
+	{
+		color: black;
+	}
+
+	.MCBreadcrumbsLink:hover
+	{
+		color: black;
+	}
+
+	.MCBreadcrumbsSelf:last-of-type
+	{
+		font-family: "Open Sans Semibold", "Arial", sans-serif;
+		color: black;
+		/* font-weight: 600; */
+	}
+}
+
+/*//////////////*/
+/*.PDF LAYOUT*/
+/*//////////////*/
+
+@media print
+{
+	html
+	{
+		font-size: 62.5%;
+		padding-left: 0;
+		margin-left: 0;
+	}
+
+	body
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 1.5;
+		padding-left: 0;
+		margin-left: 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		color: #009cde;
+		/*OEM*/
+		margin-top: 22px;
+		margin-bottom: 3px;
+	}
+
+	h1
+	{
+		font-family: "Open Sans Extrabold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 24px;
+		letter-spacing: -1px;
+	}
+
+	h2
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 20px;
+		letter-spacing: -1px;
+	}
+
+	h3
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 16px;
+	}
+
+	h4
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+	}
+
+	h5
+	{
+		color: black;
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+	}
+
+	h6
+	{
+		color: black;
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+		/*mc-heading-level: 0;*/
+	}
+
+	img
+	{
+		max-height: auto;
+		max-width: 90%;
+		margin: 0 auto;
+	}
+
+	.img-rotated
+	{
+		max-height: auto;
+		max-width: 80%;
+		margin: 0 auto;
+	}
+
+	p.TOC1
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-weight: 400;
+		font-size: 12px;
+	}
+
+	p.TOC2
+	{
+		padding-left: 5px;
+		font-weight: 400;
+		font-size: 11px;
+	}
+
+	p.TOC3
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding-left: 7px;
+		font-size: 11px;
+	}
+
+	p.TOC4
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding-left: 9px;
+		font-size: 11px;
+	}
+
+	p.TOC5
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding-left: 11px;
+		font-size: 11px;
+	}
+
+	p.TOC6
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding-left: 13px;
+		font-size: 10px;
+	}
+
+	MadCap|tocProxy
+	{
+		padding-left: 0;
+		border-top-width: 0px;
+	}
+
+	.notincontents
+	{
+		mc-heading-level: 0;
+	}
+
+	/*Remove the topic "Contents" from the TOC "Contents"*/
+
+	.h7,
+	p.TOC7
+	{
+		mc-heading-level: 6;
+	}
+
+	a
+	{
+		font-family: "Open Sans", "Arial", sans-serif;
+		/*Ar-SA*/
+		color: #009cde;
+		/*OEM*/
+		text-decoration: none;
+	}
+
+	a.Popup
+	{
+		color: #0099da;
+		text-decoration: none;
+	}
+
+	a.MCBreadcrumbsLink
+	{
+		color: black;
+		text-decoration: none;
+	}
+
+	a:visited
+	{
+		color: #0099da;
+		text-decoration: none;
+	}
+
+	a:link
+	{
+		color: #0099da;
+		text-decoration: none;
+	}
+
+	/*Glossary*/
+
+	MadCap|GlossaryProxy
+	{
+		border: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	div.GlossaryPageHeading
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 14px;
+		color: #0099da;
+		border: none;
+		margin-bottom: 3px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	div.GlossaryPageEntry
+	{
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	div.GlossaryPageTerm
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	div.GlossaryPageDefinition
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	/*Index*/
+
+	MadCap|IndexProxy
+	{
+		border: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	p.IndexHeading
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 14px;
+		color: #0099da;
+		border: none;
+		text-align: left;
+		margin-bottom: 3px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	MadCap|breadcrumbsProxy
+	{
+		border-bottom-style: hidden;
+		border-bottom-width: 0;
+		border-bottom-color: transparent;
+	}
+
+	MadCap|xref,
+	MadCap|xref.TOCPageNumber
+	{
+		mc-format: "{paratext} a pagina {page}";
+	}
+
+	.codechunk
+	{
+		border-left: 5px solid rgb(166, 166, 166);
+		/*Ar-SA*/
+	}
+
+	.inputtext,
+	.specialbold,
+	.subheading,
+	.uitext,
+	MadCap|dropDownHead
+	{
+		font-family: "Open Sans Semibold", "Arial", sans-serif;
+		/*Ar-SA*/
+	}
+
+	.important
+	{
+		background-color: rgb(251, 228, 213);
+		border-left: 5px solid rgb(196, 89, 17);
+		/*Ar-SA*/
+		padding: 14px 60px;
+		margin: 10px 0 25px 0;
+		list-style-type: none;
+		background-image: url('../../../../Images/important.svg');
+		background-position: 20px 50%;
+		background-repeat: no-repeat;
+		page-break-inside: avoid;
+	}
+
+	.note
+	{
+		background-color: rgb(217, 226, 243);
+		border-left: 5px solid rgb(0, 153, 218);
+		/*Ar-SA*/
+		padding: 14px 60px;
+		margin: 10px 0 25px 0;
+		list-style-type: none;
+		background-image: url('../../../../Images/note.svg');
+		background-position: 20px 50%;
+		background-repeat: no-repeat;
+		page-break-inside: avoid;
+	}
+
+	.tip
+	{
+		background-color: rgb(226, 239, 217);
+		border-left: 5px solid rgb(83, 129, 53);
+		/*Ar-SA*/
+		padding: 14px 60px;
+		margin: 10px 0 25px 0;
+		list-style-type: none;
+		background-image: url('../../../../Images/tip.svg');
+		background-position: 20px 50%;
+		background-repeat: no-repeat;
+		page-break-inside: avoid;
+	}
+
+	ul,
+	ul ul,
+	ol,
+	ol ol
+	{
+		margin-top: 8px;
+	}
+
+	li
+	{
+		margin-bottom: 10px;
+	}
+
+	li:last-of-type
+	{
+		margin-bottom: 80px;
+	}
+
+	li li:last-of-type
+	{
+		margin-bottom: 80px;
+	}
+
+	/* Front cover, back cover, header, footer*/
+
+	.doctype
+	{
+		font-size: 14px;
+	}
+
+	.marginals
+	{
+		font-size: 11px;
+		color: #7f7f7f;
+	}
+
+	.marginals .primary
+	{
+		font-weight: 600;
+	}
+
+	/*Widows, orphans, page break avoidance*/
+
+	*
+	{
+		mc-hyphenate: never;
+		mc-short-line-method: tighten-loosen;
+		mc-short-line: 4;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	th,
+	p.TOC1,
+	p.ListItem
+	{
+		page-break-after: avoid;
+	}
+
+	p,
+	td,
+	ol,
+	ul
+	{
+		orphans: 3;
+		widows: 3;
+	}
+
+	li,
+	td
+	{
+		page-break-inside: avoid;
+	}
+
+	p > ol,
+	p > ul
+	{
+		page-break-before: avoid;
+		page-break-after: avoid;
+		page-break-inside: avoid;
+	}
+
+	table col:first-child
+	{
+		min-width: 20%;
+	}
+
+	/* MINITOC */
+
+	MadCap|miniTocProxy
+	{
+		border-top-width: 0;
+		padding-top: 0;
+		padding-left: 0;
+	}
+}
+
+/*//////////////*/
+/*.WORD LAYOUT*/
+/*//////////////*/
+
+@media microsoftWord
+{
+	html
+	{
+		font-size: 62.5%;
+		padding-left: 0;
+		margin-left: 0;
+	}
+
+	body
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 1.5;
+		padding-left: 0;
+		margin-left: 0;
+		text-decoration: none;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		color: #009cde;
+		/*OEM*/
+		margin-top: 22px;
+		margin-bottom: 3px;
+	}
+
+	h1
+	{
+		font-family: "Open Sans Extrabold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 24px;
+		letter-spacing: -1px;
+	}
+
+	h2
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 20px;
+		letter-spacing: -1px;
+	}
+
+	h3
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 16px;
+	}
+
+	h4
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+	}
+
+	h5
+	{
+		color: black;
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+	}
+
+	h6
+	{
+		color: black;
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+		/*mc-heading-level: 0;*/
+	}
+
+	.h7,
+	.h8,
+	.h9,
+	.h10
+	{
+		mc-heading-level: 5;
+		color: pink;
+	}
+
+	img
+	{
+		max-height: auto;
+		max-width: 660px;
+		margin: 0 auto;
+	}
+
+	.img-rotated
+	{
+		max-height: auto;
+		max-width: 80%;
+		margin: 0 auto;
+	}
+
+	/* TABLES */
+
+	table
+	{
+		width: 100%;
+	}
+
+	p.TOC1
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-weight: 400;
+		font-size: 12px;
+	}
+
+	p.TOC2
+	{
+		padding-left: 5px;
+		font-weight: 400;
+		font-size: 11px;
+	}
+
+	p.TOC3
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding-left: 7px;
+		font-size: 11px;
+	}
+
+	p.TOC4
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding-left: 9px;
+		font-size: 11px;
+	}
+
+	p.TOC5
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding-left: 11px;
+		font-size: 11px;
+	}
+
+	p.TOC6
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		padding-left: 13px;
+		font-size: 10px;
+	}
+
+	MadCap|tocProxy
+	{
+		padding-left: 0;
+		border-top-width: 0px;
+	}
+
+	.notincontents
+	{
+		mc-heading-level: 0;
+	}
+
+	/*Remove the topic "Contents" from the TOC "Contents"*/
+
+	a
+	{
+		font-family: "Open Sans", "Arial", sans-serif;
+		/*Ar-SA*/
+		color: #009cde;
+		/*OEM*/
+		text-decoration: none;
+	}
+
+	a.Popup
+	{
+		color: #0099da;
+		text-decoration: none;
+	}
+
+	a.MCBreadcrumbsLink
+	{
+		color: black;
+		text-decoration: none;
+	}
+
+	a:visited
+	{
+		color: #0099da;
+		text-decoration: none;
+	}
+
+	a:link
+	{
+		color: #0099da;
+		text-decoration: none;
+	}
+
+	/*Glossary*/
+
+	MadCap|GlossaryProxy
+	{
+		border: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	div.GlossaryPageHeading
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 14px;
+		color: #0099da;
+		border: none;
+		margin-bottom: 3px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	div.GlossaryPageEntry
+	{
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	div.GlossaryPageTerm
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	div.GlossaryPageDefinition
+	{
+		font-family: "Open Sans Light", "Arial", sans-serif;
+		/*Ar-SA*/
+		font-size: 12px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	/*Index*/
+
+	MadCap|IndexProxy
+	{
+		border: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	p.IndexHeading
+	{
+		font-family: "Open Sans Semibold", "Arial Black", sans-serif;
+		/*Ar-SA*/
+		font-size: 14px;
+		color: #0099da;
+		border: none;
+		text-align: left;
+		margin-bottom: 3px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	MadCap|breadcrumbsProxy
+	{
+		border-bottom-style: hidden;
+		border-bottom-width: 0;
+		border-bottom-color: transparent;
+	}
+
+	MadCap|xref,
+	MadCap|xref.TOCPageNumber
+	{
+		mc-format: "{paratext} a pagina {page}";
+	}
+
+	.codechunk
+	{
+		border-left: none;
+	}
+
+	.inputtext,
+	.specialbold,
+	.subheading,
+	.uitext,
+	MadCap|dropDownHead
+	{
+		font-family: "Open Sans Semibold", "Arial", sans-serif;
+		/*Ar-SA*/
+	}
+
+	.important
+	{
+		background-color: rgb(251, 228, 213);
+		border-left: none;
+		padding: 14px 60px;
+		margin: 10px 0 25px 0;
+		list-style-type: none;
+		background-image: url('../../../../Images/important.svg');
+		background-position: 20px 50%;
+		background-repeat: no-repeat;
+		page-break-inside: avoid;
+	}
+
+	.note
+	{
+		background-color: rgb(217, 226, 243);
+		border-left: none;
+		padding: 14px 60px;
+		margin: 10px 0 25px 0;
+		list-style-type: none;
+		background-image: url('../../../../Images/note.svg');
+		background-position: 20px 50%;
+		background-repeat: no-repeat;
+		page-break-inside: avoid;
+	}
+
+	.tip
+	{
+		background-color: rgb(226, 239, 217);
+		border-left: none;
+		padding: 14px 60px;
+		margin: 10px 0 25px 0;
+		list-style-type: none;
+		background-image: url('../../../../Images/tip.svg');
+		background-position: 20px 50%;
+		background-repeat: no-repeat;
+		page-break-inside: avoid;
+	}
+
+	ul,
+	ul ul,
+	ol,
+	ol ol
+	{
+		margin-top: 8px;
+	}
+
+	li
+	{
+		margin-bottom: 10px;
+	}
+
+	li:last-of-type
+	{
+		margin-bottom: 80px;
+	}
+
+	li li:last-of-type
+	{
+		margin-bottom: 80px;
+	}
+
+	/* Front cover, back cover, header, footer*/
+
+	.doctype
+	{
+		font-size: 14px;
+	}
+
+	.marginals
+	{
+		font-size: 11px;
+		color: #7f7f7f;
+	}
+
+	.marginals .primary
+	{
+		font-weight: 600;
+	}
+
+	/*Widows, orphans, page break avoidance*/
+
+	*
+	{
+		mc-hyphenate: never;
+		mc-short-line-method: tighten-loosen;
+		mc-short-line: 4;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	th,
+	p.TOC1,
+	p.ListItem
+	{
+		page-break-after: avoid;
+	}
+
+	p,
+	td,
+	ol,
+	ul
+	{
+		orphans: 3;
+		widows: 3;
+	}
+
+	li,
+	td
+	{
+		page-break-inside: avoid;
+	}
+
+	table col:first-child
+	{
+		min-width: 20%;
+	}
+
+	a,
+	.xref,
+	.xref.xrefTOCPageNumber
+	{
+		color: #009cde;
+		/*OEM*/
+		text-decoration: none !important;
+	}
+
+	xref
+	{
+		color: #009cde;
+		/*OEM*/
+		text-decoration: none !important;
+	}
+}
+

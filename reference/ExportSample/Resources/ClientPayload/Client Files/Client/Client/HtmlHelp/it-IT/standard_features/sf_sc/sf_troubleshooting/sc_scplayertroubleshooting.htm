@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-toc-path="Risoluzione dei problemi" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <meta name="description" content="Have any issues with exporting video in XProtect Smart Client? Troubleshoot here." />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Client" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Client – Player" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Amministratore" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Promotore" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Operatore" class="addSearch role" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Esportazione (risoluzione dei problemi)</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../../../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../../../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_troubleshooting/sc_scplayertroubleshooting.htm">Apri argomento con navigazione</a>
+    </p>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumb" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <div role="main" id="mc-main-content">
+      <h1>Esportazione (risoluzione dei problemi)</h1>
+      <div class="MCDropDown MCDropDown_Closed dropDown">
+        <span class="MCDropDownHead dropDownHead">
+          <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+            <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Almeno un file del database utilizza un algoritmo di crittografia non supportato</a>
+        </span>
+        <div class="MCDropDownBody dropDownBody">
+          <p>
+            <a name="SC_Troubleshoot_OldExportOnFIPSEnabledSystem"></a>Questa avvertenza appare se il sistema VMS <span class="mc-variable flvar-brand-company.XP variable">XProtect</span> attuale utilizza AES-256 per la crittografia dei dati video esportati, nel rispetto dello standard di sicurezza <a href="javascript:void(0)" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" glossTerm="Glossary.Term63">FIPS 140-2<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>Uno standard governativo statunitense che definisce i parametri di sicurezza critici che i fornitori devono utilizzare per la crittografia prima di vendere software o hardware agli enti governativi statunitensi.</span></a>. Tuttavia, il sistema utilizzato per creare l'esportazione sfrutta uno standard di crittografia differente.</p>
+          <p>Per risolvere il problema, effettuare una delle seguenti operazioni:</p>
+          <ul>
+            <li>Esportare di nuovo i dati video utilizzando una versione aggiornata di <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>. La versione deve essere pari o superiore alla versione attuale</li>
+            <li>Sebbene <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> consigli sempre di utilizzare l'ultima versione di <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>, è possibile aprire l'esportazione utilizzando una versione precedente di <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span> in modalità offline</li>
+            <li>Aprire l'esportazione su un computer dove la modalità FIPS è disabilitata. Vedere anche <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/fips-140-validation#using-windows-in-a-fips-140-2-approved-mode-of-operation" target="_blank">https://docs.microsoft.com/en-us/windows/security/threat-protection/fips-140-validation#using-windows-in-a-fips-140-2-approved-mode-of-operation</a></li>
+          </ul>
+          <p class="note">
+            <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> consiglia di proteggere con password i dati. Per farlo, selezionare la casella di controllo <span class="uitext">Crittografa con password</span> nella finestra <span class="uitext">Impostazioni di esportazione</span> &gt; <span class="uitext">Formato di <span class="mc-variable flvar-brand-company.XP variable">XProtect</span></span>.</p>
+        </div>
+      </div>
+      <div class="MCDropDown MCDropDown_Closed dropDown">
+        <span class="MCDropDownHead dropDownHead">
+          <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+            <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Impossibile convalidare l'integrità del progetto...</a>
+        </span>
+        <div class="MCDropDownBody dropDownBody">
+          <p>Nell'esportazione video non sono incluse chiavi anti-manomissione. La chiave di manomissione è stata rimossa o l'esportazione video è stata creata come applicazione di terze parti indipendente basata su <a href="javascript:void(0)" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" glossTerm="Glossary.Term0"><span class="mc-variable flvar-brand-company.SDK_short variable">MIP SDK</span><span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>Incidente definito sul sistema di sorveglianza per attivare un allarme in XProtect Smart Client. Se la propria organizzazione usa questa funzionalità, gli allarmi attivati saranno visualizzati in viste contenenti elenchi di allarmi o mappe.</span></a> 2020 R2 o versione precedente. Se la chiave anti-manomissione è assente, non esiste modo per verificare l'autenticità del file di progetto video.</p>
+          <p>Per risolvere il problema, provare una o più delle seguenti operazioni:</p>
+          <ul>
+            <li>Richiedere una nuova esportazione video e verificare che la chiave anti-manomissione sia inclusa</li>
+            <li>Esportare di nuovo i dati video tramite un'applicazione di terze parti basata su <span class="mc-variable flvar-brand-company.SDK_short variable">MIP SDK</span> 2020 R3 o versione successiva</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p>
+      <div class="MCRelationshipsProxy_0">
+        <p class="containerHeading_container_0">Informazioni sul concetto</p>
+        <p class="containerItem_container_0">
+          <a href="../../../feature_flags/ff_extendedprivacymasking/sc_workingwithprivacymasking.htm">Mascheratura privacy (utilizzo)</a>
+        </p>
+        <p class="containerItem_container_0">
+          <a href="../sf_operation/sc_exportingevidence.htm">Creazione di prove video</a>
+        </p>
+        <p class="containerItem_container_0">
+          <a href="../../../feature_flags/ff_evidencelock/sc_workingwithevidencelocks.htm">Protezione delle prove video</a>
+        </p>
+        <p class="referenceHeading_reference_0">Materiali di riferimento</p>
+        <p class="referenceItem_reference_0">
+          <a href="../sf_configuration/sc_exportsettings.htm">Impostazioni esportazione</a>
+        </p>
+      </div>
+    </p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2023</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

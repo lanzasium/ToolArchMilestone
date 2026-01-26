@@ -1,0 +1,1 @@
+define({'Camera navigator':{l:[{u:'/standard_features/sf_sc/sf_common/sc_featureoverview.htm#kanchor1',t:'Feature overview'},{u:'/standard_features/sf_sc/sf_cameranavigator/sc_cameranavigatorsettin.htm#kanchor2',t:'Camera navigator settings'},{u:'/standard_features/sf_sc/sf_cameranavigator/sc_cameranavigatorexplai.htm#kanchor3',t:'Camera navigator (explained)'}]}});

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-conditions="Conditions.AliasFileAvoidSC" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Configuration|[%=System.LinkedTitle%]">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Scripting HTML page for navigation</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/mil__en-us.css" rel="stylesheet" />
+    <script src="../../../Resources/Scripts/custom.modernizr.js"></script>
+    <script src="../../../Resources/Scripts/jquery.min.js"></script>
+    <script src="../../../Resources/Scripts/require.min.js"></script>
+    <script src="../../../Resources/Scripts/require.config.js"></script>
+    <script src="../../../Resources/Scripts/foundation.min.js"></script>
+    <script src="../../../Resources/Scripts/plugins.min.js"></script>
+    <script src="../../../Resources/Scripts/MadCapAll.js"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_common/sc_useanhtmlpagefornavig.htm">Open topic with navigation</a>
+    </p>
+    <!-- The <a> tag below loads fixskin.css into the skin. -->
+    <a href="../../../resources/styles/fixskin.css" style="display: none;"></a>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <h1>Scripting HTML page for navigation</h1>
+    <p>In addition to displaying video, the <span class="VariablesSC_XP">XProtect Smart Client</span> is able to display static images and HTML pages. Such HTML pages may be used for intuitively switching between different views in the <span class="VariablesSC_XP">XProtect Smart Client</span>.</p>
+    <p>For example, you may insert a clickable floor plan of a building, and you would be able to simply click a part of the floor plan to instantly switch to a view displaying video from the required part of the building.</p>
+    <p>In the following, you will see examples of HTML pages for <span class="VariablesSC_XP">XProtect Smart Client</span> navigation: a simple HTML page with buttons, and a more advanced HTML page with a clickable image map. For surveillance system administrators wishing to create and distribute such HTML pages to <span class="VariablesSC_XP">XProtect Smart Client</span> users, a check list outlining the tasks involved is also provided.</p>
+    <p class="tip">The <span class="VariablesSC_XP">XProtect Smart Client</span> is highly flexible when it comes to customizing navigation and other features. For advanced users it is possible to create approximately 100 different function calls in the <span class="VariablesSC_XP">XProtect Smart Client</span>.</p>
+    <p class="important">The <span class="uitext">Enable HTML scripting</span> check box must be enabled in the <span class="uitext">Properties</span> pane, which is visible only in setup mode.</p>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Example of an HTML page with button navigation</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>A very quick solution is to create an HTML page with buttons for navigation. You are able to create a wide variety of buttons on the HTML page. In this example, we will just create two types of buttons:</p>
+        <ul>
+          <li value="1">
+            <span class="specialbold">Buttons for switching between the <span class="VariablesSC_XP">XProtect Smart Client</span>'s views</span>
+            <p>Required HTML syntax:</p>
+            <p class="codechunk">&lt;input type="button" value=" Buttontext" onclick="SCS. Views.SelectView('Viewstatus.Groupname. Viewname');"&gt;</p>
+            <p>Where <span class="uitext">Viewstatus</span> indicates whether the view is shared or private (if the HTML page is to be distributed to several users, the view <span class="specialbold">must</span> be shared).</p>
+            <p>Example from a real button:</p>
+            <p class="codechunk">&lt;input type="button" value="Go to Shared Group1 View2" onclick="SCS. Views.SelectView('Shared.Group1. View2');"&gt;</p>
+            <p>This button would allow users to go to a view called <span class="uitext">View2</span> in a shared group called <span class="uitext">Group1</span>.</p>
+            <p>
+              <span class="specialbold">Buttons for switching between tabs</span>: <span class="uitext">Live</span> and <span class="uitext">Playback</span> Bear in mind that, depending on their user rights, some users may not be able to access all tabs.</p>
+            <p>Required HTML syntax:</p>
+            <p>
+              <span class="uitext">Live tab</span>: <code class="codesnippet">&lt;input type="button" value="Buttontext" onclick="SCS. Application.ShowLive();"&gt;</code></p>
+            <p>
+              <span class="uitext">Playback tab</span>: <span class="codesnippet">&lt;input type="button" value="Buttontext" onclick="SCS. Application.ShowBrowse();"&gt;</span></p>
+          </li>
+        </ul>
+        <p class="tip">For advanced users it is possible to create many other types of buttons using the approximately 100 different function calls available for the <span class="VariablesSC_XP">XProtect Smart Client</span>. See Scripting for more information.</p>
+        <p>In the following we have created two shared groups in the <span class="VariablesSC_XP">XProtect Smart Client</span> . We have called them <span class="uitext">Group1</span> and <span class="uitext">Group2</span>. Each group contains two views, called <span class="uitext">View1</span> and <span class="uitext">View2</span>.</p>
+        <p>We have also created an HTML page with buttons allowing users to switch between our four different views as well as between two of the <span class="VariablesSC_XP">XProtect Smart Client</span> 's tabs, <span class="uitext">Live</span> and <span class="uitext">Playback</span>. When viewed in a browser, our HTML page looks like this:</p>
+        <p>
+          <img src="../../../../Images/use_an_html_page_for_navigation.png" alt="" />
+        </p>
+        <p>HTML page with buttons for navigating between views and tabs</p>
+        <p>We have saved the HTML page locally, in this case on the user's C: drive. When the HTML page is to be used for navigation, saving the HTML page locally is necessary because of security features in Internet Explorer.</p>
+        <p>When saving the HTML page locally, save it at a location to which an unambiguous path can be defined, for example in a folder on the user's C: drive (example: C:\ myfolder\file.htm). Saving the HTML page on the user's desktop or in the user's <span class="uitext">My Documents</span> folder will not work properly due to the way Windows constructs the path to such locations.</p>
+        <p>We then imported the HTML page into the required <span class="VariablesSC_XP">XProtect Smart Client</span> views. When importing the HTML page, we made sure to select <span class="uitext">Enable HTML scripting</span> in the HTML page's <span class="uitext">Properties</span> in setup mode.</p>
+        <p>
+          <img src="../../../../Images/use_an_html_page_for_navigation_1.png" alt="" />
+        </p>
+        <p>Selecting <span class="uitext">Enable HTML scripting</span> ensures that the scripting required for the buttons to work is automatically inserted in the HTML page.</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Example of an HTML page with image map navigation</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>You can also create an HTML page with more advanced content, for example, an image map allowing users to switch between views.</p>
+        <p>In the following example we have kept the two groups and two views from the previous example. Instead of using buttons, we have created an HTML page with an image of a floor plan, and created an image map based on the floor plan. Viewed in a browser, our HTML page looks like this:</p>
+        <p>
+          <img src="../../../../Images/use_an_html_page_for_navigation_2.png" alt="" />
+        </p>
+        <p>HTML page with image map for navigating between views</p>
+        <p>For this example, we divided the floor plan into four colored zones, and defined an image map area for each zone. Users can click a zone to go to the view displaying cameras from that zone.</p>
+        <p>For instance, the red zone on our image map mirrors the <span class="uitext">Go to Shared Group2 View2</span> button from the previous example. If you click the red zone, you will go to View2 in Group2.</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Importing the HTML page</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Importing a navigation HTML page into a view is in principle no different from importing any other type of HTML page into a view in the <span class="VariablesSC_XP">XProtect Smart Client</span> . The two important things to remember are:</p>
+        <ul>
+          <li value="1">The HTML page should be stored locally on the user's PC</li>
+        </ul>
+        <p>You should make sure HTML scripting is enabled on the HTML page when importing it To import the HTML page:</p>
+        <ol>
+          <li value="1">In setup mode, in the <span class="uitext">System Overview</span> pane, drag the <span class="uitext">HTML Page</span> item to the required position in the required view.</li>
+          <li value="2">In the <span class="uitext">Open URL</span> window, specify the HTML page.</li>
+          <li value="3">Select the position in the view, and in the <span class="uitext">Properties</span> pane, select <span class="uitext">Enable HTML scripting</span>.
+			<p>Selecting <span class="uitext">Enable HTML scripting</span> ensures that the scripting required for your buttons or other navigation features to work is automatically inserted in the HTML page.</p></li>
+          <li value="4">Depending on the navigation features you have included on your HTML page, you may often want to import the HTML page into several views in order for the navigation to fully work.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />System administrator's check list</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Surveillance system administrators wanting to create and distribute navigation HTML pages to <span class="VariablesSC_XP">XProtect Smart Client</span> users, do the following:</p>
+        <ol>
+          <li value="1">
+            <span class="specialbold">Create</span> the required HTML page. The navigation controls in the HTML page must match the views users see in the <span class="VariablesSC_XP">XProtect Smart Client</span>. For example, in order for a button leading to View1 to work, a view called View1 must exist in users' <span class="VariablesSC_XP">XProtect Smart Client</span> installations. If you intend to distribute the HTML page to a group of users, the views in which the HTML page will be used should be placed in shared groups.</li>
+          <li value="2">
+            <span class="specialbold">Save</span> the HTML page locally on each computer on which it will be used. When saving the HTML page locally, save it at a location to which an unambiguous path can be defined, for example in a folder on the user's C: drive (example: C:\ myfolder\file.htm). Saving the HTML page on the user's desktop or in the user's <span class="uitext">My Documents</span> folder will not work properly due to the way Windows constructs the path to such locations.</li>
+          <li value="3">
+            <span class="specialbold">Import</span> the HTML page into the <span class="VariablesSC_XP">XProtect Smart Client</span> views in which it will be used. Having imported the HTML page, select its position in the view, go to the <span class="uitext">Setup</span> tab's <span class="uitext">Properties</span> pane, and verify that <span class="uitext">Enable HTML Scripting</span> is selected.</li>
+          <li value="4">
+            <span class="specialbold">Test</span> that the navigation controls on the imported HTML page work as intended.</li>
+          <li value="5">
+            <span class="specialbold">Enjoy</span> simple and intuitive <span class="VariablesSC_XP">XProtect Smart Client</span> navigation, tailored to meet your organization's needs.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Troubleshooting</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>If your HTML navigation page does not work as intended, consider the following:</p>
+        <ul>
+          <li value="1">Have you used the correct syntax in your HTML?</li>
+          <li value="2">Have you selected <span class="uitext">Enable HTML Scripting</span> after importing the HTML page?</li>
+          <li value="3">Does the intended audience have the rights to required benefit from the HTML navigation page? Bear in mind that depending on their user rights, some users may not have access to certain cameras, views, features or tabs in their <span class="VariablesSC_XP">XProtect Smart Client</span>.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <span class="VariablesCopyrightyear">2019</span><span class="VariablesCompanyOfficial">Milestone Systems A/S</span></p>
+  </body>
+</html>

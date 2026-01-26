@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-conditions="flcts-add-on.xp-rap-rev-content" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../Skins/Favicons/milestone-favicon.ico" />
+    <title>APPENDIX: XProtect Rapid REVIEW hardware recommendations</title>
+    <link href="../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../Default.htm#raprev/raprev_appendix.htm">Open topic with navigation</a>
+    </p>
+    <div role="main" id="mc-main-content">
+      <h1>APPENDIX: <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> hardware recommendations</h1>
+      <p>This section aims to assist in selecting hardware for a system that will run <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span>.</p>
+      <p>At the core of these systems are the graphical processing units (GPUs) that are responsible for processing the original video and extracting metadata. The number/type of GPUs, the resolution of the original video, frame rate, and activity determine the number of hours of original video that can be processed per day (or per hour).</p>
+      <p>The more GPUs (and processing servers) a system has, the more original video it can process in an hour.</p>
+      <p>In addition to the GPUs, the system also relies on the CPU to support this video processing and the investigations that follow the processing – when the user filters through the various objects, measures proximity, and plays a <span class="mc-variable flvar-brand-company.VIDEO_SYNOPSIS_tm variable">VIDEO SYNOPSIS®</span>.</p>
+      <p>The all-in-one, single server systems, cover a range of CPUs and a number of GPUs (from 1 to 4).</p>
+      <p>For systems that require more GPUs,  <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> offers distributed architecture where the GPUs are located on dedicated Processing Servers alongside additional servers that run the <span class="mc-variable flvar-brand-company.BC_Full variable">BriefCam</span> services (such as perform filtering and play a <span class="mc-variable flvar-brand-company.VIDEO_SYNOPSIS_tm variable">VIDEO SYNOPSIS®</span>).</p>
+      <p>These hardware specs can be defined by their processing throughput (the number of hours of original video that can be processed within an hour of processing or per day). These are measured under certain input video characteristics, such as resolution and activity level.</p>
+      <p>When we refer to an activity level, we refer to the number of objects that pass through the scene in an hour, under certain movement patterns.</p>
+      <p>We benchmarked the throughputs in this document under medium activity – which refers to roughly 1,000 objects (people and vehicles detected by the analytics engine) per hour.</p>
+      <p>The throughputs listed below each hardware spec relate to the throughput of the machine (based on the throughput of the GPUs) – the VMS and network architecture and infrastructure need to support this throughput as well.</p>
+      <p>Several users can use the system concurrently, but this will increase the load on the system. Our recommendations and design assumptions are for a maximum of 2 concurrent users.</p>
+      <p>Face Recognition and License Plate Recognition Watchlist searches require resources. Our recommendations assume watchlists of less than 10,000 identities in total (across all of the used watchlists combined).</p>
+      <h2>All-in-One configurations</h2>
+      <p>This section aims to assist in selecting hardware for a system that runs <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> in All-in-One Configurations.</p>
+      <p class="subheading">Medium - (Tower)</p>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>Tower</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i7-10700K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>64GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drive 1:</td>
+            <td>256GB SSD</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drive 2:</td>
+            <td>480GB Mixed-use SSD</td>
+            <td>(database)</td>
+          </tr>
+          <tr>
+            <td>Hard drive 3:</td>
+            <td>8TB HDD</td>
+            <td>(processed video)</td>
+          </tr>
+          <tr>
+            <td>GPU:</td>
+            <td>1 x RTX A2000</td>
+            <td> </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="subheading">Medium - Rack mount</p>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>1U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i9-9900K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>64GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drive 1:</td>
+            <td>256GB SSD</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drive 2:</td>
+            <td>480GB Mixed-use SSD</td>
+            <td>(database)</td>
+          </tr>
+          <tr>
+            <td>Hard drive 3:</td>
+            <td>8TB HDD</td>
+            <td>(processed video)</td>
+          </tr>
+          <tr>
+            <td>GPU:</td>
+            <td>1 x RTX A2000</td>
+            <td> </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <span class="specialbold">Throughput</span>: Up to 23 hours per hour (552 hours per day) at 1080p medium activity, 8 hours per hour (192 hours per day) at 4K medium activity.
+ </p>
+      <p class="subheading">Large</p>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>2U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>2 x Xeon Silver 4215R</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>128GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drive 1:</td>
+            <td>480GB SSD</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drive 2:</td>
+            <td>1TB Mixed-use SSD</td>
+            <td>(database)</td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 8TB HDD</td>
+            <td>(processed video)</td>
+          </tr>
+          <tr>
+            <td>GPU:</td>
+            <td>2 x RTX A4000</td>
+            <td> </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <span class="specialbold">Throughput</span>: Up to 46 hours per hour (1,104 hours per day) at 1080p medium activity, 17 hours per hour (408 hours per day) at 4K medium activity.</p>
+      <p class="subheading">Extra-large</p>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>2U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>2 x Xeon Gold 6248R</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>256GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drive 1:</td>
+            <td>480GB SSD</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drive 2:</td>
+            <td>2TB Mixed-use SSD</td>
+            <td>(database)</td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>4 x 8TB HDD</td>
+            <td>(processed video)</td>
+          </tr>
+          <tr>
+            <td>GPU:</td>
+            <td>4 x RTX A4000</td>
+            <td> </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <span class="specialbold">Throughput</span>: Up to 92 hours per hour (2,208 hours per day) at 1080p medium activity, 34 hours per hour (816 hours per day) at 4K medium activity.
+
+</p>
+      <h3>Throughput example</h3>
+      <p>24 hours of original 1080p video at medium activity will take about 2.5 hours with the small build, 1 hour with the medium build, 30 minutes with the large build, and 15 minutes with the extra-large build.
+</p>
+      <h3>RAID redundancy
+</h3>
+      <p>If bays are available, RAID1 redundancy can be applied with extra OS and DB drives, if desired.</p>
+      <h2>Distributed deployments</h2>
+      <p>These distributed deployment specifications come with RAID1 redundancy for the OS and DB drives.</p>
+      <p class="subheading">8 GPU Deployment (4 servers)</p>
+      <ul>
+        <li>
+          <p>VS server:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>2U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>2 x Xeon Silver 4215R</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>128GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drive 1:</td>
+            <td>2 x 480GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drive 2:</td>
+            <td>2 x 2TB Mixed-use SSD RAID1</td>
+            <td>(database)</td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>4 x 8TB HDD RAID0</td>
+            <td>(processed video)</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <p>Fetching server:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>1U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i9-9900K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>64GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 256GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p> </p>
+      <ul>
+        <li>
+          <p>2 x Processing servers, each with:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>2U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>2 x Xeon Silver 4215R</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>256GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 480GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>GPU:</td>
+            <td>4 x RTX A4000</td>
+            <td> </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <span class="specialbold">Throughput</span>: Up to 184 hours per hour (4,416 hours per day) at 1080p medium activity, 68 hours per hour (1,632 hours per day) at 4K medium activity.</p>
+      <p class="subheading">16 GPU Deployment (8 servers)</p>
+      <ul>
+        <li>
+          <p>VS server:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>1U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i9-9900K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>128GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 256GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>3 x 12TB HDD RAID0 </td>
+            <td>(processed video)</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <p>2 Fetching servers, each with:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>1U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i9-9900K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>64GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 256GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <p>Database Sever:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>1U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i9-9900K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>64GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 256GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 2TB Mixed-use SSD RAID1</td>
+            <td>(database)</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <p>4 Processing servers, each with:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>2U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>2 x Xeon Silver 4215R</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>256GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 480GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>GPU:</td>
+            <td>4 x RTX A4000</td>
+            <td> </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <span class="specialbold">Throughput</span>: Up to 368 hours per hour (8,832 hours per day) at 1080p medium activity, 136 hours per hour (3,264 hours per day) at 4K medium activity.</p>
+      <p class="subheading">32 GPU Deployment (14 servers)</p>
+      <ul>
+        <li>
+          <p>VS server:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>1U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i9-9900K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>128GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 256GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>3 x 12TB HDD RAID0 </td>
+            <td>(processed video)</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <p>3 Fetching servers, each with:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>1U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i9-9900K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>64GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 256GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <p>Queue Management sever:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>1U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>Intel i9-9900K</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>64GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 256GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <p>Database sever:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>2U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>2 x Xeon Silver 4215R</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>128GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 480GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>4 x 2TB Mixed-use SSD RAID1</td>
+            <td>(database)</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <p>8 Processing servers, each with:</p>
+        </li>
+      </ul>
+      <table style="width: 100%;">
+        <col />
+        <col />
+        <col />
+        <tbody>
+          <tr>
+            <td>Form factor:</td>
+            <td>2U</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>CPU:</td>
+            <td>2 x Xeon Silver 4215R</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Memory:</td>
+            <td>256GB RAM</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Hard drives:</td>
+            <td>2 x 480GB SSD RAID1</td>
+            <td>(operating system)</td>
+          </tr>
+          <tr>
+            <td>GPU:</td>
+            <td>4 x RTX A4000</td>
+            <td> </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Larger deployments</h2>
+      <p>For larger deployments, please consult your local <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> representative.</p>
+      <h2>Recommended GPUs</h2>
+      <p>For an overview of recommended GPUs, please refer to the specification sheet for <span class="mc-variable flvar-product.RRName_XP variable">XProtect Rapid REVIEW</span> on the <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> content portal: <a href="https://www.milestonesys.com/resources/content/white-papers/">Specification Sheet</a>.</p>
+    </div>
+    <p></p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2023</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

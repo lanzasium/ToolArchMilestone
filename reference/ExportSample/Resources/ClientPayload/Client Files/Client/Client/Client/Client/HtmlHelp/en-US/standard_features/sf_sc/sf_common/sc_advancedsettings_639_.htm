@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-conditions="Conditions.AliasFileAvoidSC" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Configuration|[%=System.LinkedTitle%]">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Advanced settings</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/table.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/mil__en-us.css" rel="stylesheet" />
+    <script src="../../../Resources/Scripts/custom.modernizr.js"></script>
+    <script src="../../../Resources/Scripts/jquery.min.js"></script>
+    <script src="../../../Resources/Scripts/require.min.js"></script>
+    <script src="../../../Resources/Scripts/require.config.js"></script>
+    <script src="../../../Resources/Scripts/foundation.min.js"></script>
+    <script src="../../../Resources/Scripts/plugins.min.js"></script>
+    <script src="../../../Resources/Scripts/MadCapAll.js"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_common/sc_advancedsettings_639_.htm">Open topic with navigation</a>
+    </p>
+    <!-- The <a> tag below loads fixskin.css into the skin. -->
+    <a href="../../../resources/styles/fixskin.css" style="display: none;"></a>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <h1>Advanced settings</h1>
+    <p>The <span class="uitext">Advanced</span> settings let you customize advanced <span class="VariablesSC_XP">XProtect Smart Client</span> settings. If you are not familiar with the advanced settings and how they work, just keep their default settings. If you connect to some surveillance systems (see <a href="sc_surveillancesystemdif.htm" class="MCXref xref">Surveillance system differences</a>), you may see <span class="uitext">Follow Server</span> column. You can use this column to make <span class="VariablesSC_XP">XProtect Smart Client</span> follow the recommended settings of the server as set up in the <span class="VariablesMC">Management Client</span>'s <span class="VariablesSC">Smart Client</span> Profiles. You may experience that certain settings are already server-controlled, in which case configuration on the server decides whether or not you are able to override those settings.</p>
+    <table class="TableStyle-table" cellspacing="3" style="mc-table-style: url('../../../resources/styles/milestone/table.css');">
+      <col class="TableStyle-table-Column-Column1" />
+      <col class="TableStyle-table-Column-Column2" />
+      <thead>
+        <tr class="TableStyle-table-Head-Header1">
+          <th class="TableStyle-table-HeadE-Column1-Header1">
+            <p>Name</p>
+          </th>
+          <th class="TableStyle-table-HeadD-Column2-Header1">
+            <p>Description</p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Multicast</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Your system supports multicasting of live streams from recording servers to clients. If multiple <span class="VariablesSC_XP">XProtect Smart Client</span> users want to view live video from the same camera, multicasting helps saving considerable system resources. Multicasting is particularly useful if you use the <span class="VariablesMMName_short">Matrix</span> functionality, where multiple clients require live video from the same camera.</p>
+            <p>Multicasting is only possible for live streams, not for recorded video/audio.</p>
+            <p>
+              <span class="uitext">Enabled</span>: is the default setting. In the <span class="VariablesMC">Management Client</span>, the recording servers and cameras must also have the functionality enabled to make multicasting from servers to clients available.</p>
+            <p>
+              <span class="uitext">Disabled</span>: multicasting is not available.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Hardware acceleration</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Controls if hardware-accelerated decoding is in use. The load on the CPU is high in a view with many cameras. Hardware acceleration moves some of the CPU load to the Graphics Processing Unit (GPU). This improves the decoding capability and performance of the computer. This is useful, mainly if you view multiple <a href="javascript:void(0);" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" alt="Closed" data-mc-alt2="Open">H.264<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>A compression standard for digital video.
+
+Like MPEG, the standard uses lossy compression as it stores only the changes between keyframes, removing often considerable amounts of redundant information: keyframes stored at specified intervals record the entire view of the camera, whereas the following frames record only pixels that change. Together with a very large degree of compression, this helps greatly reduce the size of video in the H.264 format. The very large degree of compression in H.264, however, can use considerable resources on the devices involved in the data communication.
+
+For example, the computer running XProtect Smart Client should be able to use considerable resources on decompressing H.264 video when it receives it from the surveillance system.</span></a>/H.265 video streams with a high <a href="javascript:void(0);" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" alt="Closed" data-mc-alt2="Open">frame rate<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>A measure indicating the amount of information contained in motion video. Typically measured in FPS (Frames Per second).</span></a> and a high resolution.</p>
+            <p>
+              <span class="uitext">Auto</span> is the default setting. It scans the computer for decoding resources and always enables hardware acceleration if available.</p>
+            <p>
+              <span class="uitext">Off</span> disables hardware acceleration. Only the CPU processes the decoding.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Maximum decoding threads</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Controls how many decoding threads are used to decode video streams. This option can help you improve performance on multi-core computers in live as well as playback mode. The exact performance improvement depends on the video stream. This setting is mainly relevant if using heavily coded high-resolution video streams like H.264/H.265—for which the performance improvement potential can be significant—and less relevant if using, for example, JPEG or MPEG-4. Note that multi-threaded decoding generally is memory-intensive. The ideal setting depends on the type of computer you use, the number of cameras you need to view, and on their resolution and frame rate.</p>
+            <p>
+              <span class="uitext">Normal</span> means that no matter how many cores your computer has, it will only use one core per camera position.</p>
+            <p>
+              <span class="uitext">Auto</span> is the default setting. Auto means that the computer uses as many threads per camera position as it has cores. However, the maximum number of threads is eight, and the number of threads actually used may be lower, depending on which <a href="javascript:void(0);" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" alt="Closed" data-mc-alt2="Open">codec<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>A technology for compressing and decompressing audio and video data, for example in an exported AVI file.</span></a> (compression/decompression technology) is used.</p>
+            <p>Advanced users can manually select the number of threads used, with a maximum of eight. The number you select represents a maximum; the number of threads actually used may be lower, depending on the codec (compression/decompression technology).</p>
+            <p class="note">This setting affects all camera positions, in all views, in live as well as playback mode. You cannot specify the setting for individual camera positions or views. Because this setting may not be equally ideal for all of your camera positions and views, we recommend that you monitor the effects and, if required, re-adjust the setting to achieve the optimum balance between performance improvement and memory use.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Adaptive streaming</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Controls if adaptive streaming is in use. The load on the CPU and the GPU is high in a view with many cameras. Adaptive streaming enables <span class="VariablesSC_XP">XProtect Smart Client</span> to automatically select the live video streams with the best match in resolution to the streams requested by the view items. This decreases the load on the CPU and the GPU and thereby improves the decoding capability and performance of the computer.</p>
+            <p>
+              <span class="uitext">Disabled</span> is the default setting. No automatic stream selection is done.</p>
+            <p>
+              <span class="uitext">Enabled</span> scans the <span class="VariablesXP">XProtect</span> system configuration for available streams and selects the best matching ones for the selected view.</p>
+            <p class="note">This setting affects all views in live mode.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Deinterlacing</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Interlacing determines how an image is refreshed on a screen. The image is refreshed by first scanning the odd lines in the image, then scanning every even line. This allows a faster refresh rate because less information is processed during each scan. However, interlacing may cause flickering, or the changes in half of the image's lines may be noticeable. With Deinterlacing, you convert video into a non-interlaced format. Most cameras do not produce interlaced video, and this option will not impact quality or performance of non-interlaced video.</p>
+            <p>
+              <span class="uitext">No filter</span> is the default setting. No deinterlacing is applied, so the characteristic jagged edges may show up in images if objects are moving. This is because the even and odd lines of the full image are weaved together to compose the full resolution picture. However, these are not captured at the same time by the camera, so objects in motion will not be aligned between the two sets of lines, causing the jagged-edge effect. Performance impact: None.</p>
+            <p>
+              <span class="uitext">Vertical stretch top field</span>: This option only uses the even lines. Each odd line will be “copied” from the previous (even) line. The effect is that jagged edges do not appear, but this is at the expense of reduced vertical resolution. Performance impact: Less expensive than the <span class="uitext">No filter</span> option because only half the number of lines will need post-processing.</p>
+            <p>
+              <span class="uitext">Vertical stretch bottom field</span>: This option only uses the odd lines. Each even line will be “copied” from the following (odd) line. The effect is that jagged edges do not appear, but this is at the expense of reduced vertical resolution. Performance impact: Less expensive than the <span class="uitext">No filter</span> option because only half the number of lines will need post-processing.</p>
+            <p>
+              <span class="uitext">Content adaptive</span>: This option applies a filter to areas of the image where jagged edges would otherwise show up. Where no jagged edges are detected, the image is left untouched. The effect is that jagged edges are removed and full vertical resolution is preserved in the areas of the image where no jagged edges are perceived. Performance impact: More expensive than the <span class="uitext">No filter</span> option because the total CPU cost per decoded and rendered frame is increased by around 10%.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Video diagnostics overlay</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>View the settings and performance level of the video stream in the selected view. This is helpful when you must verify settings or diagnose a problem.</p>
+            <p>Select between these options:</p>
+            <p>
+              <span class="uitext">Hide</span>: No video diagnostics overlay. Default setting.</p>
+            <p>
+              <span class="uitext">Level 1</span>: Frames per second, video codec, and video resolution.</p>
+            <p>
+              <span class="uitext">Level 2</span>: Frames per second, video codec, video resolution, multicast, and hardware acceleration status.</p>
+            <p>
+              <span class="uitext">Level 3</span>: Debug level. Mainly for system administrators to troubleshoot or optimize system performance.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Time zone</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Select a predefined time zone or a custom time zone. The available options are:</p>
+            <p>
+              <span class="uitext">Local</span>: the time zone of the computer running the <span class="VariablesSC_XP">XProtect Smart Client</span></p>
+            <p>
+              <span class="uitext">Master Server's time zone</span>: the time zone of the server</p>
+            <span class="uitext">UTC</span>
+            <p>
+              <span class="uitext">Custom time zone</span>: if you want a particular time zone, select this option and then select from the list of available time zones in the <span class="uitext">Custom time zone</span> field.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Custom time zone</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>If you have selected <span class="uitext">Custom</span> in the <span class="uitext">Time zone</span> field, you can select any time zone known by the computer. This is useful if two users in different time zones need to view an incident—having the same time zone makes it easier to identify and establish that they are watching the same incident.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">PDF report format</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Select A4 or letter format for your PDF reports. You can create reports of events from, for example, <span class="VariablesACMName_XP">XProtect Access</span>.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyB-Column1-Body1">
+            <span class="uitext">PDF report font</span>
+          </td>
+          <td class="TableStyle-table-BodyA-Column2-Body1">
+            <p>Select a font to be used in your PDF reports.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <span class="VariablesCopyrightyear">2019</span><span class="VariablesCompanyOfficial">Milestone Systems A/S</span></p>
+  </body>
+</html>

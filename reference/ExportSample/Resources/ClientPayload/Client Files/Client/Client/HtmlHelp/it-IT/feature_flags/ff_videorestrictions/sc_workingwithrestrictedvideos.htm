@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Funzionamento" data-mc-conditions="flcts-alias.sc-alias-content" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+    <meta name="description" content="Restrict access to live and recorded video to prevent unauthorized operators from accessing (viewing or listening to) the content. Restrictions can be edited and removed by authorized operators." />
+    <meta name="addsearch-custom-field" data-type="text" content="product=Recording Server" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Operatore" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Client" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Amministratore" class="addSearch role" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Limitazione dell’accesso ai video</title>
+    <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../Default.htm#feature_flags/ff_videorestrictions/sc_workingwithrestrictedvideos.htm">Apri argomento con navigazione</a>
+    </p>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumb" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <div role="main" id="mc-main-content">
+      <h1>Limitazione dell’accesso ai video</h1>
+      <p>Per evitare che operatori non autorizzati visualizzino materiale sensibile è possibile limitare l’accesso a flussi audio e video live selezionati, nonché a sequenze audio e video registrate.</p>
+      <div>
+        <h2>Restrizioni sui video (spiegazione)<a name="SC_VideoRestrictionsExplained.htm"></a></h2>
+        <p>Utilizzando le restrizioni sui video, è possibile limitare l’accesso alle sequenze video (video, audio e metadati dei dispositivi) ai soli operatori autorizzati a visionare il materiale soggetto alle restrizioni.</p>
+        <p>Sia i flussi live e che i video registrati possono essere soggetti a restrizioni, e tali restrizioni possono essere rimosse dagli operatori autorizzati quando è necessario ripristinare l’accesso generale al materiale video.</p>
+        <p>Il materiale soggetto a restrizioni può essere cancellato e, in caso si desideri anche evitare la cancellazione automatica o manuale dei video soggetti a restrizioni, bisognerà applicare alle sequenze anche le protezioni prove.</p>
+        <p class="note">A seconda dei diritti dell’utente, è possibile creare, visualizzare, modificare ed eliminare le restrizioni sui video.</p>
+      </div>
+      <h3>
+        <a name="SC_Restrictions_and_multiple_sites"></a>Restrizioni sul video in siti diversi</h3>
+      <p>Le restrizioni sui video possono essere create su qualsiasi telecamera a cui si ha accesso, incluse le telecamere situate in siti diversi.</p>
+      <p>Se l’utente ha selezionato più telecamere situate in diversi siti e ha creato una restrizione sui relativi video, per le telecamere selezionate saranno create diverse restrizioni: solitamente, una per sito per le restrizioni alla riproduzione e più restrizioni per sito per le restrizioni live. Il numero effettivo di restrizioni live dipenderà dal numero dei dispositivi associati.</p>
+      <p>Ciò significa che applicando una restrizione su più telecamere in diversi siti verranno create più restrizioni, le quali saranno visualizzata nell’elenco <span class="uitext">Restrizioni sui video</span>. Ogni restrizione visualizzata nell’elenco <span class="uitext">Restrizioni sui video</span> può essere modificata, gestita e rimossa come una restrizione separata.</p>
+      <div class="MCDropDown MCDropDown_Closed dropDown">
+        <span class="MCDropDownHead dropDownHead">
+          <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+            <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Esempio di restrizioni sui video create su siti multipli</a>
+        </span>
+        <div class="MCDropDownBody dropDownBody">
+          <p>Un’installazione <span class="mc-variable flvar-brand-company.XP variable">XProtect</span> è presente su tre siti:</p>
+          <ul>
+            <li>
+              <p>Sito A: Contiene tre telecamere, ognuna con un microfono, un altoparlante e metadati per un totale di 12 dispositivi disponibili.</p>
+            </li>
+            <li>
+              <p>Sito B: Contiene due telecamere, ognuna con un microfono, un altoparlante e metadati per un totale di 8 dispositivi disponibili.</p>
+            </li>
+            <li>
+              <p>Sito C: Contiene solo una telecamera con un microfono, un altoparlante e metadati per un totale di 4 dispositivi disponibili.</p>
+            </li>
+          </ul>
+          <h4>Restrizioni alla riproduzione create</h4>
+          <p>Se un utente con accesso a tutti i dispositivi in tutti e tre i siti crea una restrizione alla riproduzione per tutte le telecamere di tutti i siti, verranno create tre restrizioni alla riproduzione. Ogni restrizione alla riproduzione contiene i rispettivi dispositivi (telecamera, microfono, altoparlante e metadati) per ogni sito.</p>
+          <h4>Restrizioni sui live create</h4>
+          <p>Se un utente con accesso a tutti i dispositivi in tutti e tre i siti crea una restrizione sui live per tutte le telecamere, verranno create 24 restrizioni sui live, una per sito per ogni dispositivo sul sito. </p>
+          <ul>
+            <li>
+              <p>12 restrizioni sui live per il sito A (12 dispositivi) </p>
+            </li>
+            <li>
+              <p>8 restrizioni sui live per il sito B (8 dispositivi)</p>
+            </li>
+            <li>
+              <p>4 restrizioni sui live per il sito C (4 dispositivi)</p>
+            </li>
+          </ul>
+          <p>Le restrizioni create non sono collegate una all’altra e ogni restrizione può essere modificata, gestita e rimossa separatamente.</p>
+        </div>
+      </div>
+      <p class="note">Non è possibile creare contemporaneamente restrizioni sui live e alla riproduzione. È necessario invece creare inizialmente un tipo di restrizione e poi l’altro.</p>
+      <p>Le restrizioni create non sono collegate e ogni restrizione può essere modificata, gestita e rimossa separatamente.</p>
+      <div>
+        <h3>Restrizioni sui video e protezioni prove</h3>
+        <p>Nonostante sia le restrizioni sui video che le protezioni prove consentano di evitare che utenti non autorizzati eseguano azioni sul materiale video, esistono differenze significative tra le due funzioni.</p>
+        <p>Le restrizioni sui video impediscono che le sequenze audio o video vengano visualizzate da operatori non autorizzati, mentre le protezioni prove impediscono che le sequenze audio o video vengano manualmente o automaticamente cancellate. </p>
+        <p>Quando si crea una protezione prove, è anche possibile creare una restrizione video sulla medesima sequenza video su cui viene applicata una protezione prove selezionando la casella di controllo <span class="uitext">Crea restrizione alla riproduzione del video</span>.</p>
+        <p>Tuttavia, quando si crea una restrizione video, non è possibile creare contemporaneamente anche una protezione prove. Piuttosto, bisognerà creare manualmente la protezione prove sulla medesima sequenza video a cui è stata applicata la restrizione video.</p>
+        <p>Una volta create, le protezioni prove e le restrizioni video devono essere modificate, gestite e rimosse individualmente. Non ci sono collegamenti tra una sequenza video che è stata sottoposta a restrizione e alla protezione prove.</p>
+      </div>
+      <div>
+        <h2>Creare restrizioni sui video live o registrati<a name="SC_CreateRestrictionsLiveRecorded.htm"></a></h2>
+        <p>È possibile creare restrizioni su un flusso live o un filmato registrato per evitare che il contenuto venga visualizzato da operatori non autorizzati. Quando si crea una restrizione sui live, tutte le telecamere nella vista attuale vengono selezionate per impostazione predefinita per essere incluse nella restrizione. È possibile rimuovere qualsiasi telecamera che non si desidera includere durante il processo di creazione della restrizione, ma non dopo la creazione della restrizione live. </p>
+        <p>Mentre si crea una restrizione video sul filmato registrato (restrizione di riproduzione), è possibile rimuovere le telecamere dalla restrizione alla riproduzione modificando la restrizione stessa. </p>
+        <p>Quando si creano restrizioni sui live per più telecamere, verrà creata una restrizione sui live per ogni telecamera. Quando si crea una restrizione alla riproduzione per più telecamere, verrà creata una sola restrizione valida per tutte le telecamere selezionate.</p>
+        <p>Per le restrizioni sui video live, il campo <span class="uitext">Titolo</span> conterrà il nome della telecamera e sarà disabilitato per l’input dell’utente. Anche i campi finali <span class="uitext">Descrizione</span> e <span class="uitext">Fine intervallo</span> saranno vuoti e disabilitati per l’input dell’utente. Finché la restrizione sui live sarà in atto, questa si applicherà anche ai filmati registrati del flusso live per l’intervallo di tempo definito. In effetti, creando una restrizione al video live si crea anche una restrizione alla riproduzione sulla stessa sequenza video. Quando la restrizione live viene rimossa, è possibile scegliere di mantenere la restrizione di riproduzione oppure rimuovere anche la restrizione di riproduzione.</p>
+        <p>Se l’utente desidera applicare ai video soggetti a restrizioni alla riproduzione anche la protezione prove, dovrà creare manualmente la protezione prove sulla sequenza video.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Creare una restrizione sui live</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ol>
+              <li value="1">In modalità <span class="uitext">Live</span> selezionare la vista della telecamera a cui si desidera limitare l’accesso e fare clic su <span class="uitext">Restrizioni sui video</span> &gt; <span class="uitext">Crea</span> per aprire il modulo <span class="uitext">Crea restrizione sui live</span>. Tutte le telecamere nella vista selezionata vengono aggiunte di default alla restrizione.</li>
+              <li value="2">Nel modulo <span class="uitext">Crea restrizione sui live</span> &gt; campo <span class="uitext">Inizio intervallo</span>, impostare la data/ora di inizio della restrizione. <br />Il valore predefinito per l’ora di inizio della restrizione è pari a 5 minuti indietro.</li>
+              <li value="3">Se si vogliono aggiungere telecamere alla restrizione, sul lato destro della finestra di dialogo <span class="uitext">Crea restrizione sui live</span> fare clic su <span class="uitext">Aggiungi telecamera</span> e selezionare i dispositivi. È inoltre possibile rimuovere qualsiasi telecamera che non deve essere soggetta a restrizioni. </li>
+              <li value="4">Fare clic su <span class="uitext">Crea restrizione sui live</span> per visualizzare la finestra di dialogo <span class="uitext">Crea restrizione sui live</span>. Dopo aver creato la restrizione, fare clic su <span class="uitext">Chiudi</span> per chiudere la finestra di dialogo.<br />Facendo clic su <span class="uitext">Dettagli</span> è possibile ottenere una panoramica più dettagliata del processo di creazione.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Creare una restrizione alla riproduzione</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <p>I filmati video o audio registrati possono essere soggetti a restrizioni per impedire che il contenuto venga visualizzato da operatori non autorizzati.</p>
+            <p>È necessario definire una data/ora di inizio e fine per la restrizione che si desidera creare.</p>
+            <ol>
+              <li value="1">In modalità <span class="uitext">Riproduzione</span>, selezionare le telecamere a cui si desidera limitare l’accesso e nella cronologia principale selezionare la data/ora di inizio e fine dell’intervallo in cui si desidera creare la restrizione. Sarà possibile selezionare <span class="uitext">Imposta data/ora di inizio e fine nella cronologia</span> per selezionare la data/ora di inizio e fine nel tracciamento della cronologia, oppure <span class="uitext">Imposta data/ora di inizio e fine nel calendario</span>.</li>
+              <li value="2">Nella barra degli strumenti fare clic su <span class="uitext">Restrizioni sui video</span> &gt; <span class="uitext">Crea</span> per aprire la finestra di dialogo <span class="uitext">Crea restrizione alla riproduzione</span>.</li>
+              <li value="3">Nella finestra <span class="uitext">Crea restrizione alla riproduzione</span>:<ol><li value="1">Nel campo <span class="uitext">Titolo</span>, inserire un titolo per la restrizione. Un titolo breve e univoco consentirà agli altri operatori di individuare più rapidamente la restrizione.</li><li value="2">Nel campo <span class="uitext">Descrizione</span> inserire una descrizione della restrizione.</li><li value="3">Nei campi <span class="uitext">Inizio intervallo</span> e <span class="uitext">Fine intervallo</span>, accertarsi che l’intervallo definito per la restrizione sia appropriato per la sequenza che si desidera restringere. È inoltre possibile inserire nuove date/ore di inizio e fine dell’intervallo. Se la data/ora di inizio e quella di fine sono identiche, l’inizio dell’intervallo sarà automaticamente impostato indietro di 5 minuti.</li><li value="4">Sul lato destro della finestra di dialogo <span class="uitext">Crea restrizione sui live</span> fare clic su <span class="uitext">Aggiungi telecamera</span> e selezionare altre telecamere da aggiungere alla restrizione.</li></ol></li>
+              <li value="4">Fare clic sul pulsante <span class="uitext">Crea restrizione</span> per visualizzare la finestra di dialogo <span class="uitext">Crea restrizione alla riproduzione</span>.</li>
+              <li value="5">Nella finestra di dialogo <span class="uitext">Crea restrizione alla riproduzione</span>, fare clic sul pulsante <span class="uitext">Crea restrizione</span><![CDATA[  ]]> per confermare la scelta.</li>
+              <li value="6">Dopo aver creato la restrizione, fare clic su <span class="uitext">Chiudi</span> per chiudere la finestra di dialogo.<br />Facendo clic su <span class="uitext">Dettagli</span> è possibile ottenere una panoramica più dettagliata del processo di creazione.</li>
+            </ol>
+            <p>Una volta creata la restrizione, è possibile aggiungere altre telecamere aprendo la restrizione nell’<span class="uitext">Elenco delle restrizioni sui video</span> e modificando le relative impostazioni.</p>
+          </div>
+        </div>
+      </div>
+      <h3>Creazione di nuove restrizioni sulle telecamere a cui sono già state applicate restrizioni</h3>
+      <p>Poiché le restrizioni possono essere applicate a singole telecamere, alle telecamere nella vista attuale e a gruppi di telecamere, è altamente possibile che si debbano creare nuove restrizioni su telecamere già sottoposte a restrizioni. </p>
+      <h4>Restrizioni sui live</h4>
+      <p>Se una nuova restrizione sui live viene creata su una telecamera che presenta già una restrizione sui live, la data/ora di inizio della restrizione sui live esistente sarà aggiornata se la data/ora di inizio della nuova restrizione sui live precede la data/ora di inizio della restrizione sui live esistente. </p>
+      <p>Se la data/ora di inizio della nuova restrizione sui live è la stessa o successiva alla data/ora di inizio della restrizione sui live esistente, allora la data/ora di inizio della restrizione sui live esistente non verrà modificata.</p>
+      <h4>Limitazioni alla riproduzione</h4>
+      <p>Quando si crea una nuova restrizione alla riproduzione su una telecamera a cui è già stata applicata una restrizione alla riproduzione, tale telecamerà avrà di conseguenza due restrizioni alla riproduzione. </p>
+      <p>Gli scenari descritti più sopra riguardano solo la creazione di restrizioni sulle telecamere già soggette a restrizioni. È sempre possibile modificare le restrizioni esistenti per cambiare la date/ore dell’intervallo e per rimuovere o aggiungere telecamere.</p>
+      <div>
+        <h2>Visualizzazione di video soggetti a restrizioni <a name="SC_ViewRestrictedVideo.htm"></a></h2>
+        <p>Gli operatori in possesso delle autorizzazioni per la visualizzazione di video o audio soggetti a restrizioni possono visualizzare normalmente il materiale. Al momento di visualizzarli, i filmati mostrerano un’avvertenza che il materiale è attualmente soggetto a restrizioni. </p>
+        <p>Gli operatori non in possesso delle autorizzazioni per la visualizzazione di video o audio soggetti restrizioni non potranno visualizzare i filmati e la telecamera contenente il materiale verrà contrassegnata come soggetta a restrizioni nell’interfaccia utente.</p>
+        <p>I video soggetti a restrizioni potranno essere visualizzati in modalità <span class="uitext">Live</span> o <span class="uitext">Riproduzione</span> aprendo direttamente la telecamera e riproducendo il materiale video. </p>
+        <p>L’utente può inoltre aprire la vista della telecamera dall’elenco <span class="uitext">Restrizioni sui video</span> se possiede le autorizzazioni necessarie per accedere all’elenco.</p>
+        <h3>Visualizzare un video con restrizioni dall’<span class="uitext">Elenco delle restrizioni sui video</span>.</h3>
+        <ol>
+          <li value="1">In modalità <span class="uitext">Live</span> o <span class="uitext">Riproduzione</span>, fare clic su <span class="uitext">Restrizioni sui video</span> &gt; <span class="uitext">Visualizza</span> per aprire la finestra di dialogo <span class="uitext">Elenco delle restrizioni sui video</span>.</li>
+          <li value="2">Nell’<span class="uitext">Elenco delle restrizioni sui video</span>, utilizzare i filtri e i campi di ricerca per trovare le restrizioni che si desidera visualizzare.</li>
+          <li value="3">Selezionare le restrizioni che si desidera visualizzare e fare clic su <span class="uitext">Visualizza</span>. <br />Alcune restrizioni potrebbero contenere più telecamere; è possibile visualizzare solo 100 telecamere alla volta.</li>
+        </ol>
+      </div>
+      <div>
+        <h2>Modificare le restrizioni sui video <a name="SC_EditRestrictions.htm"></a></h2>
+        <p>L’utente può modificare le restrizioni esistenti sui video a seconda dei suoi diritti; ad esempio può modificare la data/ora di inizio e fine della restrizione, aggiungere altre telecamere e aggiornare titolo e descrizione della restrizione.</p>
+        <p>È possibile modificare le impostazioni delle restrizioni solo per il video soggetto alle restrizioni. Le eventuali impostazione di protezione prove create sul video ristretto dovranno essere modificata separatamente. </p>
+        <p>La modifica o la rimozione delle restrizioni è consentita solo sulle telecamere ubicate nel sito per il quale l’utente ha effettuato l’accesso.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Modificare una o più restrizioni sui live</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <p>Nelle restrizioni sui live è possibile modificare solo la data/ora di inizio della restrizione.</p>
+            <p>L’elenco delle <span class="uitext">Restrizioni sui video</span> è accessibile sia dalla modalità <span class="uitext">Live</span> che dalla modalità <span class="uitext">Riproduzione</span>.</p>
+            <ol>
+              <li value="1">In modalità <span class="uitext">Live</span> o <span class="uitext">Riproduzione</span>, fare clic su <span class="uitext">Restrizioni sui video</span> &gt; <span class="uitext">Visualizza</span> per aprire la finestra di dialogo <span class="uitext">Elenco delle restrizioni sui video</span>.</li>
+              <li value="2">Nell’<span class="uitext">Elenco delle restrizioni sui video</span>, utilizzare i filtri e i campi di ricerca per trovare le restrizioni che si desidera modificare.</li>
+              <li value="3">Selezionare le restrizioni che si desidera modificare e fare clic su <span class="uitext">Modifica</span> per aprire la finestra di dialogo <span class="uitext">Modifica restrizioni sui live</span>.</li>
+              <li value="4">Nella finestra <span class="uitext">Modifica restrizioni sui live</span> aggiornare il campo <span class="uitext">Inizio intervallo</span> e fare clic su <span class="uitext">Salva modifiche</span> per visualizzare il progresso degli aggiornamenti nella finestra di dialogo <span class="uitext">Modifica restrizione sui live</span>.</li>
+              <li value="5">Quando le modifiche appaiono aggiornate nella finestra di dialogo <span class="uitext">Modifica restrizione sui live</span>, fare clic su <span class="uitext">Chiudi</span> per chiudere la finestra di dialogo. <br />È possibile cliccare su <span class="uitext">Dettagli</span> per ottenere una panoramica più dettagliata dell’aggiornamento.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Modificare una o più restrizioni alla riproduzione</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <p>È possibile aggiornare tutte le impostazioni relative a più restrizioni alla riproduzione, per esempio modificando il titolo, la descrizione, le date/ore di inizio e fine, oltre ad aggiungere altre telecamere alle restrizioni.</p>
+            <p>L’elenco delle <span class="uitext">Restrizioni sui video</span> è accessibile sia dalla modalità <span class="uitext">Live</span>che dalla modalità <span class="uitext">Riproduzione</span>.</p>
+            <ol>
+              <li value="1">In modalità <span class="uitext">Live</span> o <span class="uitext">Riproduzione</span>, fare clic su <span class="uitext">Restrizioni sui video</span> &gt; <span class="uitext">Visualizza</span> per aprire la finestra di dialogo <span class="uitext">Elenco delle restrizioni sui video</span>.</li>
+              <li value="2">Nell’<span class="uitext">Elenco delle restrizioni sui video</span>, utilizzare i filtri e i campi di ricerca per trovare le restrizioni che si desidera modificare.</li>
+              <li value="3">Selezionare le restrizioni che si desidera modificare e fare clic su <span class="uitext">Modifica</span> per aprire la finestra di dialogo <span class="uitext">Modifica restrizioni alla riproduzione</span>.</li>
+              <li value="4">Nella finestra di dialogo <span class="uitext">Modifica restrizioni alla riproduzione</span>, aggiornare tutte le impostazioni delle restrizioni rilevanti e fare clic su <span class="uitext">Salva modifiche</span> per visualizzare il progresso degli aggiornamenti nella finestra di dialogo <span class="uitext">Modifica restrizione alla riproduzione</span>.</li>
+              <li value="5">Dopo aver aggiornato le modifiche nella finestra di dialogo <span class="uitext">Modifica restrizione alla riproduzione</span>, fare clic su <span class="uitext">Chiudi</span> per chiudere la finestra di dialogo. <br />È possibile fare clic su <span class="uitext">Dettagli</span> per ottenere una panoramica più dettagliata dell’aggiornamento.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div data-mc-conditions="">
+        <h2>Rimuovere le restrizioni sui video<a name="SC_RemoveRestrictions.htm"></a></h2>
+        <p>Quando viene rimossa una restrizione, il materiale video sottostante (live e registrato) diventa di nuovo disponibile per la normale visualizzazione da parte degli operatori.</p>
+        <p>La modifica o la rimozione delle restrizioni è consentita solo sulle telecamere ubicate nel sito per il quale l’utente ha effettuato l’accesso.</p>
+        <p>La rimozione di una restrizione non cambierà lo stato delle protezioni prove applicate sulla stessa sequenza video. Se una sequenza video è stata protetta, la protezione prove sul video deve essere eliminata se il video viene cancellato.</p>
+        <h3>Rimozione delle restrizioni alla riproduzione</h3>
+        <p>Non è possibile rimuovere più restrizioni alla riproduzione allo stesso tempo. È possibile selezionare e rimuovere una sola restrizione alla riproduzione alla volta.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Rimuovere le restrizioni alla riproduzione</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ol>
+              <li value="1">In modalità <span class="uitext">Live</span> o <span class="uitext">Riproduzione</span>, fare clic su <span class="uitext">Restrizioni sui video</span> &gt; <span class="uitext">Visualizza</span> per aprire la finestra di dialogo <span class="uitext">Elenco delle restrizioni sui video</span>.</li>
+              <li value="2">Nell’<span class="uitext">Elenco delle restrizioni sui video</span>, utilizzare i filtri e i campi di ricerca per trovare le restrizioni che si desidera rimuovere. <br />Le restrizioni sui live sono visualizzate in cima all’elenco e ogni restrizione sui live è contrassegnata con un’icona verde LIVE. <br />Le restrizioni alla riproduzione sono visualizzate sotto le restrizioni sui live.</li>
+              <li value="3">Selezionare la restrizione alla riproduzione che si desidera rimuovere e fare clic su <span class="uitext">Rimuovi</span> per aprire la finestra di dialogo <span class="uitext">Rimuovi restrizioni alla riproduzione</span>. <br /></li>
+              <li value="4">Nella finestra di dialogo <span class="uitext">Rimuovi restrizioni alla riproduzione</span>, fare clic su <span class="uitext">Rimuovi restrizioni</span> per rimuovere la restrizione alla riproduzione selezionata e aprire la finestra di dialogo <span class="uitext">Elimina restrizione alla riproduzione</span>.<br /></li>
+              <li value="5">Nella finestra di dialogo <span class="uitext">Elimina restrizione alla riproduzione</span>, fare clic su <span class="uitext">Chiudi</span> al termine del processo di rimozione. <br />Cliccare su <span class="uitext">Dettagli</span> per ottenere una panoramica più dettagliata dello stato della rimozione.</li>
+            </ol>
+          </div>
+        </div>
+        <h3>Rimozione di una restrizione sui live</h3>
+        <p>È possibile selezionare e rimuovere più restrizioni sui live, ma non è possibile scegliere tipi diversi di restrizione, ovvero selezionare contemporaneamente sia le restrizioni sui live che alla riproduzione per rimuoverle.</p>
+        <p>Quando una restrizione a un flusso live è rimossa, i filmati registrati della stessa sequenza video possono essere di default soggetti a restrizioni.  Un operatore può scegliere di non mantenere le restrizioni sui filmati registrati quando rimuove le restrizioni sui flussi video live.</p>
+        <p>Durante il processo di creazione della restrizione alla riproduzione di un flusso live soggetto a restrizioni, non è possibile aggiungere o rimuovere telecamere esistenti.  È tuttavia possibile modificare la restrizione alla riproduzione dopo che questa è stata creata e quindi rimuovere o aggiungere altre telecamere.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Rimuovere restrizioni sui live</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ol>
+              <li value="1">In modalità <span class="uitext">Live</span> o <span class="uitext">Riproduzione</span>, fare clic su <span class="uitext">Restrizioni sui video</span> &gt; <span class="uitext">Visualizza</span> per aprire la finestra di dialogo <span class="uitext">Elenco delle restrizioni sui video</span>.</li>
+              <li value="2">Nell’<span class="uitext">Elenco delle restrizioni sui video</span>, utilizzare i filtri e i campi di ricerca per trovare le restrizioni che si desidera rimuovere. <br />Le restrizioni sui live sono visualizzate in cima all’elenco e ogni restrizione sui live è contrassegnata con un’icona verde LIVE.</li>
+              <li value="3">Selezionare le restrizioni sui live che si desidera rimuovere e fare clic su <span class="uitext">Rimuovi</span> per aprire la finestra di dialogo <span class="uitext">Rimuovi restrizioni sui live</span>. <br /></li>
+              <li value="4">Nel modulo <span class="uitext">Rimuovi restrizioni sui live</span>, selezionare <span class="uitext">Crea restrizione sui filmati registrati</span> per creare una restrizione alla riproduzione per la restrizione sui live che si sta rimuovendo. <br />Deselezionare la casella di controllo <span class="uitext">Crea restrizione sul filmato registrato</span> se non si desidera creare una restrizione alla riproduzione per la restrizione sui live che si sta rimuovendo.</li>
+              <li value="5">Fare clic su <span class="uitext">Rimuovi restrizioni</span> per rimuovere la restrizione sui live selezionata e aprire la finestra di dialogo <span class="uitext">Rimuovi restrizione sui live</span>.<br /></li>
+              <li value="6">Nella finestra di dialogo <span class="uitext">Rimuovi restrizione sui live</span>, fare clic su <span class="uitext">Chiudi</span> al termine del processo di rimozione. Cliccare su <span class="uitext">Dettagli</span> per ottenere una panoramica più dettagliata dello stato della rimozione.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div data-mc-conditions="">
+        <h2>Esportazione di video soggetti a restrizioni<a name="SC_ExportRestrictedVideo.htm"></a></h2>
+        <p>Solo gli operatori a cui sono stati assegnati diritti di visualizzazione dei filmati con restrizioni possono accedere al materiale ed esportare i filmati.</p>
+      </div>
+      <div>
+        <h2>L’<span class="uitext">Elenco delle restrizioni sui video</span> (modulo)<a name="SC_Restrictionlistform.htm"></a></h2>
+        <p>Nell’<span class="uitext">Elenco delle restrizioni sui video</span> sono visualizzate tutte le restrizioni sui video esistenti sui dispositivi con telecamera in tutto il sito; le restrizioni sui live sono visualizzate nella parte superiore dell’elenco, seguite dalle restrizioni sui filmati registrati (restrizioni alla riproduzione). </p>
+        <p>Solo gli operatori a cui sono state concesse le autorizzazioni per vedere e gestire le restrizioni possono aprire l’<span class="uitext">Elenco delle restrizioni sui video</span>.</p>
+        <p>È possibile selezionare una o più restrizioni per modificare le impostazioni della restrizione o rimuovere le restrizioni, ma si potranno modificare o rimuovere solo le restrizioni sulle telecamere presenti nel sito a cui si è effettuato l’accesso.</p>
+        <p>Alcune azioni non saranno possibili se sono stati selezionati diversi tipi di restrizione (live e riproduzione); per esempio non sarà possibile visualizzare le impostazioni della restrizione se nella selezione sono presenti diversi tipi di restrizione.</p>
+        <h3>Restrizioni sui live nascoste o non visualizzate</h3>
+        <p>Se una restrizione video esiste solo su un dispositivo privo di telecamera (per esempio, un microfono per telecamera o altoparlanti per telecamera), la restrizione sui live esisterà ma non sarà visualizzata sull’<span class="uitext">Elenco delle restrizioni sui video</span> perché nell’<span class="uitext">Elenco delle restrizioni sui video</span> sono visualizzate solo le restrizioni sui video dei dispositivi con telecamera. </p>
+        <p>Quando una restrizione sui live è applicata a una telecamera, tutti i dispositivi sono inclusi nella restrizione. Quando una restrizione sui live è rimossa, lo sarà su tutti i dispositivi dell’hardware (microfoni, altoparlanti videocamera e metadati), ma se la rimozione della restrizione sui live è completata solo in parte, alcuni dispositivi potrebbero ancora contenere delle restrizioni. Se questi dispositivi non sono dotati di telecamera (microfoni, altoparlanti e/o metadati), la restrizione rimanente non sarà visualizzata nell’<span class="uitext">Elenco delle restrizioni sui video</span> ma la telecamera stessa sarà comunque soggetta a restrizioni.</p>
+        <p>È possibile forzare la visualizzazione della restrizione sui live nascosta nell'<span class="uitext">Elenco delle restrizioni sui video</span> creando una nuova restrizione sulla telecamera con la restrizione nascosta. Ciò causerà l'aggiornamento delle restrizioni sui live esistenti e la visualizzazione nell'elenco della restrizione, che così non sarà più nascosta. </p>
+        <h3>Ricerca e uso dei filtri nell'elenco</h3>
+        <p>Se ci sono troppe restrizioni nell’elenco, è possibile applicare i filtri all’elenco per ridurre il numero di restrizioni.</p>
+        <p>È inoltre possibile individuare specifiche restrizioni usando il campo <span class="uitext">Ricerca</span>. Il campo <span class="uitext">Ricerca</span> filtrerà l’elenco applicando i criteri di ricerca a tutti i titoli e le descrizioni delle restrizioni.</p>
+        <h4>Ricerca</h4>
+        <p>Per cercare nell’elenco delle restrizioni, inserire una parte del titolo o della descrizione della restrizione nel campo <span class="uitext">Ricerca</span>. </p>
+        <h4>Filtro</h4>
+        <p>Applicare uno o più filtri per circoscrivere e ridurre il numero di restrizioni visualizzate nell’elenco. I filtri definiti sono comulativi. La ricerca può essere eseguita anche nell’elenco filtrato, se necessario.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Tipo di restrizione:</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ul>
+              <li>
+                <span class="uitext">Tutte</span>: Visualizza tutte le restrizioni (live e riproduzione) nell’elenco.</li>
+              <li>
+                <span class="uitext">Riproduzione</span>: Visualizza solo le restrizioni alla riproduzione nell’elenco.</li>
+              <li>
+                <span class="uitext">Live</span>: Visualizza solo le restrizioni sui live nell’elenco.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Intervallo/Creato in data:</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ul>
+              <li>
+                <span class="uitext">Oggi</span>: Visualizza tutte le restrizioni che sono state create oggi.</li>
+              <li>
+                <span class="uitext">Ieri</span>: Visualizza tutte le restrizioni che sono state create ieri.</li>
+              <li>
+                <span class="uitext">Ultimi 7 giorni</span>: Visualizza tutte le restrizioni che sono state create negli ultimi 7 giorni.</li>
+              <li>
+                <span class="uitext">Tutte</span>: Visualizza tutte le restrizioni con un intervallo di inizio.</li>
+              <li>
+                <span class="uitext">Personalizzato</span>: Definire il proprio intervallo di date come filtro.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Creato da:</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ul>
+              <li>
+                <span class="uitext">Tutte</span>: Visualizza tutte le restrizioni create da qualsiasi utente, incluso l’utente connesso al sito in quel momento.</li>
+              <li>
+                <span class="uitext">Solo io</span>: Visualizza tutte le restrizioni create dall’utente connesso al sito in quel momento.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Telecamere:</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ul>
+              <li>
+                <span class="uitext">Tutte</span>: Visualizza tutte le restrizioni per tutte le telecamere.</li>
+              <li>
+                <span class="uitext">Selezione</span>: Visualizza le restrizioni solo sulle telecamere selezionate.</li>
+            </ul>
+          </div>
+        </div>
+        <h3>Impostazioni dell’<span class="uitext">Elenco delle restrizioni sui video</span></h3>
+        <table cellspacing="3">
+          <col />
+          <col />
+          <thead>
+            <tr>
+              <th>
+                <p>Nome</p>
+              </th>
+              <th>
+                <p>Descrizione</p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="uitext">Intestazione</span>
+              </td>
+              <td>
+                <p>Il titolo della restrizione.</p>
+                <p>Quando si filtra l’<span class="uitext">Elenco delle restrizioni sui video</span>, i contenuti dei campi <span class="uitext">Titolo</span> e <span class="uitext">Descrizione</span> sono inclusi nel filtro di ricerca. </p>
+                <p>Disponibile solo per le restrizioni alla riproduzione durante la modifica.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Descrizione</span>
+              </td>
+              <td>
+                <p>Una descrizione più dettagliata e lunga della restrizione.</p>
+                <p>Quando si filtra l’<span class="uitext">Elenco delle restrizioni sui video</span>, i contenuti dei campi <span class="uitext">Titolo</span> e <span class="uitext">Descrizione</span> sono inclusi nel filtro di ricerca. </p>
+                <p>Disponibile solo per le restrizioni alla riproduzione durante la modifica.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Inizio intervallo</span>
+              </td>
+              <td>
+                <p>Regolare la data e l’ora di inizio delle sequenze video su cui si desidera applicare la restrizione</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Fine intervallo</span>
+              </td>
+              <td>
+                <p>Regolare la data e l’ora di fine delle sequenze video su cui si desidera applicare la restrizione.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Aggiungi telecamera</span>
+              </td>
+              <td>
+                <p>Fare clic per selezionare più telecamere a cui aggiungere la restrizione.</p>
+                <p>Disponibile solo per le restrizioni alla riproduzione durante la modifica.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Rimuovi tutto</span>
+              </td>
+              <td>
+                <p>Fare clic per rimuovere la restrizione da tutte le telecamere.</p>
+                <p>Disponibile solo per le restrizioni alla riproduzione durante la modifica.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h2>Messaggi di stato relativi alle restrizioni sui video<a name="SC_RestrictionStatusMes.htm"></a></h2>
+        <table cellspacing="3">
+          <col />
+          <col />
+          <col />
+          <thead>
+            <tr>
+              <th>
+                <p>Messaggio</p>
+              </th>
+              <th>
+                <p>Descrizione e risultato</p>
+              </th>
+              <th>
+                <p>Esempi e soluzioni</p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>Restrizione creata/rimossa/aggiornata correttamente</p>
+              </td>
+              <td>
+                <p>Nessun problema.</p>
+                <p>
+                  <span class="specialbold">Risultato</span>:</p>
+                <p>La restrizione sui video è stata creata, aggiornata o rimossa.</p>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <p>Restrizione creata/rimossa/aggiornata correttamente</p>
+              </td>
+              <td>
+                <p>Se la creazione, l’aggiornamento o la rimozione di una restrizione sui video non dovesse essere del tutto completata, verrà visualizzato un messaggio e la barra di avanzamento sarà gialla.</p>
+                <p>Fare clic su <span class="uitext">Dettagli</span> per individuare la natura del problema.</p>
+                <p>
+                  <span class="specialbold">Risultato:</span>
+                </p>
+                <p>La restrizione sui video è stata creata, aggiornata o rimossa, ma senza includere alcune telecamere selezionate e/o dispositivi correlati. Alcuni dispositivi potrebbero ancora contenere restrizioni.</p>
+              </td>
+              <td>
+                <p>
+                  <span class="specialbold">Scenario</span>: 
+						Alcuni server di registrazione con dispositivi inclusi nella restrizione sui video non sono in linea.</p>
+                <p>
+                  <span class="specialbold">Soluzione</span>: Attendere che il server di registrazione passi online.</p>
+                <p>
+                  <span class="specialbold">Scenario</span>: 
+						L’amministratore di sistema ha modificato i diritti utente relativi alle restrizioni sui video dopo l’accesso a <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span> da parte dell’utente.</p>
+                <p>
+                  <span class="specialbold">Soluzione</span>: Contattare l'amministratore di sistema.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p> </p>
+                <p>Restrizione creata/rimossa/aggiornata correttamente</p>
+              </td>
+              <td>
+                <p>Se la creazione, l’aggiornamento o la rimozione di una restrizione sui video non avviene correttamente, verrà visualizzato un messaggio e la barra di avanzamento sarà rossa.</p>
+                <p>Fare clic su <span class="uitext">Dettagli</span> per individuare la natura del problema.</p>
+                <p>
+                  <span class="specialbold">Risultato:</span>
+                </p>
+                <p>La restrizione sui video non è stata creata, aggiornata o rimossa. </p>
+              </td>
+              <td>
+                <p>
+                  <span class="specialbold">Scenario</span>: 
+						Tutti i server di registrazione con dispositivi inclusi nella restrizione sui video non sono in linea.</p>
+                <p>
+                  <span class="specialbold">Soluzione</span>: 
+						Attendere che i server di registrazione passino online.</p>
+                <p>
+                  <span class="specialbold">Scenario</span>: 
+						Il server di gestione non è in linea.</p>
+                <p>
+                  <span class="specialbold">Soluzione</span>: 
+						Attendere che il server di gestione passi online.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p></p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2023</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

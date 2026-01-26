@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-conditions="Conditions.AliasFileAvoidSC" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Configurazione|[%=System.LinkedTitle%]">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Firme digitali (spiegazione)</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/mil__en-us.css" rel="stylesheet" />
+    <script src="../../../Resources/Scripts/custom.modernizr.js"></script>
+    <script src="../../../Resources/Scripts/jquery.min.js"></script>
+    <script src="../../../Resources/Scripts/require.min.js"></script>
+    <script src="../../../Resources/Scripts/require.config.js"></script>
+    <script src="../../../Resources/Scripts/foundation.min.js"></script>
+    <script src="../../../Resources/Scripts/plugins.min.js"></script>
+    <script src="../../../Resources/Scripts/MadCapAll.js"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_scplayer/sc_verifyingtheauthentic.htm">Apri argomento con navigazione</a>
+    </p>
+    <!-- The <a> tag below loads fixskin.css into the skin. -->
+    <a href="../../../resources/styles/fixskin.css" style="display: none;"></a>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <h1>Firme digitali (spiegazione)</h1>
+    <div class="note">
+      <p>Questa funzione è disponibile solo in alcuni sistemi di sorveglianza. </p>
+      <ul>
+        <li value="1">Panoramica delle caratteristiche principali del sistema: <a href="https://www.milestonesys.com/solutions/platform/product-index/" target="_blank">https://www.milestonesys.com/solutions/platform/product-index/</a></li>
+        <li value="2">
+          <MadCap:conditionalText data-mc-conditions="Conditions.Milestone">Tabella di confronto dettagliata dei prodotti (cercare la <span class="inputtext">tabella di confronto</span>): <a href="https://content.milestonesys.com/media" target="_blank">https://content.milestonesys.com/media</a></MadCap:conditionalText>
+        </li>
+      </ul>
+    </div>
+    <p>È possibile utilizzare le firme digitali per verificare l'autenticità del video registrato. Questo è utile, ad esempio, se si vuole dimostrare che il video non è stato manomesso.</p>
+    <p>Esistono due fasi di verifica: Si può verificare:</p>
+    <ul>
+      <li value="1">Se il video è stato modificato dopo essere stato registrato. Il server di registrazione crea una firma digitale per la registrazione. Successivamente, quando si visualizza il video esportato nel lettore <span class="VariablesSCplayer">Smart Client – Player</span>, è possibile confrontare la firma di registrazione con quella che era stata originariamente creata dal server di registrazione.</li>
+      <li value="2">Se i video da esportare in <span class="VariablesSC_XP">XProtect Smart Client</span> sono stati modificati dopo essere stati esportati. Durante il processo di esportazione, <span class="VariablesSC_XP">XProtect Smart Client</span> crea una firma per il file di esportazione. Successivamente, quando si rivede la prova giuridica esportata nel lettore <span class="VariablesSCplayer">Smart Client – Player</span>, è possibile confrontare la firma di esportazione con quella che era stata originariamente creata durante l'esportazione.</li>
+    </ul>
+    <p>Se si scopre che c'è una discrepanza, c'è motivo di mettere in dubbio l'affidabilità delle prove video.</p>
+    <p>Le firme digitali originali sono contenute nei file  <span class="specialbold">PublicKey.xml</span> e <span class="specialbold">Public Key Certificate.xml</span> in questi località:</p>
+    <ul>
+      <li value="1">
+        <span class="VariablesSC_XP">XProtect Smart Client</span> - <span class="specialbold">&lt;cartella di destinazione di esportazione&gt;\&lt;nome esportazione&gt;\Client Files\Data\Mediadata\&lt;nome telecamera&gt;\&lt;nome telecamera&gt;\Export signatures</span></li>
+      <li value="2">
+        <span class="VariablesMC">Management Client</span> - <span class="specialbold">C:\Program Files\<span class="VariablesCompanyShort">Milestone</span>\Management Server\Tools\CertificateIssuer</span></li>
+    </ul>
+    <p>Ci sono due scenari in cui le firme digitali vengono escluse durante il processo di esportazione:</p>
+    <ul>
+      <li value="1">Se sono presenti aree con <a href="javascript:void(0);" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" alt="Chiuso" data-mc-alt2="Aperto">maschere privacy<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>Un colore sfocato o tinta unita che copre un'area del video nella vista della telecamera. Le aree definite sono sfocate o coperte nel live, riproduzione, hotspot, carosello, smart map, ricerca avanzata e modalità di esportazione nei client.</span></a>, le firme digitali per il server di registrazione saranno rimosse nell'esportazione.</li>
+      <li value="2">La firma digitale per il server di registrazione potrebbe non essere inclusa per l'intera sequenza se i dati esportati sono molto vicini alla data e all'ora corrente. In questo caso, solo una parte dell'esportazione avrà le firme digitali aggiunte.</li>
+    </ul>
+    <p>Il processo di esportazione verrà completato, ma durante la procedura di verifica delle firme, si osserva che le firme digitali per il server di registrazione sono state rimosse o sono parzialmente OK.</p>
+    <p>
+      <a href="javascript:void(0);" class="MCHelpControl MCHelpControl-Related relatedTopics" data-mc-topics="Verifica di firme digitali|sc_verifydigitalsignatur.htm">
+        <span class="MCHelpControl-RelatedHotSpot_">
+          <img class="MCHelpControl_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Icona di collegamento argomenti correlati" />Argomenti correlati</span>
+      </a>
+    </p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <span class="VariablesCopyrightyear">2019</span><span class="VariablesCompanyOfficial">Milestone Systems A/S</span></p>
+  </body>
+</html>

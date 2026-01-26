@@ -1,0 +1,8 @@
+/* This stylesheet is a solution offered by MadCap Support for tripane skins' Search placeholder text in Tablet and Mobile views. The Search placeholder text has a gray color that blends in with the background color, which is also gray. fix-skin.css replaces the color of the Search placeholder text.
+
+Note that this stylesheet is referenced by all skins: open a skin, and on the Toolbar tab, see "Custom JavaScript to include in Toolbar page". */
+
+#search-field-sidebar::placeholder
+{
+    color: #dadada;
+}

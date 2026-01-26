@@ -1,0 +1,8 @@
+[ID lavoro]
+[Magistrato]
+[Password]
+[Periodo]
+[Procedimento Penale]
+[Procura]
+[RIT/SPEC]
+[Target]

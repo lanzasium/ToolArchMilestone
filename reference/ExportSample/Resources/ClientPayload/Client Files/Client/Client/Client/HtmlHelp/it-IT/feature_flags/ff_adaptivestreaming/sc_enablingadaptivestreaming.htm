@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Ottimizzazione" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+    <meta name="description" content="Get familiar with and read how to set up adaptive streaming to improve the performance of computers running XProtect Smart Client." />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Client" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Amministratore" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Integratore" class="addSearch role" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Attivare il flusso adattivo</title>
+    <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../Default.htm#feature_flags/ff_adaptivestreaming/sc_enablingadaptivestreaming.htm">Apri argomento con navigazione</a>
+    </p>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumb" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <div role="main" id="mc-main-content">
+      <h1>Attivare il flusso adattivo</h1>
+      <h2>Flusso adattivo (spiegazione)<a name="SC_AdaptiveStreamingExplained"></a></h2>
+      <p>Il flusso adattivo migliora la capacità di decodifica e le prestazioni del computer in cui è in funzione <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>. Questo è utile quando si visualizzano diversi flussi video live nella stessa vista.</p>
+      <p>Per sfruttare il flusso adattivo, le telecamere devono avere più flussi definiti con risoluzioni diverse. Questo consente a <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span> di selezionare automaticamente la corrispondenza più vicina alla risoluzione richiesta dall'elemento vista. Ora <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span> non deve ridimensionare i flussi di default con un'inutile alta risoluzione. Questo riduce il carico sulle risorse di decodifica di CPU e GPU.</p>
+      <p>Per garantire la qualità video, se possibile la corrispondenza più vicina è definita come uguale o superiore alla risoluzione richiesta dall'elemento vista. Questo serve ad evitare l'upscaling dei flussi. La seguente tabella mostra i flussi video che il flusso adattivo seleziona in base alle richieste di visualizzazione degli elementi da parte di <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>.</p>
+      <table cellspacing="3">
+        <col style="width: 40%;" />
+        <col />
+        <col />
+        <thead>
+          <tr>
+            <th>Risoluzione richiesta da un elemento vista</th>
+            <th colspan="2">La corrispondenza più vicina ai flussi video disponibili</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>636 x 477</td>
+            <td style="text-align: left;">Flusso video 1</td>
+            <td>640 x 480 (VGA)</td>
+          </tr>
+          <tr>
+            <td>644 x 483</td>
+            <td style="text-align: left;">Flusso video 2</td>
+            <td>1280 x 720 (WXGA-H)</td>
+          </tr>
+          <tr>
+            <td>1920 x 1080</td>
+            <td style="text-align: left;">Flusso video 3</td>
+            <td>1920 x 1080 (FHD)</td>
+          </tr>
+          <tr>
+            <td>1920 x 1440</td>
+            <td style="text-align: left;">Flusso video 4</td>
+            <td>3840 x 2160 (4K UHD-1)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">
+        <p>Quando si esegue lo zoom, il flusso video in diretta richiesto è sempre quello con la risoluzione più alta.</p>
+        <p>L'utilizzo della larghezza di banda è spesso ridotto quando la risoluzione dei flussi richiesti è ridotta. L'utilizzo della larghezza di banda dipende anche da altre impostazioni nelle configurazioni dei flussi definiti.</p>
+      </div>
+      <h2>Controllare le impostazioni del flusso adattivo<a name="SC_CheckAdaptiveStreamingSettings"></a></h2>
+      <ol>
+        <li value="1">Accedere a <span class="uitext">Impostazioni</span> &gt;<span class="uitext"> Avanzate</span> &gt;<span class="uitext"> Flusso adattivo</span>.</li>
+        <li value="2">Ci sono due impostazioni per il flusso adattivo: <span class="uitext">Attivato</span> e <span class="uitext">Disattivato</span>. <p>Selezionare <span class="uitext"><span class="uitext">Attivato</span></span>.</p><p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../Images/sc_settings_advanced_adaptivestreamingdiagnosticsoverlaycut.png" data-mc-popup-alt="Impostazioni dello streaming adattivo in XProtect Smart Client."><img class="MCPopupThumbnail img" data-mc-width="800" data-mc-height="480" src="../../../Images/sc_settings_advanced_adaptivestreamingdiagnosticsoverlaycut_thumb_200_0.png" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="Impostazioni dello streaming adattivo in XProtect Smart Client." tabindex="" /></a></p></li>
+        <li value="3">Andare a <span class="uitext">Overlay di diagnostica video</span>.</li>
+        <li value="4">Per rendere visibile la risoluzione video corrente del flusso, selezionare <span class="uitext">Livello 2</span>.</li>
+        <p class="note">Questa impostazione viene applicata a tutti gli elementi della vista. L’impostazione predefinita è <span class="uitext">Nascondi</span>.</p>
+        <li value="5">La sovrapposizione di diagnosi video ora dovrebbe essere <span class="uitext">Attivato</span>. </li>
+        <p>Provare a ridimensionare la finestra di visualizzazione da piccola a grande, da grande a piccola e controllare se il valore di <span class="uitext">Risoluzione video</span> cambia.</p>
+        <p>
+          <img src="../../../Images/sc_viewitem_diagnosticsoverlay_resolution320x180.png" alt="" />
+          <img src="../../../Images/sc_viewitem_diagnosticsoverlay_resolution480x270.png" alt="" />
+          <img src="../../../Images/sc_viewitem_diagnosticsoverlay_resolution1280x720.png" alt="" />
+        </p>
+        <p>Se il valore non cambia, continuare a controllare i flussi video dal vivo disponibili dalle telecamere, in modo da abilitare il flusso adattivo, se possibile.</p>
+      </ol>
+      <h2>Controlla i flussi video live disponibili<a name="SC_CheckAvailableLiveVideoStreams"></a></h2>
+      <p>Per sfruttare il flusso adattivo, nelle impostazioni della telecamera devono essere configurati due o più flussi video in diretta con risoluzioni diverse.</p>
+      <p class="note"> L'unico formato di risoluzione video supportato per lo streaming adattivo è <span class="inputtext">larghezza x altezza</span>. I formati di risoluzione video presentati da una telecamera come 720p, modalità 2, VGA o simili non sono supportati.</p>
+      <p class="note">Non tutte le telecamere supportano il multi-streaming.</p>
+      <p>Il multi-streaming consente di configurare sul server più flussi per ogni dispositivo. Se sono configurati flussi multipli e lo streaming adattivo è abilitato, è possibile selezionare <span class="uitext">Streaming adattivo</span> o uno degli altri flussi disponibili.</p>
+      <p>Per assicurarsi che <span class="uitext">Flusso adattivo</span> sia configurato in una vista:</p>
+      <ol>
+        <li value="1">Fare clic su <span class="uitext">Configura</span> per configurare la vista.</li>
+        <li value="2">In <span class="uitext">Proprietà</span>, fare clic sull'elenco a discesa <span class="uitext">Stream in diretta</span> e compare l'elenco dei flussi video live disponibili.</li>
+        <li value="3">
+          <p>Verificare se sono disponibili due o più flussi video in diretta e selezionare <span class="uitext">Flusso adattivo</span>.</p>
+          <p>
+            <img src="../../../Images/sc_viewitem_setup_properties_livestream_adaptivestreamingselect.png" alt="Verificare che lo streaming adattivo sia selezionato nelle proprietà della telecamera." />
+          </p>
+          <p class="note">Se è disponibile un solo flusso video in diretta, aggiungere altri flussi video in diretta per la telecamera in <span class="mc-variable flvar-sw-component.MC_XP variable">XProtect Management Client</span>.</p>
+        </li>
+        <li value="4">Fare clic su <span class="uitext">Configura </span> per chiudere la configurazione della vista.</li>
+      </ol>
+      <p>Per assicurarsi che il <span class="uitext">Flusso adattivo</span> sia selezionato in un elemento vista <span class="uitext">Live</span>:</p>
+      <ol>
+        <li value="1">Fare clic sull'elenco a discesa <span class="uitext">Altro</span>.</li>
+        <li value="2">Selezionare <span class="uitext">Stream in diretta</span> e viene visualizzato l'elenco dei flussi video live disponibili.</li>
+        <li value="3">
+          <p>Verificare se sono disponibili due o più flussi video in diretta e selezionare <span class="uitext">Flusso adattivo</span>.</p>
+          <p>
+            <img src="../../../Images/sc_viewitem_more_livestream_adaptivestreaming.png" alt="Verificare che lo streaming adattivo sia selezionato nell'elemento della vista della telecamera." />
+          </p>
+        </li>
+      </ol>
+    </div>
+    <p></p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2021</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

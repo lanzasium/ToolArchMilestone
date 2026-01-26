@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ProjectFile datadirectory="" TamperingKey="lCXLMpSIscgqzBl6qyOKe1ZPSxs=">
+  <!-- Validate -->
+  <Validate>RDeUYTBi45NJEYr7WgmhLxDVw4h8959lHpV5u+K7SEMNnXI2tH4wb7wl8sgjgJtR</Validate>
+  <!-- Version -->
+  <Version>24.2.14120.3</Version>
+  <!-- Helper Version -->
+  <HelperVersion>2.0</HelperVersion>
+  <!-- ApplicationSettings (ApplicationSettings.xml) -->
+  <applicationsettings>
+    <applanguage>it-IT</applanguage>
+    <theme>Dark</theme>
+    <flowdirection />
+    <loggingenabled>False</loggingenabled>
+  </applicationsettings>
+  <!-- ApplicationSettings (ApplicationSettings.xml) end -->
+  <!-- UserSettings30 (UserSettings30.xml) -->
+  <settings>
+    <setting type="VideoOS.RemoteClient.Application.Data.Configuration.LocalSettings.SettingUserServer, VideoOS.RemoteClient.Application" id="MainWindowState" userid="" serveruri="http://localhost/">
+      <data>
+        <MainWindowStateInfo Version="1.0">
+          <MainWindow SelectedWorkroomId="73576fea-bd0e-43c4-ad9d-589fbe4dc29b">
+            <Workrooms>
+              <Workroom Id="73576fea-bd0e-43c4-ad9d-589fbe4dc29b" ViewId="95cc0522-d3b9-44d2-af31-88273e547f77" WorkSpaceId="73576fea-bd0e-43c4-ad9d-589fbe4dc29b" WorkSpaceMode="9c6a0d9e-3e45-46d2-9f92-919314af67ca" WorkSpaceState="f7bb50e4-1dd2-4d4d-9751-2898f00f95c4">
+                <ViewItemStates>
+                  <ViewItemState ViewItemIndex="0" ViewItemId="58a53fd0-2b24-41f3-9421-37a41585d576" />
+                </ViewItemStates>
+              </Workroom>
+            </Workrooms>
+          </MainWindow>
+        </MainWindowStateInfo>
+      </data>
+    </setting>
+    <setting type="VideoOS.RemoteClient.Application.Data.Configuration.LocalSettings.SettingUserServer, VideoOS.RemoteClient.Application" id="MultiWindowState" userid="" serveruri="http://localhost/">
+      <data>
+        <MultiWindowStateInfo Version="1.0">
+          <FullScreenWindows />
+          <FloatingWindows />
+        </MultiWindowStateInfo>
+      </data>
+    </setting>
+  </settings>
+  <!-- UserSettings30 (UserSettings30.xml) end -->
+  <!-- MainFormPosition (MainForm_formpositioning.xml) -->
+  <MainFormPosition>
+    <dialog>
+      <left>130</left>
+      <top>130</top>
+      <width>1305</width>
+      <height>637</height>
+      <windowstate>Maximized</windowstate>
+      <fullscreen>False</fullscreen>
+    </dialog>
+  </MainFormPosition>
+  <!-- MainFormPosition (MainForm_formpositioning.xml) end -->
+  <!-- SystemInfo -->
+  <SystemInformation>
+    <ServerId>170a1e0a-2219-4408-9c92-529b45d3b48f</ServerId>
+    <ServerName>Registrazioni esportate</ServerName>
+    <ServerTimeZone>W. Europe Standard Time</ServerTimeZone>
+    <Recorders>
+      <OfflineRecorderInfo>
+        <OfflineSources>
+          <OfflineSourceInfo>
+            <SourceId>7b3a7e14-f690-453c-91a5-2de5df4fb109</SourceId>
+            <Password>X0bgEEwuZoGP4CZrCDaNqHp8Cv3YqIDqct/87/ViYisT9tUWFGPV6JYRQeh6vEAj</Password>
+            <DatabaseType>MediaStorage</DatabaseType>
+            <BankPath>Mediadata\3bd8e221-d533-4b48-a883-bbabaa247d93</BankPath>
+            <TableName>3bd8e221-d533-4b48-a883-bbabaa247d93</TableName>
+            <IncludeArchives>True</IncludeArchives>
+          </OfflineSourceInfo>
+        </OfflineSources>
+        <RecorderId>b7bcdcc7-1fb0-456d-bae6-f852d9edf4bf</RecorderId>
+        <Name>Registrazioni esportate</Name>
+        <HostName>Registrazioni esportate</HostName>
+        <WebServerUri>http://localhost</WebServerUri>
+        <XmlEncoding>utf-8</XmlEncoding>
+        <LastModified>2025-11-15T11:14:27.0377829Z</LastModified>
+        <Cameras>
+          <OfflineCameraInfo>
+            <SourceId>7b3a7e14-f690-453c-91a5-2de5df4fb109</SourceId>
+            <RecorderId>b7bcdcc7-1fb0-456d-bae6-f852d9edf4bf</RecorderId>
+            <DeviceId>3bd8e221-d533-4b48-a883-bbabaa247d93</DeviceId>
+            <Name>ID 96708 Via Colorni</Name>
+            <DeviceIndex>0</DeviceIndex>
+            <MaxFPS>0</MaxFPS>
+            <CameraSecurity>
+              <Browse>true</Browse>
+              <ExportAvi>true</ExportAvi>
+              <ExportJpeg>true</ExportJpeg>
+              <GetSequences>true</GetSequences>
+              <ExportDatabase>true</ExportDatabase>
+              <PtzSecurity>
+                <ManualControl>true</ManualControl>
+                <PresetControl>true</PresetControl>
+              </PtzSecurity>
+              <BookmarkView>true</BookmarkView>
+            </CameraSecurity>
+            <PtzSettings>
+              <PtzEnabled>true</PtzEnabled>
+            </PtzSettings>
+          </OfflineCameraInfo>
+        </Cameras>
+        <Microphones />
+        <Speakers />
+        <MetadataDevices />
+      </OfflineRecorderInfo>
+    </Recorders>
+    <ApplicationAccess>
+      <SmartClientSecurity>
+        <SmartClientBrowse>true</SmartClientBrowse>
+        <SmartClientSetup>true</SmartClientSetup>
+      </SmartClientSecurity>
+      <ExportLicenseInfo>
+        <Features>
+          <Feature Name="SearchCategories">
+            <Parameters>
+              <Parameter id="db8cb491-1713-4b4a-9e31-2fd30c748970" />
+              <Parameter id="8cb984fe-7a5e-4bf2-bdaa-e1e27ea48cfe" />
+              <Parameter id="50f8a616-c795-49c4-a8ee-caab5c782cb8" />
+              <Parameter id="0be9585d-ecfe-4142-be82-a962157f7090" />
+              <Parameter id="a33fb5b5-5f9e-49dd-bd1c-1abb813af961" />
+            </Parameters>
+          </Feature>
+        </Features>
+      </ExportLicenseInfo>
+    </ApplicationAccess>
+    <PluginConfigurations>
+      <pluginconfiguration id="3c9a8a54-54e7-40b2-8b02-c424f972283d" plugin="VideoOS.RemoteClient.Application.MIP.Manager.PlatformLayout" />
+      <pluginconfiguration id="88800e1e-a2ab-4243-a2d6-f8ce24fef6ac" plugin="VideoOS.RemoteClient.Application.ExtensionPlugins.Audio.AudioExtensionPlugin" twowayaudio="True" />
+      <pluginconfiguration id="3c2851c2-38c2-459a-949c-83f26a805078" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.UnknownViewLayout" />
+      <pluginconfiguration id="05ecb5e7-564a-4192-92b8-2ba99f89081c" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout1p3Wide" />
+      <pluginconfiguration id="8f62b5ac-6036-4115-aec2-1de3f9708a5a" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout1p5" />
+      <pluginconfiguration id="5de4886b-6bb9-42d9-ac32-8575db337764" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout1p7" />
+      <pluginconfiguration id="240578d7-6a67-46dc-8d88-09aaedd65378" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout1p8Wide" />
+      <pluginconfiguration id="b7c02ce1-5f66-4886-b0c8-018224a59621" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout1x1" />
+      <pluginconfiguration id="f4f41dc1-f987-4d74-9246-2d70634d25b0" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout2p4Wide" />
+      <pluginconfiguration id="095e5cc8-b81b-46ae-8ba2-31565f13cd56" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout2p8" />
+      <pluginconfiguration id="6f499fd2-fddc-4f55-820a-47eaae4f853a" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout2x2" />
+      <pluginconfiguration id="ce64ddc3-d27a-42be-8465-ed780e748e49" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout3x3" />
+      <pluginconfiguration id="6d299029-ab1e-4d04-9fd5-0b13fa265b90" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout4x3Wide" />
+      <pluginconfiguration id="aaaef1e1-f157-4132-adf7-fba45fac722c" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout4x4" />
+      <pluginconfiguration id="d6c1bc0e-9319-4cb4-98d7-80d953ccf6b7" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout5x5" />
+      <pluginconfiguration id="bdda290a-8413-4b99-b266-b7db2263a3fe" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout6x6" />
+      <pluginconfiguration id="a8b0ec85-5f87-489b-adf2-296185bfadd6" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout7x7" />
+      <pluginconfiguration id="edb95d6d-a010-4450-b60a-9a0c043c3e9a" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout8x8" />
+      <pluginconfiguration id="140f17dc-33a2-490b-867b-79c1950d1f0f" plugin="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayoutCustom" />
+      <pluginconfiguration id="3a8a7345-1d80-43eb-b556-8982bd3fc64e" plugin="VideoOS.RemoteClient.Application.Data.ContentTypes.ImageContentType.ImageContentType" />
+      <pluginconfiguration id="57abe978-8861-4577-8a09-5fa6e43c4109" plugin="VideoOS.RemoteClient.Application.Data.ContentTypes.EmptyContentType.EmptyContentType" />
+      <pluginconfiguration id="ce8eb517-c0cb-45e9-80b3-5adab41eb9a5" plugin="VideoOS.RemoteClient.Application.Data.ContentTypes.CameraContentType.CameraContentType" />
+      <pluginconfiguration id="83d6787e-481c-457c-ae79-5ae4214b9ecd" plugin="VideoOS.RemoteClient.Application.Data.ContentTypes.BookmarkContentType.BookmarkContentType" />
+      <pluginconfiguration id="9e829fe6-3ad6-4ecc-a4bd-2b1438dd092c" plugin="VideoOS.RemoteClient.Application.Data.ContentTypes.AudioContentType.AudioContentType" />
+      <pluginconfiguration id="38fe5388-2ba8-4283-8eed-6065fba9af61" plugin="VideoOS.RemoteClient.Application.Actions.ActivateAction" />
+      <pluginconfiguration id="44553435-b40f-49a9-8b9e-a72c5aa87dfa" plugin="VideoOS.RemoteClient.Application.Actions.AddToExportViewItemBasedAction" />
+      <pluginconfiguration id="ce891d7a-0c96-429b-a438-7c584c41dc78" plugin="VideoOS.RemoteClient.Application.Actions.BrowseBeginAction" />
+      <pluginconfiguration id="1af3f763-99bc-4837-9586-ca66a0327b9f" plugin="VideoOS.RemoteClient.Application.Actions.BrowseEndAction" />
+      <pluginconfiguration id="de534f59-68e4-4970-a1f7-4c556855c565" plugin="VideoOS.RemoteClient.Application.Actions.BrowseGotoAction" />
+      <pluginconfiguration id="04610607-c457-4ba7-b3bd-2168a6b7e263" plugin="VideoOS.RemoteClient.Application.Actions.BrowseNextAction" />
+      <pluginconfiguration id="e8598ab4-88eb-49b7-ae57-0df063a46d02" plugin="VideoOS.RemoteClient.Application.Actions.BrowseNextSequenceAction" />
+      <pluginconfiguration id="144f4a1d-fc2c-41a5-b978-f8d42151f27f" plugin="VideoOS.RemoteClient.Application.Actions.BrowsePlayForwardAction" />
+      <pluginconfiguration id="f309634b-4ded-4bea-bddd-9ca7d6472060" plugin="VideoOS.RemoteClient.Application.Actions.BrowsePlayForwardToggleAction" />
+      <pluginconfiguration id="0b0ae2a6-cd42-4d74-9803-5dd0c11dabcf" plugin="VideoOS.RemoteClient.Application.Actions.BrowsePlayReverseAction" />
+      <pluginconfiguration id="7d721f53-ecd0-4736-b108-3ae369595444" plugin="VideoOS.RemoteClient.Application.Actions.BrowsePlayStopAction" />
+      <pluginconfiguration id="bcb98436-da4c-491d-8789-a534d87c731a" plugin="VideoOS.RemoteClient.Application.Actions.BrowsePreviousAction" />
+      <pluginconfiguration id="afcdef26-d34c-49f0-bdaf-87815731b531" plugin="VideoOS.RemoteClient.Application.Actions.BrowsePreviousSequenceAction" />
+      <pluginconfiguration id="bd858f24-c6eb-4263-bcf3-8b163b3e7381" plugin="VideoOS.RemoteClient.Application.Actions.BrowseScrubAction" />
+      <pluginconfiguration id="18c0ece2-5b99-4083-8e2b-ad2cb707b7a7" plugin="VideoOS.RemoteClient.Application.Actions.ClearAllSignalsOnAllCamerasInSelectedViewAction" />
+      <pluginconfiguration id="e189a39d-b3be-4411-a73e-30381b8b93df" plugin="VideoOS.RemoteClient.Application.Actions.ClearAllSignalsOnSelectedCameraAction" />
+      <pluginconfiguration id="4cf31a8c-5911-42d4-9e00-c28f5399717a" plugin="VideoOS.RemoteClient.Application.Actions.ClearMotionOccurredSignalOnAllCamerasInSelectedViewAction" />
+      <pluginconfiguration id="e37bb9d0-a515-42f0-bc0e-590316ce9a5f" plugin="VideoOS.RemoteClient.Application.Actions.ClearMotionOccurredSignalOnSelectedCameraAction" />
+      <pluginconfiguration id="3cd5c6aa-8203-4c7c-b58f-92a727821c14" plugin="VideoOS.RemoteClient.Application.Actions.CloseAction" />
+      <pluginconfiguration id="bb955c27-fcbd-4815-b4ac-582140aa8c97" plugin="VideoOS.RemoteClient.Application.Actions.CopySelectedCameraViewItemAction" />
+      <pluginconfiguration id="7e0c4da1-376f-4bf5-b83e-684a80fdf839" plugin="VideoOS.RemoteClient.Application.Actions.DeselectViewItemAction" />
+      <pluginconfiguration id="b23b1c3c-ccba-4915-96bd-6d91b5c0a902" plugin="VideoOS.RemoteClient.Application.Actions.DisablePlaybackTimelineSelectionModeAction" />
+      <pluginconfiguration id="b9ff8d73-8117-4199-b33e-24114c2b2a6e" plugin="VideoOS.RemoteClient.Application.Actions.EnablePlaybackTimelineSelectionModeAndDisplayToastAction" />
+      <pluginconfiguration id="5664fd57-35bc-498d-b348-de0638f38f13" plugin="VideoOS.RemoteClient.Application.Actions.FindCameraViewItemAction" />
+      <pluginconfiguration id="3f5a6577-68b1-4cef-b311-b92fa6a74bc9" plugin="VideoOS.RemoteClient.Application.Actions.FindViewIndexAction" />
+      <pluginconfiguration id="8982c42c-5044-4748-aecf-fcd727f0c211" plugin="VideoOS.RemoteClient.Application.Actions.GetBrowseDateAction" />
+      <pluginconfiguration id="ca3eadac-9f92-47dd-bcac-f0d4c2b36c81" plugin="VideoOS.RemoteClient.Application.Actions.GetCheckedCamerasFromViewItemsAction" />
+      <pluginconfiguration id="7bcc957c-2f28-4ccd-ae60-354dbaa9c982" plugin="VideoOS.RemoteClient.Application.Actions.GetModeAction" />
+      <pluginconfiguration id="df1c9215-0bb6-4be8-bdff-a310b8ce4526" plugin="VideoOS.RemoteClient.Application.Actions.GetSelectedCameraViewItemShortcutAction" />
+      <pluginconfiguration id="dd9c26b0-f896-4caa-8d44-8beb5893a351" plugin="VideoOS.RemoteClient.Application.Actions.GetSelectedGroupIdAction" />
+      <pluginconfiguration id="06fa9e15-6a7e-433a-841f-dd289e7554b1" plugin="VideoOS.RemoteClient.Application.Actions.GetSelectedViewFullNameAction" />
+      <pluginconfiguration id="a3fc2ccd-6bb4-4d43-afaf-7b7d455662b5" plugin="VideoOS.RemoteClient.Application.Actions.GetSelectedViewIdAction" />
+      <pluginconfiguration id="f7ba65eb-d9e0-4279-90d2-c846fd9d6bf0" plugin="VideoOS.RemoteClient.Application.Actions.GetSelectedViewItemIndexAction" />
+      <pluginconfiguration id="b24565b2-39a8-4dd8-940f-b1e3f00e0ca7" plugin="VideoOS.RemoteClient.Application.Actions.GetViewFullNameAction" />
+      <pluginconfiguration id="9faf0a97-6cd6-498d-b77f-b3a91cdb93bc" plugin="VideoOS.RemoteClient.Application.Actions.GetViewIdAction" />
+      <pluginconfiguration id="0605001e-0272-4c0c-a733-a4214564ba1b" plugin="VideoOS.RemoteClient.Application.Actions.GetViewIndexAction" />
+      <pluginconfiguration id="5fb685c7-3447-4355-a075-8a4cbd5c7d75" plugin="VideoOS.RemoteClient.Application.Actions.GroupCountAction" />
+      <pluginconfiguration id="361025ab-747b-486d-8e29-2a60280c67c1" plugin="VideoOS.RemoteClient.Application.Actions.HideFullscreenViewAction" />
+      <pluginconfiguration id="480e90b4-dc98-4a8f-a1a2-e32780143ea9" plugin="VideoOS.RemoteClient.Application.Actions.HideSidePaneAction" />
+      <pluginconfiguration id="2fb05251-8e3a-45a7-aca4-c4de86c5017f" plugin="VideoOS.RemoteClient.Application.Actions.MaximizeAction" />
+      <pluginconfiguration id="61ddae8d-ba30-4d76-8afa-eccdfa85a690" plugin="VideoOS.RemoteClient.Application.Actions.MaximizeSelectedViewItemAction" />
+      <pluginconfiguration id="1d26b0e6-e977-441d-97dc-fbc953151929" plugin="VideoOS.RemoteClient.Application.Actions.MinimizeAction" />
+      <pluginconfiguration id="b183c00a-3a6c-4a50-b5dc-d61847fc2625" plugin="VideoOS.RemoteClient.Application.Actions.MoveViewItemSelectionDownAction" />
+      <pluginconfiguration id="16dd9cc6-03a0-4330-890b-1f72b2ded290" plugin="VideoOS.RemoteClient.Application.Actions.MoveViewItemSelectionLeftAction" />
+      <pluginconfiguration id="d5c26632-1492-4eca-a546-5adac7551288" plugin="VideoOS.RemoteClient.Application.Actions.MoveViewItemSelectionRightAction" />
+      <pluginconfiguration id="d155348b-e990-4332-862f-51d160fff250" plugin="VideoOS.RemoteClient.Application.Actions.MoveViewItemSelectionUpAction" />
+      <pluginconfiguration id="976953ca-5785-4b2a-a676-9518b0ae1dd8" plugin="VideoOS.RemoteClient.Application.Actions.MultiWindowOpenFloatingWindowAction" />
+      <pluginconfiguration id="cae33b43-e61e-4bd7-88df-146d044e3d9c" plugin="VideoOS.RemoteClient.Application.Actions.MultiWindowOpenFullScreenWindowAction" />
+      <pluginconfiguration id="ad8817ce-c0b5-4d2f-bb0b-28c309bc9b83" plugin="VideoOS.RemoteClient.Application.Actions.NextViewAction" />
+      <pluginconfiguration id="22221f47-1848-4715-96c6-ab52ae859cc6" plugin="VideoOS.RemoteClient.Application.Actions.NextViewByShortcutAction" />
+      <pluginconfiguration id="bba728b1-49e9-4aff-b7e5-3cb6da97af6a" plugin="VideoOS.RemoteClient.Application.Actions.OpenSurfaceDiagnosticsAction" />
+      <pluginconfiguration id="6abe3bef-e09a-47e6-8b14-8f0e259fbc6c" plugin="VideoOS.RemoteClient.Application.Actions.PreviousViewAction" />
+      <pluginconfiguration id="e9f9fc88-0fab-4048-a16f-9b11557e2843" plugin="VideoOS.RemoteClient.Application.Actions.PreviousViewByShortcutAction" />
+      <pluginconfiguration id="f9eca679-a9b5-44b1-8621-c0198cd68647" plugin="VideoOS.RemoteClient.Application.Actions.PrintSelectedViewItemAction" />
+      <pluginconfiguration id="6b29e6d1-cb29-4fd3-914a-f39112a8811d" plugin="VideoOS.RemoteClient.Application.Actions.PtzEnableDigitalZoomAction" />
+      <pluginconfiguration id="c80e1920-eeb4-4c63-911b-8dcb784d7fe3" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousDownAction" />
+      <pluginconfiguration id="477d1bd3-d863-4b85-ae91-aba97b1c01e8" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousDownLeftAction" />
+      <pluginconfiguration id="1fe09341-4583-46dc-8729-e441c02f2bbd" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousDownRightAction" />
+      <pluginconfiguration id="49202cb2-2db7-46be-8f8e-3506076dd006" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousLeftAction" />
+      <pluginconfiguration id="bffd0061-1676-46df-be17-e2f387cebdfb" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousRightAction" />
+      <pluginconfiguration id="0109dd80-139a-48b3-93d1-9dcb4f9eaa20" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousUpAction" />
+      <pluginconfiguration id="9a1eefcc-a117-4d06-a267-0812e7497bd1" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousUpLeftAction" />
+      <pluginconfiguration id="520f4e0e-30e7-4201-b583-e4493ef9492e" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousUpRightAction" />
+      <pluginconfiguration id="21fb856b-876f-4c21-a465-320470995736" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousZoomInAction" />
+      <pluginconfiguration id="a849b353-821a-4fc5-8825-d320d0f77c14" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveContinuousZoomOutAction" />
+      <pluginconfiguration id="22af2923-29cf-4338-bfd1-7185c1b8e72e" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveDownAction" />
+      <pluginconfiguration id="6ed12a9f-99fc-46a7-a2a7-369c11b164e8" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveDownLeftAction" />
+      <pluginconfiguration id="f68e2ed7-fee9-4056-8740-daa8fa4db31c" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveDownRightAction" />
+      <pluginconfiguration id="0a4ac095-a23b-4b9e-9749-048916d3a38d" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveHomeAction" />
+      <pluginconfiguration id="a2f2f206-f775-4f55-836f-64a1f1793b5d" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveLeftAction" />
+      <pluginconfiguration id="de9eb885-dad3-4d19-a9d4-51ae41b906af" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveRightAction" />
+      <pluginconfiguration id="54324578-e13a-4d07-8517-25b3ab4db9e6" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveUpAction" />
+      <pluginconfiguration id="119f5bd3-d31c-4ede-b1d3-3a01070167df" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveUpLeftAction" />
+      <pluginconfiguration id="f328fa2d-982a-46d7-981d-21d483d5048d" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveUpRightAction" />
+      <pluginconfiguration id="d06dda54-09c8-4330-9efb-32dbe7e17b24" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveZoomInAction" />
+      <pluginconfiguration id="6a7f1f06-71dd-42b2-b39a-f41dbc0e69bc" plugin="VideoOS.RemoteClient.Application.Actions.PtzMoveZoomOutAction" />
+      <pluginconfiguration id="e6d15e3e-04f5-45ee-9895-9fd47ecef514" plugin="VideoOS.RemoteClient.Application.Actions.PtzPausePatrollingAction" />
+      <pluginconfiguration id="f2a0ef48-a0ed-4ea8-9642-0e30c5eaad04" plugin="VideoOS.RemoteClient.Application.Actions.PtzReleaseAction" />
+      <pluginconfiguration id="7ea9502b-b4fc-43ff-9c9a-11bc6ae4c41f" plugin="VideoOS.RemoteClient.Application.Actions.PtzReserveAction" />
+      <pluginconfiguration id="b46650d3-25ba-4e9b-b4f7-e06523e676ca" plugin="VideoOS.RemoteClient.Application.Actions.PtzToggleDigitalZoomEnableStateAction" />
+      <pluginconfiguration id="65917dd8-cd6f-4ab3-8220-f7bdac609ee1" plugin="VideoOS.RemoteClient.Application.Actions.ReloadCameraViewItems" />
+      <pluginconfiguration id="1b37af82-4f92-4a2a-abaa-427ddcf4dcb2" plugin="VideoOS.RemoteClient.Application.Actions.RemovablePrivacyMaskUnliftAction" />
+      <pluginconfiguration id="5656611c-68c0-4bb0-90c5-f3ac21cd8a93" plugin="VideoOS.RemoteClient.Application.Actions.RestoreAction" />
+      <pluginconfiguration id="1f8378a6-57f9-4ad9-a8ef-e1e2d17c6506" plugin="VideoOS.RemoteClient.Application.Actions.RestoreSelectedViewItemAction" />
+      <pluginconfiguration id="d3741737-0eb8-4975-87a9-bcf16025c254" plugin="VideoOS.RemoteClient.Application.Actions.SearchAction" />
+      <pluginconfiguration id="7e23c422-b953-4266-b401-6817baac1e88" plugin="VideoOS.RemoteClient.Application.Actions.SelectCameraViewItemAction" />
+      <pluginconfiguration id="f17fd9f4-fc0b-4dee-a7fa-272d7c51f62f" plugin="VideoOS.RemoteClient.Application.Actions.SelectNextWindowAction" />
+      <pluginconfiguration id="27a6601c-4d1a-4c3b-b81b-697371e7ad7f" plugin="VideoOS.RemoteClient.Application.Actions.SelectViewAction" />
+      <pluginconfiguration id="856ead6f-165e-4d10-a7c8-56acef57a161" plugin="VideoOS.RemoteClient.Application.Actions.SelectViewItemAction" />
+      <pluginconfiguration id="939f21a8-22c4-429d-b0e3-03330a5c179c" plugin="VideoOS.RemoteClient.Application.Actions.SelectWindowAction" />
+      <pluginconfiguration id="b219bdb2-0ada-4904-b036-1e8276a9abae" plugin="VideoOS.RemoteClient.Application.Actions.SetCameraOnSelectedCameraViewItemAction" />
+      <pluginconfiguration id="33b599c4-af11-477a-8ab7-07c726cb9b00" plugin="VideoOS.RemoteClient.Application.Actions.SetCameraViewItemCameraAction" />
+      <pluginconfiguration id="0d07cebb-d1c5-4b94-a73e-311393790602" plugin="VideoOS.RemoteClient.Application.Actions.SetNextCameraByShortcutOnSelectedCameraViewItemAction" />
+      <pluginconfiguration id="2115b0b3-2a85-461d-af64-44568afc4b53" plugin="VideoOS.RemoteClient.Application.Actions.SetNextCameraOnSelectedCameraViewItemAction" />
+      <pluginconfiguration id="3a32c0fd-fece-4959-b39c-02ed1bf56b8a" plugin="VideoOS.RemoteClient.Application.Actions.SetPlayBackSpeedAction" />
+      <pluginconfiguration id="1b026a36-c714-4629-951c-ff2ee9caf29a" plugin="VideoOS.RemoteClient.Application.Actions.SetPreviousCameraByShortcutOnSelectedCameraViewItemAction" />
+      <pluginconfiguration id="5a9a0527-e4fd-49ee-890a-684005bd11e2" plugin="VideoOS.RemoteClient.Application.Actions.SetPreviousCameraOnSelectedCameraViewItemAction" />
+      <pluginconfiguration id="1a76f017-1ad9-4a39-9c24-0775d83476e5" plugin="VideoOS.RemoteClient.Application.Actions.ShowBrowseAction" />
+      <pluginconfiguration id="b3b4ddaa-d7c3-416a-ab3e-47644290d951" plugin="VideoOS.RemoteClient.Application.Actions.ShowCamerasAction" />
+      <pluginconfiguration id="62ae7ac0-3957-4c10-a936-13a02bbcfaad" plugin="VideoOS.RemoteClient.Application.Actions.ShowEvidenceLockCameraSelectorAction" />
+      <pluginconfiguration id="ba8cda0a-d312-4d14-8bf9-79fb12858baa" plugin="VideoOS.RemoteClient.Application.Actions.ShowEvidenceLockDialogViewItemBasedAction" />
+      <pluginconfiguration id="86d9dc95-a14b-4c6b-8be5-c7c72798eb7f" plugin="VideoOS.RemoteClient.Application.Actions.ShowEvidenceLockListAction" />
+      <pluginconfiguration id="cc275ddc-5973-4eba-9d8c-e2a2effbc6ae" plugin="VideoOS.RemoteClient.Application.Actions.ShowExportDialogDeviceBasedAction" />
+      <pluginconfiguration id="9bff7d6f-3982-419f-a031-8baa9a7551fa" plugin="VideoOS.RemoteClient.Application.Actions.ShowExportDialogViewItemBasedAction" />
+      <pluginconfiguration id="136abcad-a1c7-4f08-8792-4ad7c6f4bf11" plugin="VideoOS.RemoteClient.Application.Actions.ShowRetrievalDialogViewItemBasedAction" />
+      <pluginconfiguration id="af8e1a09-0ef7-492c-8e8f-91d1770017d9" plugin="VideoOS.RemoteClient.Application.Actions.ShowSetupAction" />
+      <pluginconfiguration id="b25396bd-72b9-449f-a9ae-0c06ed07ad75" plugin="VideoOS.RemoteClient.Application.Actions.ShowSidePaneAction" />
+      <pluginconfiguration id="8566d726-2ea7-4342-b1b3-86946ea09058" plugin="VideoOS.RemoteClient.Application.Actions.ShowSingleCameraAction" />
+      <pluginconfiguration id="e1e76756-65af-4381-bc49-528740435874" plugin="VideoOS.RemoteClient.Application.Actions.SnapshotSelectedViewItemAction" />
+      <pluginconfiguration id="a853216d-bcf9-40fa-82cc-20d0a1fafb34" plugin="VideoOS.RemoteClient.Application.Actions.ToggleFullscreenViewAction" />
+      <pluginconfiguration id="cf3931af-ece1-46a7-91c2-df5bdfec1a4f" plugin="VideoOS.RemoteClient.Application.Actions.ToggleSelectedViewItemMaximizedStateAction" />
+      <pluginconfiguration id="32998ec4-937e-4430-a4ec-155127a54bdc" plugin="VideoOS.RemoteClient.Application.Actions.ToggleSidePaneAction" />
+      <pluginconfiguration id="213f045c-0d6f-486e-a664-ebccc5373f63" plugin="VideoOS.RemoteClient.Application.Actions.ViewCountAction" />
+      <pluginconfiguration id="2ba838e5-8e27-419d-b922-3cccd2d98244" plugin="VideoOS.RemoteClient.Plugin.AdvancedKeyboardControl.AdvancedKeyboardControl" />
+      <pluginconfiguration id="99c277ed-30a3-426b-8778-0878411e8eb5" plugin="VideoOS.RemoteClient.Plugin.CentralizedSearch.CentralizedSearchContentType" />
+      <pluginconfiguration id="fd0cdd29-2f03-4c19-9547-78c6390d6170" plugin="VideoOS.RemoteClient.Plugin.Export.ExportContentType" />
+      <pluginconfiguration id="05332ba1-9f08-4fa8-a11b-7ad8aa6186bc" plugin="VideoOS.RemoteClient.Plugin.HtmlViewItem.HtmlContentType" />
+      <pluginconfiguration id="39f290fb-6d5c-412b-88d1-a7bb8c0fa76e" plugin="VideoOS.RemoteClient.Plugin.KeyboardSupport.KeyboardPlugin" />
+      <pluginconfiguration id="7edad11c-3b69-4db2-ac2e-38491d386e8e" plugin="VideoOS.RemoteClient.Plugin.KeyboardSupport.ShowSetupAction" />
+    </PluginConfigurations>
+    <DeviceMappings />
+    <CameraGroups>
+      <CameraGroupInfo>
+        <GroupId>d088c5ce-43a9-4b7c-bad3-5c8a4246cda3</GroupId>
+        <Name>_Cameras_</Name>
+        <CameraGroups />
+        <Cameras>
+          <guid>3bd8e221-d533-4b48-a883-bbabaa247d93</guid>
+        </Cameras>
+      </CameraGroupInfo>
+    </CameraGroups>
+    <MicrophoneGroups />
+    <SpeakerGroups />
+    <MetadataDeviceGroups />
+  </SystemInformation>
+  <!-- SystemInfo end -->
+  <!-- CustomSettingsDataUser -->
+  <CustomSettingDataUser id="2d8ad90c-3d2d-4bca-869b-49b2ebddc1cd">
+    <CustomSetting>
+      <CustomSettingInfo xmlns="http://videoos.net/2/XProtectCSServerCommand">
+        <Id>2d8ad90c-3d2d-4bca-869b-49b2ebddc1cd</Id>
+        <LastModifiedTime>0001-01-01T00:00:00</LastModifiedTime>
+        <LastModifiedUser />
+      </CustomSettingInfo>
+      <CustomSettingData xmlns="http://videoos.net/2/XProtectCSServerCommand">
+        <DataVersion>1</DataVersion>
+        <CustomSettingDataXml>
+          <States xmlns="">
+            <State stateType="PaneState" version="2">
+              <PaneStates>
+                <PaneState paneType="ViewsViews" version="2" x="0" y="0" width="0" height="0" order="0" expanded="False" visible="False" />
+                <PaneState paneType="ViewsSystem" version="2" x="0" y="0" width="0" height="0" order="1" expanded="False" visible="False" />
+                <PaneState paneType="ViewsEvents" version="2" x="0" y="0" width="0" height="0" order="2" expanded="False" visible="False" />
+                <PaneState paneType="ViewsOutput" version="2" x="0" y="0" width="0" height="0" order="3" expanded="False" visible="False" />
+                <PaneState paneType="ViewsAudio" version="2" x="0" y="0" width="0" height="0" order="4" expanded="False" visible="False" />
+                <PaneState paneType="ViewsMipPlugin" version="2" x="0" y="0" width="0" height="0" order="99" expanded="False" visible="False" />
+                <PaneState paneType="SetupProjectFile" version="2" x="0" y="0" width="0" height="0" order="0" expanded="True" visible="True" />
+                <PaneState paneType="SetupViews" version="2" x="0" y="0" width="0" height="0" order="1" expanded="True" visible="True" />
+                <PaneState paneType="SetupSystem" version="2" x="0" y="0" width="0" height="0" order="2" expanded="True" visible="True" />
+                <PaneState paneType="SetupOverlayButtons" version="2" x="0" y="0" width="0" height="0" order="3" expanded="False" visible="False" />
+                <PaneState paneType="SetupProperties" version="2" x="0" y="0" width="0" height="0" order="4" expanded="False" visible="False" />
+                <PaneState paneType="SetupMipPlugin" version="2" x="0" y="0" width="0" height="0" order="99" expanded="False" visible="False" />
+              </PaneStates>
+            </State>
+            <State stateType="PanelStates" version="2" showPanel="False" />
+          </States>
+        </CustomSettingDataXml>
+      </CustomSettingData>
+    </CustomSetting>
+  </CustomSettingDataUser>
+  <CustomSettingDataUser id="79c45323-b159-48bb-ba64-e8dc3f686e04">
+    <CustomSetting>
+      <CustomSettingInfo xmlns="http://videoos.net/2/XProtectCSServerCommand">
+        <Id>79c45323-b159-48bb-ba64-e8dc3f686e04</Id>
+        <LastModifiedTime>0001-01-01T00:00:00</LastModifiedTime>
+        <LastModifiedUser />
+      </CustomSettingInfo>
+      <CustomSettingData xmlns="http://videoos.net/2/XProtectCSServerCommand">
+        <DataVersion>1</DataVersion>
+        <CustomSettingDataXml>
+          <keyboardsettings xmlns="" />
+        </CustomSettingDataXml>
+      </CustomSettingData>
+    </CustomSetting>
+  </CustomSettingDataUser>
+  <CustomSettingDataUser id="bcbe9a45-e1b5-4202-bb22-c675370fae05">
+    <CustomSetting>
+      <CustomSettingInfo xmlns="http://videoos.net/2/XProtectCSServerCommand">
+        <Id>bcbe9a45-e1b5-4202-bb22-c675370fae05</Id>
+        <LastModifiedTime>0001-01-01T00:00:00</LastModifiedTime>
+        <LastModifiedUser />
+      </CustomSettingInfo>
+      <CustomSettingData xmlns="http://videoos.net/2/XProtectCSServerCommand">
+        <DataVersion>1</DataVersion>
+        <CustomSettingDataXml>
+          <Options xmlns="">
+            <Option version="1" optionId="GeneralCameraStoppedMessage" followServer="True" value="BlackImageWithOverlay" />
+            <Option version="1" optionId="AlarmManagerPlaySoundNotifications" followServer="True" value="No" />
+            <Option version="1" optionId="ShowAccessRequestNotifications" followServer="True" value="Yes" />
+            <Option version="1" optionId="ExportMergeMediaPlayerFormat" followServer="True" value="Unavailable" />
+            <Option version="1" optionId="TimelineHideForNormalViewsTimeout" followServer="True" value="Disabled" />
+            <Option version="1" optionId="TimelineHideForSmartWallViewsTimeout" followServer="True" value="Seconds_5" />
+          </Options>
+        </CustomSettingDataXml>
+      </CustomSettingData>
+    </CustomSetting>
+  </CustomSettingDataUser>
+  <CustomSettingDataUser id="cde44c33-8a6f-4367-8930-e23951e7c18e">
+    <CustomSetting>
+      <CustomSettingInfo xmlns="http://videoos.net/2/XProtectCSServerCommand">
+        <Id>cde44c33-8a6f-4367-8930-e23951e7c18e</Id>
+        <LastModifiedTime>0001-01-01T00:00:00</LastModifiedTime>
+        <LastModifiedUser />
+      </CustomSettingInfo>
+      <CustomSettingData xmlns="http://videoos.net/2/XProtectCSServerCommand">
+        <DataVersion>1</DataVersion>
+        <CustomSettingDataXml>
+          <Options xmlns="">
+            <Option version="1" optionId="GeneralApplicationMaximization" followServer="True" value="FullScreen" />
+            <Option version="1" optionId="GeneralCameraErrors" followServer="True" value="BlackImageWithOverlay" />
+            <Option version="1" optionId="GeneralServerErrors" followServer="True" value="Hidden" />
+            <Option version="1" optionId="GeneralTitleBar" followServer="True" value="Show" />
+            <Option version="1" optionId="GeneralTimeInTitlebar" followServer="True" value="Show" />
+            <Option version="1" optionId="GeneralEmptySpaces" followServer="True" value="CompanyLogo" />
+            <Option version="1" optionId="GeneralViewGridSpacer" followServer="True" value="Pixel1" />
+            <Option version="1" optionId="GeneralDefaultVideoBuffer" followServer="True" value="Standard" />
+            <Option version="1" optionId="GeneralDefaultPtzPointAndClickMode" followServer="True" value="VirtualJoystick" />
+            <Option version="1" optionId="ApplicationStartMode" followServer="True" value="Last" />
+            <Option version="1" optionId="ApplicationStartView" followServer="True" value="Last" />
+            <Option version="1" optionId="ApplicationHideMousePointerTimeout" followServer="True" value="Seconds_5" />
+            <Option version="1" optionId="ApplicationSnapshotAvailability" followServer="True" value="Available" />
+            <Option version="1" optionId="ApplicationSnapshotPath" followServer="True" value="c:\Snapshots" />
+            <Option version="1" optionId="ApplicationOnlineHelp" followServer="True" value="Available" />
+            <Option version="1" optionId="ApplicationVideoTutorials" followServer="True" value="Available" />
+            <Option version="1" optionId="AlarmManagerShowDesktopNotifications" followServer="True" value="No" />
+            <Option version="1" optionId="ExportDestinationType" followServer="True" value="Both" />
+            <Option version="1" optionId="ExportPrivacyMask" followServer="True" value="Available" />
+            <Option version="1" optionId="ExportSmartClientPlayerFormat" followServer="True" value="Available" />
+            <Option version="1" optionId="ExportSmartClientPlayerGlobalCommentsMode" followServer="True" value="Optional" />
+            <Option version="1" optionId="ExportSmartClientPlayerIndividualCommentsMode" followServer="True" value="Optional" />
+            <Option version="1" optionId="ExportVideoClipFormat" followServer="True" value="Unavailable" />
+            <Option version="1" optionId="ExportVideoClipTextsMode" followServer="True" value="Optional" />
+            <Option version="1" optionId="ExportVideoClipCodecProperties" followServer="True" value="Available" />
+            <Option version="1" optionId="ExportStillImageFormat" followServer="True" value="Unavailable" />
+            <Option version="1" optionId="CentralizedSearchAutoPlayPreview" followServer="False" value="No" />
+            <Option version="1" optionId="CentralizedSearchLoopingResult" followServer="False" value="No" />
+            <Option version="1" optionId="PanesLiveViews" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesLiveSystemOverview" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesLiveAudio" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesLiveOutputs" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesLiveEvents" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesLiveMIPPlugin" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesPlaybackViews" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesPlaybackSystemOverview" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesPlaybackAudio" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesPlaybackMIPPlugin" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesSetupViews" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesSetupSystemOverview" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesSetupOverlayButtons" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesSetupProperties" followServer="True" value="Available" />
+            <Option version="1" optionId="PanesSetupMIPPlugin" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsLiveCameraPlayback" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsLiveOverlayButtons" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsLiveBookmarkMode" followServer="True" value="Quick" />
+            <Option version="1" optionId="FunctionsLivePrintAvailability" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsLiveBoundingBoxes" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsPlaybackIndependentPlayback" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsPlaybackBookmarkMode" followServer="True" value="Detail" />
+            <Option version="1" optionId="PanesPlaybackPrint" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsPlaybackBoundingBoxes" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsSetupOverlayButtons" followServer="True" value="Available" />
+            <Option version="1" optionId="FunctionsSetupEnableVideoBufferingOption" followServer="True" value="Available" />
+            <Option version="1" optionId="TimelineIncomingAudio" followServer="True" value="Hide" />
+            <Option version="1" optionId="TimelineOutgoingAudio" followServer="True" value="Hide" />
+            <Option version="1" optionId="TimelineMipData" followServer="True" value="Hide" />
+            <Option version="1" optionId="TimelineMipMarker" followServer="True" value="Hide" />
+            <Option version="1" optionId="TimelineBookmarks" followServer="True" value="Show" />
+            <Option version="1" optionId="TimelineMotion" followServer="True" value="Show" />
+            <Option version="1" optionId="TimelineAllCamerasTimeline" followServer="True" value="Show" />
+            <Option version="1" optionId="TimelineSkipGaps" followServer="True" value="DoSkipGaps" />
+            <Option version="1" optionId="GisMapOpenStreetMapGeographicLayer" followServer="True" value="Unavailable" />
+            <Option version="1" optionId="GisMapOpenStreetMapAlternativeServer" followServer="True" value="" />
+            <Option version="1" optionId="GisMapCreateLayerLocation" followServer="True" value="No" />
+            <Option version="1" optionId="GisMapCacheCleanUp" followServer="True" value="OnScClose_IfFileNotUsed" />
+            <Option version="1" optionId="AdvancedMulticast" followServer="True" value="Enabled" />
+            <Option version="1" optionId="AdvancedVideoPlayerHardwareDecodingMode" followServer="True" value="Auto" />
+            <Option version="1" optionId="AdvancedMaxDecodingThreads" followServer="True" value="Auto" />
+            <Option version="1" optionId="AdvancedAdaptiveStreaming" followServer="True" value="Disabled" />
+            <Option version="1" optionId="AdvancedDeinterlacing" followServer="True" value="Default" />
+            <Option version="1" optionId="AdvancedVideoPlayerDiagnosticLevel" followServer="True" value="Level0" />
+            <Option version="1" optionId="AdvancedTimeZone" followServer="True" value="LocalMachine" />
+            <Option version="1" optionId="AdvancedTimeZoneCustom" followServer="True" value="W. Europe Standard Time" />
+            <Option version="1" optionId="ReportFormat" followServer="False" valueId="A4" />
+            <Option version="1" optionId="ReportFont" followServer="False" valueId="Microsoft Sans Serif" />
+          </Options>
+        </CustomSettingDataXml>
+      </CustomSettingData>
+    </CustomSetting>
+  </CustomSettingDataUser>
+  <!-- CustomSettingsDataUser end -->
+  <!-- CustomSettingsDataGlobal -->
+  <!-- CustomSettingsDataGlobal end -->
+  <!-- Views -->
+  <ViewGroupData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="8b736995-0b4c-4498-ad5e-7923bd1667ae">
+    <DataVersion xmlns="http://videoos.net/2/XProtectCSServerCommand">0</DataVersion>
+    <XmlVersion xmlns="http://videoos.net/2/XProtectCSServerCommand">0</XmlVersion>
+    <ViewGroupDataXml xmlns="http://videoos.net/2/XProtectCSServerCommand">
+      <viewgroup xmlns="">
+        <groups>
+          <group id="8ae19537-3d96-4a4d-ba6b-a158c8a16371" displayname="Viste esportate" shortcut="">
+            <groups />
+            <views>
+              <view id="952a3439-a4cd-4228-a621-26727d708975" displayname="Vista adattiva" shortcut="" viewlayouttype="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayoutCustom, VideoOS.RemoteClient.Application">
+                <viewitems>
+                  <viewitem id="abddfe2a-0005-4195-a67a-af66a0a071a2" displayname="Vista adattiva" shortcut="" type="VideoOS.RemoteClient.Application.MIP.PlatformViewItem, VideoOS.RemoteClient.Application">
+                    <iteminfo id="ff9120c5-a7aa-4bb3-837b-d1505dd7004c" displayname="Vista adattiva" type="VideoOS.RemoteClient.Application.MIP.PlatformViewItem, VideoOS.RemoteClient.Application">
+                      <viewitem id="00000000-0000-0000-0000-000000000000" type="VideoOS.Plugins.AdaptiveView.Client.AdaptiveViewItemManager, VideoOS.Plugins.AdaptiveView">
+                        <properties />
+                      </viewitem>
+                    </iteminfo>
+                    <properties />
+                  </viewitem>
+                </viewitems>
+                <properties>
+                  <property name="LayoutProperty" value="&lt;ViewLayout&gt;&lt;CustomId&gt;00000000-0000-0000-0000-000000000000&lt;/CustomId&gt;&lt;Icon&gt;iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABcSURBVDhPzZNLCsAwCETV+x/Bo/ppha5EQeIiHXgEZjGZBEV3h43oO4+FzJwr4EvllSIzgw37ABHBBDReCamqJ6DwWqJBmTwlGsSNx3R/MOYfTyiTp6wH6fY2AjzshyJ3rAKEAQAAAABJRU5ErkJgggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==&lt;/Icon&gt;&lt;ViewItems&gt;&lt;ViewItem&gt;&lt;Position&gt;&lt;X&gt;0&lt;/X&gt;&lt;Y&gt;0&lt;/Y&gt;&lt;/Position&gt;&lt;Size&gt;&lt;Width&gt;999&lt;/Width&gt;&lt;Height&gt;999&lt;/Height&gt;&lt;/Size&gt;&lt;/ViewItem&gt;&lt;/ViewItems&gt;&lt;/ViewLayout&gt;" />
+                </properties>
+              </view>
+              <view id="95cc0522-d3b9-44d2-af31-88273e547f77" displayname="Vista 1" shortcut="" viewlayouttype="VideoOS.RemoteClient.Application.Data.ViewLayouts.ViewLayout1x1, VideoOS.RemoteClient.Application">
+                <viewitems>
+                  <viewitem id="58a53fd0-2b24-41f3-9421-37a41585d576" displayname="Camera ViewItem" shortcut="" type="VideoOS.RemoteClient.Application.Data.ContentTypes.CameraContentType.CameraViewItem, VideoOS.RemoteClient.Application">
+                    <iteminfo cameraid="3bd8e221-d533-4b48-a883-bbabaa247d93" lastknowncameradisplayname="" livestreamid="00000000-0000-0000-0000-000000000000" maintainimageaspectratio="True" usedefaultdisplaysettings="True" showtitlebar="True" updateonmotiononly="False" soundonmotion="0" soundonevent="0" smartsearchgridwidth="0" smartsearchgridheight="0" smartsearchgridmask="" pointandclickmode="0" usingproperties="True" />
+                    <properties>
+                      <property name="cameraid" value="3bd8e221-d533-4b48-a883-bbabaa247d93" />
+                      <property name="livestreamid" value="00000000-0000-0000-0000-000000000000" />
+                    </properties>
+                  </viewitem>
+                </viewitems>
+                <properties>
+                  <property name="LayoutProperty" value="&lt;ViewLayout&gt;&lt;CustomId&gt;b7c02ce1-5f66-4886-b0c8-018224a59621&lt;/CustomId&gt;&lt;Icon&gt;iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAACTSURBVDhPzZO7DUMhDEUvTMAM7MIOr2QCJqADdqB7BVOxC5/IKDR5pIEiOdIRkn1luTCs944T+Pvdhllrt1dwzjHeWsOuxHKAlBLXdSGEACHEoz8dA2qt+DTnjJTSCKz6U4KXUvBNgoKrHkksN5gSq/qU+NMNlFKIMY6A9x7GmEeGJJjWevuQ7vs+P6Tff6bDAcALB2t8DlH1bR4AAAAASUVORK5CYIIAAA==&lt;/Icon&gt;&lt;ViewItems&gt;&lt;ViewItem&gt;&lt;Position&gt;&lt;X&gt;0&lt;/X&gt;&lt;Y&gt;0&lt;/Y&gt;&lt;/Position&gt;&lt;Size&gt;&lt;Width&gt;1000&lt;/Width&gt;&lt;Height&gt;1000&lt;/Height&gt;&lt;/Size&gt;&lt;/ViewItem&gt;&lt;/ViewItems&gt;&lt;/ViewLayout&gt;" />
+                </properties>
+              </view>
+            </views>
+            <properties />
+          </group>
+        </groups>
+        <properties />
+      </viewgroup>
+    </ViewGroupDataXml>
+  </ViewGroupData>
+  <!-- Views end -->
+  <!-- Export Properties -->
+  <ExportProperties>
+    <ExportProperty id="cdf48a06-f6b4-4704-9ba6-e5beb1945692">
+      <properties>
+        <property name="HideExportWorkspace" value="True" />
+      </properties>
+    </ExportProperty>
+  </ExportProperties>
+  <!-- Project Comment -->
+  <ProjectComment><![CDATA[]]></ProjectComment>
+</ProjectFile>

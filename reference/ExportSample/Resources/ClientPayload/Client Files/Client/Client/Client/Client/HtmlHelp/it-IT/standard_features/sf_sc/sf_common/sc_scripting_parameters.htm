@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Configurazione|[%=System.LinkedTitle%]">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Scripting per l'accesso - Parametri</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/mil__en-us.css" rel="stylesheet" />
+    <script src="../../../Resources/Scripts/custom.modernizr.js"></script>
+    <script src="../../../Resources/Scripts/jquery.min.js"></script>
+    <script src="../../../Resources/Scripts/require.min.js"></script>
+    <script src="../../../Resources/Scripts/require.config.js"></script>
+    <script src="../../../Resources/Scripts/foundation.min.js"></script>
+    <script src="../../../Resources/Scripts/plugins.min.js"></script>
+    <script src="../../../Resources/Scripts/MadCapAll.js"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_common/sc_scripting_parameters.htm">Apri argomento con navigazione</a>
+    </p>
+    <!-- The <a> tag below loads fixskin.css into the skin. -->
+    <a href="../../../resources/styles/fixskin.css" style="display: none;"></a>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <h1>Scripting per l'accesso - Parametri</h1>
+    <p>È possibile utilizzare questi parametri:</p>
+    <p>ServerAddress</p>
+    <p>Fa riferimento all'URL del server a cui si collega <span class="VariablesSC_XP">XProtect Smart Client</span>.</p>
+    <p>Per <span class="VariablesCName_XP">XProtect Corporate</span>, <span class="VariablesEtName_XP">XProtect Expert</span>, <span class="VariablesPplusName_XP">XProtect Professional+</span>, <span class="VariablesExplusName_XP">XProtect Express+</span> e <span class="VariablesEsplusName_XP">XProtect Essential+</span>, questo è l'URL del server di gestione. <br />Per <span class="VariablesPName_XP">XProtect Professional</span> o <span class="VariablesExName_XP">XProtect Express</span>, questo è l'URL del server di immagini.</p>
+    <p>L'esempio che segue mostra la finestra di accesso a <span class="VariablesSC_XP">XProtect Smart Client</span> con <span class="citationtext">http://ourserver</span> nel campo <span class="uitext">Indirizzo server</span>:</p>
+    <p class="codechunk">Client.exe -ServerAddress="http://ourserver"</p>
+    <p>Il tipo di autenticazione predefinita è l' <span class="uitext">autenticazione Windows (utente corrente)</span>. Se non si modifica questa impostazione, utilizzando il parametro <span class="uitext">AuthenticationType</span> (descritto di seguito), la finestra di accesso visualizza automaticamente il nome dell'utente Windows corrente nel campo <span class="uitext">Nome utente</span>.</p>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />UserName</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Si riferisce a un particolare nome utente.</p>
+        <p>L'esempio che segue mostra la finestra di accesso a <span class="VariablesSC_XP">XProtect Smart Client</span> con <span class="citationtext">http://ourserver</span> nel campo <span class="uitext">Indirizzo server</span> e <span class="specialbold">Tommy</span> nel campo <span class="uitext">Nome utente</span>:</p>
+        <p class="codechunk">Client.exe -ServerAddress="http://ourserver" -UserName "Tommy"</p>
+        <p class="note">Questo parametro è rilevante solo per l'<span class="uitext">autenticazione Windows</span> e l'<span class="uitext">autenticazione di base</span>. Il parametro <span class="uitext">AuthenticationType</span> consente di controllare il metodo di autenticazione che si intende utilizzare.</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Password</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Si riferisce a una specifica password.</p>
+        <p>Il seguente esempio mostra la finestra di accesso a <span class="VariablesSC_XP">XProtect Smart Client</span> con <span class="citationtext">http://ourserver</span> nel campo <span class="uitext">Indirizzo server</span>, <span class="specialbold">Tommy</span> nel campo <span class="uitext">Nome utente</span> e <span class="specialbold">T0mMy5Pa55w0rD</span> nel campo <span class="uitext">Password</span>:</p>
+        <p class="codechunk">Client.exe -ServerAddress="http://ourserver" -UserName "Tommy" -Password="T0mMy5Pa55w0rD"</p>
+        <p class="note">Questo parametro è rilevante solo per l'<span class="uitext">autenticazione Windows</span> e l'<span class="uitext">autenticazione di base</span>. Il parametro <span class="uitext">AuthenticationType</span> consente di controllare il metodo di autenticazione che si intende utilizzare.</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />AuthenticationType</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Si riferisce a uno dei tre metodi di autenticazione possibili di <span class="VariablesSC_XP">XProtect Smart Client</span>: <span class="uitext">Autenticazione Windows (utente corrente)</span> (denominata <span class="uitext">WindowsDefault</span> negli script di avvio), <span class="uitext">Autenticazione Windows</span> (denominata <span class="uitext">Windows</span> negli script di avvio) o <span class="uitext">Autenticazione di base</span> (denominata <span class="uitext">Semplice</span> negli script di avvio).</p>
+        <p>L'esempio che segue mostra la finestra di accesso a <span class="VariablesSC_XP">XProtect Smart Client</span> con <span class="citationtext">http://ourserver</span> nel campo <span class="uitext">Indirizzo server</span>, <span class="uitext">Autenticazione di base</span> selezionata nel campo <span class="uitext">Autenticazione</span>, <span class="specialbold">Tommy</span> nel campo <span class="uitext">Nome utente</span> e <span class="specialbold">T0mMy5Pa55w0rD</span> (visualizzata con asterischi) nel campo <span class="uitext">Password</span>:</p>
+        <p class="codechunk">Client.exe -ServerAddress="http://ourserver" -UserName="Tommy" -Password="T0mMy5Pa55w0rD" -AuthenticationType="Simple"</p>
+        <p>Se si utilizza l'<span class="uitext">autenticazione Windows</span>, l'esempio è:</p>
+        <p class="codechunk">Client.exe -ServerAddress="http://ourserver" -UserName="Tommy" -Password="T0mMy5Pa55w0rD" -AuthenticationType="Windows"</p>
+        <p>Se si utilizza <span class="uitext">Autenticazione Windows (utente attuale)</span>, i parametri <span class="uitext">UserName</span> e <span class="uitext">Password</span> non saranno necessari e l'esempio sarà simile a questo:</p>
+        <p class="codechunk">Client.exe -ServerAddress="http://ourserver" -AuthenticationType="WindowsDefault"</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Script</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Si riferisce al percorso completo di uno script .scs, un tipo di script finalizzato al controllo di <span class="VariablesSC_XP">XProtect Smart Client</span>.</p>
+        <p>L'esempio seguente usa uno script .scs per eseguire l'accesso:</p>
+        <p class="codechunk">Client.exe -Script=c:\startup.scs</p>
+        <p>Esempio di uno script .scs per il login in <span class="citationtext">http://ourserver</span> con l'utente Windows corrente:</p>
+        <p class="codechunk">&lt;ScriptEngine&gt;</p>
+        <p class="codechunk"> &lt;Login&gt;</p>
+        <p class="codechunk">   &lt;ServerAddress&gt;http://ourserver&lt;/ServerAddress&gt;</p>
+        <p class="codechunk">   &lt;AuthenticationType&gt;WindowsDefault&lt;/AuthenticationType&gt;</p>
+        <p class="codechunk"> &lt;/Login&gt;</p>
+        <p class="codechunk">&lt;/ScriptEngine&gt;</p>
+        <p>È possibile utilizzare molte chiamate a funzioni di <span class="VariablesSC_XP">XProtect Smart Client</span> (vedere la sezione Visualizzazione di un elenco delle chiamate funzione) per aggiungere funzionalità agli script .scs. Nell'esempio seguente è stata aggiunta una riga, in modo che lo script .scs dell'esempio precedente riduca anche a icona l'applicazione <span class="VariablesSC_XP">XProtect Smart Client</span>:</p>
+        <p class="codechunk">&lt;ScriptEngine&gt;</p>
+        <p class="codechunk"> &lt;Login&gt;</p>
+        <p class="codechunk">   &lt;ServerAddress&gt;http://ourserver&lt;/ServerAddress&gt;</p>
+        <p class="codechunk">   &lt;AuthenticationType&gt;WindowsDefault&lt;/AuthenticationType&gt;</p>
+        <p class="codechunk"> &lt;/Login&gt;</p>
+        <p class="codechunk"> &lt;Script&gt;SCS. Application.Minimize();&lt;/Script&gt;</p>
+        <p class="codechunk">&lt;/ScriptEngine&gt;</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Formato</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>I formati validi dei parametri sono:</p>
+        <p class="codechunk">{-,/,--}param{ ,=,:}((".')value(",'))</p>
+        <p>Esempi:</p>
+        <p class="codechunk">-UserName Tommy</p>
+        <p class="codechunk">--UserName Tommy /UserName:"Tommy" /UserName=Tommy -Password 'Tommy'</p>
+      </div>
+    </div>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <span class="VariablesCopyrightyear">2019</span><span class="VariablesCompanyOfficial">Milestone Systems A/S</span></p>
+  </body>
+</html>
