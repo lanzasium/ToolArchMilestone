@@ -3,4 +3,6 @@
   <Server Ip="192.168.1.10" Name="HQ Server" />
   <Server Ip="10.0.0.5" Name="Branch Office" />
   <Server Ip="172.16.0.1" Name="Remote Site" />
+  <Server Ip="130.221.0.100" Name="Server Produzione (100)" />
+  <Server Ip="vs04" Name="VS04 Main" />
 </Servers>
