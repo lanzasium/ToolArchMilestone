@@ -32,8 +32,9 @@ namespace ToolArchMilestone.Tests
             var manager = new JobManager(db, milestone);
             var picker = new MockFilePicker();
             var settings = new LocalSettingsService();
+            var serverMapping = new ServerMappingService();
 
-            var vm = new LaunchViewModel(manager, picker, milestone, settings);
+            var vm = new LaunchViewModel(manager, picker, milestone, serverMapping, settings);
 
             Assert.NotNull(vm);
             vm.ServerAddress = "127.0.0.1";

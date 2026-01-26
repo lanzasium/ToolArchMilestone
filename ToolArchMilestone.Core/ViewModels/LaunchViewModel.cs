@@ -223,6 +223,16 @@ namespace ToolArchMilestone.Core.ViewModels
         [ObservableProperty]
         private bool _isConnected;
 
+        // Private constructor for designer or specialized use cases if needed
+        private LaunchViewModel()
+        {
+            _jobManager = null!;
+            _filePicker = null!;
+            _milestone = null!;
+            _serverMapping = null!;
+            _settings = null!;
+        }
+
         // --- Commands ---
 
         [RelayCommand]

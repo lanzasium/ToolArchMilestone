@@ -16,9 +16,9 @@ namespace ToolArchMilestone.Core.Helpers
                 return basePath;
 
             string directory = Path.GetDirectoryName(basePath) ?? string.Empty;
-            string name = Path.GetFileName(basePath);
-            string nameWithoutExt = isDirectory ? name : Path.GetFileNameWithoutExtension(basePath);
-            string extension = isDirectory ? string.Empty : Path.GetExtension(basePath);
+            string name = Path.GetFileName(basePath) ?? string.Empty;
+            string nameWithoutExt = isDirectory ? name : (Path.GetFileNameWithoutExtension(basePath) ?? string.Empty);
+            string extension = isDirectory ? string.Empty : (Path.GetExtension(basePath) ?? string.Empty);
 
             string candidate = basePath;
             int counter = 1;

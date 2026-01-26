@@ -93,6 +93,8 @@ namespace ToolArchMilestone.Core.Helpers
                     continue;
                 }
 
+                if (parts[0] == null || parts[1] == null) continue;
+
                 string startText = TextHelper.NormalizeTimeSeparators(parts[0]);
                 string endText = TextHelper.NormalizeTimeSeparators(parts[1]);
 
