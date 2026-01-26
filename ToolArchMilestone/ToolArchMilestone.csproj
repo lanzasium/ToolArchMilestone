@@ -33,4 +33,5 @@
   <ItemGroup>
     <ProjectReference Include="..\ToolArchMilestone.Core\ToolArchMilestone.Core.csproj" />
   </ItemGroup>
+  <!-- Force Rebuild V3 -->
 </Project>

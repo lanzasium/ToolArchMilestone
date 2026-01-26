@@ -36,7 +36,7 @@ namespace ToolArchMilestone
             try
             {
                 // Create Window first
-                Window = new MainWindow();
+                Window = new ToolArchMilestone.MainWindow();
 
                 // Initialize services with minimal configuration
                 InitializeServices();
