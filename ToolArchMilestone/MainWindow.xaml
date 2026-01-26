@@ -12,11 +12,7 @@
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.Resources>
-            <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
-        </Grid.Resources>
-
+    <Grid x:Name="RootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{x:Bind ViewModel}">
         <NavigationView x:Name="NavView" 
                         PaneDisplayMode="Top" 
                         SelectionChanged="NavView_SelectionChanged" 
@@ -32,7 +28,7 @@
 
         <!-- Status Bar Overlay (Top Right of Menu Area) -->
         <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,24,0" VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Visibility="{x:Bind ViewModel.IsConnected, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                    Visibility="{Binding IsConnected, Mode=OneWay, Converter={StaticResource BoolToVis}}">
             <TextBlock Text="Connesso a:" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center"/>
             <TextBlock Text="{x:Bind ViewModel.ConnectedServerName, Mode=OneWay}" FontSize="12" FontWeight="SemiBold" VerticalAlignment="Center"/>
             <FontIcon Glyph="&#xE73E;" FontSize="12" Foreground="#4CAF50" VerticalAlignment="Center"/>
