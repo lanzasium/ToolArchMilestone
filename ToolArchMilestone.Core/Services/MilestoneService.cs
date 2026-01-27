@@ -8,7 +8,6 @@ using ToolArchMilestone.Core.Services.Interfaces;
 using ToolArchMilestone.Core.Models;
 using VideoOS.Platform;
 using VideoOS.Platform.SDK.Export;
-using VideoOS.Platform.Util;
 
 namespace ToolArchMilestone.Core.Services
 {
@@ -70,17 +69,11 @@ namespace ToolArchMilestone.Core.Services
                     // Use DefaultNetworkCredentials as per reference tool (Windows Auth)
                     System.Net.NetworkCredential credential = System.Net.CredentialCache.DefaultNetworkCredentials;
 
-                    // AddServer(uri, credential, connected: true)
-                    VideoOS.Platform.SDK.Environment.AddServer(uri, credential, true);
+                    // AddServer without forcing 'connected: true' to ensure proper auth flow
+                    VideoOS.Platform.SDK.Environment.AddServer(uri, credential);
 
-                    try
-                    {
-                        VideoOS.Platform.SDK.Environment.Login(uri);
-                    }
-                    catch (Exception ex)
-                    {
-                        System.Diagnostics.Debug.WriteLine($"Login attempt warning: {ex.Message}");
-                    }
+                    // Perform login (allow exceptions to propagate so the UI can display the error)
+                    VideoOS.Platform.SDK.Environment.Login(uri);
 
                     if (VideoOS.Platform.SDK.Environment.IsLoggedIn(uri))
                     {
@@ -89,12 +82,13 @@ namespace ToolArchMilestone.Core.Services
                         _currentServerUri = uri;
                         return true;
                     }
-                    return false;
+
+                    throw new Exception("Login verification failed: Not logged in.");
                 }
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine($"Connect error: {ex.Message}");
-                    return false;
+                    throw; // Propagate error to ViewModel
                 }
             });
         }
@@ -125,7 +119,11 @@ namespace ToolArchMilestone.Core.Services
                 {
                     if (!_isConnected) return list;
                     var cameras = Configuration.Instance.GetItemsByKind(Kind.Camera, ItemHierarchy.SystemDefined);
-                    list.AddRange(cameras.Select(c => c.Name));
+                    foreach (var cam in cameras)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"DEBUG: Found camera: {cam.Name}");
+                        list.Add(cam.Name);
+                    }
                 }
                 catch (Exception ex)
                 {

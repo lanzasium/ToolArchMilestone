@@ -22,6 +22,12 @@
     <Reference Include="VideoOS.Platform.SDK.Export">
       <HintPath>..\milestonesystems.videoos.platform.sdk.25.3.2\lib\net472\VideoOS.Platform.SDK.Export.dll</HintPath>
     </Reference>
+    <Reference Include="VideoOS.Platform.SDK.UI">
+      <HintPath>..\milestonesystems.videoos.platform.sdk.25.3.2\lib\net472\VideoOS.Platform.SDK.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="VideoOS.Platform">
+      <HintPath>..\reference\ExportSample\Resources\ClientPayload\Client Files\Client\VideoOS.Platform.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
