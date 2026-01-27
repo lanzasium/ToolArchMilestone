@@ -27,7 +27,8 @@
         </NavigationView>
 
         <!-- Status Bar Overlay (Top Right of Menu Area) -->
-        <Border Margin="0,0,160,0" VerticalAlignment="Center" HorizontalAlignment="Right"
+        <!-- VerticalAlignment="Top" with specific margin to place it exactly in the title bar area (approx 32-48px high) -->
+        <Border Margin="0,8,160,0" VerticalAlignment="Top" HorizontalAlignment="Right"
                 Background="#252525" BorderBrush="#333" BorderThickness="1" CornerRadius="8" Padding="12,6"
                 Visibility="{Binding IsConnected, Mode=OneWay, Converter={StaticResource BoolToVis}}">
             <StackPanel Orientation="Horizontal" Spacing="8">

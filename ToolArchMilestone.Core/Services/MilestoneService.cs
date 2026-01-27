@@ -69,21 +69,32 @@ namespace ToolArchMilestone.Core.Services
                     // Use DefaultNetworkCredentials as per reference tool (Windows Auth)
                     System.Net.NetworkCredential credential = System.Net.CredentialCache.DefaultNetworkCredentials;
 
-                    // AddServer without forcing 'connected: true' to ensure proper auth flow
-                    VideoOS.Platform.SDK.Environment.AddServer(uri, credential);
+                    // REFERENCE IMPLEMENTATION ALIGNMENT:
+                    // Use AddServer with connected: true
+                    VideoOS.Platform.SDK.Environment.AddServer(uri, credential, true);
 
-                    // Perform login (allow exceptions to propagate so the UI can display the error)
-                    VideoOS.Platform.SDK.Environment.Login(uri);
+                    // Verify connection via EnvironmentManager as per reference tool
+                    // Note: EnvironmentManager might need full SDK initialization which we have in Constructor.
+                    // We also check IsLoggedIn as a fallback/confirmation.
 
-                    if (VideoOS.Platform.SDK.Environment.IsLoggedIn(uri))
+                    bool isMasterSiteConnected = VideoOS.Platform.EnvironmentManager.Instance != null &&
+                                                 VideoOS.Platform.EnvironmentManager.Instance.MasterSite != null;
+
+                    if (isMasterSiteConnected || VideoOS.Platform.SDK.Environment.IsLoggedIn(uri))
                     {
+                        try
+                        {
+                            VideoOS.Platform.SDK.Environment.Login(uri);
+                        }
+                        catch { /* Ignore if already logged in by AddServer */ }
+
                         _isConnected = true;
                         _currentServerAddress = normalized;
                         _currentServerUri = uri;
                         return true;
                     }
 
-                    throw new Exception("Login verification failed: Not logged in.");
+                    throw new Exception("Server non raggiungibile o login fallito. Verifica l'indirizzo e le credenziali Windows.");
                 }
                 catch (Exception ex)
                 {
