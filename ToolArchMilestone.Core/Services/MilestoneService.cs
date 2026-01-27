@@ -141,15 +141,6 @@ namespace ToolArchMilestone.Core.Services
                         }
                     }
 
-                    // Scanning UserDefined (in case cameras are in user folders)
-                    foreach (Item item in Configuration.Instance.GetItems(ItemHierarchy.UserDefined))
-                    {
-                        foreach (Item child in item.GetChildren())
-                        {
-                            AddCameras(child, items);
-                        }
-                    }
-
                     foreach (var cam in items)
                     {
                         System.Diagnostics.Debug.WriteLine($"DEBUG: Found camera: {cam.Name}");
@@ -188,20 +179,10 @@ namespace ToolArchMilestone.Core.Services
 
         public async Task<string> ExportVideoAsync(string serverAddress, string cameraName, DateTime start, DateTime end, string outputPath, IProgress<double> progress, CancellationToken cancellationToken, SourceType sourceType)
         {
-            // Placeholder: Full SDK export logic would go here.
-            // Returning a simulated file to satisfy the interface for now.
-            await Task.Delay(1000, cancellationToken);
-            progress?.Report(100);
-
-            string fileName = $"Export_{Sanitize(cameraName)}.avi";
-            string fullPath = Path.Combine(outputPath, fileName);
-
-            if (!Directory.Exists(outputPath))
-                Directory.CreateDirectory(outputPath);
-
-            File.WriteAllText(fullPath, "Simulated Export Content - Connection Fixed");
-
-            return fullPath;
+            // Full SDK export logic not implemented yet.
+            // Explicitly failing instead of generating fake data as per user request.
+            await Task.CompletedTask;
+            throw new NotImplementedException("Export logic via Milestone SDK is not fully implemented yet. No demo data will be generated.");
         }
 
         private string Sanitize(string s)
