@@ -145,6 +145,8 @@ namespace ToolArchMilestone.Core.Services
 
         private void AddCameras(Item item, List<Item> cameras)
         {
+            System.Diagnostics.Debug.WriteLine($"SCAN: {item.Name} | Kind: {item.FQID.Kind} | FolderType: {item.FQID.FolderType} | HasChildren: {item.HasChildren}");
+
             if (item.FQID.Kind == Kind.Camera && item.FQID.FolderType == FolderType.No)
             {
                 cameras.Add(item);

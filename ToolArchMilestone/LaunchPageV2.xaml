@@ -228,8 +228,8 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>   <!-- Start -->
                                 <ColumnDefinition Width="*"/>   <!-- End -->
-                                <ColumnDefinition Width="Auto"/> <!-- Separate Checkbox -->
                                 <ColumnDefinition Width="1.5*"/> <!-- Drop Area -->
+                                <ColumnDefinition Width="Auto"/> <!-- Separate Checkbox -->
                             </Grid.ColumnDefinitions>
 
                             <!-- Start Date -->
@@ -270,12 +270,8 @@
                                 </Grid>
                             </StackPanel>
 
-                            <!-- Separa Archiviazioni Checkbox (Aligned Vertical Bottom) -->
-                            <CheckBox Grid.Column="2" Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}"
-                                      Foreground="{StaticResource TextSecondary}" FontSize="12" MinHeight="0" VerticalAlignment="Bottom" Margin="0,0,0,6"/>
-
                             <!-- Custom Drop Area -->
-                            <Grid x:Name="DropAreaGrid" Grid.Column="3" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" VerticalAlignment="Stretch"
+                            <Grid x:Name="DropAreaGrid" Grid.Column="2" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" VerticalAlignment="Stretch"
                               Background="#252525" PointerPressed="Intervals_PointerPressed" PointerEntered="DropArea_PointerEntered" PointerExited="DropArea_PointerExited">
                                 <Rectangle x:Name="DropAreaBorder" Stroke="#444" StrokeThickness="1" StrokeDashArray="4 2" RadiusX="4" RadiusY="4"/>
 
@@ -296,6 +292,10 @@
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>
+
+                            <!-- Separa Archiviazioni Checkbox (Right of Drop Area) -->
+                            <CheckBox Grid.Column="3" Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}"
+                                      Foreground="{StaticResource TextSecondary}" FontSize="12" MinHeight="0" VerticalAlignment="Bottom" Margin="0,0,0,6"/>
                         </Grid>
                     </StackPanel>
                 </Border>
