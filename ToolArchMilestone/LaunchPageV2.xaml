@@ -295,7 +295,7 @@
 
                             <!-- Separa Archiviazioni Checkbox (Right of Drop Area) -->
                             <CheckBox Grid.Column="3" Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}"
-                                      Foreground="{StaticResource TextSecondary}" FontSize="12" MinHeight="0" VerticalAlignment="Bottom" Margin="0,0,0,6"/>
+                                      Foreground="{StaticResource TextSecondary}" FontSize="12" MinHeight="0" VerticalAlignment="Bottom" Margin="8,0,0,6"/>
                         </Grid>
                     </StackPanel>
                 </Border>

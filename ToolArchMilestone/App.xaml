@@ -87,12 +87,11 @@
                 <Setter Property="Background" Value="{StaticResource MilestoneBlue}"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="BorderThickness" Value="0"/>
-                <Setter Property="CornerRadius" Value="4"/> <!-- Matched to TextBox -->
+                <Setter Property="CornerRadius" Value="4"/>
                 <Setter Property="MinHeight" Value="32"/>
                 <Setter Property="FontSize" Value="12"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
                 <Setter Property="Padding" Value="12,6"/>
-                <!-- Removed custom template to allow default button behaviors (ripples etc) if available, but styling overrides apply -->
              </Style>
 
              <!-- Square Icon Button with Rounded Corners -->
