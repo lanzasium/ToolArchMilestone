@@ -99,7 +99,7 @@
                     <!-- Type Group -->
                     <StackPanel Orientation="Horizontal">
                         <RadioButton Content="LEGALE" IsChecked="True" GroupName="Type" Style="{StaticResource SegmentedPillStyle}"/>
-                        <RadioButton Content="DIGITALE" GroupName="Type" Style="{StaticResource SegmentedPillStyle}"/>
+                        <RadioButton Content="DIGITALE" GroupName="Type" Style="{StaticResource SegmentedPillStyle}" IsEnabled="False" ToolTipService.ToolTip="Non disponibile"/>
                     </StackPanel>
 
                     <Rectangle Width="1" Height="16" Fill="#444" Margin="4,0"/>
