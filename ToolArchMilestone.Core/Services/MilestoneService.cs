@@ -115,11 +115,21 @@ namespace ToolArchMilestone.Core.Services
             return await Task.Run(() =>
             {
                 var list = new List<string>();
+                var items = new List<Item>();
                 try
                 {
                     if (!_isConnected) return list;
-                    var cameras = Configuration.Instance.GetItemsByKind(Kind.Camera, ItemHierarchy.SystemDefined);
-                    foreach (var cam in cameras)
+
+                    // Recursive discovery as per reference implementation
+                    foreach (Item item in Configuration.Instance.GetItems(ItemHierarchy.SystemDefined))
+                    {
+                        foreach (Item child in item.GetChildren())
+                        {
+                            AddCameras(child, items);
+                        }
+                    }
+
+                    foreach (var cam in items)
                     {
                         System.Diagnostics.Debug.WriteLine($"DEBUG: Found camera: {cam.Name}");
                         list.Add(cam.Name);
@@ -131,6 +141,21 @@ namespace ToolArchMilestone.Core.Services
                 }
                 return list;
             });
+        }
+
+        private void AddCameras(Item item, List<Item> cameras)
+        {
+            if (item.FQID.Kind == Kind.Camera && item.FQID.FolderType == FolderType.No)
+            {
+                cameras.Add(item);
+            }
+            else if (item.HasChildren != HasChildren.No)
+            {
+                foreach (Item child in item.GetChildren())
+                {
+                    AddCameras(child, cameras);
+                }
+            }
         }
 
         public async Task<string> ExportVideoAsync(string serverAddress, string cameraName, DateTime start, DateTime end, string outputPath, IProgress<double> progress, CancellationToken cancellationToken)
