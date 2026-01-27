@@ -27,12 +27,15 @@
         </NavigationView>
 
         <!-- Status Bar Overlay (Top Right of Menu Area) -->
-        <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,60,0" VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Visibility="{Binding IsConnected, Mode=OneWay, Converter={StaticResource BoolToVis}}">
-            <FontIcon Glyph="&#xE701;" FontSize="12" Foreground="#4CAF50" VerticalAlignment="Center"/>
-            <TextBlock Text="{Binding ConnectedServerName, Mode=OneWay}" FontSize="12" FontWeight="SemiBold" VerticalAlignment="Center"/>
-            <TextBlock Text="•" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center"/>
-            <TextBlock Text="Connesso" FontSize="12" Foreground="#4CAF50" VerticalAlignment="Center"/>
-        </StackPanel>
+        <Border Margin="0,6,60,0" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Background="#252525" BorderBrush="#333" BorderThickness="1" CornerRadius="8" Padding="12,6"
+                Visibility="{Binding IsConnected, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <FontIcon Glyph="&#xE701;" FontSize="14" Foreground="#4CAF50" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding ConnectedServerName, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Text="•" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center"/>
+                <TextBlock Text="Connesso" FontSize="14" Foreground="#4CAF50" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

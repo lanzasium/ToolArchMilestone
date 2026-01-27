@@ -82,10 +82,10 @@
                 <Setter Property="Padding" Value="12,6"/>
              </Style>
 
-             <!-- Text Button (Transparent, No Border) -->
+             <!-- Unified Blue Button (Solid Blue, White Text) -->
              <Style x:Key="MaterialTextButtonStyle" TargetType="Button">
-                <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="Foreground" Value="{StaticResource MilestoneBlue}"/>
+                <Setter Property="Background" Value="{StaticResource MilestoneBlue}"/>
+                <Setter Property="Foreground" Value="White"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="CornerRadius" Value="8"/>
                 <Setter Property="MinHeight" Value="32"/>
@@ -102,14 +102,14 @@
                                         <VisualState x:Name="PointerOver">
                                             <Storyboard>
                                                 <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
-                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="#1A00A3E0"/>
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MilestoneDarkBlue}"/>
                                                 </ObjectAnimationUsingKeyFrames>
                                             </Storyboard>
                                         </VisualState>
                                         <VisualState x:Name="Pressed">
                                             <Storyboard>
                                                 <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
-                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="#3300A3E0"/>
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="#00308F"/>
                                                 </ObjectAnimationUsingKeyFrames>
                                             </Storyboard>
                                         </VisualState>
