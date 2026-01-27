@@ -387,37 +387,15 @@ namespace ToolArchMilestone.Core.ViewModels
 
             try
             {
-                StatusMessage = "Scoperta telecamere in corso...";
-                var cameras = await SimulateArchiveCameraDiscovery(ArchivePath);
-                ArchiveCameras = cameras;
-
-                if (cameras.Any())
-                {
-                    StatusMessage = $"Trovate {cameras.Count} telecamere nell'archivio.";
-                    ArchiveCameraName = cameras.First();
-                }
-                else
-                {
-                    StatusMessage = "Nessuna telecamera trovata nell'archivio.";
-                }
+                StatusMessage = "Funzionalità scansione archivio locale non ancora implementata.";
+                // TODO: Implement real SCP scanning using Milestone SDK Export libraries if possible, or parsing XML
+                ArchiveCameras = new List<string>();
+                StatusMessage = "Scansione archivio: Non implementato (TODO).";
             }
             catch (Exception ex)
             {
                 StatusMessage = $"Errore scoperta telecamere: {ex.Message}";
             }
-        }
-
-        private async Task<List<string>> SimulateArchiveCameraDiscovery(string archivePath)
-        {
-            await Task.Delay(1000);
-            var fileName = Path.GetFileName(archivePath);
-            return new List<string>
-            {
-                $"Telecamera 01 - Ingresso ({fileName})",
-                $"Telecamera 02 - Reception ({fileName})",
-                $"Telecamera 03 - Parcheggio ({fileName})",
-                $"Telecamera 04 - Uscita ({fileName})"
-            };
         }
 
         [RelayCommand]

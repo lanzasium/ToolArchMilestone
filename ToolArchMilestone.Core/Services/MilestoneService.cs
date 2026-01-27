@@ -121,7 +121,17 @@ namespace ToolArchMilestone.Core.Services
                     if (!_isConnected) return list;
 
                     // Recursive discovery as per reference implementation
+                    // Scanning SystemDefined
                     foreach (Item item in Configuration.Instance.GetItems(ItemHierarchy.SystemDefined))
+                    {
+                        foreach (Item child in item.GetChildren())
+                        {
+                            AddCameras(child, items);
+                        }
+                    }
+
+                    // Scanning UserDefined (in case cameras are in user folders)
+                    foreach (Item item in Configuration.Instance.GetItems(ItemHierarchy.UserDefined))
                     {
                         foreach (Item child in item.GetChildren())
                         {
