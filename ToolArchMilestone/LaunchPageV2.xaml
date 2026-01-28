@@ -197,15 +197,15 @@
                         </StackPanel>
 
                         <!-- Archive Config Section -->
-                        <StackPanel Visibility="{Binding IsArchive, Converter={StaticResource BoolToVis}}" Spacing="8">
+                        <StackPanel Visibility="{x:Bind ViewModel.IsArchive, Mode=OneWay, Converter={StaticResource BoolToVis}}" Spacing="8">
                             <!-- Archive Path Field -->
                             <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Percorso Archivio" Style="{StaticResource InputLabelStyle}"/>
-                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{Binding ArchivePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Seleziona file .scp/.xpco o cartella database"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ArchivePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Seleziona file .scp/.xpco o cartella database"/>
                                 </StackPanel>
-                                <Button Content="Sfoglia" Command="{Binding BrowseArchiveCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
-                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{Binding PinFieldCommand}" CommandParameter="ArchivePath" ToolTipService.ToolTip="Fissa Valore">
+                                <Button Content="Sfoglia" Command="{x:Bind ViewModel.BrowseArchiveCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ArchivePath" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
                             </Grid>
@@ -214,10 +214,10 @@
                             <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Telecamera nell'Archivio" Style="{StaticResource InputLabelStyle}"/>
-                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{Binding ArchiveCameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Nome telecamera da esportare"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ArchiveCameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Nome telecamera da esportare"/>
                                 </StackPanel>
-                                <Button Content="Scopri" Command="{Binding DiscoverArchiveCamerasCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
-                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{Binding PinFieldCommand}" CommandParameter="ArchiveCameraName" ToolTipService.ToolTip="Fissa Valore">
+                                <Button Content="Scopri" Command="{x:Bind ViewModel.DiscoverArchiveCamerasCommand}" Style="{StaticResource MaterialTextButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ArchiveCameraName" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
                             </Grid>
