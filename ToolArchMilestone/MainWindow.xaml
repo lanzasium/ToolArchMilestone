@@ -18,6 +18,7 @@
             <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
             <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBoolToVis"/>
         </Grid.Resources>
+
         <NavigationView x:Name="NavView" 
                         PaneDisplayMode="Top" 
                         SelectionChanged="NavView_SelectionChanged" 

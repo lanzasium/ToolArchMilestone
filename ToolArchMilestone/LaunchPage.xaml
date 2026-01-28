@@ -382,7 +382,7 @@
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
                             </Grid>
-                        </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </Border>
 
