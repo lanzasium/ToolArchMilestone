@@ -11,9 +11,10 @@
         <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
         <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBoolToVis"/>
         <converters:DateTimeToDateTimeOffsetConverter x:Key="DateToOffset"/>
+        <converters:NullableBooleanToBooleanConverter x:Key="NullBoolToBool"/>
 
-        <!-- Custom Segmented Pill Style for Config Toggles -->
-        <Style x:Key="SegmentedPillStyle" TargetType="RadioButton">
+        <!-- Custom Segmented Button Style for Config Toggles (CornerRadius 4 to match Global Style) -->
+        <Style x:Key="SegmentedButtonStyle" TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
             <Setter Property="FontSize" Value="12"/>
@@ -21,7 +22,7 @@
             <Setter Property="Padding" Value="12,0"/>
             <Setter Property="Height" Value="28"/>
             <Setter Property="Margin" Value="2,0"/>
-            <Setter Property="CornerRadius" Value="14"/>
+            <Setter Property="CornerRadius" Value="4"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -67,7 +68,7 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
-                            <Border x:Name="RootBorder" CornerRadius="14" BorderBrush="#333" BorderThickness="1" Background="Transparent">
+                            <Border x:Name="RootBorder" CornerRadius="4" BorderBrush="#333" BorderThickness="1" Background="Transparent">
                                 <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <FontIcon x:Name="CheckIcon" Glyph="&#xE73E;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="White" Width="0" Opacity="0" Margin="0,0,4,0" FontSize="10"/>
                                     <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
@@ -89,26 +90,26 @@
         <!-- === HEADER SECTION === -->
         <StackPanel Spacing="8" Margin="0,0,0,20">
             <StackPanel Spacing="2">
-                <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="24" FontWeight="Bold" Foreground="White" CharacterSpacing="50"/>
+                <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="24" FontWeight="Bold" Foreground="White" CharacterSpacing="30"/>
                 <TextBlock Text="Configurazione parametri" FontSize="13" Foreground="{StaticResource TextSecondary}"/>
             </StackPanel>
 
-            <!-- Configuration Bar (Pill Group) -->
-            <Border Background="#1E1E1E" CornerRadius="16" Padding="4" BorderBrush="#333" BorderThickness="1" HorizontalAlignment="Left">
+            <!-- Configuration Bar (Segmented Button Group) -->
+            <Border Background="#1E1E1E" CornerRadius="6" Padding="4" BorderBrush="#333" BorderThickness="1" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" Spacing="4">
                     <!-- Type Group -->
                     <StackPanel Orientation="Horizontal">
-                        <RadioButton Content="LEGALE" IsChecked="True" GroupName="Type" Style="{StaticResource SegmentedPillStyle}"/>
-                        <RadioButton Content="DIGITALE" GroupName="Type" Style="{StaticResource SegmentedPillStyle}" IsEnabled="False" ToolTipService.ToolTip="Non disponibile"/>
+                        <RadioButton Content="LEGALE" IsChecked="True" GroupName="Type" Style="{StaticResource SegmentedButtonStyle}"/>
+                        <RadioButton Content="DIGITALE" GroupName="Type" Style="{StaticResource SegmentedButtonStyle}" IsEnabled="False" ToolTipService.ToolTip="Non disponibile"/>
                     </StackPanel>
 
                     <Rectangle Width="1" Height="16" Fill="#444" Margin="4,0"/>
 
                     <!-- Source Group -->
                     <StackPanel Orientation="Horizontal">
-                        <!-- Use Binding for nullable bool compatibility -->
-                        <RadioButton Content="SERVER" IsChecked="{Binding IsServer, Mode=TwoWay}" GroupName="Source" Style="{StaticResource SegmentedPillStyle}"/>
-                        <RadioButton Content="ARCHIVIO" IsChecked="{Binding IsArchive, Mode=TwoWay}" GroupName="Source" Style="{StaticResource SegmentedPillStyle}"/>
+                        <!-- Use x:Bind with Converter for consistent binding -->
+                        <RadioButton Content="SERVER" IsChecked="{x:Bind ViewModel.IsServer, Mode=TwoWay, Converter={StaticResource NullBoolToBool}}" GroupName="Source" Style="{StaticResource SegmentedButtonStyle}"/>
+                        <RadioButton Content="ARCHIVIO" IsChecked="{x:Bind ViewModel.IsArchive, Mode=TwoWay, Converter={StaticResource NullBoolToBool}}" GroupName="Source" Style="{StaticResource SegmentedButtonStyle}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

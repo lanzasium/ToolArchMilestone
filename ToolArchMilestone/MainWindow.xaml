@@ -9,16 +9,15 @@
     Title="Tool Arch Milestone"
     ExtendsContentIntoTitleBar="True">
 
-    <Window.Resources>
-        <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
-        <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBoolToVis"/>
-    </Window.Resources>
-
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
 
     <Grid x:Name="RootGrid" Background="{StaticResource WindowBackground}" DataContext="{x:Bind ViewModel}">
+        <Grid.Resources>
+            <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
+            <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBoolToVis"/>
+        </Grid.Resources>
         <NavigationView x:Name="NavView" 
                         PaneDisplayMode="Top" 
                         SelectionChanged="NavView_SelectionChanged" 
