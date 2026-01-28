@@ -2,6 +2,7 @@
     x:Class="ToolArchMilestone.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    RequestedTheme="Dark"
     xmlns:converters="using:ToolArchMilestone.Converters"
     xmlns:local="using:ToolArchMilestone">
     <Application.Resources>

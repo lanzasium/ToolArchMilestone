@@ -6,13 +6,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:converters="using:ToolArchMilestone.Converters"
     mc:Ignorable="d"
-    Title="Tool Arch Milestone">
+    Title="Tool Arch Milestone"
+    ExtendsContentIntoTitleBar="True">
 
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
 
-    <Grid x:Name="RootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{x:Bind ViewModel}">
+    <Grid x:Name="RootGrid" Background="{StaticResource WindowBackground}" DataContext="{x:Bind ViewModel}">
         <NavigationView x:Name="NavView" 
                         PaneDisplayMode="Top" 
                         SelectionChanged="NavView_SelectionChanged" 
