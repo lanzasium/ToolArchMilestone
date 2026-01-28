@@ -11,10 +11,11 @@ namespace ToolArchMilestone.Converters
             {
                 return b;
             }
-            if (value is bool? nb)
-            {
-                return nb.GetValueOrDefault();
-            }
+            // Check for boxed bool? which is just bool or null
+            // We can just check for null if we assume the type is correct,
+            // but 'value is bool' handles unboxed bools.
+            // If value is a boxed Nullable<bool> that has a value, it is a bool.
+            // If it is null, it is null.
             return false;
         }
 
