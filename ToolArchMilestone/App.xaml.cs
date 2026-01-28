@@ -56,12 +56,14 @@ namespace ToolArchMilestone
             }
         }
 
-        private void InitializeServices()
+        private async void InitializeServices()
         {
             try
             {
-                // Simple in-memory database for testing
-                var dbService = new MockDatabaseService();
+                // Real SQLite database
+                var dbService = new SqliteDatabaseService();
+                await dbService.InitializeAsync();
+
                 MilestoneService = new MilestoneService();
                 FilePicker = new WinUIFilePickerService();
                 SettingsService = new LocalSettingsService();

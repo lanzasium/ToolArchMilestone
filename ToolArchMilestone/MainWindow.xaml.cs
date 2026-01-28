@@ -41,7 +41,7 @@ namespace ToolArchMilestone
                 switch (pageTag)
                 {
                     case "Launch":
-                        ContentFrame.Navigate(typeof(LaunchPageV2));
+                        ContentFrame.Navigate(typeof(LaunchPage));
                         break;
                     case "InProgress":
                         ContentFrame.Navigate(typeof(InProgressPage));
