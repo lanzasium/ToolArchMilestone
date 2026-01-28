@@ -70,8 +70,14 @@ namespace ToolArchMilestone.Core.Models
         public string? ErrorMessage 
         { 
             get => _errorMessage;
-            set { _errorMessage = value; OnPropertyChanged(); }
+            set {
+                _errorMessage = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(HasError));
+            }
         }
+
+        public bool HasError => !string.IsNullOrEmpty(ErrorMessage);
         
         // Logs - kept in separate table usually, but maybe helpful here for runtime
         [System.ComponentModel.DataAnnotations.Schema.NotMapped] // Assuming EF or ignore for SQLite if simple

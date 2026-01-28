@@ -6,7 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:core="using:ToolArchMilestone.Core.Models"
+    xmlns:converters="using:ToolArchMilestone.Converters"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Page.Resources>
 
     <Grid Padding="24" Background="{StaticResource WindowBackground}">
         <Grid.RowDefinitions>
@@ -108,7 +113,7 @@
                             <ProgressBar Grid.Row="1" Grid.ColumnSpan="2" Value="{x:Bind Progress, Mode=OneWay}" Margin="0,12" Height="4" Foreground="{StaticResource MilestoneBlue}"/>
 
                             <!-- Error -->
-                            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="{x:Bind ErrorMessage, Mode=OneWay}" Foreground="#EF5350" TextWrapping="Wrap" FontSize="11" Visibility="{x:Bind ErrorMessage, Converter={StaticResource BoolToVis}}"/>
+                            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="{x:Bind ErrorMessage, Mode=OneWay}" Foreground="#EF5350" TextWrapping="Wrap" FontSize="11" Visibility="{x:Bind HasError, Converter={StaticResource BoolToVis}}"/>
                         </Grid>
                     </Border>
                 </DataTemplate>

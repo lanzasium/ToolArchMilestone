@@ -9,6 +9,11 @@
     Title="Tool Arch Milestone"
     ExtendsContentIntoTitleBar="True">
 
+    <Window.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBoolToVis"/>
+    </Window.Resources>
+
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
