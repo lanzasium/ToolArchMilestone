@@ -17,6 +17,8 @@ namespace ToolArchMilestone
         public static Core.Services.Interfaces.IFilePickerService? FilePicker { get; private set; }
         public static Core.Services.Interfaces.IMilestoneService? MilestoneService { get; private set; }
         public static Core.Services.Interfaces.ISettingsService? SettingsService { get; private set; }
+        public static Core.Services.IServerMappingService? ServerMappingService { get; private set; }
+        public static Core.ViewModels.LaunchViewModel? MainLaunchViewModel { get; private set; }
 
         public App()
         {
@@ -63,11 +65,14 @@ namespace ToolArchMilestone
                 MilestoneService = new MilestoneService();
                 FilePicker = new WinUIFilePickerService();
                 SettingsService = new LocalSettingsService();
+                ServerMappingService = new ServerMappingService();
 
                 var dispatcher = new WinUIDispatcherService();
 
                 JobManager = new JobManager(dbService, MilestoneService);
                 JobManager.SetDispatcher(dispatcher);
+
+                MainLaunchViewModel = new Core.ViewModels.LaunchViewModel(JobManager, FilePicker, MilestoneService, ServerMappingService, SettingsService);
             }
             catch (Exception ex)
             {

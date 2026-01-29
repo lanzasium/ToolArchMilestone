@@ -29,6 +29,9 @@ namespace ToolArchMilestone.Core.Services
         private DateTime _cacheExpiry = DateTime.MinValue;
         private readonly TimeSpan CacheTimeout = TimeSpan.FromMinutes(5);
 
+        public bool IsConnected => _isConnected;
+        public string ConnectedServerName => _currentServerAddress ?? string.Empty;
+
         public MilestoneService()
         {
             InitializeSDK();
@@ -162,7 +165,7 @@ namespace ToolArchMilestone.Core.Services
             }
         }
 
-        private async Task DisconnectAsync()
+        public async Task DisconnectAsync()
         {
             try
             {
@@ -811,8 +814,8 @@ SDK Integration Status:
         private class CameraInfo
         {
             public string Name { get; set; } = "";
-            public SimulatedFQID FQID { get; set; }
-            public SimulatedItem Item { get; set; }
+            public required SimulatedFQID FQID { get; set; }
+            public required SimulatedItem Item { get; set; }
         }
 
         // Simulated types for development - will be replaced with real SDK types

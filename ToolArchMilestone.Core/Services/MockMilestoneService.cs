@@ -10,12 +10,24 @@ namespace ToolArchMilestone.Core.Services
     public class MockMilestoneService : IMilestoneService
     {
         private bool _isConnected = false;
+        private string _connectedServer = string.Empty;
+
+        public bool IsConnected => _isConnected;
+        public string ConnectedServerName => _connectedServer;
 
         public async Task<bool> ConnectAsync(string serverAddress, string username, string password)
         {
             await Task.Delay(1000);
             _isConnected = true;
+            _connectedServer = serverAddress;
             return true;
+        }
+
+        public async Task DisconnectAsync()
+        {
+            await Task.Delay(500);
+            _isConnected = false;
+            _connectedServer = string.Empty;
         }
 
         public async Task<List<string>> GetCamerasAsync()

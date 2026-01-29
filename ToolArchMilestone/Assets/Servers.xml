@@ -1,0 +1,6 @@
+<Servers>
+  <Server Ip="127.0.0.1" Name="Localhost" />
+  <Server Ip="192.168.1.10" Name="HQ Server" />
+  <Server Ip="10.0.0.5" Name="Branch Office" />
+  <Server Ip="172.16.0.1" Name="Remote Site" />
+</Servers>

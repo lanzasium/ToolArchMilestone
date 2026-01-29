@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using ToolArchMilestone.Core.Models;
-using ToolArchMilestone.Core.Services.Interfaces;
 
 namespace ToolArchMilestone.Core.Services.Interfaces
 {
     public interface IMilestoneService
     {
+        bool IsConnected { get; }
+        string ConnectedServerName { get; }
+
         Task<bool> ConnectAsync(string serverAddress, string username, string password);
+        Task DisconnectAsync();
         Task<List<string>> GetCamerasAsync();
 
         // Returns the path of the generated file - Server mode

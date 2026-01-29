@@ -8,6 +8,10 @@
     mc:Ignorable="d">
 
     <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBoolToVis"/>
+        <converters:DateTimeToDateTimeOffsetConverter x:Key="DateToOffset"/>
+
         <!-- Custom Segmented Pill Style for Config Toggles -->
         <Style x:Key="SegmentedPillStyle" TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent"/>
@@ -65,7 +69,6 @@
 
                             <Border x:Name="RootBorder" CornerRadius="14" BorderBrush="#333" BorderThickness="1" Background="Transparent">
                                 <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <!-- Use FontIcon instead of SymbolIcon -->
                                     <FontIcon x:Name="CheckIcon" Glyph="&#xE73E;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="White" Width="0" Opacity="0" Margin="0,0,4,0" FontSize="10"/>
                                     <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
                                 </StackPanel>
@@ -126,8 +129,9 @@
                         <!-- Server Config Section -->
                         <StackPanel Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}" Spacing="12">
 
-                            <!-- Server Address Field (Compact Grid) -->
-                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                            <!-- Connection STATE TOGGLE -->
+                            <!-- Disconnected State -->
+                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8" Visibility="{x:Bind ViewModel.IsConnected, Mode=OneWay, Converter={StaticResource InvertedBoolToVis}}">
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Indirizzo Server" Style="{StaticResource InputLabelStyle}"/>
                                     <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 192.168.1.100"/>
@@ -138,14 +142,55 @@
                                 </Button>
                             </Grid>
 
-                            <!-- Camera Field (Compact Grid) -->
-                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                            <!-- Connected State -->
+                            <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8" Visibility="{x:Bind ViewModel.IsConnected, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Connesso a" Style="{StaticResource InputLabelStyle}"/>
+                                    <Border Background="#1E3A2F" BorderBrush="#4CAF50" BorderThickness="1" CornerRadius="4" Height="32" Padding="10,0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <FontIcon Glyph="&#xE701;" FontSize="12" Foreground="#4CAF50" Margin="0,0,8,0"/>
+                                            <TextBlock Grid.Column="1" Text="{x:Bind ViewModel.ConnectedServerName, Mode=OneWay}" VerticalAlignment="Center" Foreground="#E8F5E9" FontWeight="SemiBold"/>
+                                        </Grid>
+                                    </Border>
+                                </StackPanel>
+                                <Button Content="Disconnetti" Command="{x:Bind ViewModel.DisconnectCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" Background="#3E2723" BorderBrush="#E57373" Foreground="#FFCDD2" VerticalAlignment="Bottom" Grid.Column="1"/>
+                            </Grid>
+
+                            <!-- Camera Field (Multi-Select) -->
+                            <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="Telecamera Selezionata" Style="{StaticResource InputLabelStyle}"/>
-                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.CameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" PlaceholderText="Nessuna selezione..."/>
+                                    <Button x:Name="CameraSelectButton" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Style="{StaticResource MaterialSecondaryButtonStyle}" Height="32" Background="#2D2D30" BorderBrush="#444">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" TextTrimming="CharacterEllipsis" Foreground="{StaticResource TextSecondary}" FontSize="12"/>
+                                            <FontIcon Grid.Column="1" Glyph="&#xE70D;" FontSize="10" Foreground="#888"/>
+                                        </Grid>
+                                        <Button.Flyout>
+                                            <Flyout Placement="Bottom">
+                                                <StackPanel Width="300" MaxHeight="400" Spacing="8">
+                                                    <TextBlock Text="Seleziona Telecamere" FontWeight="Bold" Margin="0,0,0,4"/>
+                                                    <Button Content="Aggiorna Lista" Command="{x:Bind ViewModel.SelectCameraCommand}" HorizontalAlignment="Stretch" Style="{StaticResource MaterialSmallButtonStyle}"/>
+                                                    <ListView ItemsSource="{x:Bind ViewModel.Cameras, Mode=OneWay}" SelectionMode="Multiple" SelectionChanged="CameraList_SelectionChanged" Height="250" BorderBrush="#333" BorderThickness="1" CornerRadius="4">
+                                                        <ListView.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding}" FontSize="12" Padding="4"/>
+                                                            </DataTemplate>
+                                                        </ListView.ItemTemplate>
+                                                    </ListView>
+                                                </StackPanel>
+                                            </Flyout>
+                                        </Button.Flyout>
+                                    </Button>
                                 </StackPanel>
-                                <Button Content="Seleziona" Command="{x:Bind ViewModel.SelectCameraCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
-                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="CameraName" ToolTipService.ToolTip="Fissa Valore">
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="CameraName" ToolTipService.ToolTip="Fissa Valore">
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
                             </Grid>
@@ -153,7 +198,6 @@
 
                         <!-- Archive Config Section -->
                         <StackPanel Visibility="{Binding IsArchive, Converter={StaticResource BoolToVis}}" Spacing="12">
-
                             <!-- Archive Path Field -->
                             <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
                                 <StackPanel Grid.Column="0">
@@ -177,23 +221,6 @@
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
                             </Grid>
-
-                            <!-- Archive Info Panel -->
-                            <Border Background="#F8F9FA" CornerRadius="4" Padding="12" Margin="0,4">
-                                <StackPanel Spacing="6">
-                                    <TextBlock Text="ℹ️ Informazioni Archivio" FontWeight="SemiBold" FontSize="12" Foreground="{StaticResource TextPrimary}"/>
-                                    <TextBlock FontSize="11" Foreground="{StaticResource TextSecondary}" TextWrapping="Wrap">
-                                        • File supportati: .scp (Single Camera Package), .xpco (XProtect Database Export)
-                                        <LineBreak/>
-                                        • Cartelle: Directory con database Milestone esportati
-                                        <LineBreak/>
-                                        • Le telecamere verranno caricate automaticamente dall'archivio selezionato
-                                    </TextBlock>
-                                    <!-- DEBUG: Test visibility -->
-                                    <TextBlock Text="{Binding SelectedSourceType}" FontSize="10" Foreground="Red"/>
-                                    <TextBlock Text="{Binding IsArchive}" FontSize="10" Foreground="Red"/>
-                                </StackPanel>
-                            </Border>
                         </StackPanel>
 
                         <!-- Interval Section -->
@@ -203,7 +230,7 @@
                                 <ColumnDefinition Width="1*"/> <!-- Drop Area -->
                             </Grid.ColumnDefinitions>
 
-                            <StackPanel Spacing="12">
+                            <StackPanel Grid.Column="0" Spacing="12">
                                 <Grid ColumnSpacing="8">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -211,7 +238,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- Start Date -->
-                                    <StackPanel>
+                                    <StackPanel Grid.Column="0">
                                         <TextBlock Text="Inizio" Style="{StaticResource InputLabelStyle}"/>
                                         <Grid ColumnDefinitions="*, Auto" ColumnSpacing="4">
                                             <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.StartDateString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}"/>
@@ -252,18 +279,17 @@
                                 <CheckBox Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" Foreground="{StaticResource TextSecondary}" FontSize="12" MinHeight="0" Margin="0,-4,0,0"/>
                             </StackPanel>
 
-                            <!-- Custom Drop Area (Compact) -->
-                            <Grid Grid.Column="1" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" VerticalAlignment="Stretch">
-                                <Rectangle Stroke="#444" StrokeThickness="1" StrokeDashArray="4 2" RadiusX="4" RadiusY="4" Fill="#252525"/>
+                            <!-- Custom Drop Area (Merged Logic) -->
+                            <Grid Grid.Column="1" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" VerticalAlignment="Stretch"
+                                  Background="#252525" PointerPressed="Intervals_PointerPressed">
+                                <!-- Removed invalid 'Cursor' property on Grid -->
+                                <Rectangle Stroke="#444" StrokeThickness="1" StrokeDashArray="4 2" RadiusX="4" RadiusY="4"/>
 
                                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
                                     <Viewbox Width="20" Height="20">
                                         <FontIcon Glyph="&#xE8E5;" Foreground="{StaticResource MilestoneBlue}"/>
                                     </Viewbox>
-                                    <TextBlock Text="Trascina TXT" FontSize="11" Foreground="{StaticResource TextSecondary}" HorizontalAlignment="Center"/>
-
-                                    <!-- Import Actions -->
-                                    <Button Content="Sfoglia" Command="{x:Bind ViewModel.ImportIntervalsFromFileCommand}" Style="{StaticResource MaterialSmallButtonStyle}"/>
+                                    <TextBlock Text="Trascina TXT o clicca per sfogliare" FontSize="11" Foreground="{StaticResource TextSecondary}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
 
                                     <!-- Imported File Indicator -->
                                     <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.IsFileImported, Mode=OneWay, Converter={StaticResource BoolToVis}}"
@@ -350,7 +376,7 @@
                                     <FontIcon Glyph="&#xE718;" FontSize="14"/>
                                 </Button>
                             </Grid>
-                        </Grid>
+                        </StackPanel>
                     </StackPanel>
                 </Border>
 
