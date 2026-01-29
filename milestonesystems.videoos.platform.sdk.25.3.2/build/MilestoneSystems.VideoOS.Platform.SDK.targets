@@ -1,0 +1,10 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <RequiredFiles Include="$(MSBuildThisFileDirectory)..\dependencies\**\*" />
+    <None Include="@(RequiredFiles)">
+      <Visible>false</Visible>
+      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

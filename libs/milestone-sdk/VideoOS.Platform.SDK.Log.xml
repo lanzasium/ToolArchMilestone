@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VideoOS.Platform.SDK.Log</name>
+    </assembly>
+    <members>
+        <member name="T:VideoOS.Platform.SDK.Log.Environment">
+            <summary>
+            Environment for the <see cref="T:VideoOS.Platform.Common.Logging.LogClient"/>
+            </summary>
+        </member>
+        <member name="M:VideoOS.Platform.SDK.Log.Environment.Initialize">
+            <summary>
+            Call to initialize the Environment
+            </summary>
+        </member>
+        <member name="T:VideoOS.Platform.SDK.Log.LogClientFactory">
+            <summary>
+            Provides LogClient factory methods
+            </summary>
+        </member>
+        <member name="M:VideoOS.Platform.SDK.Log.LogClientFactory.GetLogByContext(VideoOS.Platform.UserContext)">
+            <summary>
+            Gets a new log client in which all log entries will be from the user represented by the given context
+            </summary>
+            <param name="userContext">User context to be used for impersonation</param>
+            <returns>A new <see cref="T:VideoOS.Platform.Log.LogClient"/> instance to be used for logging from one user only</returns>
+        </member>
+    </members>
+</doc>

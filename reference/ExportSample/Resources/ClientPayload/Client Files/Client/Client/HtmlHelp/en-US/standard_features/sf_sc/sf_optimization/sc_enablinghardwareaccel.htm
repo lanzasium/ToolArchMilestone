@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-toc-path="Optimization" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <meta name="description" content="Get familiar with and read how to set up hardware acceleration to improve the performance of computers running XProtect Smart Client." />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Client" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Administrator" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Integrator" class="addSearch role" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Enabling hardware acceleration</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../../../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../../../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_optimization/sc_enablinghardwareaccel.htm">Open topic with navigation</a>
+    </p>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <div role="main" id="mc-main-content">
+      <h1>Enabling hardware acceleration</h1>
+      <h2>Hardware acceleration (explained)<a name="SC_HardwareAccelerationExplained"></a></h2>
+      <p>Hardware acceleration improves the decoding capability and performance of the computer running <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>. This is particularly useful when you view multiple video streams with high <a href="javascript:void(0)" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" glossTerm="Glossary.Term14">frame rate<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>A measure indicating the amount of information contained in motion video. Typically measured in FPS (Frames Per second).</span></a> and high resolution.</p>
+      <p class="note">
+        <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span> supports hardware accelerated decoding using Intel<sup>®</sup> and NVIDIA<sup>®</sup> GPUs. <span class="mc-variable flvar-brand-company.CompanyShort variable">Milestone</span> does not recommend the use of Scalable Link Interface (SLI) configuration of your NVIDIA display adapters.</p>
+      <h2>Check hardware acceleration settings<a name="SC_CheckHardwareAccelerationSettings"></a></h2>
+      <ol>
+        <li value="1">Go to <span class="uitext">Settings</span> &gt; <span class="uitext">Advanced</span> &gt; <span class="uitext">Hardware acceleration</span>.</li>
+        <li value="2">There are two settings for hardware acceleration: <span class="uitext">Auto</span> and <span class="uitext">Off</span>.
+			<p>Select the default setting <span class="uitext">Auto</span>.</p><p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../../Images/resources/images/sc/sc_settings_advanced_hwacceleration.png" data-mc-popup-alt="Hardware acceleration settings in XProtect Smart Client."><img class="MCPopupThumbnail img" data-mc-width="780" data-mc-height="473" src="../../../../Images/resources/images/sc/sc_settings_advanced_hwacceleration_thumb_200_0.png" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="Hardware acceleration settings in XProtect Smart Client." tabindex="" /></a></p></li>
+        <li value="3">Go to <span class="uitext">Video diagnostics overlay</span>.</li>
+        <li value="4">To make the current status of the stream, including the GPU resource used for hardware acceleration visible, select <span class="uitext">Level 2</span>.</li>
+        <p class="note">This setting applies to all view items. The default setting is <span class="uitext">Hide</span>.</p>
+        <p>The video diagnostics overlay status for <span class="uitext">Hardware acceleration</span> can be: <span class="uitext">Intel</span>, <span class="uitext">NVIDIA</span> or <span class="uitext">Off</span>.</p>
+        <p>
+          <img src="../../../../Images/resources/images/sc/sc_settings_advanced_hwaccelerationoff.png" alt="The video diagnostics status for hardware acceleration in XProtect Smart Client." />
+        </p>
+        <p>If the status is <span class="uitext">Off</span>, continue to examine your computer so you can enable hardware acceleration, if possible and make sure that all hardware acceleration resources are utilized.</p>
+        <li value="5">
+          <p class="note">Use the <span class="uitext">System Monitor</span> to check the current <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span> decoding performance. See <a href="../../../feature_flags/ff_systemmonitor/sc_monitoryoursystem.htm#Monitor_client_resources" class="MCXref xref">Monitor client resources</a>.</p>
+        </li>
+      </ol>
+      <h2>Verify your operating system<a name="SC_VerifyOperatingSystem"></a></h2>
+      <p>Make sure your operating system is Microsoft<sup>®</sup> Windows<sup>®</sup> 10 (build 1809), Windows<sup>®</sup> Server 2016, or later versions.</p>
+      <div>
+        <p class="note">Only non-virtual environments are supported.</p>
+      </div>
+      <h2>Check CPU Quick Sync support<a name="SC_CheckCPUQuickSyncSupport"></a></h2>
+      <p>To verify that your processor supports Intel Quick Sync Video:</p>
+      <ol>
+        <li value="1">Visit the Intel website (<a href="https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&amp;0_QuickSyncVideo=True" target="_blank">https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&amp;0_QuickSyncVideo=True</a>).</li>
+        <li value="2">In the menu, set <span class="uitext">Processors</span> and <span class="uitext">Intel Quick Sync Video</span> filter to <span class="uitext">Yes</span>.</li>
+        <li value="3">Find your CPU in the list.
+			 <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../../Images/resources/images/sc/check_cpu_quick_sync_support.png" data-mc-popup-alt="Hardware acceleration in XProtect Smart Client - check support for CPU Quick Sync."><img class="MCPopupThumbnail img" data-mc-width="766" data-mc-height="554" src="../../../../Images/resources/images/sc/check_cpu_quick_sync_support_thumb_200_0.png" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="Hardware acceleration in XProtect Smart Client - check support for CPU Quick Sync." tabindex="" /></a></p></li>
+      </ol>
+      <h2>Examine the Device Manager<a name="SC_ExamineDeviceManager"></a></h2>
+      <p>Make sure that an Intel or NVIDIA display adapter is present in Windows Device Manager.</p>
+      <p>
+        <img src="../../../../Images/resources/images/sc/examine_the_device_manager.png" alt="Hardware acceleration in XProtect Smart Client - examine the device manager." />
+      </p>
+      <div>
+        <p class="important">You can connect your displays to any display adapter available. If a more powerful display adapter is available in your computer, typically NVIDIA or AMD<sup>®</sup>, connect your displays to this adapter to use all available GPU resources for hardware accelerated decoding and rendering.</p>
+        <p class="important">Not all NVIDIA display adapters supports hardware acceleration. See <a href="#Check_NVIDIA_hardware_acceleration_support" class="MCXref xref">Check NVIDIA hardware acceleration support</a>.</p>
+      </div>
+      <p>If the Intel display adapter is not present, enable the Intel display adapter in the BIOS. See <a href="#Enable_the_Intel_display_adapter_in_the_BIOS" class="MCXref xref">Enable the Intel display adapter in the BIOS</a>.</p>
+      <h2>
+        <a name="Check_NVIDIA_hardware_acceleration_support"></a>Check NVIDIA hardware acceleration support</h2>
+      <p>NVIDIA products have different compute capabilities.</p>
+      <p class="note">Hardware accelerated decoding using NVIDIA GPUs requires compute capability version 6.x (Pascal) or newer.</p>
+      <p>To find the compute capability version of your NVIDIA product, visit the NVIDIA website (<a href="https://developer.nvidia.com/cuda-gpus/" target="_blank">https://developer.nvidia.com/cuda-gpus/</a>).</p>
+      <h2>
+        <a name="Enable_the_Intel_display_adapter_in_the_BIOS"></a>Enable the Intel display adapter in the BIOS</h2>
+      <p>If another display adapter card, for example NVIDIA or AMD, is available in your computer, the onboard Intel display adapter may be disabled, and you must enable it.</p>
+      <p>The Intel display adapter is located on the motherboard as a part of the CPU. To enable it, look for graphics, CPU or display settings in the computer BIOS. The vendor's motherboard manual may be helpful to find the relevant settings.</p>
+      <p class="tip">If changing the settings does not enable the onboard Intel display adapter, you can try to move the display adapter card to another slot and then connect the display to the motherboard. In some cases, this can enable the onboard display adapter.</p>
+      <h2>Update the video driver<a name="SC_UpdateVideoDriver"></a></h2>
+      <p>Make sure that the driver version for all your display adapters are updated to the newest version available from Intel or NVIDIA.</p>
+      <p class="note">The Intel driver version provided by the PC vendor can be an older version and may not support Intel Quick Sync Video.</p>
+      <p>There are two ways of updating your video driver. Manual download and install or using a driver update utility.</p>
+      <p class="subheading">Intel</p>
+      <p>Manual download and install:</p>
+      <ol>
+        <li value="1">Go to the Intel download website (<a href="https://downloadcenter.intel.com/" target="_blank">https://downloadcenter.intel.com/</a>).</li>
+        <li value="2">Enter the name of your integrated display adapter.</li>
+        <li value="3">Manually download and install the driver.</li>
+      </ol>
+      <p>For automatic detection and updates of Intel components and drivers:</p>
+      <ol>
+        <li value="1">Download Intel Driver and Support Assistant (<a href="https://www.intel.com/p/en_us/support/detect/" target="_blank">https://www.intel.com/p/en_us/support/detect/</a>).</li>
+        <li value="2">Run the assistant to auto search for the drivers.</li>
+        <li value="3">Choose to update the driver for Graphics.</li>
+      </ol>
+      <p class="subheading">NVIDIA</p>
+      <p>Option 1: Manually find drivers for my NVIDIA products.</p>
+      <ol>
+        <li value="1">Go to the NVIDIA download drivers website (<a href="https://www.nvidia.com/Download/index.aspx/" target="_blank">https://www.nvidia.com/Download/index.aspx/</a>).</li>
+        <li value="2">Enter the name of your product and the operating system.</li>
+        <li value="3">Manually download and install the driver.</li>
+      </ol>
+      <p>Option 2: Automatically find drivers for my NVIDIA products.</p>
+      <ol>
+        <li value="1">Go to the NVIDIA download drivers website (<a href="https://www.nvidia.com/Download/index.aspx/" target="_blank">https://www.nvidia.com/Download/index.aspx/</a>).</li>
+        <li value="2">Click <span class="uitext">GRAPHICS DRIVERS</span>.</li>
+        <li value="3">Your system is scanned.</li>
+        <li value="4">Download and update the driver.</li>
+      </ol>
+      <h2>Check memory modules configuration<a name="SC_CheckMemoryModulesConfig"></a></h2>
+      <p>If your system supports more than one memory channel, you can increase the system performance by making sure that a minimum of two channels have a memory module inserted in the correct DIMM slot. Refer to the motherboard manual to find the correct DIMM slots.</p>
+      <p>Example:</p>
+      <p>A system with two memory channels and a total of 8 GB of memory obtains the best performance using a 2 x 4 GB memory module configuration.</p>
+      <p>If you use a 1 x 8 GB memory module configuration, you only use one of the memory channels.</p>
+    </div>
+    <p></p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2023</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

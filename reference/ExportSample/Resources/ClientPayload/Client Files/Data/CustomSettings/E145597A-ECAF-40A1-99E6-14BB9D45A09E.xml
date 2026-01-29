@@ -1,0 +1,52 @@
+<PlatformConfiguration ID="e145597a-ecaf-40a1-99e6-14bb9d45a09e">
+  <Configurations>
+    <GUIDe145597a-ecaf-40a1-99e6-14bb9d45a09e itemID="ad5efdce-3b21-47d5-a6a8-657e43a3e638">
+      <Id>ad5efdce-3b21-47d5-a6a8-657e43a3e638</Id>
+      <Name>Registrations</Name>
+      <FQID>
+        <ServerId>
+          <Type>XPCO</Type>
+          <Scheme>http</Scheme>
+          <Hostname>localhost</Hostname>
+          <Port>80</Port>
+          <Id>412f4f34-6b59-4953-a50a-d371a1d5612a</Id>
+        </ServerId>
+        <ObjectId>ad5efdce-3b21-47d5-a6a8-657e43a3e638</ObjectId>
+        <FolderType>0</FolderType>
+        <Kind>e145597a-ecaf-40a1-99e6-14bb9d45a09e</Kind>
+      </FQID>
+      <properties>
+        <property name="Enabled" value="Yes" />
+        <property name="GisPoint" value="POINT EMPTY" />
+        <property name="__Encrypt" value="True" />
+        <property name="Features" value="FederatedSites,InterconnectedProducts,AddToFederatedHierarchy,AACAudioSupport,RemoteConnectedServices,AxisOneClick,RecordingServerFailover,SmartClientProfiles,ManagementClientProfiles,DifferentiatedAdministratorSecurity,SNMP,TimeControlledAccessRights,EvidenceLock,MultiStageVideoStorage,ArchiveReducedFrameRate,RecordingStorageEncryption,RecordingStorageSigning,Bookmarking,RuleBasedBookmarking,LiveMultiStreaming,Multicast,ManageAlarms,DualAuthorization,PTZPriority,EdgeStorage,ConfigurationReports,SystemMonitor,SmartClientLogin,MobileLogin,MIPUseInternally,MIPUseExternally,SmartMap,ExtendedPtz,CustomerDashboard,HardwareAcceleratedVMD,TwoStepVerification,ExtendedPrivacyMasking,NvidiaVMD,DevicePasswordManagement,SearchCategories,SaveSearches,AdaptiveStreaming,DirectStreaming,MultipleSimultaneousSearches,ChannelLicensing,CustomLicenseType,FirmwareUpdate,ManagementServerFailover,RestrictedMedia,MultistreamRecording,SmartMapOtherProviders,SmartWall," />
+        <property name="Expire" value="01/01/0001 00:00:00" />
+        <property name="ProductCode" value="600" />
+        <property name="registrations" value="&lt;MIPPlugins&gt;&lt;plugin id=&quot;6f714690-e09f-4d6a-a0ca-9f913ca125e8&quot; licensetype=&quot;XPLPR-CountryModuleLicense&quot;&gt;&lt;expire&gt;9999-12-31&lt;/expire&gt;&lt;trial&gt;no&lt;/trial&gt;&lt;name&gt;XPLPR&lt;/name&gt;&lt;counter&gt;5&lt;/counter&gt;&lt;savedbyadmin&gt;True&lt;/savedbyadmin&gt;&lt;customdata /&gt;&lt;regs /&gt;&lt;/plugin&gt;&lt;plugin id=&quot;6f714690-e09f-4d6a-a0ca-9f913ca125e8&quot; licensetype=&quot;XPLPR-VideoSourceLicense&quot;&gt;&lt;expire&gt;9999-12-31&lt;/expire&gt;&lt;trial&gt;no&lt;/trial&gt;&lt;name&gt;XPLPR&lt;/name&gt;&lt;counter&gt;3&lt;/counter&gt;&lt;savedbyadmin&gt;True&lt;/savedbyadmin&gt;&lt;customdata /&gt;&lt;regs /&gt;&lt;/plugin&gt;&lt;/MIPPlugins&gt;" />
+        <property name="ExpirationDates" value="OnlineExpiration=2027-07-31T02:00:00+02:00," />
+        <property name="LastModified" value="2025-11-14T17:26:13.5730000Z" />
+      </properties>
+    </GUIDe145597a-ecaf-40a1-99e6-14bb9d45a09e>
+    <GUIDe145597a-ecaf-40a1-99e6-14bb9d45a09e itemID="b9afa95a-652b-40a4-981b-f3c7d39bffdc">
+      <Id>b9afa95a-652b-40a4-981b-f3c7d39bffdc</Id>
+      <Name>License</Name>
+      <FQID>
+        <ServerId>
+          <Type>XPCO</Type>
+          <Scheme>http</Scheme>
+          <Hostname>localhost</Hostname>
+          <Port>80</Port>
+          <Id>412f4f34-6b59-4953-a50a-d371a1d5612a</Id>
+        </ServerId>
+        <ObjectId>b9afa95a-652b-40a4-981b-f3c7d39bffdc</ObjectId>
+        <FolderType>0</FolderType>
+        <Kind>e145597a-ecaf-40a1-99e6-14bb9d45a09e</Kind>
+      </FQID>
+      <properties>
+        <property name="Enabled" value="Yes" />
+        <property name="__Encrypt" value="True" />
+        <property name="licenses" value="&lt;MIPPlugins&gt;&lt;plugin&gt;&lt;company&gt;Milestone Systems A/S&lt;/company&gt;&lt;pluginid&gt;6f714690-e09f-4d6a-a0ca-9f913ca125e8&lt;/pluginid&gt;&lt;licensetype&gt;XPLPR-CountryModuleLicense&lt;/licensetype&gt;&lt;name&gt;XPLPR&lt;/name&gt;&lt;count&gt;5&lt;/count&gt;&lt;expire&gt;9999-12-31&lt;/expire&gt;&lt;puac&gt;2022-09-28&lt;/puac&gt;&lt;items /&gt;&lt;customdata /&gt;&lt;slc&gt;M01-P02-100-01-6C4327&lt;/slc&gt;&lt;activated&gt;0&lt;/activated&gt;&lt;totalactivated&gt;0&lt;/totalactivated&gt;&lt;/plugin&gt;&lt;plugin&gt;&lt;company&gt;Milestone Systems A/S&lt;/company&gt;&lt;pluginid&gt;6f714690-e09f-4d6a-a0ca-9f913ca125e8&lt;/pluginid&gt;&lt;licensetype&gt;XPLPR-VideoSourceLicense&lt;/licensetype&gt;&lt;name&gt;XPLPR&lt;/name&gt;&lt;count&gt;3&lt;/count&gt;&lt;expire&gt;9999-12-31&lt;/expire&gt;&lt;puac&gt;2022-09-28&lt;/puac&gt;&lt;items /&gt;&lt;customdata /&gt;&lt;slc&gt;M01-P02-100-01-6C4327&lt;/slc&gt;&lt;activated&gt;0&lt;/activated&gt;&lt;totalactivated&gt;0&lt;/totalactivated&gt;&lt;/plugin&gt;&lt;plugin&gt;&lt;company&gt;Milestone Systems A/S&lt;/company&gt;&lt;pluginid&gt;6053b0b4-3e97-4a86-8e46-d1a9ce807ed1&lt;/pluginid&gt;&lt;licensetype&gt;XPIM&lt;/licensetype&gt;&lt;name&gt;XPIM&lt;/name&gt;&lt;count&gt;1&lt;/count&gt;&lt;expire&gt;9999-12-31&lt;/expire&gt;&lt;puac&gt;2025-10-30&lt;/puac&gt;&lt;items /&gt;&lt;customdata /&gt;&lt;slc&gt;M01-P06-100-01-6C2CBA&lt;/slc&gt;&lt;activated&gt;0&lt;/activated&gt;&lt;totalactivated&gt;0&lt;/totalactivated&gt;&lt;/plugin&gt;&lt;/MIPPlugins&gt;" />
+      </properties>
+    </GUIDe145597a-ecaf-40a1-99e6-14bb9d45a09e>
+  </Configurations>
+</PlatformConfiguration>

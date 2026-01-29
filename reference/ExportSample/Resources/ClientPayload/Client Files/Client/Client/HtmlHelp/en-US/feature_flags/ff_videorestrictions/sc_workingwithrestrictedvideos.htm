@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Operation" data-mc-conditions="flcts-alias.sc-alias-content" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+    <meta name="description" content="Restrict access to live and recorded video to prevent unauthorized operators from accessing (viewing or listening to) the content. Restrictions can be edited and removed by authorized operators." />
+    <meta name="addsearch-custom-field" data-type="text" content="product=Recording Server" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Operator" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Client" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Administrator" class="addSearch role" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Restricting access to videos</title>
+    <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../Default.htm#feature_flags/ff_videorestrictions/sc_workingwithrestrictedvideos.htm">Open topic with navigation</a>
+    </p>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <div role="main" id="mc-main-content">
+      <h1>Restricting access to videos</h1>
+      <p>You can restrict access to selected live video and audio streams as well as recorded video and audio sequences to prevent unauthorized operators from viewing sensitive material.</p>
+      <div>
+        <h2>Video restrictions (explained)<a name="SC_VideoRestrictionsExplained.htm"></a></h2>
+        <p>With the video restrictions functionality, you can limit access to video sequences (video, audio and device metadata) to only operators that are authorized to view restricted videos.</p>
+        <p>Live streams and recorded videos can both be restricted, and restrictions can be removed by operators authorized to do so when general access to the video material needs to be restored.</p>
+        <p>Restricted material can still be deleted and if you also want to prevent automatic or manual deletion of the restricted videos, you must apply evidence locks to the sequences as well.</p>
+        <p class="note">Depending on your user rights, you may be able to create, view, edit, and remove video restrictions.</p>
+      </div>
+      <h3>
+        <a name="SC_Restrictions_and_multiple_sites"></a>Video restrictions and different sites</h3>
+      <p>Video restrictions can be created on any cameras you can access, including cameras located on different sites.</p>
+      <p>If you have selected multiple cameras located on different sites and then create a video restriction on the selection, multiple restrictions will be created for the selected cameras, usually one per site for playback restrictions and multiple restrictions per site for live restrictions. The actual number of live restrictions will depend on the number of associated devices.</p>
+      <p>This means applying a restriction on multiple cameras on multiple sites will result in more than one restriction being created and displayed in the <span class="uitext">Video restrictions list</span>. Each restriction displayed in the <span class="uitext">Video Restrictions list</span> can be edited, maintained, and removed as a separate restriction.</p>
+      <div class="MCDropDown MCDropDown_Closed dropDown">
+        <span class="MCDropDownHead dropDownHead">
+          <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+            <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Example of video restrictions created on multiple sites</a>
+        </span>
+        <div class="MCDropDownBody dropDownBody">
+          <p>An <span class="mc-variable flvar-brand-company.XP variable">XProtect</span> installation spans three sites:</p>
+          <ul>
+            <li>
+              <p>Site A: Contains three cameras, each with a microphone, a speaker, and metadata resulting in 12 available devices.</p>
+            </li>
+            <li>
+              <p>Site B: Contains two cameras, each with a microphone, a speaker, and metadata resulting in 8 available devices.</p>
+            </li>
+            <li>
+              <p>Site C: Contains only one camera with a microphone, a speaker, and metadata resulting in 4 available devices.</p>
+            </li>
+          </ul>
+          <h4>Playback restrictions created</h4>
+          <p>If a user with access to all devices across all the three sites creates a playback restriction on all cameras for all sites, three playback restrictions will be created. Each playback restriction contains the respective devices (camera, microphone, speaker, and metadata) for each site.</p>
+          <h4>Live restrictions created</h4>
+          <p>If a user with access to all devices across all the three sites creates a live restriction on all cameras, 24 live restrictions will be created - one for each device on the site: </p>
+          <ul>
+            <li>
+              <p>12 live restrictions for site A (12 devices) </p>
+            </li>
+            <li>
+              <p>8 live restrictions for site B (8 devices)</p>
+            </li>
+            <li>
+              <p>4 live restrictions for site C (4 devices)</p>
+            </li>
+          </ul>
+          <p>The created restrictions are not linked to each other and each restriction can be edited, maintained and removed separately.</p>
+        </div>
+      </div>
+      <p class="note">You cannot create live and playback restrictions at the same time. Instead you must create one restriction type first and then the other.</p>
+      <p>The created restrictions are not linked and each restriction can be edited, maintained and removed separately.</p>
+      <div>
+        <h3>Video restrictions and Evidence locks</h3>
+        <p>Video restrictions and evidence locks both prevent actions from being performed on video material by unauthorized users but there are significant differences.</p>
+        <p>Video restrictions prevent video or audio sequences from being viewed by unauthorized operators while evidence locks prevent video or audio sequences from being manually or automatically deleted. </p>
+        <p>When you create an evidence lock, you can also create a video restriction on the same video sequence as you are applying an evidence lock on by selecting the <span class="uitext">Create playback video restriction</span> check box.</p>
+        <p>However, when you create a video restriction, you cannot also create an evidence lock at the same time. Instead. you must manually create the evidence lock on the same video sequence you created a video restriction on.</p>
+        <p>Once created, evidence locks and video restrictions must be edited, maintained and removed individually. There is no connection between a video sequence that has been restricted and any evidence locks applied to the same video sequence.</p>
+      </div>
+      <div>
+        <h2>Create restrictions on live or recorded video<a name="SC_CreateRestrictionsLiveRecorded.htm"></a></h2>
+        <p>You can create restrictions on a live stream or recorded footage to prevent the content from being viewed by unauthorized operators. When creating a live restriction, all cameras in the current view will be selected to be included in the restriction by default. You can remove any cameras you do not want to include during restriction creation process but not after the live restriction has been created. </p>
+        <p>If you are creating a video restriction on recorded footage (playback restriction), you can remove the cameras from the playback restriction by editing the restriction. </p>
+        <p>When creating live restrictions for multiple cameras, one live restriction will be created per camera. When you create  playback restriction for multiple cameras, only one restriction will be created, covering all the selected cameras.</p>
+        <p>For live video restrictions, the <span class="uitext">Headline</span> field will contain the camera name and be disabled for user input. The <span class="uitext">Description</span> and <span class="uitext">Interval end</span> fields will also be empty and disabled for user input. As long as the live restriction is in effect, recorded footage of the live stream is also covered by the live restriction for the defined time interval. In effect, creating a live video restriction also creates a playback restriction on the same video sequence. When the live restriction is removed, you can select to maintain the playback restriction or you can remove the playback restriction as well.</p>
+        <p>If you want the playback restricted video to also be evidence locked, you must manually create an evidence lock on the video sequence.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Create a live restriction</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ol>
+              <li value="1">In <span class="uitext">Live</span> mode, select the camera view you want to restrict access to and click <span class="uitext">Video restrictions</span> &gt; <span class="uitext">Create</span> to open <span class="uitext">Create live restriction</span>. All cameras in the selected view are added by default to the restriction.</li>
+              <li value="2">In the <span class="uitext">Create live restriction</span> dialog &gt; <span class="uitext">Interval start</span> field, set the start time of the restriction. <br />The default value of the restriction start time is 5 minutes back.</li>
+              <li value="3">If necessary, in the right half of the <span class="uitext">Create live restriction</span> dialog, click <span class="uitext">Add camera</span> and select additional cameras to add to the restriction. You can also remove any cameras that should not be restricted. </li>
+              <li value="4">Click <span class="uitext">Create live restriction</span> to open the <span class="uitext">Create live restriction</span> dialog. When the restriction has been created, click <span class="uitext">Close</span> to close the dialog.<br />You can click <span class="uitext">Details</span> to get a more detailed overview of the creation process.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Create a playback restriction</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <p>Recorded video or audio footage can be restricted to prevent the content from being viewed by unauthorized operators.</p>
+            <p>You must define a start and end time for the restriction you want to create.</p>
+            <ol>
+              <li value="1">In <span class="uitext">Playback</span> mode, select the cameras you want to restrict access to and in the main timeline, select the start and end time for the interval you want to create a restriction for. You can select <span class="uitext">Set start and end time on timeline</span> to select start and end times from the timeline tracks or <span class="uitext">Set start and end time in calendar</span>.</li>
+              <li value="2">In the toolbar, click <span class="uitext">Video restrictions</span> &gt; <span class="uitext">Create</span> to open the <span class="uitext">Create playback restriction</span> dialog.</li>
+              <li value="3">In the <span class="uitext">Create playback restriction</span> dialog:<ol><li value="1">In the <span class="uitext">Headline</span> field, enter a headline for the restriction. A short, unique headline will enable other operators to locate the restriction faster.</li><li value="2">In the <span class="uitext">Description</span> field, enter a description of the restriction.</li><li value="3">In the <span class="uitext">Interval start</span> and <span class="uitext">Interval end</span> fields, make sure the defined restriction interval is appropriate for the sequence you want to restrict. You can also enter new interval start and end times. If the start and end times are identical, the interval start will automatically be adjusted back by 5 minutes.</li><li value="4">In the right half of the <span class="uitext">Create playback restriction</span> dialog, click <span class="uitext">Add camera</span> and select additional cameras to add to  the restriction.</li></ol></li>
+              <li value="4">Click the <span class="uitext">Create restriction</span> button to open the <span class="uitext">Create playback restriction</span> dialog.</li>
+              <li value="5">In the <span class="uitext">Create playback restriction</span> dialog, click <span class="uitext">Create restriction</span><![CDATA[  ]]> to confirm your choice.</li>
+              <li value="6">When the restriction has been created, click <span class="uitext">Close</span> to close the dialog.<br />You can click <span class="uitext">Details</span> to get a more detailed overview of the creation process.</li>
+            </ol>
+            <p>Once the restriction is created, you can add additional cameras  by opening the restriction in the <span class="uitext">Video restrictions list</span> and editing the restriction settings.</p>
+          </div>
+        </div>
+      </div>
+      <h3>Creating new restrictions on cameras that already contain restrictions</h3>
+      <p>Since restrictions can be applied to individual cameras, cameras in the current view, and in camera groups, it is quite possible that new restrictions might be created on cameras that already contain restrictions. </p>
+      <h4>Live restrictions</h4>
+      <p>If a new live restriction is created on a camera that already contains a live restriction, the start time of the existing live restriction will be updated if the start time of the new live restriction is earlier than the start time of the existing live restriction. </p>
+      <p>If the start time of the new live restriction is the same or later than the start time of the existing live restriction, then the start time of the existing live restriction will not be changed.</p>
+      <h4>Playback restrictions</h4>
+      <p>Creating a new playback restriction on a camera that already contains a playback restriction will result in two playback restrictions for the same camera. </p>
+      <p>The scenarios described above only apply to creating new restrictions on cameras that already contain restrictions. You can always edit existing restrictions to change interval times as well as add or remove cameras.</p>
+      <div>
+        <h2>View restricted video <a name="SC_ViewRestrictedVideo.htm"></a></h2>
+        <p>Operators assigned permissions to view restricted video or audio, can view the material normally. When displayed, the footage will contain a warning that the material is currently restricted. </p>
+        <p>Operators not assigned permissions to view restricted video or audio will not be able to view the footage and the camera containing the material will be marked as restricted in the user interface.</p>
+        <p>Restricted videos can be viewed in the <span class="uitext">Live</span> or <span class="uitext">Playback</span> mode by opening the camera view directly and playing the video material. </p>
+        <p>You can also open a camera view from the <span class="uitext">Video restrictions list</span> if you are assigned sufficient user permissions to access the list.</p>
+        <h3>View a restricted video from the <span class="uitext">Video restrictions list</span>.</h3>
+        <ol>
+          <li value="1">In <span class="uitext">Live</span> or <span class="uitext">Playback</span> mode, click <span class="uitext">Video restrictions</span> &gt; <span class="uitext">View</span> to open the <span class="uitext">Video restrictions list</span> dialog.</li>
+          <li value="2">In the <span class="uitext">Video restrictions list</span>, use the filters and search field to locate the restrictions you want to view.</li>
+          <li value="3">Select the restrictions you want to view and click <span class="uitext">View</span>. <br />Some restrictions may contain multiple cameras and you can only view 100 cameras at the same time.</li>
+        </ol>
+      </div>
+      <div>
+        <h2>Edit video restrictions <a name="SC_EditRestrictions.htm"></a></h2>
+        <p>You can edit existing video restrictions, depending on your user rights, for example changing the restriction start and end times, adding additional cameras, and updating the restriction heading and description.</p>
+        <p>You can only edit the restriction settings for the restricted video. Any evidence lock settings created on the restricted video must be edited separately. </p>
+        <p>You can only edit or remove restrictions on cameras located on the site you are currently logged on to.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Edit one or more live restrictions</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <p>You can only change the restriction start time for live restrictions.</p>
+            <p>You can access the <span class="uitext">Video restrictions list</span> from either <span class="uitext">Live</span> or <span class="uitext">Playback</span> mode.</p>
+            <ol>
+              <li value="1">In <span class="uitext">Live</span> or <span class="uitext">Playback</span> mode, click <span class="uitext">Video restrictions</span> &gt; <span class="uitext">View</span> to open the <span class="uitext">Video restrictions list</span> dialog.</li>
+              <li value="2">In the <span class="uitext">Video restrictions list</span>, use the filters and search field to locate the restrictions you want to edit.</li>
+              <li value="3">Select the restrictions you want to edit and click <span class="uitext">Edit</span> to open the <span class="uitext">Edit live restriction</span> dialog.</li>
+              <li value="4">In the <span class="uitext">Edit live restriction</span> dialog, update the <span class="uitext">Interval start</span> field and click <span class="uitext">Save changes</span> to display the progress of the updates in the <span class="uitext">Edit live restriction</span> dialog.</li>
+              <li value="5">When the changes have been updated in the <span class="uitext">Edit live restriction</span> dialog, click <span class="uitext">Close</span> to close the dialog. <br />You can click <span class="uitext">Details</span> to get a more detailed overview of the update.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Edit one or more playback restrictions</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <p>You can update all settings of multiple playback restrictions – changing the headline, description, interval start and end times as well as adding additional cameras to the restrictions.</p>
+            <p>You can access the <span class="uitext">Video restrictions list</span> from either <span class="uitext">Live</span> or <span class="uitext">Playback</span> mode.</p>
+            <ol>
+              <li value="1">In <span class="uitext">Live</span> or <span class="uitext">Playback</span> mode, click <span class="uitext">Video restrictions</span> &gt; <span class="uitext">View</span> to open the <span class="uitext">Video restrictions list</span> dialog.</li>
+              <li value="2">In the <span class="uitext">Video restrictions list</span>, use the filters and search field to locate the restrictions you want to edit.</li>
+              <li value="3">Select the restrictions you want to edit and click <span class="uitext">Edit</span> to open the <span class="uitext">Edit playback restriction</span> dialog.</li>
+              <li value="4">In the <span class="uitext">Edit playback restriction</span> dialog, update any relevant restriction settings and click <span class="uitext">Save changes</span> to display the progress of the updates in the <span class="uitext">Edit playback restriction</span> dialog.</li>
+              <li value="5">When the changes have been updated in the <span class="uitext">Edit playback restriction</span> dialog, click <span class="uitext">Close</span> to close the dialog. <br />You can click <span class="uitext">Details</span> get a more detailed overview of the update.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div data-mc-conditions="">
+        <h2>Remove video restrictions<a name="SC_RemoveRestrictions.htm"></a></h2>
+        <p>When a restriction is removed, the underlying video material (live and recorded) becomes available again for viewing by operators as usual.</p>
+        <p>You can only edit or remove restrictions on cameras located on the site you are currently logged on to.</p>
+        <p>Removing a restriction will not change the status of any applied evidence locks on the same video sequence. If a video sequence has been locked, the evidence lock on the video must still be deleted if the video is to be deleted.</p>
+        <h3>Removing playback restrictions</h3>
+        <p>You cannot remove multiple playback restrictions at the same time. You must select and remove one playback restriction at a time.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Remove playback restrictions</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ol>
+              <li value="1">In <span class="uitext">Live</span> or <span class="uitext">Playback</span> mode, click <span class="uitext">Video restrictions</span> &gt; <span class="uitext">View</span> to open the <span class="uitext">Video restrictions list</span> dialog.</li>
+              <li value="2">In the <span class="uitext">Video restrictions list</span>, use the filters and search field to locate the restrictions you want to remove. <br />Live restrictions are displayed at the top of the list and each live restriction is marked with a green LIVE icon. <br />Playback restrictions are displayed under the live restrictions.</li>
+              <li value="3">Select the playback restriction you want to remove and click <span class="uitext">Remove</span> to open the <span class="uitext">Remove playback restriction</span> dialog. <br /></li>
+              <li value="4">In the <span class="uitext">Remove playback restriction</span> dialog, click <span class="uitext">Remove restrictions</span> to remove the selected playback restriction and open the <span class="uitext">Delete playback restriction</span> dialog.<br /></li>
+              <li value="5">In the <span class="uitext">Delete playback restriction</span> dialog, click <span class="uitext">Close</span> when the removal process is done. <br />Click <span class="uitext">Details</span> to get a more detailed overview of the removal status.</li>
+            </ol>
+          </div>
+        </div>
+        <h3>Removing a live restriction</h3>
+        <p>You can select and remove multiple live restrictions, but you cannot mix restriction types – that is select both playback and live restrictions for removal at the same time.</p>
+        <p>When a restriction on a live stream is removed, the recorded footage of the same video sequence can be restricted by default.  An operator can choose not to keep restrictions on the recorded footage when removing restrictions on the live video stream.</p>
+        <p>During the creation process of a playback restriction of a restricted live stream, you will not be able to add additional or remove existing cameras.  You can however, edit the playback restriction after the restriction has been created and then remove or add additional cameras.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Remove live restrictions</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ol>
+              <li value="1">In <span class="uitext">Live</span> or <span class="uitext">Playback</span> mode, click <span class="uitext">Video restrictions</span> &gt; <span class="uitext">View</span> to open the <span class="uitext">Video restrictions list</span> dialog.</li>
+              <li value="2">In the <span class="uitext">Video restrictions list</span>, use the filters and search field to locate the restrictions you want to remove. <br />Live restrictions are displayed at the top of the list and each live restriction is marked with a green LIVE icon.</li>
+              <li value="3">Select the live restrictions you want to remove and click <span class="uitext">Remove</span> to open the <span class="uitext">Remove live restrictions</span> dialog. <br /></li>
+              <li value="4">In the <span class="uitext">Remove live restriction</span> dialog, select <span class="uitext">Create restriction on recorded footage</span> to create a playback restriction on the live restriction you are removing. <br />Clear the <span class="uitext">Create restriction on recorded footage</span> check box if you do not want to create a playback restriction to replace the live restriction you are removing.</li>
+              <li value="5">Click <span class="uitext">Remove live restriction</span> to remove the selected live restriction and open the <span class="uitext">Remove live restriction</span> dialog.<br /></li>
+              <li value="6">In the <span class="uitext">Remove live restriction</span> dialog, click <span class="uitext">Close</span> when the removal process is done. Click <span class="uitext">Details</span> for a detailed overview of the removal status.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div data-mc-conditions="">
+        <h2>Exporting restricted videos<a name="SC_ExportRestrictedVideo.htm"></a></h2>
+        <p>Only operators that have been assigned viewing rights to restricted footage can access the material and export the footage.</p>
+      </div>
+      <div>
+        <h2>The <span class="uitext">Video restrictions list</span><a name="SC_Restrictionlistform.htm"></a></h2>
+        <p>The <span class="uitext">Video restrictions list</span> displays all existing video restrictions on camera devices across all sites, with live restrictions displayed at the top of the list and then restrictions on recorded footage (playback restrictions). </p>
+        <p>Only operators assigned permissions to see and manage restrictions can open the <span class="uitext">Video restrictions list</span>.</p>
+        <p>You can select one or more restrictions to edit the restriction settings or remove the restrictions but you can only edit or remove restrictions on cameras located on the site you are currently logged on to.</p>
+        <p>Some actions will not be possible if different restriction types (Live and Playback) have been selected, for example it is not possible to view restriction settings if the selection consists of different restriction types.</p>
+        <h3>Hidden or undisplayed live restrictions</h3>
+        <p>If a video restriction only exists on a non-camera device, (for example on a camera microphone or on camera speakers), the live restriction will exist but will not be displayed in the <span class="uitext">Video restrictions list</span> because the <span class="uitext">Video restrictions list</span> only displays existing video restrictions on camera devices. </p>
+        <p>When a live restriction is applied on a camera, all devices are included in the restriction. When the live restriction is removed, the restriction will be removed for all devices of the hardware (microphones, cameras, speakers, and metadata) but if the live restriction removal is only partially successful, some devices may still contain restrictions. If these devices are microphones or speakers, and/or is metadata, the remaining restriction will not be displayed in the <span class="uitext">Video restrictions list</span> but the camera itself will still be restricted.</p>
+        <p>You can force the hidden live restriction to be displayed in the <span class="uitext">Video restrictions list</span> by creating a new restriction on the camera containing the hidden live restriction. This will update the existing live restriction and display it in the list so it is no longer hidden. </p>
+        <h3>Searching and filtering the list</h3>
+        <p>If there are many restrictions in the list, you can apply filters to the list to reduce the number or restrictions.</p>
+        <p>You can also locate specific restrictions by using the <span class="uitext">Search</span> field. The <span class="uitext">Search</span> field will filter the list by applying the search criteria to all restriction headlines and descriptions.</p>
+        <h4>Search</h4>
+        <p>Search the restriction list by entering a part of the restriction headline or description in the <span class="uitext">Search</span> field. </p>
+        <h4>Filter</h4>
+        <p>Apply one or more filters to narrow and reduce the number of restrictions displayed in the list. The defined filters are cumulative. The filtered list can also be searched if necessary.</p>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Restriction type:</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ul>
+              <li>
+                <span class="uitext">All</span>: Displays all (live and playback) restrictions in the list.</li>
+              <li>
+                <span class="uitext">Playback</span>: Displays only playback restrictions in the list.</li>
+              <li>
+                <span class="uitext">Live</span>: Displays only live restrictions in the list.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Interval/Created at:</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ul>
+              <li>
+                <span class="uitext">Today</span>: Displays all restrictions that have been created today.</li>
+              <li>
+                <span class="uitext">Yesterday</span>: Displays all restrictions that were created yesterday.</li>
+              <li>
+                <span class="uitext">Last 7 days</span>: Displays all restrictions that have been created within past 7 days.</li>
+              <li>
+                <span class="uitext">All</span>: Displays all restrictions with a start interval.</li>
+              <li>
+                <span class="uitext">Custom</span>: Define your own date interval as a filter.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Created by:</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ul>
+              <li>
+                <span class="uitext">All</span>: Displays all restrictions created by any user, including you.</li>
+              <li>
+                <span class="uitext">Only me</span>: Displays all restrictions created by you.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Closed dropDown">
+          <span class="MCDropDownHead dropDownHead">
+            <a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false">
+              <img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />Cameras:</a>
+          </span>
+          <div class="MCDropDownBody dropDownBody">
+            <ul>
+              <li>
+                <span class="uitext">All</span>: Displays all restrictions for all cameras.</li>
+              <li>
+                <span class="uitext">Select</span>: Displays restrictions on the selected cameras only.</li>
+            </ul>
+          </div>
+        </div>
+        <h3>
+          <span class="uitext">Video restrictions list</span> settings</h3>
+        <table cellspacing="3">
+          <col />
+          <col />
+          <thead>
+            <tr>
+              <th>
+                <p>Name</p>
+              </th>
+              <th>
+                <p>Description</p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="uitext">Headline</span>
+              </td>
+              <td>
+                <p>The title of the restriction.</p>
+                <p>When filtering the <span class="uitext">Video restrictions list</span>, the contents of the <span class="uitext">Headline</span> and <span class="uitext">Description</span> fields are included in the search filter. </p>
+                <p>Only available for playback restrictions when editing.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Description</span>
+              </td>
+              <td>
+                <p>A longer, more detailed description of the restriction.</p>
+                <p>When filtering the <span class="uitext">Video restrictions list</span>, the contents of the <span class="uitext">Headline</span> and <span class="uitext">Description</span> fields are included in the search filter. </p>
+                <p>Only available for playback restrictions when editing.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Interval start</span>
+              </td>
+              <td>
+                <p>Adjust the start date and time for the video sequences you want to restrict</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Interval end</span>
+              </td>
+              <td>
+                <p>Adjust the end date and time for the video sequences you want to restrict.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Add camera</span>
+              </td>
+              <td>
+                <p>Click to select more cameras to add to the restriction.</p>
+                <p>Only available for playback restrictions when editing.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="uitext">Remove all</span>
+              </td>
+              <td>
+                <p>Click to remove all cameras from the restriction.</p>
+                <p>Only available for playback restrictions when editing.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h2>Video restriction status messages<a name="SC_RestrictionStatusMes.htm"></a></h2>
+        <table cellspacing="3">
+          <col />
+          <col />
+          <col />
+          <thead>
+            <tr>
+              <th>
+                <p>Message</p>
+              </th>
+              <th>
+                <p>Description and result</p>
+              </th>
+              <th>
+                <p>Scenarios and solution</p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>Restriction created / removed / updated successfully</p>
+              </td>
+              <td>
+                <p>All went well.</p>
+                <p>
+                  <span class="specialbold">Result</span>:</p>
+                <p>The video restriction is created, updated, or removed.</p>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <p>Restriction created / removed / updated successfully</p>
+              </td>
+              <td>
+                <p>If the creation, update or removal of a video restriction was not entirely successful, a message is displayed, and the progress bar is yellow.</p>
+                <p>Click <span class="uitext">Details</span> to see what went wrong.</p>
+                <p>
+                  <span class="specialbold">Result:</span>
+                </p>
+                <p>The video restriction is created, updated, or removed but without including some of the selected cameras and/or their related devices. Some devices may still contain restrictions.</p>
+              </td>
+              <td>
+                <p>
+                  <span class="specialbold">Scenario</span>:
+							Some of the recording servers with devices included in the video restriction are offline.</p>
+                <p>
+                  <span class="specialbold">Solution</span>: Wait for the recording server to come online.</p>
+                <p>
+                  <span class="specialbold">Scenario</span>:
+							Your system administrator has changed your video restrictions user rights after you logged into <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>.</p>
+                <p>
+                  <span class="specialbold">Solution</span>: Contact your system administrator.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p> </p>
+                <p>Restriction created / removed / updated successfully</p>
+              </td>
+              <td>
+                <p>If the creation, update, or removal of a video restriction is not successful, a  message is displayed, and the progress bar is red.</p>
+                <p>Click <span class="uitext">Details</span> to see what went wrong.</p>
+                <p>
+                  <span class="specialbold">Result:</span>
+                </p>
+                <p>The video restriction is not created, updated, or removed. </p>
+              </td>
+              <td>
+                <p>
+                  <span class="specialbold">Scenario</span>:
+							All the recording servers with devices included in the video restriction are offline.</p>
+                <p>
+                  <span class="specialbold">Solution</span>:
+							Wait for the recording servers to come online.</p>
+                <p>
+                  <span class="specialbold">Scenario</span>:
+							The management server is offline.</p>
+                <p>
+                  <span class="specialbold">Solution</span>:
+							Wait for the management server to come online.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p></p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2023</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

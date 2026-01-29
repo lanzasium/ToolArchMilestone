@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebHelpSystem DefaultUrl="common/welcome_sc.htm" Toc="Data/Tocs/LifeCycleTOCs__SC___SC_.js" Index="Data/Index.js" Concepts="Data/Concepts.js" BrowseSequence="Data/BrowseSequences/Browse_Sequences__BrowseSequence.js" Glossary="Data/Glossary.js" SearchDatabase="Data/Search.js" Alias="Data/Alias.xml" Synonyms="Data/Synonyms.xml" SearchFilterSet="Data/Filters.js" PathToScriptsFolder="Resources/Scripts/" SkinName="milestone_tripane_skin" SkinID="milestone_tripane_skin" Multilingual="false" Skins="milestone_tripane_skin" BuildTime="05-Sep-19 02:15:58" BuildVersion="15.0.7081.30245" TargetType="WebHelp2" SkinTemplateFolder="Skin/" InPreviewMode="false" TopNavTocPath="true" MoveOutputContentToRoot="true" ReplaceReservedCharacters="true" MakeFileLowerCase="true" UseCustomTopicFileExtension="false" PreventExternalUrls="false" EnableResponsiveOutput="true" IncludeGlossarySearchResults="true" ResultsPerPage="20" xml:lang="en-us" LanguageName="English" SearchEngine="MadCapSearch" IncludeCSHRuntime="true" DebugMode="false" ShowMadCapBacklink="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <CatapultSkin Version="3" SkinType="WebHelp2" Comment="HTML5 Default Tripane skin" Anchors="Width,Height" Width="800" Height="600" Top="0" Left="0" Bottom="0" Right="0" Tabs="TOC,Glossary,Community" DefaultTab="TOC" UseBrowserDefaultSize="True" UseDefaultBrowserSetup="True" EnableResponsiveOutput="True" NavigationLinkTop="true" RemoveImagesOnSave="true" AutoSyncTOC="true" Title="[%=Variables.AppName%] [%=Variables.Release%]" Name="milestone_tripane_skin" SkinID="milestone_tripane_skin" SkinClass="_Skins_milestone_milestone_tripane_skin" HideNavOnStartup="False" LogoUrl="">
+        <WebHelpOptions NavigationPaneWidth="420" MobileBreakpoint="764" />
+        <Toolbar EnableCustomLayout="true" Buttons="Print|PreviousTopic|NextTopic|Filler">
+            <Script>$('&lt;link&gt;')
+    .appendTo($('head'))
+    .attr({type: 'text/css', rel: 'stylesheet'})
+    .attr('href', 'Resources/Styles/fixskin.css');
+</Script>
+        </Toolbar>
+    </CatapultSkin>
+</WebHelpSystem>

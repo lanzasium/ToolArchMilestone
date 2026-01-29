@@ -1,0 +1,1 @@
+define({'Camera navigator':{l:[{u:'/standard_features/sf_sc/sf_overview/sc_whatsnew.htm#kanchor1',t:'What\u0027s new?'}]}});

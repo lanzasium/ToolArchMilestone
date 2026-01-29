@@ -1,0 +1,371 @@
+<Page
+    x:Class="ToolArchMilestone.LaunchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:ToolArchMilestone.Converters"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- Custom Segmented Pill Style for Config Toggles -->
+        <Style x:Key="SegmentedPillStyle" TargetType="RadioButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="12,0"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Margin" Value="2,0"/>
+            <Setter Property="CornerRadius" Value="14"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#33FFFFFF"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="White"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MilestoneBlue}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="White"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetName="CheckIcon" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetName="CheckIcon" Storyboard.TargetProperty="Width" To="14" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unchecked">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextSecondary}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetName="CheckIcon" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetName="CheckIcon" Storyboard.TargetProperty="Width" To="0" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Border x:Name="RootBorder" CornerRadius="14" BorderBrush="#333" BorderThickness="1" Background="Transparent">
+                                <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <!-- Use FontIcon instead of SymbolIcon -->
+                                    <FontIcon x:Name="CheckIcon" Glyph="&#xE73E;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="White" Width="0" Opacity="0" Margin="0,0,4,0" FontSize="10"/>
+                                    <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Padding="24" Background="{StaticResource WindowBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Header -->
+            <RowDefinition Height="*"/>    <!-- Content -->
+        </Grid.RowDefinitions>
+
+        <!-- === HEADER SECTION === -->
+        <StackPanel Spacing="8" Margin="0,0,0,20">
+            <StackPanel Spacing="2">
+                <TextBlock Text="NUOVA ARCHIVIAZIONE" FontSize="24" FontWeight="Bold" Foreground="White" CharacterSpacing="50"/>
+                <TextBlock Text="Configurazione parametri" FontSize="13" Foreground="{StaticResource TextSecondary}"/>
+            </StackPanel>
+
+            <!-- Configuration Bar (Pill Group) -->
+            <Border Background="#1E1E1E" CornerRadius="16" Padding="4" BorderBrush="#333" BorderThickness="1" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <!-- Type Group -->
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="LEGALE" IsChecked="True" GroupName="Type" Style="{StaticResource SegmentedPillStyle}"/>
+                        <RadioButton Content="DIGITALE" GroupName="Type" Style="{StaticResource SegmentedPillStyle}"/>
+                    </StackPanel>
+
+                    <Rectangle Width="1" Height="16" Fill="#444" Margin="4,0"/>
+
+                    <!-- Source Group -->
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="SERVER" IsChecked="{x:Bind ViewModel.IsServer, Mode=TwoWay}" GroupName="Source" Style="{StaticResource SegmentedPillStyle}"/>
+                        <RadioButton Content="ARCHIVIO" IsChecked="{x:Bind ViewModel.IsArchive, Mode=TwoWay}" GroupName="Source" Style="{StaticResource SegmentedPillStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <!-- === SCROLLABLE CONTENT === -->
+        <ScrollViewer Grid.Row="1" Padding="0,0,16,0">
+            <StackPanel Spacing="16">
+
+                <!-- CARD 1: SORGENTE -->
+                <Border Style="{StaticResource MaterialCardStyle}">
+                    <StackPanel Spacing="12">
+                        <Grid>
+                            <TextBlock Text="SORGENTE DATI" Style="{StaticResource MaterialHeaderStyle}"/>
+                            <!-- Accent Line -->
+                            <Rectangle Height="2" Width="40" Fill="{StaticResource MilestoneBlue}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-6"/>
+                        </Grid>
+
+                        <!-- Server Config Section -->
+                        <StackPanel Visibility="{x:Bind ViewModel.IsServer, Mode=OneWay, Converter={StaticResource BoolToVis}}" Spacing="12">
+
+                            <!-- Server Address Field (Compact Grid) -->
+                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Indirizzo Server" Style="{StaticResource InputLabelStyle}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="es. 192.168.1.100"/>
+                                </StackPanel>
+                                <Button Content="Connetti" Command="{x:Bind ViewModel.ConnectCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ServerAddress" ToolTipService.ToolTip="Fissa Valore">
+                                    <FontIcon Glyph="&#xE718;" FontSize="14"/>
+                                </Button>
+                            </Grid>
+
+                            <!-- Camera Field (Compact Grid) -->
+                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Telecamera Selezionata" Style="{StaticResource InputLabelStyle}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.CameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" PlaceholderText="Nessuna selezione..."/>
+                                </StackPanel>
+                                <Button Content="Seleziona" Command="{x:Bind ViewModel.SelectCameraCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="CameraName" ToolTipService.ToolTip="Fissa Valore">
+                                    <FontIcon Glyph="&#xE718;" FontSize="14"/>
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+
+                        <!-- Archive Config Section -->
+                        <StackPanel Visibility="{Binding IsArchive, Converter={StaticResource BoolToVis}}" Spacing="12">
+
+                            <!-- Archive Path Field -->
+                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Percorso Archivio" Style="{StaticResource InputLabelStyle}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{Binding ArchivePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Seleziona file .scp/.xpco o cartella database"/>
+                                </StackPanel>
+                                <Button Content="Sfoglia" Command="{Binding BrowseArchiveCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{Binding PinFieldCommand}" CommandParameter="ArchivePath" ToolTipService.ToolTip="Fissa Valore">
+                                    <FontIcon Glyph="&#xE718;" FontSize="14"/>
+                                </Button>
+                            </Grid>
+
+                            <!-- Archive Camera Field -->
+                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Telecamera nell'Archivio" Style="{StaticResource InputLabelStyle}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{Binding ArchiveCameraName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Nome telecamera da esportare"/>
+                                </StackPanel>
+                                <Button Content="Scopri" Command="{Binding DiscoverArchiveCamerasCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{Binding PinFieldCommand}" CommandParameter="ArchiveCameraName" ToolTipService.ToolTip="Fissa Valore">
+                                    <FontIcon Glyph="&#xE718;" FontSize="14"/>
+                                </Button>
+                            </Grid>
+
+                            <!-- Archive Info Panel -->
+                            <Border Background="#F8F9FA" CornerRadius="4" Padding="12" Margin="0,4">
+                                <StackPanel Spacing="6">
+                                    <TextBlock Text="ℹ️ Informazioni Archivio" FontWeight="SemiBold" FontSize="12" Foreground="{StaticResource TextPrimary}"/>
+                                    <TextBlock FontSize="11" Foreground="{StaticResource TextSecondary}" TextWrapping="Wrap">
+                                        • File supportati: .scp (Single Camera Package), .xpco (XProtect Database Export)
+                                        <LineBreak/>
+                                        • Cartelle: Directory con database Milestone esportati
+                                        <LineBreak/>
+                                        • Le telecamere verranno caricate automaticamente dall'archivio selezionato
+                                    </TextBlock>
+                                    <!-- DEBUG: Test visibility -->
+                                    <TextBlock Text="{Binding SelectedSourceType}" FontSize="10" Foreground="Red"/>
+                                    <TextBlock Text="{Binding IsArchive}" FontSize="10" Foreground="Red"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- Interval Section -->
+                        <Grid ColumnSpacing="16">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/> <!-- Date Inputs -->
+                                <ColumnDefinition Width="1*"/> <!-- Drop Area -->
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Spacing="12">
+                                <Grid ColumnSpacing="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Start Date -->
+                                    <StackPanel>
+                                        <TextBlock Text="Inizio" Style="{StaticResource InputLabelStyle}"/>
+                                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="4">
+                                            <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.StartDateString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}"/>
+                                            <Button Grid.Column="1" Style="{StaticResource MaterialIconButtonStyle}">
+                                                <FontIcon Glyph="&#xE787;" Foreground="{StaticResource MilestoneBlue}" FontSize="14"/>
+                                                <Button.Flyout>
+                                                    <Flyout>
+                                                        <StackPanel Spacing="8">
+                                                            <CalendarDatePicker DateChanged="StartPicker_DateChanged" Date="{x:Bind ViewModel.StartTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}"/>
+                                                            <TimePicker TimeChanged="StartTime_TimeChanged" SelectedTime="{x:Bind ViewModel.StartTimeTime, Mode=TwoWay}" ClockIdentifier="24HourClock"/>
+                                                        </StackPanel>
+                                                    </Flyout>
+                                                </Button.Flyout>
+                                            </Button>
+                                        </Grid>
+                                    </StackPanel>
+
+                                    <!-- End Date -->
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Text="Fine" Style="{StaticResource InputLabelStyle}"/>
+                                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="4">
+                                            <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.EndDateString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.IsManualIntervalEnabled, Mode=OneWay}"/>
+                                            <Button Grid.Column="1" Style="{StaticResource MaterialIconButtonStyle}">
+                                                <FontIcon Glyph="&#xE787;" Foreground="{StaticResource MilestoneBlue}" FontSize="14"/>
+                                                <Button.Flyout>
+                                                    <Flyout>
+                                                        <StackPanel Spacing="8">
+                                                            <CalendarDatePicker DateChanged="EndPicker_DateChanged" Date="{x:Bind ViewModel.EndTime, Mode=TwoWay, Converter={StaticResource DateToOffset}}"/>
+                                                            <TimePicker TimeChanged="EndTime_TimeChanged" SelectedTime="{x:Bind ViewModel.EndTimeTime, Mode=TwoWay}" ClockIdentifier="24HourClock"/>
+                                                        </StackPanel>
+                                                    </Flyout>
+                                                </Button.Flyout>
+                                            </Button>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+
+                                <CheckBox Content="Separa archiviazioni" IsChecked="{x:Bind ViewModel.SeparateArchive, Mode=TwoWay}" Foreground="{StaticResource TextSecondary}" FontSize="12" MinHeight="0" Margin="0,-4,0,0"/>
+                            </StackPanel>
+
+                            <!-- Custom Drop Area (Compact) -->
+                            <Grid Grid.Column="1" AllowDrop="True" DragOver="DropArea_DragOver" Drop="DropArea_Drop" VerticalAlignment="Stretch">
+                                <Rectangle Stroke="#444" StrokeThickness="1" StrokeDashArray="4 2" RadiusX="4" RadiusY="4" Fill="#252525"/>
+
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
+                                    <Viewbox Width="20" Height="20">
+                                        <FontIcon Glyph="&#xE8E5;" Foreground="{StaticResource MilestoneBlue}"/>
+                                    </Viewbox>
+                                    <TextBlock Text="Trascina TXT" FontSize="11" Foreground="{StaticResource TextSecondary}" HorizontalAlignment="Center"/>
+
+                                    <!-- Import Actions -->
+                                    <Button Content="Sfoglia" Command="{x:Bind ViewModel.ImportIntervalsFromFileCommand}" Style="{StaticResource MaterialSmallButtonStyle}"/>
+
+                                    <!-- Imported File Indicator -->
+                                    <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.IsFileImported, Mode=OneWay, Converter={StaticResource BoolToVis}}"
+                                                Background="#334433" Padding="6,2" CornerRadius="8" HorizontalAlignment="Center" Spacing="4" Margin="0,4,0,0">
+                                        <FontIcon Glyph="&#xE73E;" Foreground="#4CAF50" FontSize="10"/>
+                                        <TextBlock Text="{x:Bind ViewModel.ImportedFileName, Mode=OneWay}" FontSize="10" Foreground="#81C784" FontWeight="Bold" MaxWidth="60" TextTrimming="CharacterEllipsis"/>
+                                        <Button Background="Transparent" Padding="0" Width="14" Height="14" Command="{x:Bind ViewModel.RemoveImportedFileCommand}">
+                                            <FontIcon Glyph="&#xE711;" Foreground="#E57373" FontSize="10"/>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- CARD 2: DATI PROCEDURA -->
+                <Border Style="{StaticResource MaterialCardStyle}">
+                    <StackPanel Spacing="12">
+                        <Grid>
+                            <TextBlock Text="DATI PROCEDURA" Style="{StaticResource MaterialHeaderStyle}" Foreground="{StaticResource MilestoneYellow}"/>
+                            <!-- Accent Line -->
+                            <Rectangle Height="2" Width="40" Fill="{StaticResource MilestoneYellow}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-6"/>
+                        </Grid>
+
+                        <Grid ColumnSpacing="12" RowSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Row 1 -->
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="Procedimento Penale" Style="{StaticResource InputLabelStyle}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.CriminalProceeding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="12345/2023"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1">
+                                <TextBlock Text="Magistrato" Style="{StaticResource InputLabelStyle}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Magistrate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+
+                            <!-- Row 2 -->
+                            <StackPanel Grid.Row="1" Grid.Column="0">
+                                <TextBlock Text="RIT / SPEC" Style="{StaticResource InputLabelStyle}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.RitSpec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1">
+                                <TextBlock Text="ID Lavoro (RCS)" Style="{StaticResource InputLabelStyle}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.WorkId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+
+                            <!-- Row 3 -->
+                            <StackPanel Grid.Row="2" Grid.Column="0">
+                                <TextBlock Text="Target" Style="{StaticResource InputLabelStyle}"/>
+                                <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Target, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+
+                            <!-- Password with Actions -->
+                            <Grid Grid.Row="2" Grid.Column="1" ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Password" Style="{StaticResource InputLabelStyle}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                </StackPanel>
+                                <Button Content="Genera" Command="{x:Bind ViewModel.GeneratePasswordCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="Password" ToolTipService.ToolTip="Fissa Valore">
+                                    <FontIcon Glyph="&#xE718;" FontSize="14"/>
+                                </Button>
+                            </Grid>
+
+                            <!-- Row 4: Export Path -->
+                            <Grid Grid.Row="3" Grid.ColumnSpan="2" ColumnDefinitions="*, Auto, Auto" ColumnSpacing="8">
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Cartella di Esportazione" Style="{StaticResource InputLabelStyle}"/>
+                                    <TextBox Style="{StaticResource MaterialTextBoxStyle}" Text="{x:Bind ViewModel.ExportPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                </StackPanel>
+                                <Button Content="Sfoglia" Command="{x:Bind ViewModel.BrowseFolderCommand}" Style="{StaticResource MaterialSecondaryButtonStyle}" VerticalAlignment="Bottom" Grid.Column="1"/>
+                                <Button Style="{StaticResource MaterialIconButtonStyle}" VerticalAlignment="Bottom" Grid.Column="2" Command="{x:Bind ViewModel.PinFieldCommand}" CommandParameter="ExportPath" ToolTipService.ToolTip="Fissa Valore">
+                                    <FontIcon Glyph="&#xE718;" FontSize="14"/>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- STATUS MESSAGE -->
+                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" Foreground="{StaticResource MilestoneYellow}" FontSize="12" HorizontalAlignment="Center" Margin="0,4"/>
+
+                <!-- MAIN ACTION -->
+                <Button Command="{x:Bind ViewModel.LaunchCommand}" Style="{StaticResource MaterialPrimaryButtonStyle}" HorizontalAlignment="Stretch" Margin="0,8,0,24">
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <FontIcon Glyph="&#xE768;" Foreground="White" FontSize="16"/>
+                        <TextBlock Text="AVVIA ARCHIVIAZIONE" Foreground="White"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,4 @@
+﻿<plugin>
+  <file name="VideoOS.SearchAgents.SearchAgentsPlugin.dll"/>
+  <load env="SmartClient"/>
+</plugin>

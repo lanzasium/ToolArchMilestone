@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-conditions="Conditions.AliasFileAvoidSC" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Configurazione|[%=System.LinkedTitle%]">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Impostazioni Avanzate</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/table.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/mil__en-us.css" rel="stylesheet" />
+    <script src="../../../Resources/Scripts/custom.modernizr.js"></script>
+    <script src="../../../Resources/Scripts/jquery.min.js"></script>
+    <script src="../../../Resources/Scripts/require.min.js"></script>
+    <script src="../../../Resources/Scripts/require.config.js"></script>
+    <script src="../../../Resources/Scripts/foundation.min.js"></script>
+    <script src="../../../Resources/Scripts/plugins.min.js"></script>
+    <script src="../../../Resources/Scripts/MadCapAll.js"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_common/sc_advancedsettings_639_.htm">Apri argomento con navigazione</a>
+    </p>
+    <!-- The <a> tag below loads fixskin.css into the skin. -->
+    <a href="../../../resources/styles/fixskin.css" style="display: none;"></a>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <h1>Impostazioni Avanzate</h1>
+    <p>Le impostazioni <span class="uitext">Avanzate</span> consentono di personalizzare le impostazioni avanzate di <span class="VariablesSC_XP">XProtect Smart Client</span>. Se non si ha dimestichezza con le impostazioni avanzate e con il loro funzionamento, mantenere le impostazioni predefinite. In caso di connessione ad alcuni sistemi di sorveglianza (vedere <a href="sc_surveillancesystemdif.htm" class="MCXref xref">Differenze tra i sistemi di sorveglianza</a>), potrebbe essere visualizzata la colonna <span class="uitext">Segui server</span>. È possibile utilizzare questa colonna per segnalare a <span class="VariablesSC_XP">XProtect Smart Client</span> di utilizzare le impostazioni consigliate per il server configurate nei profili <span class="VariablesSC">Smart Client</span> di <span class="VariablesMC">Management Client</span>. È possibile che alcune impostazioni siano già controllate dal server. In questo caso la configurazione del server decide se si è in grado di ignorare quelle impostazioni.</p>
+    <table class="TableStyle-table" cellspacing="3" style="mc-table-style: url('../../../resources/styles/milestone/table.css');">
+      <col class="TableStyle-table-Column-Column1" />
+      <col class="TableStyle-table-Column-Column2" />
+      <thead>
+        <tr class="TableStyle-table-Head-Header1">
+          <th class="TableStyle-table-HeadE-Column1-Header1">
+            <p>Nome</p>
+          </th>
+          <th class="TableStyle-table-HeadD-Column2-Header1">
+            <p>Descrizione</p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Multicast</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Il sistema supporta il multicasting di flussi live da server di registrazione a client. In caso di visualizzazione di video live dalla stessa telecamera da parte di utenti <span class="VariablesSC_XP">XProtect Smart Client</span> multipli, il multicasting riduce notevolmente l'utilizzo delle risorse di sistema. Il multicasting è ideale in caso di utilizzo della funzionalità <span class="VariablesMMName_short">Matrix</span>, quando più client richiedono video live dalla stessa telecamera.</p>
+            <p>Il multicasting è possibile solo per flussi live e non per audio/video registrati.</p>
+            <p>
+              <span class="uitext">Attivo</span>: impostazione predefinita. In <span class="VariablesMC">Management Client</span>, per le telecamere e il server di registrazione deve essere attivata la funzione per l’esecuzione del multicasting da server a client disponibili.</p>
+            <p>
+              <span class="uitext">Disattivato</span>: il multicasting non è disponibile.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Accelerazione hardware</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Consente di verificare se la decodifica con accelerazione hardware è in uso. Le viste con diverse telecamere richiedono molte risorse della CPU. L'accelerazione hardware ridistribuisce parte del carico della CPU alla GPU (Graphics processing unit). L'operazione migliora funzionalità di decodifica e prestazioni del computer. Ciò è ideale in caso di visualizzazione di più flussi video <a href="javascript:void(0);" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" alt="Chiuso" data-mc-alt2="Aperto">H.264<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>Uno standard di compressione di video digitali.
+
+Come MPEG, questo standard utilizza una compressione con perdita di dati, in quanto memorizza solo le differenze tra i fotogrammi chiave, rimuovendo una quantità di informazioni ridondanti spesso notevole: tutti i fotogrammi chiave archiviati a intervalli specifici registrano l'intera vista della telecamera, mentre i fotogrammi successivi registrano solo i pixel che cambiano. Insieme a un elevato grado di compressione, ciò contribuisce a ridurre significativamente le dimensioni dei video in formato H.264. Tuttavia, l'elevato grado di compressione in H.264 può usare risorse considerevoli nei dispositivi interessati alla comunicazione dati. 
+
+Ad esempio, il computer che esegue XProtect Smart Client deve essere in grado di usare risorse considerevoli di decompressione dei video H.264 quando li riceve dal sistema di sorveglianza.</span></a>/H.265 con risoluzione e <a href="javascript:void(0);" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" alt="Chiuso" data-mc-alt2="Aperto">frequenza fotogrammi<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>Una misura che indica la quantità di informazioni contenuta in un filmato. Viene di solito misurata in FPS (fotogrammi al secondo).</span></a> elevate.</p>
+            <p>
+              <span class="uitext">Auto</span> è l'impostazione predefinita. Viene avviata la scansione del computer per risorse di decodifica e viene sempre attivata l'accelerazione hardware (se disponibile).</p>
+            <p>
+              <span class="uitext">Disattiva</span> disattiva l'accelerazione hardware. La decodifica verrà elaborata solo dalla CPU.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Numero massimo thread di decodifica</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Consente di controllare quanti thread di decodifica vengono utilizzati per decodificare i flussi video. Questa opzione può aiutare a migliorare le prestazioni su computer multi-core per la modalità live e per la modalità di riproduzione. Il miglioramento delle prestazioni dipende dal flusso video. L'impostazione produce effetti significativi in caso di utilizzo esteso di flussi video ad alta risoluzione con codifica come H.264/H.265 (aumento delle prestazioni significativo), mentre produce effetti minori in caso di utilizzo di, ad esempio, JPEG o MPEG-4. Osservare che, in genere, la decodifica multithread richiede un grande uso della memoria. Le impostazioni ideali dipendono dal tipo di computer utilizzato, dal numero di telecamere necessarie per la visualizzazione, dalla risoluzione e dalla frequenza fotogrammi.</p>
+            <p>
+              <span class="uitext">Normale</span> significa che, a prescindere dal numero di nuclei del computer, verrà usato un solo nucleo per ogni posizione della telecamera.</p>
+            <p>
+              <span class="uitext">Auto</span> è l'impostazione predefinita. Auto significa che il computer utilizza tanti thread per posizione della telecamera quanti sono i core. Tuttavia, il numero massimo di thread è otto e il numero di thread effettivamente utilizzati può essere inferiore, a seconda del <a href="javascript:void(0);" class="MCTextPopup MCTextPopupHotSpot MCTextPopup_Open glossaryTerm glossaryTermPopup MCTextPopupHotSpot_ MCTextPopupHotSpot_Popup" alt="Chiuso" data-mc-alt2="Aperto">codec<span class="MCTextPopupBody popupBody"><span class="MCTextPopupArrow"></span>Una tecnologia di compressione e decompressione dei dati audio e video, ad esempio, in un file AVI esportato.</span></a> (tecnologia di compressione/decompressione) utilizzato.</p>
+            <p>Gli utenti avanzati possono selezionare manualmente il numero di thread da utilizzare con un massimo di otto. Quello selezionato rappresenta il numero massimo, mentre il numero di thread effettivamente usati può essere inferiore, a seconda del codec (tecnologia di compressione/decompressione) utilizzato.</p>
+            <p class="note">Le impostazioni hanno effetto su tutte le posizioni della telecamera, in tutte le viste, in modalità Live e in modalità di riproduzione. Non è possibile specificare l'impostazione per le posizioni della telecamera o per le viste singole. Poiché questa impostazione potrebbe non essere ugualmente ideale per tutte le posizioni della telecamera e per tutte le viste, si consiglia di monitorarne gli effetti e, se necessario, regolare nuovamente l'impostazione per ottenere un equilibrio ottimale tra il miglioramento delle prestazioni e l'utilizzo della memoria.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Flusso adattivo</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Controlla se è in uso il flusso adattivo. Il carico sulla CPU e sulla GPU è elevato in una vista con molte telecamere. Il flusso adattivo consente  a <span class="VariablesSC_XP">XProtect Smart Client</span> di selezionare automaticamente i flussi video in diretta con la migliore corrispondenza in risoluzione ai flussi richiesti dagli elementi vista. Questo riduce il carico sulla CPU e sulla GPU e quindi migliora la capacità di decodifica e le prestazioni del computer.</p>
+            <p>
+              <span class="uitext">Disattivato</span> è l'impostazione predefinita. Non viene effettuata alcuna selezione automatica del flusso.</p>
+            <p>
+              <span class="uitext">Attivato</span> scansiona la configurazione di sistema di <span class="VariablesXP">XProtect</span> per trovare i flussi disponibili e seleziona quelli che meglio si adattano alla vista selezionata.</p>
+            <p class="note">Questa impostazione influisce su tutte le viste in modalità live.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Deinterlacciamento</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>L'interlacciamento determina la modalità di aggiornamento dell'immagine sullo schermo. L'immagine viene aggiornata eseguendo dapprima la scansione delle linee dispari nell'immagine, quindi con la scansione di ogni linea pari. Ciò offre una frequenza di aggiornamento più elevata, poiché meno informazioni vengono elaborate a ogni scansione. Tuttavia, l'interlacciamento può causare il tremolio dell'immagine oppure potrebbero essere osservabili delle modifiche in metà delle linee. Con il deinterlacciamento il video viene convertito in un formato non interlacciato. La maggior parte delle telecamere non produce video interlacciati e l'opzione non inciderà sulla qualità o sulle prestazioni dei video non interlacciati.</p>
+            <p>
+              <span class="uitext">Nessun filtro</span> è l'impostazione predefinita. Non viene applicato alcun deinterlacciamento, per consentire la visualizzazione dei caratteristici bordi frastagliati nelle immagini che contengono oggetti in movimento. Ciò si verifica perché le linee pari e dispari dell'immagine completa si intrecciano le une con le altre per comporre l'immagine a risoluzione intera. Tuttavia, non vengono catturare dalla telecamera contemporaneamente, di conseguenza gli oggetti in movimento non saranno allineati tra due insiemi di linee, causando l'effetto dei "bordi frastagliati". Impatto sulle prestazioni: Nessuno.</p>
+            <p>
+              <span class="uitext">Campo estensione verticale superiore</span>: Questa opzione utilizza solo le linee pari. Ogni linea dispari verrà "copiata" dalla linea precedente (pari). L'effetto è la scomparsa dei bordi frastagliati, ma con una riduzione della risoluzione verticale. Impatto sulle prestazioni: Meno costosa dell'opzione <span class="uitext">Nessun filtro</span> poiché la post-elaborazione interessa solo metà delle linee.</p>
+            <p>
+              <span class="uitext">Campo estensione verticale inferiore</span>: Questa opzione utilizza solo le linee dispari. Ogni linea pari verrà "copiata" dalla linea precedente (dispari). L'effetto è la scomparsa dei bordi frastagliati, ma con una riduzione della risoluzione verticale. Impatto sulle prestazioni: Meno costosa dell'opzione <span class="uitext">Nessun filtro</span> poiché la post-elaborazione interessa solo metà delle linee.</p>
+            <p>
+              <span class="uitext">Adattato al contenuto</span>: Questa opzione applica un filtro alle aree dell'immagine dove altrimenti comparirebbero dei bordi frastagliati. Nelle aree in cui non viene rilevato alcun bordo frastagliato l'immagine rimane intatta. L'effetto del bordo frastagliato viene rimosso e la risoluzione verticale viene conservata nelle aree dell'immagine in cui non è presente alcun bordo frastagliato. Impatto sulle prestazioni: Più costosa dell'opzione <span class="uitext">Nessun filtro</span> poiché il costo totale della CPU per fotogramma decodificato e riprodotto aumenta del 10% circa.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Sovrapposizione della diagnostica video</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Visualizza livello di prestazioni e impostazioni dei flussi video nelle finestre selezionate. Ciò consente di verificare le impostazioni o individuare i problemi.</p>
+            <p>Selezionare fra le opzioni seguenti:</p>
+            <p>
+              <span class="uitext">Nascondi</span>: Nessun overlay di diagnostica video. Impostazione predefinita.</p>
+            <p>
+              <span class="uitext">Livello 1</span>: Fotogrammi al secondo, codec e risoluzione video.</p>
+            <p>
+              <span class="uitext">Livello 2</span>: Fotogrammi al secondo, codec e risoluzione video, multicast e stato dell'accelerazione hardware.</p>
+            <p>
+              <span class="uitext">Livello 3</span>: Livello di debug. Rivolto principalmente agli amministratori di sistema per la risoluzione dei problemi o l'ottimizzazione delle prestazioni di sistema.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Fuso orario</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Seleziona un fuso orario predefinito o un fuso orario personalizzato. Le opzioni disponibili sono:</p>
+            <p>
+              <span class="uitext">Locale</span>: fuso orario del computer su cui viene eseguito <span class="VariablesSC_XP">XProtect Smart Client</span></p>
+            <p>
+              <span class="uitext">Fuso orario del server master</span>: fuso orario del server</p>
+            <span class="uitext">UTC</span>
+            <p>
+              <span class="uitext">Fuso orario personalizzato</span>: per impostare un fuso orario specifico, selezionare questa opzione, quindi selezionare i fusi orari disponibili nel campo <span class="uitext">Fuso orario personalizzato</span>.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Fuso orario personalizzato</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>È possibile selezionare qualsiasi fuso orario conosciuto dal computer se viene selezionata la voce <span class="uitext">Personalizza</span> nel campo <span class="uitext">Fuso orario</span>. Consente a due utenti in due diversi fusi orari di visualizzare un incidente: l'indicazione dello stesso fuso orario semplifica l'identificazione e conferma della visualizzazione dello stesso incidente.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyE-Column1-Body1">
+            <span class="uitext">Formato rapporto PDF</span>
+          </td>
+          <td class="TableStyle-table-BodyD-Column2-Body1">
+            <p>Selezionare il formato A4 o lettera per i rapporti PDF. Si possono creare rapporti di eventi da <span class="VariablesACMName_XP">XProtect Access</span>, ad esempio.</p>
+          </td>
+        </tr>
+        <tr class="TableStyle-table-Body-Body1">
+          <td class="TableStyle-table-BodyB-Column1-Body1">
+            <span class="uitext">Carattere rapporto PDF</span>
+          </td>
+          <td class="TableStyle-table-BodyA-Column2-Body1">
+            <p>Selezionare un carattere da utilizzare nei rapporti PDF.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <span class="VariablesCopyrightyear">2019</span><span class="VariablesCompanyOfficial">Milestone Systems A/S</span></p>
+  </body>
+</html>

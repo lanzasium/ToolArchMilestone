@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],m:[],u:['../add-ons/add-on_access/sc_configuringxpraccess.htm'],s:['0'],p:[['0',17]]});

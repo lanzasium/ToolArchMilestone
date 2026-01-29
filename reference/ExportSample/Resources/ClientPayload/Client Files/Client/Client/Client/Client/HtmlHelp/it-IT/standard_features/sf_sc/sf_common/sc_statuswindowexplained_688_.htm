@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-conditions="Conditions.Milestone,Conditions.Siemens,Conditions.AliasFileAvoidSC" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Operatività|[%=System.LinkedTitle%]">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Finestra Stato (spiegazione)</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/mil__en-us.css" rel="stylesheet" />
+    <script src="../../../Resources/Scripts/custom.modernizr.js"></script>
+    <script src="../../../Resources/Scripts/jquery.min.js"></script>
+    <script src="../../../Resources/Scripts/require.min.js"></script>
+    <script src="../../../Resources/Scripts/require.config.js"></script>
+    <script src="../../../Resources/Scripts/foundation.min.js"></script>
+    <script src="../../../Resources/Scripts/plugins.min.js"></script>
+    <script src="../../../Resources/Scripts/MadCapAll.js"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_common/sc_statuswindowexplained_688_.htm">Apri argomento con navigazione</a>
+    </p>
+    <!-- The <a> tag below loads fixskin.css into the skin. -->
+    <a href="../../../resources/styles/fixskin.css" style="display: none;"></a>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <h1>Finestra Stato (spiegazione)</h1>
+    <p>La finestra <span class="uitext">Stato</span> contiene informazioni su:</p>
+    <ul>
+      <li value="1">Stato dei server di sorveglianza a cui <span class="VariablesSC_XP">XProtect Smart Client</span> è connesso tramite <span class="VariablesFedArch">Milestone Federated Architecture</span>. Per ulteriori informazioni, vedere <span class="uitext">Informazioni sull'accesso</span> qui sotto.</li>
+      <li value="2">Processi creati per il recupero di dati da telecamere o dispositivi hardware interconnessi che supportano l'archiviazione periferica. Per ulteriori informazioni, vedere <span class="uitext">Processi</span> qui sotto.</li>
+      <li value="3">I blocchi delle prove esistenti per cui si dispone dei diritti utente. Per ulteriori informazioni, vedere <span class="uitext">Elenco blocco delle prove</span> qui sotto.</li>
+    </ul>
+    <p class="tip">Per visualizzare la finestra <span class="uitext">Stato</span>, fare clic sul pulsante <span class="uitext">Stato</span> sulla barra degli strumenti dell'applicazione:<br /><img src="../../../../Images/status_window_explained.png" alt="" /></p>
+    <p class="note">Se il pulsante lampeggia con un cerchio rosso <img src="../../../../Images/sc_statuswindow_buttonicon_red.jpg" alt="" />, ciò indica che uno o più server non sono disponibili. Dopo aver visualizzato lo stato, il pulsante non lampeggerà più in rosso anche se i server non sono ancora disponibili.<br /></p>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Informazioni sull'accesso</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>È possibile visualizzare lo stato dei server di sorveglianza a cui <span class="VariablesSC_XP">XProtect Smart Client</span> è connesso. La finestra di dialogo è ideale in caso di connessione a sistemi di sorveglianza che supportano <span class="VariablesFedArch">Milestone Federated Architecture</span>. <span class="VariablesFedArch">Milestone Federated Architecture</span> è una configurazione padre/figlio di sistemi di sorveglianza correlati, ma fisicamente separati. Tale impostazione può essere adatta, ad esempio, per catene di negozi con molti sistemi di sorveglianza separati ma correlati.</p>
+        <p>Se i server sono disponibili, lampeggeranno in grigio:</p>
+        <p>
+          <img src="../../../../Images/sc_statuswindow_serveravailable_icon.png" alt="" />
+        </p>
+        <p>Se i server non sono disponibili al momento dell'accesso, non è possibile usare le telecamere o funzioni a essi correlate. I server non disponibili vengono visualizzati in rosso:</p>
+        <p>
+          <img src="../../../../Images/sc_statuswindow_servernotavailable.png" alt="" />
+        </p>
+        <p>Il numero di server visualizzato riflette il numero di server recuperabili dal sistema di sorveglianza al momento dell’accesso. In particolare, se ci si connette a grandi gerarchie di server, talvolta, dopo aver eseguito l’accesso, altri server potrebbero diventare disponibili. L’elenco dei server è una rappresentazione statica dello stato del server. Se un server non è disponibile, il motivo viene visualizzata nel campo <span class="uitext">Stato</span> al momento della selezione. Per tentare di connettersi al server, fare clic sul pulsante <span class="uitext">Carica server</span>. Lo stato per quel server viene quindi aggiornato. Se un server continua a essere non disponibile per lunghi periodi di tempo, consultare l'amministratore del sistema di sorveglianza.</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Processi</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Se <span class="VariablesSC_XP">XProtect Smart Client</span> appartiene a un sistema <span class="VariablesMilInt_tm">Milestone Interconnect™</span> e si dispone di diritti sufficienti per il recupero dei dati da dispositivi hardware interconnessi o telecamere che supportano l'archiviazione periferica, è possibile visualizzare i processi creati per ciascuna richiesta di recupero dei dati per i dispositivi.</p>
+        <p>Ciascuna camera di cui è stato richiesto il recupero viene visualizzata in un processo separato. Da qui è possibile visualizzare l'andamento dei processi in corso e annullarne l'esecuzione. L'audio correlato verrà recuperato automaticamente, ma questi processi non verranno visualizzati in alcun luogo. Una volta completato il processo, la cronologia (vedere <a href="sc_thetimeline_1.htm" class="MCXref xref">Cronologia (spiegazione)</a>) del dispositivo verrà aggiornata in maniera automatica.</p>
+        <p>Per visualizzare solo i processi richiesti, fare clic sul filtro <span class="uitext">Visualizza solo i miei processi</span>.</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Elenco protezioni prove</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>È possibile ordinare, filtrare e ricerca elenchi dei blocchi delle prove e visualizzarne ulteriori informazioni. È possibile visualizzare solo i blocchi delle prove con dispositivi per cui si dispone dei diritti utente. Per ulteriori informazioni, vedere <a href="../../../feature_flags/ff_evidencelock/sc_viewexistingevidencel.htm" class="MCXref xref">Visualizzazione delle protezioni prove esistenti</a>.</p>
+      </div>
+    </div>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <span class="VariablesCopyrightyear">2019</span><span class="VariablesCompanyOfficial">Milestone Systems A/S</span></p>
+  </body>
+</html>

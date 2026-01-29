@@ -1,0 +1,1 @@
+define({"../standard_features/sf_sc/sf_zoomptz/sc_ptzimages.htm":339,"../standard_features/sf_sc/sf_zoomptz/sc_startingstoppingpausingpatrolling.htm":342,"../standard_features/sf_sc/sf_zoomptz/sc_stopptzpatrolling.htm":343,"../standard_features/sf_sc/sf_zoomptz/sc_usedigitalzoom.htm":295,"../standard_features/sf_sc/sf_zoomptz/sc_workingwithptzandfisheye.htm":335,});

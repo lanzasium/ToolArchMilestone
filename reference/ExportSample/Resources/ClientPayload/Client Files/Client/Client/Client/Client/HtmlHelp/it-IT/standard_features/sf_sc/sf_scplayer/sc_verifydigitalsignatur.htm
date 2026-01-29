@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-conditions="Conditions.AliasFileAvoidSC" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Operatività|[%=System.LinkedTitle%]">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Verifica di firme digitali</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/mil__en-us.css" rel="stylesheet" />
+    <script src="../../../Resources/Scripts/custom.modernizr.js"></script>
+    <script src="../../../Resources/Scripts/jquery.min.js"></script>
+    <script src="../../../Resources/Scripts/require.min.js"></script>
+    <script src="../../../Resources/Scripts/require.config.js"></script>
+    <script src="../../../Resources/Scripts/foundation.min.js"></script>
+    <script src="../../../Resources/Scripts/plugins.min.js"></script>
+    <script src="../../../Resources/Scripts/MadCapAll.js"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_scplayer/sc_verifydigitalsignatur.htm">Apri argomento con navigazione</a>
+    </p>
+    <!-- The <a> tag below loads fixskin.css into the skin. -->
+    <a href="../../../resources/styles/fixskin.css" style="display: none;"></a>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <h1>Verifica di firme digitali</h1>
+    <p>Se si stanno riesaminando prove video nel lettore <span class="VariablesSCplayer">Smart Client – Player</span> e il materiale esportato ha firme digitali, è possibile verificare che la registrazione non sia stata manomessa da quando è stata registrata o, dall'esportazione, o entrambi.</p>
+    <p class="important">La firma digitale non funziona per l’accesso di <span class="VariablesSC_XP">XProtect Smart Client</span> 2017 R1 o versioni precedenti a un sistema 2017 R2 o versione successiva e non sarà possibile eseguire l’esportazione.</p>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Requisiti</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <ul>
+          <li value="1">In <span class="VariablesMC">Management Client</span>, la firma è stata attivata per il server di registrazione</li>
+          <li value="2">In <span class="VariablesSC_XP">XProtect Smart Client</span>, durante il processo di esportazione, sono state selezionate le caselle di controllo <span class="uitext">Formato <span class="VariablesXP">XProtect</span></span> e <span class="uitext">Includi firma digitale</span>.</li>
+        </ul>
+      </div>
+    </div>
+    <p>Operazioni:</p>
+    <ol>
+      <li value="1">Nella barra degli strumenti, fare clic sul pulsante <span class="uitext">Verifica firme</span>. Appare la finestra della <span class="uitext">verifica manuale</span>. Qui si possono vedere i dispositivi selezionati per l'esportazione.</li>
+      <li value="2">Fare clic su <span class="uitext">Verifica</span> per avviare il processo di verifica. Il sistema controlla l'autenticità della firma di registrazione e della firma di esportazione. <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../../Images/verify_digital_signatures.png" data-mc-popup-alt=""><img class="MCPopupThumbnail img" data-mc-width="1119" data-mc-height="696" src="../../../../Images/verify_digital_signatures_thumb_200_0.png" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="" tabindex="" /></a></p></li>
+      <li value="3">Per verificare che si può fare affidamento sulla verifica della firma di registrazione: <ol><li value="1">Nella colonna delle <span class="uitext">firme di registrazione</span>, fare clic sul link <span class="uitext">Verifica</span>. Viene visualizzata la finestra di dialogo <span class="uitext">Certificati</span>.</li><li value="2">Confrontare il valore di <span class="uitext">public_key</span> e <span class="uitext">firma</span> con i valori corrispondenti nel file <span class="specialbold">PublicKey.xml</span> (<span class="specialbold">C:\Program Files\<span class="VariablesCompanyShort">Milestone</span>\Management Server\Tools\CertificateIssuer</span>). Se i valori differiscono, la registrazione è stata modificata.</li></ol></li>
+      <li value="4">Per verificare che si può fare affidamento sulla verifica della firma di esportazione: <ol><li value="1">Nella colonna <span class="uitext">Firme esportazione</span>, fare clic sul link <span class="uitext">Verificato</span>. Viene visualizzata la finestra di dialogo <span class="uitext">Certificati</span>.</li><li value="2">Confrontare il valore della <span class="uitext">public_key</span> e della <span class="uitext">firma</span> con i valori corrispondenti nel file <span class="specialbold">Public Key Certificate.xml</span> (<span class="specialbold">&lt;cartella di destinazione di esportazione&gt;\&lt;nome esportazione&gt;\Client Files\Data\Mediadata\&lt;nome telecamera&gt;\&lt;nome telecamera&gt;\Export signatures</span>). Se i valori differiscono, il materiale di esportazione è stato modificato.</li></ol></li>
+    </ol>
+    <p class="note">Un database può essere verificato, parzialmente verificato (se ad alcuni file non è stata assegnata alcuna firma) o non firmato.</p>
+    <p>
+      <a href="javascript:void(0);" class="MCHelpControl MCHelpControl-Related relatedTopics" data-mc-topics="Firme digitali (spiegazione)|sc_verifyingtheauthentic.htm">
+        <span class="MCHelpControl-RelatedHotSpot_">
+          <img class="MCHelpControl_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Icona di collegamento argomenti correlati" />Argomenti correlati</span>
+      </a>
+    </p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <span class="VariablesCopyrightyear">2019</span><span class="VariablesCompanyOfficial">Milestone Systems A/S</span></p>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Optimization" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+    <meta name="description" content="Get familiar with and read how to set up adaptive streaming to improve the performance of computers running XProtect Smart Client." />
+    <meta name="addsearch-custom-field" data-type="text" content="product=XProtect Smart Client" class="addSearch product" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Administrator" class="addSearch role" />
+    <meta name="addsearch-custom-field" data-type="text" content="role=Integrator" class="addSearch role" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Enabling adaptive streaming</title>
+    <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+    <link href="../../resources/styles/mil/mil__en-us.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../Skins/Favicons/milestone-favicon.ico" />
+    <script src="../../resources/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../resources/Scripts/require.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/require.config.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/foundation.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/plugins.min.js" type="text/javascript" defer="defer"></script>
+    <script src="../../resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../Default.htm#feature_flags/ff_adaptivestreaming/sc_enablingadaptivestreaming.htm">Open topic with navigation</a>
+    </p>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <div role="main" id="mc-main-content">
+      <h1>Enabling adaptive streaming</h1>
+      <h2>Adaptive streaming (explained)<a name="SC_AdaptiveStreamingExplained"></a></h2>
+      <p>Adaptive streaming improves the decoding capability and performance of the computer running <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>. This is useful when you view multiple live video streams in the same view.</p>
+      <p>To take advantage of adaptive streaming, your cameras must have multiple streams defined with different resolutions. This enables <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span> to automatically select the closest match to the resolution requested by the view item. Now <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span> does not have to scale down the default streams with an unnecessary high resolution. This reduces the load on the CPU and GPU decoding resources.</p>
+      <p>To ensure the video quality the closest match is defined as equal or higher than the resolution requested by the view item if possible. This is to avoid the upscaling of the streams. The table below shows the video streams that adaptive streaming selects based on view item requests from <span class="mc-variable flvar-product.SC_XP variable">XProtect Smart Client</span>.</p>
+      <table cellspacing="3">
+        <col style="width: 40%;" />
+        <col />
+        <col />
+        <thead>
+          <tr>
+            <th>Resolution requested by a view item</th>
+            <th colspan="2">Closest match of available video streams</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>636 x 477</td>
+            <td style="text-align: left;">Video stream 1</td>
+            <td>640 x 480 (VGA)</td>
+          </tr>
+          <tr>
+            <td>644 x 483</td>
+            <td style="text-align: left;">Video stream 2</td>
+            <td>1280 x 720 (WXGA-H)</td>
+          </tr>
+          <tr>
+            <td>1920 x 1080</td>
+            <td style="text-align: left;">Video stream 3</td>
+            <td>1920 x 1080 (FHD)</td>
+          </tr>
+          <tr>
+            <td>1920 x 1440</td>
+            <td style="text-align: left;">Video stream 4</td>
+            <td>3840 x 2160 (4K UHD-1)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">
+        <p>When zooming, the live video stream requested is always the one with the highest resolution.</p>
+        <p>Bandwidth usage is often reduced when the resolution of the requested streams are reduced. Bandwidth usage also depends on other settings in the configurations of the defined streams.</p>
+      </div>
+      <h2>Check adaptive streaming settings<a name="SC_CheckAdaptiveStreamingSettings"></a></h2>
+      <ol>
+        <li value="1">Go to <span class="uitext">Settings</span> &gt; <span class="uitext">Advanced</span> &gt; <span class="uitext">Adaptive streaming</span>.</li>
+        <li value="2">There are two settings for adaptive streaming: <span class="uitext">Disabled</span> and <span class="uitext">Enabled</span>.
+			<p>Select <span class="uitext"><span class="uitext">Enabled</span></span>.</p><p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../../../Images/sc_settings_advanced_adaptivestreamingdiagnosticsoverlaycut.png" data-mc-popup-alt="Adaptive streaming settings in XProtect Smart Client."><img class="MCPopupThumbnail img" data-mc-width="800" data-mc-height="480" src="../../../Images/sc_settings_advanced_adaptivestreamingdiagnosticsoverlaycut_thumb_200_0.png" style="mc-thumbnail: popup;mc-thumbnail-max-width: 200px;mc-thumbnail-max-height: auto;" alt="Adaptive streaming settings in XProtect Smart Client." tabindex="" /></a></p></li>
+        <li value="3">Go to <span class="uitext">Video diagnostics overlay</span>.</li>
+        <li value="4">To make the current video resolution of the stream visible, select <span class="uitext">Level 2</span>.</li>
+        <p class="note">This setting applies to all view items. The default setting is <span class="uitext">Hide</span>.</p>
+        <li value="5">The video diagnostics overlay should now be <span class="uitext">Enabled</span>.
+</li>
+        <p>Try to resize the view window from small to large, large to small and check if the <span class="uitext">Video resolution</span> value changes.</p>
+        <p>
+          <img src="../../../Images/sc_viewitem_diagnosticsoverlay_resolution320x180.png" alt="" />
+          <img src="../../../Images/sc_viewitem_diagnosticsoverlay_resolution480x270.png" alt="" />
+          <img src="../../../Images/sc_viewitem_diagnosticsoverlay_resolution1280x720.png" alt="" />
+        </p>
+        <p>If the value doesn't change, continue to examine your available live video streams from your cameras so you can enable adaptive streaming, if possible.</p>
+      </ol>
+      <h2>Check available live video streams<a name="SC_CheckAvailableLiveVideoStreams"></a></h2>
+      <p>To take advantage of adaptive streaming, two or more live video streams with different resolutions must be configured in your camera settings.</p>
+      <p class="note"> The only supported video resolution format for adaptive streaming is <span class="inputtext">width x height</span>. Video resolution formats presented from a camera as 720p, mode2, VGA or a like are not supported.</p>
+      <p class="note">Not all cameras support multi-streaming.</p>
+      <p>Multi-streaming allows multiple streams per device to be configured on the server. If multiple streams are configured and adaptive streaming is enabled, you can select <span class="uitext">Adaptive streaming</span> or one of the other available streams.</p>
+      <p>To make sure that <span class="uitext">Adaptive streaming</span> is configured in a view:</p>
+      <ol>
+        <li value="1">Click <span class="uitext">Setup</span> to configure the view.</li>
+        <li value="2">In <span class="uitext">Properties</span>, click the <span class="uitext">Live stream</span> dropdown list, and the list of available live video streams appears.</li>
+        <li value="3">
+          <p>Check if two or more live video streams are available and select <span class="uitext">Adaptive streaming</span>.</p>
+          <p>
+            <img src="../../../Images/sc_viewitem_setup_properties_livestream_adaptivestreamingselect.png" alt="Verify that adaptive streaming is selected in the camera properties." />
+          </p>
+          <p class="note">If only one live video stream is available, add more live video streams for the camera in <span class="mc-variable flvar-sw-component.MC_XP variable">XProtect Management Client</span>.</p>
+        </li>
+        <li value="4">Click <span class="uitext">Setup</span> to close the view configuration.</li>
+      </ol>
+      <p>To make sure that <span class="uitext">Adaptive streaming</span> is selected in a <span class="uitext">Live</span> view item:</p>
+      <ol>
+        <li value="1">Click the <span class="uitext">More</span> dropdown list.</li>
+        <li value="2">Select <span class="uitext">Live stream</span>, and the list of available live video streams appears.</li>
+        <li value="3">
+          <p>Check if two or more live video streams are available and select <span class="uitext">Adaptive streaming</span>.</p>
+          <p>
+            <img src="../../../Images/sc_viewitem_more_livestream_adaptivestreaming.png" alt="Verify that adaptive streaming is selected in the camera view item." />
+          </p>
+        </li>
+      </ol>
+    </div>
+    <p></p>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;">© <span class="mc-variable flvar-publishing.Copyrightyear variable">2021</span><span class="mc-variable flvar-brand-company.CompanyOfficial variable">Milestone Systems A/S</span></p>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html []>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="it-IT" xml:lang="it-IT" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-conditions="Conditions.AliasFileAvoidSC" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Configurazione|[%=System.LinkedTitle%]">
+  <!-- saved from url=(0016)http://localhost -->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="msapplication-config" content="../../../Skins/Favicons/browserconfig.xml" />
+    <link rel="apple-touch-icon" sizes="616x616" href="../../../Skins/Favicons/milestone-favicon.png" />
+    <link rel="shortcut icon" href="../../../Skins/Favicons/milestone-favicon.ico" />
+    <title>Scripting della pagina HTML per la navigazione</title>
+    <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+    <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+    <link href="../../../resources/styles/milestone/mil__en-us.css" rel="stylesheet" />
+    <script src="../../../Resources/Scripts/custom.modernizr.js"></script>
+    <script src="../../../Resources/Scripts/jquery.min.js"></script>
+    <script src="../../../Resources/Scripts/require.min.js"></script>
+    <script src="../../../Resources/Scripts/require.config.js"></script>
+    <script src="../../../Resources/Scripts/foundation.min.js"></script>
+    <script src="../../../Resources/Scripts/plugins.min.js"></script>
+    <script src="../../../Resources/Scripts/MadCapAll.js"></script>
+  </head>
+  <body>
+    <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop">
+      <a href="../../../Default.htm#standard_features/sf_sc/sf_common/sc_useanhtmlpagefornavig.htm">Apri argomento con navigazione</a>
+    </p>
+    <!-- The <a> tag below loads fixskin.css into the skin. -->
+    <a href="../../../resources/styles/fixskin.css" style="display: none;"></a>
+    <div class="nocontent">
+      <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" / " data-mc-breadcrumbs-count="3" data-mc-toc="True">
+        <span class="MCBreadcrumbsPrefix">/ </span>
+      </div>
+    </div>
+    <h1>Scripting della pagina HTML per la navigazione</h1>
+    <p>Oltre alla visualizzazione di video, <span class="VariablesSC_XP">XProtect Smart Client</span> consente di visualizzare immagini statiche e pagine HTML. Tali pagine HTML possono essere utilizzate per passare in modo intuitivo tra viste diverse in <span class="VariablesSC_XP">XProtect Smart Client</span>.</p>
+    <p>Ad esempio, è possibile inserire un piano selezionabile di un edificio e fare clic su una parte del piano per passare istantaneamente a una vista che mostra il video di quella zona dell'edificio.</p>
+    <p>Di seguito vengono forniti alcuni esempi di pagine HTML di navigazione in <span class="VariablesSC_XP">XProtect Smart Client</span>: una pagina HTML semplice con pulsanti e una pagina HTML più sofisticata, con una mappa immagine selezionabile. Agli amministratori di un sistema di sorveglianza che desiderano creare e distribuire pagine HTML agli utenti di <span class="VariablesSC_XP">XProtect Smart Client</span> viene fornita anche una lista di controllo con le attività da eseguire.</p>
+    <p class="tip">
+      <span class="VariablesSC_XP">XProtect Smart Client</span> è molto flessibile in termini di personalizzazione della navigazione e di altre funzioni. Gli utenti esperti possono creare all'incirca 100 diverse chiamate a funzioni in <span class="VariablesSC_XP">XProtect Smart Client</span>.</p>
+    <p class="important">La casella di controllo <span class="uitext">Abilita scripting HTML</span> deve essere abilitata nel riquadro <span class="uitext">Proprietà</span>, visibile solo in modalità configurazione.</p>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Esempio di una pagina HTML con navigazione a pulsanti</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Una soluzione rapida prevede la creazione di una pagina HTML con pulsanti per la navigazione. Nella pagina HTML è possibile creare diversi pulsanti. In questo esempio vengono creati solo due tipi di pulsanti:</p>
+        <ul>
+          <li value="1">
+            <span class="specialbold">Pulsanti per alternare tra le viste di <span class="VariablesSC_XP">XProtect Smart Client</span></span>
+            <p>Sintassi HTML richiesta:</p>
+            <p class="codechunk">&lt;input type="button" value=" Buttontext" onclick="SCS. Views.SelectView('Viewstatus.Groupname. Viewname');"&gt;</p>
+            <p>Dove <span class="uitext">Viewstatus</span> indica se la vista è condivisa o privata (se la pagina HTML deve essere distribuita a numerosi utenti, la vista <span class="specialbold">deve</span> essere condivisa).</p>
+            <p>Esempio di un pulsante reale:</p>
+            <p class="codechunk">&lt;input type="button" value="Go to Shared Group1 View2" onclick="SCS. Views.SelectView('Shared.Group1. View2');"&gt;</p>
+            <p>Questo pulsante permette agli utenti di accedere a una vista chiamata <span class="uitext">View2</span> in un gruppo condiviso chiamato <span class="uitext">Group1</span>.</p>
+            <p>
+              <span class="specialbold">Pulsanti per alternare tra le schede</span>: <span class="uitext">Live</span> e <span class="uitext">Riproduzione</span> Tenere presente che l'accesso a tutte le schede dipende dai diritti utente di cui si dispone.</p>
+            <p>Sintassi HTML richiesta:</p>
+            <p>
+              <span class="uitext">Scheda Live</span>: <code class="codesnippet">&lt;input type="button" value="Buttontext" onclick="SCS. Application.ShowLive();"&gt;</code></p>
+            <p>
+              <span class="uitext">Scheda Riproduzione</span>: <span class="codesnippet">&lt;input type="button" value="Buttontext" onclick="SCS. Application.ShowBrowse();"&gt;</span></p>
+          </li>
+        </ul>
+        <p class="tip">Gli utenti esperti hanno la possibilità di creare molti altri tipi di pulsanti, usando le circa 100 diverse chiamate a funzioni disponibili per <span class="VariablesSC_XP">XProtect Smart Client</span>. Per ulteriori informazioni vedere la sezione Scripting.</p>
+        <p>Nell'esempio seguente sono stati creati due gruppi condivisi in <span class="VariablesSC_XP">XProtect Smart Client</span>. Li abbiamo denominati <span class="uitext">Gruppo1</span> e <span class="uitext">Gruppo2</span>. Ogni gruppo contiene due viste, <span class="uitext">Vista1</span> e <span class="uitext">Vista2</span>.</p>
+        <p>È stata anche creata una pagina HTML con pulsanti che consentono all'utente di accedere a quattro diverse viste e a due delle schede di <span class="VariablesSC_XP">XProtect Smart Client</span>, <span class="uitext">Live</span> e <span class="uitext">Riproduzione</span>. Quando visualizzata in un browser, la pagina HTML appare come segue:</p>
+        <p>
+          <img src="../../../../Images/use_an_html_page_for_navigation.png" alt="" />
+        </p>
+        <p>Pagina HTML con pulsanti per la navigazione tra viste e schede</p>
+        <p>La pagina HTML è stata salvata localmente, in questo caso sull'unità C:. Quando la pagina HTML viene utilizzata per la navigazione, il salvataggio in locale la pagina HTML è necessario a causa delle caratteristiche di sicurezza di Internet Explorer.</p>
+        <p>Quando si salva la pagina HTML a livello locale, salvarla in una posizione in cui è possibile definire un percorso non ambiguo, ad esempio una cartella sull'unità C:, C:\miacartella\file.htm). Il salvataggio della pagina HTML sul desktop o nella cartella <span class="uitext">Documenti</span> dell'utente non viene eseguito correttamente a causa del modo in cui Windows costruisce i percorsi in tali posizioni.</p>
+        <p>La pagina HTML viene quindi importata nelle viste di <span class="VariablesSC_XP">XProtect Smart Client</span> richieste. Quando si importa la pagina HTML, accertarsi di selezionare <span class="uitext">Abilita scripting HTML</span> nelle <span class="uitext">Proprietà</span> della pagina HTML nella modalità Impostazioni.</p>
+        <p>
+          <img src="../../../../Images/use_an_html_page_for_navigation_1.png" alt="" />
+        </p>
+        <p>Selezionando <span class="uitext">Abilita scripting HTML</span>, si è certi che lo script necessario al funzionamento dei due pulsanti venga inserito automaticamente nella pagina HTML.</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Esempio di una pagina HTML con navigazione a mappa immagine</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>È anche possibile creare una pagina HTML con contenuti più avanzati, ad esempio, una mappa immagine che consente agli utenti di passare tra più viste.</p>
+        <p>Nell'esempio seguente vengono utilizzati i due gruppi e le due viste dell'esempio precedente. Anziché utilizzare i pulsanti, è stata creata una pagina HTML con l'immagine di un piano e una mappa immagine in base a tale piano. Visualizzata in un browser, la pagina HTML appare come segue:</p>
+        <p>
+          <img src="../../../../Images/use_an_html_page_for_navigation_2.png" alt="" />
+        </p>
+        <p>Pagina HTML con una mappa immagine per la navigazione tra viste</p>
+        <p>Per questo esempio, il piano è stato diviso in quattro zone colorate ed è stata definita una mappa immagine per ciascuna zona. Gli utenti possono fare clic su una zona per passare alla vista che mostra le telecamere di quella zona.</p>
+        <p>Ad esempio, la zona rossa della mappa immagine è equivalente al pulsante <span class="uitext">Vai a Gruppo condiviso2 Vista2</span> dell'esempio precedente. Facendo clic nella zona rossa, gli utenti passeranno alla Vista2 del Gruppo2.</p>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Importazione della pagina HTML</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>L'importazione di una pagina HTML di navigazione in una vista non è diversa, in linea di principio, dall'importazione di qualsiasi altro tipo di pagina HTML in una vista di <span class="VariablesSC_XP">XProtect Smart Client</span>. I due concetti importanti da ricordare sono:</p>
+        <ul>
+          <li value="1">La pagina HTML deve essere memorizzata localmente sul PC dell'utente.</li>
+        </ul>
+        <p>Prima di importare la pagina HTML occorre assicurarsi che sia abilitata l'opzione per lo scripting HTML. Per importare la pagina HTML:</p>
+        <ol>
+          <li value="1">In modalità Impostazioni, nel riquadro <span class="uitext">Panoramica sistema</span>, trascinare l'elemento <span class="uitext">HTML Page</span> nella posizione richiesta della vista.</li>
+          <li value="2">Nella finestra <span class="uitext">Apri URL</span>, specificare la pagina HTML.</li>
+          <li value="3">Selezionare la posizione nella vista, e nel riquadro <span class="uitext">Proprietà</span>, selezionare <span class="uitext">Abilita scripting HTML</span>. <p>Selezionando <span class="uitext">Abilita scripting HTML</span> si è certi che lo script necessario al funzionamento dei due pulsanti venga inserito automaticamente nella pagina HTML.</p></li>
+          <li value="4">In base alle funzioni di navigazione incluse nella pagina HTML, è possibile che si desideri spesso importare la pagina HTML in diverse viste, per un corretto funzionamento della navigazione.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Lista di controllo per l'amministratore di sistema</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Gli amministratori dei sistemi di sorveglianza che desiderano creare e distribuire pagine di navigazione HTML agli utenti di <span class="VariablesSC_XP">XProtect Smart Client</span> devono procedere nel seguente modo:</p>
+        <ol>
+          <li value="1">
+            <span class="specialbold">Creare</span> la pagina HTML richiesta. I controlli di navigazione nella pagina HTML devono corrispondere alle viste che gli utenti vedono in <span class="VariablesSC_XP">XProtect Smart Client</span>. Ad esempio, per fare in modo che un pulsante attivi la Vista1, è necessario che nelle installazioni <span class="VariablesSC_XP">XProtect Smart Client</span> degli utenti esista una Vista1. Se si desidera distribuire la pagina HTML a un gruppo di utenti, le viste in cui sarà utilizzata la pagina HTML devono essere posizionate in gruppi condivisi.</li>
+          <li value="2">
+            <span class="specialbold">Salvare</span> la pagina HTML localmente su ogni computer da cui sarà utilizzata. Quando si salva la pagina HTML a livello locale, salvarla in una posizione in cui è possibile definire un percorso non ambiguo, ad esempio una cartella sull'unità C:, C:\miacartella\file.htm). Il salvataggio della pagina HTML sul desktop o nella cartella <span class="uitext">Documenti</span> dell'utente non viene eseguito correttamente a causa del modo in cui Windows costruisce i percorsi in tali posizioni.</li>
+          <li value="3">
+            <span class="specialbold">Importare</span> la pagina HTML nelle viste di <span class="VariablesSC_XP">XProtect Smart Client</span> in cui verrà utilizzata. Dopo aver importato la pagina HTML, sceglierne la posizione nella vista e andare alla scheda <span class="uitext">Proprietà</span> del riquadro <span class="uitext">Impostazioni</span> per verificare che <span class="uitext">Abilita script HTML</span> sia selezionato.</li>
+          <li value="4">
+            <span class="specialbold">Verificare</span> che i comandi di navigazione della pagina HTML importata funzionino come previsto.</li>
+          <li value="5">
+            <span class="specialbold">Utilizzare</span> la navigazione semplice e intuitiva di <span class="VariablesSC_XP">XProtect Smart Client</span>, personalizzata per soddisfare esigenze specifiche.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="MCDropDown MCDropDown_Closed dropDown">
+      <span class="MCDropDownHead dropDownHead">
+        <a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage">
+          <img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Chiuso" data-mc-alt2="Aperto" />Risoluzione dei problemi</a>
+      </span>
+      <div class="MCDropDownBody dropDownBody">
+        <p>Se la pagina HTML di navigazione non funziona come previsto, prendere in considerazione quanto segue:</p>
+        <ul>
+          <li value="1">È stata utilizzata la sintassi HTML corretta?</li>
+          <li value="2">È stata selezionata l'opzione <span class="uitext">Abilita script HTML</span> dopo avere importato la pagina HTML?</li>
+          <li value="3">Gli utenti destinatari dispongono dei diritti necessari per utilizzare la pagina HTML di navigazione? Tenere presente che, in base ai diritti di cui dispongono, alcuni utenti potrebbero non avere accesso a determinate telecamere, funzioni o schede nel proprio <span class="VariablesSC_XP">XProtect Smart Client</span>.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top: 6rem; color: #a9a9a9;font-size: 8pt;font-family: 'Open Sans', sans-serif;">© <span class="VariablesCopyrightyear">2019</span><span class="VariablesCompanyOfficial">Milestone Systems A/S</span></p>
+  </body>
+</html>
