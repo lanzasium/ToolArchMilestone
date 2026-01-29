@@ -40,13 +40,14 @@ namespace ToolArchMilestone.Core.Services
         public async Task<List<ArchivingJob>> GetAllJobsAsync()
         {
             using var context = CreateContext();
-            return await context.Jobs.Include(j => j.Logs).OrderByDescending(j => j.CreatedAt).ToListAsync();
+            // Logs is NotMapped, so we cannot Include it. Logs should be retrieved via GetLogsForJobAsync if needed.
+            return await context.Jobs.OrderByDescending(j => j.CreatedAt).ToListAsync();
         }
 
         public async Task<ArchivingJob?> GetJobByIdAsync(int id)
         {
             using var context = CreateContext();
-            return await context.Jobs.Include(j => j.Logs).FirstOrDefaultAsync(j => j.Id == id);
+            return await context.Jobs.FirstOrDefaultAsync(j => j.Id == id);
         }
 
         public async Task SaveJobAsync(ArchivingJob job)
